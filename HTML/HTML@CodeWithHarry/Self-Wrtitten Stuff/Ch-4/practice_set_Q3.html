@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Self-Wrtitten Stuff/Ch-4/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Self-Wrtitten Stuff/Ch-4/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Self-Wrtitten Stuff/Ch-4/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/Self-Wrtitten Stuff/Ch-4/favicon_io/site.webmanifest">
+    <title>IRCTC: Online Train Reservation</title>
+</head>
+<body>
+    <div>
+        <h1><u>IRCTC</u></h1>
+        <img src="/Self-Wrtitten Stuff/Ch-4/indian-railways-logo.png" width="111px" alt="Indian Railways logo">
+        <nav>
+            <a href="">Home</a>
+            <a href="">Register</a>
+            <a href="">Login</a>
+            <a href="">Meals</a>
+            <a href="">More</a>
+        </nav>
+        <hr>
+        <big><big><u><b>Indian Railways Online Ticket Booking Portal</b></u></big></big>
+        <br><br>
+        <aside>
+            <img src="https://imgnew.outlookindia.com/uploadimage/library/16_9/16_9_5/IRCTC_1647099628.webp" width="1500px" height="300px" alt="IRCTC Logo">
+        </aside>
+        <hr><hr>
+        <marquee>Welcome to IRCTC online train ticket booking portal! Your one stop destination for booking railway tickets and for arranging on platform meals</marquee>
+        <form action="form.php"></form>
+        <br>
+        <big><b><u>Login into you account:</u></b></big>
+        <div>
+            <!-- id's value must not contain whitespace (spaces, tabs etc.). Browsers treat non-conforming IDs that contain whitespace as if the whitespace is part of the ID. In contrast to the class attribute, which allows space-separated values, elements can only have one single ID value. -->
+            <!-- Note: Technically, the value for an id attribute may contain any character, except whitespace characters. However, to avoid inadvertent errors, only ASCII letters, digits, '_', and '-' should be used and the value for an id attribute should start with a letter. For example, . has a special meaning in CSS (it acts as a class selector). Unless you are careful to escape it in the CSS, it won't be recognized as part of the value of an id attribute. It is easy to forget to do this, resulting in bugs in your code that could be hard to detect. -->
+            <br>
+            <!-- <input type="text" placeholder="Enter your Username"> You can use this one as well-->
+            <label for="username">Username(5-11 characters)</label>
+            <input type="text" id="username" name="Username" required minlength="5" maxlength="11">
+            <br><br>
+            <label for="email address">Email Address</label>
+            <input type="email" id="email_address" name="Email Address">
+            <br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password">
+            <br><br>
+            <input type="button" value="Forgot Password?">
+            <br><br>
+            <div>
+                <input id="image" type="image" src="/Self-Wrtitten Stuff/Ch-4/login_logo.png" alt="Login" width="100px">
+            </div>
+            <hr>
+        </div>    
+        <i>Welcome back! User</i>
+        <br><br>
+        <input type="text" placeholder="Enter your Name">
+        <br><br>
+        <input type="number" placeholder="Enter Aadhar card no.">
+        <br><br>
+            <b>Select the number of passengers:</b>
+            <!-- <input type="range" list="tickmarks">
+            <datalist id="tickmarks">
+            <option value="10" label="0%"></option>
+            <option value="20"></option>
+            <option value="30" label="30%"></option>
+            <option value="40"></option>
+            <option value="50"></option>
+            <option value="60" label="60%"></option>
+            </datalist> -->
+            
+            <input type="range" min="1" max="6">
+            <br><br>
+            <b>Select Quota:</b>
+            <label for="general">
+                <!-- for and id should be the same -->
+                <!-- Name of all the radio buttons which you want to operate together should be the same -->
+                <input type="radio" value="General" name="quota" id="general">General
+            </label>
+            <label for="ladies">
+                <input type="radio" value="Ladies" name="quota" id="ladies" class="red blue">Ladies
+            </label>
+            <label for="lower_berth/senior_citizen">
+                <input type="radio" value="Lower Berth/Senior Citizen" name="quota" id="lower_berth/senior_citizen">Lower Berth/Senior Citizen
+            </label>
+            <label for="person_with_disability">
+                <input type="radio" value="Person with Disability" name="quota" id="person_with_disability" class="red blue">Person with Disability
+            </label>
+            <label for="tatkal">
+                <input type="radio" value="Tatkal" name="quota" id="tatkal" class="red blue">Tatkal
+            </label>
+            <label for="premium_tatkal">
+                <input type="radio" value="Premium Tatkal" name="quota" id="premium_tatkal" class="red blue">Premium Tatkal
+            </label>
+            <br><br>
+            <input type="checkbox" id="extra_luggage" class="red" name="Extra_Luggage">
+            <label for="extra_luggage"><b>Will you carry luggage above the limit of 30kgs per person?(Includes extra fare of ₹150 per 5Kg)</b></label>
+            <br><br>
+            <!-- Below is the link for MDN refernece of the input elements -->
+            <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
+            <b>Enter travel date:</b>
+            <input type="date">
+            <br><br>
+            <b>Select from the following:</b>
+            <select name="Class" id="class">
+                <option value="no-Class">Select your Class</option>
+                <option value="Unreserved">Unreserved</option>
+                <option value="Reserved General">Reserved General</option>
+                <option value="AC 3-Tier">AC 3-Tier</option>  
+                <option value="AC 2-Tier">AC 2-Tier</option>  
+                <option value="AC 1-Tier">AC 1-Tier</option>
+            </select>
+            <select name="From" id="from">
+                <option value="no-From">Select From</option>
+                <option value="Udaipur">Udaipur</option>
+                <option value="Bikaner">Bikaner</option>
+                <option value="Jodphur">Jodhpur</option>
+                <option value="Jaipur">Jaipur</option>
+            </select>
+            <select name="To" id="to">
+                <option value="no-To">Select To</option>
+                <option value="Udaipur">Udaipur</option>
+                <option value="Bikaner">Bikaner</option>
+                <option value="Jodpur">Jodhpur</option>
+                <option value="Jaipur">Jaipur</option>
+            </select>
+            <select name="Train" id="train">
+                <option value="no-Train">Select Train</option>
+                <option value="Ranakpur Express">Ranakpur Express</option>
+                <option value="Bikaner to Udaipur City Special Express">Bikaner to Udaipur City Special Express</option>
+                <option value="Chetak Express">Chetak Express</option>
+                <option value="Mewar Express">Mewar Express</option>
+            </select>
+            <br><br>
+            <b>Upload your valid identity proof:</b>
+            <input type="file">
+            <br><br>
+            <input type="submit"><br><br>
+            <input type="reset">
+            <br>
+            <br>
+            <div>
+                <input type="image" src="/Self-Wrtitten Stuff/Ch-4/pay_now_logo.png" width="150px">
+            </div>
+            <hr>
+            <div>
+                <b>Search Frequently Asked Questions for instantly resolving your queries:</b>
+                <input type="search" id="faq's" name="FAQ's">
+                <button>Search</button>
+            </div>
+            <br>
+            <textarea name="Queries" id="queries" cols="30" rows="10" placeholder="Write your queries here,you will be replied via Email."></textarea>
+            <br>
+            <hr>
+            <footer>
+                <p>IRCTC,Ministry of Railways,Government of India&copy; 2022, All rights reserved</p>
+            </footer>
+        <input type="color">
+    </div>    
+    </body>
+</html>

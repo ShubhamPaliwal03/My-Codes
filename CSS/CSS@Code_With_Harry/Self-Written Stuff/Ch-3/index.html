@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .content
+        {
+            width: 423px;
+            height: 345px;
+            background-color:lightgrey;
+
+            /* margin: 14px; */
+            /* Seperately setting margin values */
+            margin-top: 4px;
+            margin-bottom: 6px;
+            margin-left: 1px;
+            margin-right: 2px;
+            /* Shorthands for setting margin values*/
+            /* In the order of top right bottom left(use the clock trick given in notes to learn) */
+            /* margin: 4px 2px 6px 1px; */
+            /* In the order of top & bottom and left & right */
+            /* Same method goes for setting padding */
+
+            margin: 6px 1px;
+            padding: 13px;
+            /* border: 4px solid black; */
+            /* border-width: 4px; */
+            
+            /* Seperately setting border */
+            /* border-width: 2px; */
+            /* border-style: solid; */
+            /* border-color: black; */
+            /*  */
+            /* Shorthands for setting border */
+            /* border: 2px solid black; */
+
+            /* border-style:solid; */
+            /* border-style: double; */
+            /* border-style:groove; */
+            /* border-style:inset; */
+            /* border-style: none; */
+            /* border-style:outset; */
+            /* border-style:ridge; */
+            /*  */
+            /* These are the most logical ones one may use acc. to me because we generally use solid and then the ones listed above and we rarely use dotted and grooved styles */
+
+            
+            /* Shorthands for border-style */
+            /* We should not use these in general to avoid confusion but we should atleast know the rules */
+            /* Same rules applies while setting all 4 values of every style */
+            /*  */
+            /* In case of 1 value,the same value is assigned to all four sides */
+            border-style: solid;
+            /*  */
+            /* In case of 2 values,1st style value is assigned to left and right and 2nd style value is applied to top and bottom*/
+            /* border-style: dashed solid; */
+            /*  */
+            /* In case of 3 values,2nd style value is assigned to left and right,rest as specified*/
+            /* border-style: dashed double none; */
+            /*  */
+            /* In case of 4 values,rule with clock trick is obeyed*/
+            /* border-style: dashed groove none dotted; */
+
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, impedit minus facere veniam laboriosam laudantium quas pariatur saepe autem vel, omnis nihil natus! Minus architecto, maiores magni accusantium ad perferendis!
+    </div>
+</body>
+</html>
