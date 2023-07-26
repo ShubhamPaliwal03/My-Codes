@@ -1,4 +1,4 @@
-class Pattern8_$$$$1_$$$21_$$321_$4321_54321
+class Pattern6_$$$$1_$$$21_$$321_$4321_54321
 {
 	public static void main(String args[])
 	{

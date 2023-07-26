@@ -14,7 +14,7 @@ class LCMofNum
 		int n2 = kb.nextInt();
 		System.out.println();
 
-		int multiple = n1>n2 ? n1 : n2;// the first common multiple will be the max among n1 and n2 
+		int multiple = n1>n2 ? n1 : n2; // the first common multiple will be the max among n1 and n2 
 
 		while(true)
 		{

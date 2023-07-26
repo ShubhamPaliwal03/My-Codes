@@ -4,10 +4,10 @@
 
 int main()
 {
-	int order,i,j,mat[3][3],det;
+	int order,i,j,mat[3][3],det,t1,t2,t3;
 	
 	printf("Enter the order of the square matrix : ");
-	printf("\nPress 2 for 2X2 matrix and press 3 for 3X3 matrix\n");
+	printf("\n\nPress 2 for 2X2 matrix and press 3 for 3X3 matrix\n");
 	scanf("%d",&order);
 
 	if(order==2 || order==3)
@@ -28,7 +28,11 @@ int main()
 		}
 		else
 		{
-			det=mat[0][0]*((mat[1][1]*mat[2][2])-(mat[2][1]*mat[1][2])) - mat[0][1]*((mat[1][0]*mat[2][2])-(mat[2][0]*mat[1][2])-(mat[2][0]*mat[1][2])) + mat[0][2]*((mat[1][0]*mat[2][1])-(mat[2][0]*mat[1][1]));
+			t1 = mat[0][0]*((mat[1][1]*mat[2][2])-(mat[2][1]*mat[1][2]));
+			t2 = mat[0][1]*((mat[1][0]*mat[2][2])-(mat[2][0]*mat[1][2]));
+			t3 = mat[0][2]*((mat[1][0]*mat[2][1])-(mat[2][0]*mat[1][1]));
+			
+			det= t1-t2+t3;  
 		}
 		
 		printf("\nThe Determinant of the entered matrix given below :\n\n");

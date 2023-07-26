@@ -1,4 +1,4 @@
-class Pattern_5_54321_5432_543_54_5
+class Pattern1_1_12_123_1234_12345
 {
 	public static void main(String args[])
 	{
@@ -6,7 +6,7 @@ class Pattern_5_54321_5432_543_54_5
 
 		for(i=1;i<=5;i++)
 		{
-			for(j=5;j>=i;j--)
+			for(j=1;j<=i;j++)
 			{
 				System.out.print(j);
 			}

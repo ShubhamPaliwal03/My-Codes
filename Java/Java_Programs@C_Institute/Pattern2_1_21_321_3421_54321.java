@@ -1,4 +1,4 @@
-class Pattern9_$$$$1_$$$12_$$123_$1234
+class Pattern2_1_21_321_3421_54321
 {
 	public static void main(String args[])
 	{
@@ -6,15 +6,10 @@ class Pattern9_$$$$1_$$$12_$$123_$1234
 
 		for(i=1;i<=5;i++)
 		{
-			for(j=5;j>i;j--)
-			{
-				System.out.print(" ");
-			}
-			for(j=1;j<=i;j++)
+			for(j=i;j>=1;j--)
 			{
 				System.out.print(j);
 			}
-
 			System.out.println();
 		}
 	}
