@@ -13,7 +13,7 @@ class CreateAndPrintJaggedOrRaggedMatrix
 
 		for(int i=0;i<m.length;i++)
 		{
-			System.out.printf("\nEnter the second dimension (no. of columns) %dth row : ",i+1);
+			System.out.printf("\nEnter the second dimension (no. of columns) you want in %dth row : ",i+1);
 
 			int cols = kb.nextInt();
 
@@ -23,7 +23,7 @@ class CreateAndPrintJaggedOrRaggedMatrix
 			
 			for(int j=0;j<m[i].length;j++)
 			{
-					m[i][j] = kb.nextInt();
+				m[i][j] = kb.nextInt();
 			}
 		}	
 

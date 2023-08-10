@@ -4,15 +4,24 @@ class FLoodFillAMatrixQ733
 {
     static void floodFillUtil(int[][] image, int sr, int sc, int prev_color, int color)
     {
-        if(sr < 0 || sc<0 || sr >= image.length || sc >= image[0].length)
+        // Is (sr, sc) out of bounds?
+        // if yes, then return, as we cannot proceed further in that direction.
+
+        if(sr < 0 || sc < 0 || sr >= image.length || sc >= image[0].length)
         {
             return;
         }
+
+        // Is the color of (sr, sc) different from the previous color?
+        // if yes, then return, as we've encountered a boundary or already filled area
 
         if(image[sr][sc]!=prev_color)
         {
             return;
         }
+
+        // Is the color of (sr, sc) already equal to the target color (color)?
+        // if yes, then return, as there's no need to fill the same color again.
 
         if(image[sr][sc]==color)
         {
@@ -21,20 +30,28 @@ class FLoodFillAMatrixQ733
 
         image[sr][sc] = color;
 
-        floodFillUtil(image, sr,   sc--, prev_color, color);
-        floodFillUtil(image, sr--, sc,   prev_color, color);
-        floodFillUtil(image, sr,   sc++, prev_color, color);
-        floodFillUtil(image, sr++, sc,   prev_color, color);
+
+        floodFillUtil(image, sr,   sc-1, prev_color, color); // moving left
+        floodFillUtil(image, sr-1, sc,   prev_color, color); // moving up
+        floodFillUtil(image, sr,   sc+1, prev_color, color); // moving right
+        floodFillUtil(image, sr+1, sc,   prev_color, color); // movinf down
     }
 
     static void floodFill(int[][] image, int sr, int sc, int color) 
     {
+        // we save the color of the starting position (sr, sc) as prev_color.
+
         int prev_color = image[sr][sc];
+
+        // If the prev_color is the same as the target color to fill, then the starting position is already of the desired color,
+        // and there's no need to perform the flood-fill, so we return immediately.
 
         if(prev_color==color)
         {
             return;
         }
+
+        // If the prev_color is different from the color, the method calls the floodFillUtil method to perform the recursive flood-fill operation.
 
         floodFillUtil(image, sr, sc, prev_color, color);
 
@@ -65,8 +82,8 @@ class FLoodFillAMatrixQ733
 
         int sr,sc,color;
 
-        sr=sc=1;
-        color=2;
+        sr=sc=0;
+        color=0;
 
         floodFill(img, sr, sc, color);
 

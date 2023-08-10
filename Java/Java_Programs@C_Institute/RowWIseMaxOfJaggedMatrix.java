@@ -14,20 +14,18 @@ class RowWiseMaxOfJaggedMatrix
 
 		for(int i=0;i<mat.length;i++)
 		{
-			System.out.print("\nEnter the no. of values you want to store in the "+i+"th row : ");
+			System.out.print("\nEnter the no. of values (columns) you want to store in the "+i+"th row : ");
 
 			int cols = kb.nextInt();
 
 			int mat[i] = new int[cols];
 
+			System.out.print("\nEnter "+cols+" values in the "+i+"th row : ");
+
 			for(int j=0;j<mat[i].length;j++)
 			{
-				System.out.print("\nEnter "+cols+" values in the "+i+"th row : ");
-
 				mat[i][j] = kb.nextInt();
 			}
-
-			System.out.println();
 		}
 
 		System.out.println("\nThe Matrix and Row-Wise Max of each row of the matrix is : ");
@@ -38,7 +36,8 @@ class RowWiseMaxOfJaggedMatrix
 			for(int val:row)
 			{
 				System.out.print(val+"\t");
-				if(if val>max)
+				
+				if(val>max)
 				{
 					max = val;
 				}

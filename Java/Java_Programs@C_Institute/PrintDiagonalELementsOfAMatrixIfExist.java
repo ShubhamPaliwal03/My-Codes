@@ -14,9 +14,8 @@ class PrintDiagonalELementsOfAMatrixIfExist
 
 		if(rows!=cols)
 		{
-			System.out.print("\nMatrix Dimensions are Not of a Square Matrix, So No Diagonal Elements are Possible!");
+			System.out.print("\nMatrix's Dimensions are Not of a Square Matrix, So No Diagonal Elements are Possible!");
 		}
-
 		else
 		{
 			int mat[][] = new int[rows][cols];	
@@ -50,7 +49,7 @@ class PrintDiagonalELementsOfAMatrixIfExist
 			}
 
 			// we can optimise the above code from O(N^2) to O(N) for printing the diagonals by just running a single loop of i from 0 upto the length of the matrix
-			// and printing the value of mat[i][i], but that won't provide us the pattern of diagonal elements in matrix form
+			// and printing the value of mat[i][i], but that won't provide us the pattern of diagonal elements in matrix form.
 
 			// for(int i=0;i<mat.length;i++)
 			// {

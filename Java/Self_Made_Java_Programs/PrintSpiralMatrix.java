@@ -2,6 +2,47 @@ import java.util.Scanner;
 
 class PrintSpiralMatrix
 {
+    static void printSpiralMatrix(int[][] mat)
+    {
+        int top = 0;
+        int left = 0;
+        int right = mat[0].length-1;
+        int bottom = mat.length-1;
+
+        while(left<=right && top<=bottom)
+        {
+            for(int i=left;i<=right;i++) // for moving towards the right (left to right)
+            {
+                System.out.print(mat[top][i]+" -> ");
+            }
+            top++;
+
+            for(int i=top;i<=bottom;i++) // for moving towards the bottom (top to bottom)
+            {
+                System.out.print(mat[i][right]+" -> ");
+            }
+            right--;
+
+            if(top<=bottom)
+            {
+                for(int i=right;i>=left;i--) // for moving towards the left (right to left)
+                {
+                    System.out.print(mat[bottom][i]+" -> ");
+                }
+                bottom--;
+            }
+
+            if(left<=right)
+            {
+                for(int i=bottom;i>=top;i--)// for moving towards the top (bottom to top)
+                {
+                    System.out.print(mat[i][left]+" -> ");
+                }
+                left++;
+            }
+        }
+    }
+
     public static void main(String args[])
     {
         Scanner kb = new Scanner(System.in);
@@ -14,7 +55,7 @@ class PrintSpiralMatrix
 
         int mat[][] = new int[rows][cols];
 
-        System.out.println("\nEnter the elements in the matrix of "+rows+" x "+cols+" :\n");
+        System.out.println("\nEnter elements in the matrix of "+rows+" x "+cols+" :\n");
 
         for(int i=0;i<mat.length;i++)
         {
@@ -24,53 +65,8 @@ class PrintSpiralMatrix
             }
         }
 
-        int i=0,j=0;
+        System.out.println("\nThe Matrix printed in spiral form is :\n");
 
-        while(j<cols)
-        {
-            System.out.print(mat[i][j]+" -> ");
-            j++;
-        }
-
-        if(j==cols)
-        {
-            i++;
-            j--;
-        }
-
-        while(j<cols)
-        {
-            System.out.print(mat[i][j]+" -> ");
-            i++;
-            j++;
-        }
-
-        if(j==cols)
-        {
-            j--;
-        }
-
-        while(j>0)
-        {
-            System.out.print(mat[i][j]+" -> ");
-            j--;
-        }
-
-        if(j<0)
-        {
-            j++;
-        }
-
-        while(i>rows/2)
-        {
-            System.out.print(mat[i][j]+" -> ");
-            i--;
-        }
-
-        while(j<=rows/2)
-        {
-            System.out.print(mat[i][j]+" -> ");
-            j++;
-        }
+        printSpiralMatrix(mat);
     }
 }

@@ -55,31 +55,31 @@ class Find1stAnd2ndMaxMinInArray
 
         System.out.print("\n\nMax        : "+max);
 
-        if(max==min)
-        {
-            System.out.print("\n\nMin Does Not Exist!");
-        }
-        else
-        {
+        // if(max==min)
+        // {
+        //     System.out.print("\n\nMin Does Not Exist!");
+        // }
+        // else
+        // {
             System.out.print("\n\nMin        : "+min);
-        }
+        // }
         
-        if(max==s_max)
-        {
-            System.out.print("\n\nSecond Max Does Not Exist!");
-        }
-        else
-        {
+        // if(max==s_max)
+        // {
+        //     System.out.print("\n\nSecond Max Does Not Exist!");
+        // }
+        // else
+        // {
             System.out.print("\n\nSecond Max : "+s_max);
-        }
+        // }
 
-        if(min==s_min)
-        {
-            System.out.print("\n\nSecond Min Does Not Exist!");
-        }
-        else
-        {
+        // if(min==s_min)
+        // {
+        //     System.out.print("\n\nSecond Min Does Not Exist!");
+        // }
+        // else
+        // {
             System.out.print("\n\nSecond Min : "+s_min);
-        }
+        // }
     }
 }

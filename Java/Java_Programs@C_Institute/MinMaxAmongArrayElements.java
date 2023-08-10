@@ -9,8 +9,7 @@ class MinMaxAmongArrayElements
 		System.out.print("Enter the size of the array you want to create : ");
 
 		int arr[] =  new int[kb.nextInt()];
-
-		System.out.print("\nEnter "+arr.length+" elements into the array : ");
+		/ystem.out.print("\nEnter "+arr.length+" elements into the array : ");
 
 		for(int i=0;i<arr.length;i++)
 		{

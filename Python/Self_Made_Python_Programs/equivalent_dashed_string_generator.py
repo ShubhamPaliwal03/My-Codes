@@ -10,4 +10,4 @@ for x in string:
 	dashedLine = ''.join(dlist)
 
 # print(dashedLine)
-print('printf(',dashedLine,');')
+print('print(',dashedLine,');')

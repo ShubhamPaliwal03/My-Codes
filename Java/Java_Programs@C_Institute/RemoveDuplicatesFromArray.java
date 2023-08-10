@@ -24,7 +24,7 @@ class RemoveDuplicatesFromArray
         // using a boolean array to store indices of all the duplicate elements as well as the number to whom the duplicates belong
         boolean sieve[] = new boolean[size];
 
-        for(int i=0;i<size;i++)
+        for(int i=0;i<size-1;i++)
         {
             for(int j=i+1;j<size;j++)
             {   
