@@ -1,6 +1,7 @@
 -- Deleting the existing records
 
 -- We use the delete command to delete the records, generally, we use 'where' with delete to delete the specific records.
+
 -- If you run delete without selecting some data using 'where', it can remove all the records from that table.
 
 delete from student where roll = 1023;

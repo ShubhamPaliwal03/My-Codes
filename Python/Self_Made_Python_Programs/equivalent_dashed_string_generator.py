@@ -9,5 +9,7 @@ for x in string:
 	dlist.append('-')	
 	dashedLine = ''.join(dlist)
 
+# print(dlist)
 # print(dashedLine)
-print('print(',dashedLine,');')
+
+print('print("',dashedLine,'");')

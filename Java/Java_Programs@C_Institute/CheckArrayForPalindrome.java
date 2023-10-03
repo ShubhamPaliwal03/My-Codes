@@ -32,7 +32,7 @@ class CheckArrayForPalindrome
 
 		// System.out.println(i+" "+j); // for verifying the logic
 
-		if(i==j)
+		if(i>=j)
 		{
 			System.out.println("\nThe array entered is A Palindrome");
 		}

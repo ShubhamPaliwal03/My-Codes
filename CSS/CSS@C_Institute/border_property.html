@@ -11,37 +11,49 @@
             width: 150px;
             background-color: greenyellow;
 
-            border-style:
+            border-style: solid;
+            border-color: red;
+            border-width: 5px;
+
+            /* 
+            The above properties set the border of all four sides.
+            The above all three properties can be specified using border only.
+            */
+
+            /* given below is the shorthand to set all the attributes of border property in one go*/
+            border: solid blue 5px;
         }
         #div2
         {
+            height: 250px;
+            width: 250px;
+            background-color: cyan;
 
+            /* We can also specify the border of a single side also */
+            border-top: dashed red 10px;
         }
         #div3
         {
-
+            height: 300px;
+            width: 200px;
+            background-color: red;
+            border-top: solid 10px blue;
+            border-bottom: solid 10px blue;
         }
         #div4
         {
-
+            height: 200px;
+            width: 200px;
         }
     </style>
 </head>
 <body>
-    <div id="div1">
+    <div id="div1"></div>
 
-    </div>
+    <div id="div2"></div>
 
-    <div id="div2">
+    <div id="div3"></div>
 
-    </div>
-
-    <div id="div3">
-
-    </div>
-
-    <div id="div4">
-
-    </div>
+    <div id="div4"></div>
 </body>    
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        table, td
+        {
+            border: solid 2px black;
+            border-collapse: collapse;
+        }
+
+        td
+        {
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+<script>
+
+    function writeTableM1(data)
+    {
+        document.write("<table>")
+
+        for(let i = 0; i < data.length; i++)
+        {
+            document.write("<tr>")
+
+            for(let j = 0; j < data.length; j++)
+            {
+                document.write("<td>"+data[i][j]+"</td>")
+            }
+
+            document.write("</tr>")
+        }
+
+        document.write("</table>")    
+    }
+
+    function writeTableM2(data) 
+    {
+            // write code to print table
+
+            document.write("<table>")
+
+            for(let dim1 of data)
+            {
+                document.write("<tr>")
+
+                for(let dim2 of dim1)
+                {
+                    document.write("<td>"+dim2+"</td>")
+                }
+
+                document.write("</tr>")
+            }
+
+            document.write("</table>")
+        }
+
+
+    function writeTableM3(data) 
+    {
+        // write code to print table
+
+        document.write("<table>")
+
+        for(let i in data)
+        {
+            document.write("<tr>")
+
+            for(let j in data)
+            {
+                document.write("<td>"+data[i][j]+"</td>")
+            }
+
+            document.write("</tr>")
+        }
+
+        document.write("</table>")
+    }
+
+    let arr=[[10,20,30],[40,50,60],[70,80,90]]
+
+    document.write("<h1><u>The 2D-Array is</u> :-</h1>")
+
+    document.write("<h2><u>Via for loop (M-1)</u> :-</h2>")
+    
+    writeTableM1(arr)
+
+    document.write("<h2><u>Via for of loop (M-2)</u> :-</h2>")
+
+    writeTableM2(arr)
+
+    document.write("<h2><u>Via for in loop (M-3)</u> :-</h2>")
+
+    writeTableM3(arr)
+
+</script>
+
+</body>
+</html>

@@ -8,6 +8,7 @@ int main()
         for(j=i+1;j<numsSize;j++)
         {
             sum=nums[i]+nums[j];
+
             if(sum==target)
             {
                 ans[0]=i;
@@ -18,7 +19,7 @@ int main()
     
     for(i=0;i<2;i++)
     {
-    	printf("%d ",ans[i]);
+    	printf("%d ",ans[i]); //two indices which make the sum
 	}
 	
     return 0;

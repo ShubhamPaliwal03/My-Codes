@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-// Brute force approach using 2 nested loops, O(n^n) time complexity
+// Brute force approach using 2 nested loops, O(n^2) time complexity and O(1) space complexity
 
 //int singleNumber(int* nums, int numsSize)
 //{
@@ -28,7 +28,7 @@
 //    return single_num;
 //}
 
-// Most Optimised approach using single loop and XOR operator, O(n) or Linear time complexity and O(1) or Constant time complexity
+// Most Optimised approach using single loop and XOR operator, O(n) or Linear time complexity and O(1) or Constant space complexity
 
 // Code
 
@@ -39,6 +39,7 @@ int singleNumber(int* nums, int numsSize)
     for(int i=0;i<numsSize;i++)
     {
         single_num = single_num ^ nums[i];
+        // printf("%d ",single_num);
     }
 
     return single_num;
@@ -78,7 +79,7 @@ int singleNumber(int* nums, int numsSize)
 
 int main()
 {
-	int nums[5]={4,1,2,1,2};
+	int nums[5]={4,5,5,2,2};
 	
 	printf("%d",singleNumber(nums,5));
 	

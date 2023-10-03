@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class FLoodFillAMatrixQ733
+class FloodFillAMatrixQ733
 {
     static void floodFillUtil(int[][] image, int sr, int sc, int prev_color, int color)
     {
@@ -34,7 +34,7 @@ class FLoodFillAMatrixQ733
         floodFillUtil(image, sr,   sc-1, prev_color, color); // moving left
         floodFillUtil(image, sr-1, sc,   prev_color, color); // moving up
         floodFillUtil(image, sr,   sc+1, prev_color, color); // moving right
-        floodFillUtil(image, sr+1, sc,   prev_color, color); // movinf down
+        floodFillUtil(image, sr+1, sc,   prev_color, color); // moving down
     }
 
     static void floodFill(int[][] image, int sr, int sc, int color) 
@@ -83,11 +83,11 @@ class FLoodFillAMatrixQ733
         int sr,sc,color;
 
         sr=sc=0;
-        color=0;
+        color=2;
 
         floodFill(img, sr, sc, color);
 
-        System.out.println("The Image Obtained after performing Flood Fill on the given image is :\n");
+        System.out.println("\n\nThe Image Obtained after performing Flood Fill on the given image is :\n");
 
         for(int row[]:img)
         {

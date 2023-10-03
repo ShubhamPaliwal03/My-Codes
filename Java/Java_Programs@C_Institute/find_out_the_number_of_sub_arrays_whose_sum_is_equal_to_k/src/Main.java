@@ -35,6 +35,7 @@ class Main
                     sum = sum + arr[l];
                     // System.out.print(arr[l]+" ");
                 }
+                
                 // System.out.println();
                 
                 if(sum==k)

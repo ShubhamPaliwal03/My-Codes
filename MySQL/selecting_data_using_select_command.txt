@@ -1,15 +1,15 @@
 -- Selecting the existing records
 
--- We select data using the select command
--- * means select all columns
+-- We select data using the 'select' command.
+-- * means select all columns.
 
 select * from student;
 
--- We can also select specific columns by providing the column name after the select keyword.
+-- We can also select specific columns by providing the column name after the 'select' keyword.
 
 select name, roll from student;
 
--- We can also select the data using the 'where', the where is followed by a condition, the 'where' comes after the table name.
+-- We can also select the data using the 'where', the 'where' is followed by a condition, the 'where' comes after the table name.
 
 select * from student where age>18;
 
