@@ -1,0 +1,18 @@
+class ThreadDemo
+{  public static void main(String args[])throws InterruptedException
+  {  Thread t=Thread.currentThread();
+    System.out.println("Current thread name is  = "+t.getName());
+    System.out.println("Current thread priority is  = "+t.getPriority());
+    /*
+      NORM_PRIORITY -> 5
+      MIN_PRIORITY -> 1
+      MAX_PRIORITY -> 10
+    */
+    t.setPriority(10);
+    t.setName("Ujju ke $s");
+    t.sleep(1000);//InterruptedException
+    System.out.println("Current thread name is  = "+t.getName());
+    t.sleep(1000);//InterruptedException
+    System.out.println("Current thread priority is  = "+t.getPriority());
+  }
+}

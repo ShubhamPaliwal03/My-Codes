@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <input type="text" id="inputValue"><br>
+
+    <button id="b1">Get Result</button>
+
+    <script type="text/javascript"> 
+    
+        const b1 = document.getElementById("b1")
+
+        b1.addEventListener("click",calculate)
+
+        function calculate()
+        {
+            const inputValue = document.getElementById("inputValue")
+
+            // The value property is used with form elements to get / set thier value
+
+            const expresssion = inputValue.value
+
+            // alert(expresssion)
+
+            // eval() function is used to get the result of arithmetic expression 
+
+            // Assign the result of the evaluated expression into the inputValue field
+
+            inputValue.value = eval(expresssion)
+
+        }
+
+    </script>
+
+</body>
+</html>

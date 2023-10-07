@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events In JS</title>
+    <style>
+
+        div
+        {
+            text-align: center;
+            padding: 5px;
+            height: 20px;
+            width: 80px;
+            background-color: violet;
+            border-radius: 10px;
+        }
+
+        div:hover
+        {
+            background-color: cyan  ;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div onclick="show()">Click Me</div>
+
+    <script type="text/javascript">
+
+        function show()
+        {
+            alert("you just clicked on div...")
+        }
+
+    </script>
+
+    <br>
+
+    <div id="d2">Click Me</div>
+
+    <script type="text/javascript">
+
+        function show2()
+        {
+            alert("you just clicked on div d2...")
+        }
+
+        // select the d2 element by its id, the getElementById method of document object is used for this purpose, it returns the required element object
+
+        const d2 = document.getElementById("d2")
+
+        d2.addEventListener("click",show2) // we pass only function name, we do not call it
+
+    </script>
+
+</body>
+</html>

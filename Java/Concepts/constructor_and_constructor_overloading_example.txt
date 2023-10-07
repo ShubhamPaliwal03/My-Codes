@@ -1,0 +1,155 @@
+//Constructor and constructor overloading
+
+Example - 1
+
+class Student
+{
+  private int age;
+  private int roll;
+  private String name;
+
+  public Student()//Explicit Default constructor
+  {  age=18;
+    roll=100;
+    name="Shubham Paliwal";
+  }
+  public Student(String n,int r,int a)//Parameterized constructor
+  {  name=n;
+    roll=r;
+    age=a;
+  }
+  public Student(Student t)//Copy constructor
+  {  name=t.name;
+    age=t.age;
+    roll=t.roll;
+  }
+  public void printDetails()  
+  {  System.out.println("Details of student are ");
+    System.out.println("Name "+name);
+    System.out.println("Age "+age);
+    System.out.println("Roll "+roll);
+  }
+}
+class UseStudent
+{
+  public static void main(String args[])
+  {
+    Student s1=new Student();
+    Student s2=new Student("Zaid",101,20);
+    Student s3=new Student(s2);
+    Student s4=s3;
+
+    s1.printDetails();
+    s2.printDetails();
+    s3.printDetails();
+    s4.printDetails();
+
+    System.out.println(s2==s3);//will compare reference value
+    System.out.println(s2==s4);//will compare reference value
+    System.out.println(s4==s3);//will compare reference value
+
+    System.out.println(s1);
+    System.out.println(s2);
+    System.out.println(s3);
+    System.out.println(s4);
+
+  }
+}
+
+Example - 2
+
+class Teacher
+{
+    private String name;
+    private int age;
+    private double salary;
+
+    public Teacher() // Default Constructor
+    {
+        name = "Tarun Verma";
+        age = 34;
+        salary = 2.4;
+    }
+
+    public Teacher(String n, int a, double s) // Parameterized Constructor
+    {
+        name = n;
+        age = a;
+        salary = s;
+    }
+
+    public Teacher(Teacher t) // Copy Constructor
+    {
+        name = t.name;
+        age = t.age;
+        salary = t.salary;
+    }
+
+    public void printDetails()
+    {
+        System.out.println("\nThe Details of the Teacher are : ");
+        System.out.println("\nName : "+name);
+        System.out.println("\nAge : "+age);
+        System.out.println("\nSalary : "+salary);
+    }
+}
+
+class UseTeacher
+{
+    public static void main(String args[])
+    {
+        Teacher t1 = new Teacher();
+        Teacher t2 = new Teacher("Sumit Sharma", 36, 2.4);
+        Teacher t3 = new Teacher(t2);
+
+        t1.printDetails();
+        t2.printDetails();
+        t3.printDetails();
+    }
+}
+
+Example of using constructors
+
+class Order
+{
+  private int orderAmount;
+  private String customerName;
+  private static int orderCount;
+  public Order(int orderAmount,String customerName)
+  {
+    this.orderAmount=orderAmount;
+    this.customerName=customerName;
+    orderCount++;
+  }
+  public void printDetails()
+  {
+    System.out.println("Order details are as follows");
+    System.out.println("Customer Name "+this.customerName);
+    System.out.println("Bill Amount   "+this.orderAmount);
+  }
+  public static void printOrderCount()
+  {
+    System.out.println("Total Orders Placed "+orderCount);
+  }
+}
+class Main
+{
+  public static void main(String []args)
+  {
+    Order.printOrderCount();
+
+    Order o1=new Order(1000,"Shubham Paliwal");
+    Order o2=new Order(12000,"Jatin Songara");
+
+    Order.printOrderCount();
+    Order o3=new Order(3000,"Ujjawal Kunwar");
+    Order o4=new Order(4000,"Shivam Bohra");
+
+    o1.printDetails();
+    o2.printDetails();
+    o3.printDetails();
+    o4.printDetails();
+    Order.printOrderCount();
+
+  }
+}
