@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events in JS</title>
+    <style>
+
+        #d1
+        {
+            background-color: aqua;
+            height: 300px;
+            width: 300px;
+            font-weight: 900;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="d1" onmouseenter="mouseEnter()">Drag your mouse cursor in and out</div>
+
+    <!-- 
+
+        Mouse events in JS :
+
+            mouseenter  :   This event is fired when the mouse cursor enters into an html element. 
+                            We can capture this using the onmouseenter attribute or by using the addEventListener() in JS.
+
+            mouseleave  :   This event is fired when the mouse cursor leaves from an html element.
+                            We can capture this using the onmouseleave attribute or by using the addEventListener() in JS.               
+
+     -->
+
+    <script type="text/javascript">
+
+        const d1 = document.getElementById("d1")
+        
+        function mouseEnter()
+        {
+            d1.innerHTML = "Mouse cursor came inside the container!"
+        }
+
+        d1.addEventListener("mouseout",mouseOut)
+        
+        function mouseOut()
+        {
+            d1.innerHTML = "Mouse cursor went outside the container!"
+        }
+
+    </script>
+</body>
+</html>

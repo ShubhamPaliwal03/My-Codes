@@ -1,0 +1,38 @@
+<!-- Challenge 5:
+Write a JavaScript exercise to get the filename extension. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Filename Extension</title>
+</head>
+<body>
+    <script>
+        function extractFileExtension(filename)
+        {
+            let splitted = filename.split(".")
+
+            if(splitted.length > 1)
+            {
+                return "File Extension : ."+splitted.pop()
+            }
+            else
+            {
+                return "No Extension Found!"
+            }
+
+        }
+
+        // test cases
+
+        console.log(extractFileExtension("script.js"))
+        console.log(extractFileExtension("style.css"))
+        console.log(extractFileExtension("index.html"))
+        console.log(extractFileExtension("index"))
+        console.log(extractFileExtension(""))
+
+    </script>
+</body>
+</html>

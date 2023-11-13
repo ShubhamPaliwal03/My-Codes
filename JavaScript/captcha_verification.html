@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify-Captcha</title>
+</head>
+<body>
+    <div id="captcha"></div>
+
+    <button id="verifyCaptcha">Verify</button>
+
+    <input placeholder="Enter the code given above" type="text" maxlength="6" id="inputCaptcha">
+
+    <span id="msg"></span>
+
+    <script>
+
+        const captcha = document.getElementById("captcha")
+
+        // generate a six digit random integer
+
+        const captchaValue = Math.floor(Math.random()*1000000)
+
+        captcha.innerHTML = "" + captchaValue
+
+        const verifyCaptcha = document.getElementById("verifyCaptcha")
+
+        verifyCaptcha.addEventListener("click",verifyAndProceed)
+
+        function verifyAndProceed()
+        {
+            const inputCaptchaValue = document.getElementById("inputCaptcha").value
+
+            let msg = document.getElementById("msg")
+
+            if(inputCaptchaValue == captchaValue)
+            {
+                msg.innerText = "Captcha Verified"
+            }
+            else
+            {
+                msg.innerText = "Captcha Verification Failed"
+            }
+
+
+        }
+
+    </script>
+</body>
+</html>
