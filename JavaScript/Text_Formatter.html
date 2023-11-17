@@ -130,9 +130,15 @@
             bottom: 4.5px;
         }
 
+        #textfield
+        {
+            position: relative;
+            bottom: 250px;
+        }
+
       </style>
 </head>
-<body>
+<body id="bdy">
     <div id="text_editor">
         <p id="para">My name is Shubham Paliwal</p>
         <div id="fonts">
@@ -145,9 +151,9 @@
             <button id="abril" class="fontFamilies" onclick="changeFont('Abril Fatface', 'serif')">Abril Fatface</button>
         </div>
         <div id="bg_modes">
-            <button id="light" class="themes">Light Mode</button>
+            <button id="light" class="themes" onclick="switchToLightMode()">Light Mode</button>
             <br><br>
-            <button id="dark" class="themes">Dark Mode</button>
+            <button id="dark" class="themes" onclick="switchToDarkMode()">Dark Mode</button>
         </div>
         <div id="font_styles">
             <button class="fontStyles" id="bold" onclick="changeFontWeight(this.id)"><b>B</b></button>
@@ -160,7 +166,12 @@
             <div id="font_size_disp"><p id="fontSizePara">30</p></div>
             <button id="incr" onclick="increaseFontSize()" class="fontSizeBtns">></button>
         </div>
-    </div>    
+        <form action="save.php">
+            <div id="textfield_box">
+                <input id="textfield" placeholder="Enter your text here..." onchange="changeText()" type="text">
+            </div>
+        </form>
+    </div>
     <script>
         const paragraph = document.getElementById('para');
 
@@ -236,13 +247,54 @@
 
             let curr_font_size = fontSizePara.innerText;
 
-            console.log(curr_font_size);
-
             curr_font_size++;
 
             fontSizePara.innerText = curr_font_size;
 
             paragraph.style.fontSize = curr_font_size+"px";
+        }
+
+        function decreaseFontSize()
+        {
+            const fontSizePara = document.getElementById('fontSizePara')
+            
+            let curr_font_size = fontSizePara.innerText;
+
+            if(curr_font_size > 0)
+            {
+                curr_font_size--;
+            }
+
+            fontSizePara.innerText = curr_font_size;
+
+            paragraph.style.fontSize = curr_font_size+"px";
+        }
+
+        function switchToDarkMode()
+        {
+            const b1 = document.getElementById('bdy');
+
+            b1.style.color = "white";
+
+            b1.style.backgroundColor = "black";
+        }
+
+        function switchToLightMode()
+        {
+            const b1 = document.getElementById('bdy');
+
+            b1.style.color = "black";
+
+            b1.style.backgroundColor = "white";
+        }
+
+        function changeText()
+        {
+            const textfield = document.getElementById('textfield');
+
+            let text = textfield.value;
+
+            paragraph.innerText = text
         }
     </script>
 </body>
