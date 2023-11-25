@@ -1,0 +1,56 @@
+<!-- Challenge 15
+Problem Description -
+create a string_chop function that takes a string and chop factor(size) and chops out the string into the factor(size) that has been passed
+Test Data :
+console.log(string_chop('Scaler'));
+console.log(string_chop('Scaler',2));
+["Scaler"]
+['Sc' , 'al' ,'er'] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chop a String</title>
+</head>
+<body>
+    <script>
+
+        function string_chop(s, chop_factor)
+        {
+            str = ""
+
+            let characters_taken = 0
+
+            for(let i = 0; i < s.length; i++)
+            {
+                if(characters_taken == chop_factor)
+                {
+                    str += "`"
+
+                    characters_taken = 0
+                }
+
+                str += s[i]
+
+                characters_taken ++
+            }
+
+            return str.split('`')
+        }
+
+        // test cases
+
+        console.log(string_chop("Scaler"))
+        console.log(string_chop("Scaler",2))
+        console.log(string_chop("Scaler",3))
+        console.log(string_chop("Scaler",4))
+        console.log(string_chop("Scaler",5))
+        console.log(string_chop("Scaler",6))
+        console.log(string_chop("Scaler",600))
+        console.log(string_chop('Interview',2))
+
+    </script>
+</body>
+</html>

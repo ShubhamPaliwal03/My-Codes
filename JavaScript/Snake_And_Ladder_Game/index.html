@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake And Ladders</title>
+    <style>
+
+        #dice_img
+        {
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+            outline: solid 1px black;
+        }
+
+        #dice
+        {
+            height: 100px;
+            width: 100px;
+            padding: 0px;
+            border-radius: 10px;
+            transition: transform 1s;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="dice"><img id="dice_img" src="dice_1.png" alt=""></button>
+    <script>
+
+        let dice = document.getElementById('dice')
+
+        dice.addEventListener('click',rollDice)
+
+        function generateRandom(min, max)
+        {
+            return Math.ceil(Math.random() * (max - min) + min)
+        }
+
+        let dice_img = document.getElementById('dice_img')
+
+        let degree = 180
+
+        function rollDice()
+        {
+            let number = generateRandom(0,6)
+
+            dice_img.src = "dice_"+number+".png"
+
+            dice.style.transform = "rotateX("+degree+"deg) rotateY("+degree+"deg)"
+
+            degree += 180
+        }
+
+    </script>
+</body>
+</html>
