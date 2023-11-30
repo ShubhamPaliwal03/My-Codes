@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body
+        {
+            background-color: #1e2124;
+            color: white;
+        }
+        .questions
+        { 
+            position: relative;
+            top: 140px;
+            padding: 50px;
+            margin-left: 5px;
+            margin-right: 10px;
+            width: 750px;
+            height: 500px;
+            background-color: #282b30;
+            float: left;
+            box-sizing: border-box;
+        }
+        .options
+        {
+            position: relative;
+            top: 140px;
+            padding: 50px;
+            width: 750px;
+            margin: 0px;
+            height: 500px;
+            background-color: #282b30;
+            color: white;
+            box-sizing: border-box;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+        <div class="cards" id="question_card_1">
+            <div class="questions" id="question">
+                <div id="title"><h3>Boolean Operators</h3><span>Easy</span></div>
+                <b><p class="problem_statement">What will be the output of the following statement?</p></b>
+<pre>
+<code>
+#include<iostream>
+using namespace std;
+
+int main() 
+{
+
+    bool z = (true && false);
+    cout << z;
+
+}
+</code>
+</pre>
+            </div>
+            <div class="options" id="option">
+                <b><p>Options : </b>Pick one correct answer from below</p>
+                <input type="radio" name="choice">1
+                <br>
+                <br>
+                <input type="radio" name="choice">0
+                <br>
+                <br>
+                <input type="radio" name="choice">Both A and B
+                <br>
+                <br>
+                <input type="radio" name="choice">None of the Above
+            </div>
+        </div>
+        <!-- <div id="question_card_2"></div>
+        <div id="question_card_3"></div>
+        <div id="question_card_4"></div>
+        <div id="question_card_5"></div> -->
+</body>
+</html>
