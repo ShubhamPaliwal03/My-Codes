@@ -1,0 +1,40 @@
+<!-- Challenge 28
+Description:
+Create a proxy object that intercepts and logs all property access.
+Solution Approach:
+Use the Proxy object to create a wrapper around another object. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 28 - Proxy Object</title>
+</head>
+<body>
+    <script>
+        const original = {
+            msg1: "Hi!",
+            msg2: "How are you?",
+        }
+
+        // An object whose properties define the behavior of Proxy when an operation is attempted on it.
+
+        const proxy = new Proxy(
+            original,
+            {
+                get(target, property, receiver)
+                {
+                    console.log(`Property "${property}" accessed on ${Date()}`)
+
+                    return Reflect.get(...arguments)
+                },
+            }
+        )
+
+        console.log(proxy.msg1)
+        console.log(proxy.msg2)
+        console.log(proxy.msg1)
+    </script>
+</body>
+</html>

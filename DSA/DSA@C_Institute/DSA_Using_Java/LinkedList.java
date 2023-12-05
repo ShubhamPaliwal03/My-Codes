@@ -14,7 +14,7 @@ class Node // self - referencing structure
 	}
 }
 
-class LinkedList 
+class SinglyLinkedList
 {
 	Node start;
 

@@ -36,12 +36,22 @@
             box-sizing: border-box;
             float: left;
         }
+        #question_card_2, #question_card_3, #question_card_4, #result
+        {
+            display: none;
+        }
+        img
+        {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
+        <span id="timer"></span>
         <div class="cards" id="question_card_1">
-            <div class="questions" id="question">
-                <div id="title"><h3>Boolean Operators</h3><span>Easy</span></div>
+            <div class="questions">
+                <div class="title"><h3>Boolean Operators</h3><span>Easy</span></div>
                 <b><p class="problem_statement">What will be the output of the following statement?</p></b>
 <pre>
 <code>
@@ -58,23 +68,189 @@ int main()
 </code>
 </pre>
             </div>
-            <div class="options" id="option">
+            <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
-                <input type="radio" name="choice">1
+                <input type="radio" id="_1" name="choice">
+                <label for="_1">1</label>
                 <br>
                 <br>
-                <input type="radio" name="choice">0
+                <input type="radio" id="_2" name="choice">
+                <label for="_2">0</label>
                 <br>
                 <br>
-                <input type="radio" name="choice">Both A and B
+                <input type="radio" id="_3" name="choice">
+                <label for="_3">Both A and B</label>
                 <br>
                 <br>
-                <input type="radio" name="choice">None of the Above
+                <input type="radio" id="_4" name="choice">
+                <label for="_4">None of the Above</label>
             </div>
         </div>
-        <!-- <div id="question_card_2"></div>
-        <div id="question_card_3"></div>
-        <div id="question_card_4"></div>
-        <div id="question_card_5"></div> -->
+        <div class="cards" id="question_card_2" class="rest_cards">
+            <div class="questions">
+                <div class="title"><h3>Boolean Operators</h3><span>Easy</span></div>
+                <b><p class="problem_statement">What will be the output of the following statement?</p></b>
+<pre>
+<code>
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int x = 5;
+    if (x < 6)
+        cout << “Hello ”;
+    if (x == 5) {
+        cout << “Hi”;
+    } else {
+        cout << “Hey”;
+    }
+}
+</code>
+</pre>
+            </div>
+            <div class="options">
+                <b><p>Options : </b>Pick one correct answer from below</p>
+                <input type="radio" id="_1" name="choice">
+                <label for="_1">Hello</label>
+                <br>
+                <br>
+                <input type="radio" id="_2" name="choice">
+                <label for="_2">Hi</label>
+                <br>
+                <br>
+                <input type="radio" id="_3" name="choice">
+                <label for="_3">Hello Hi</label>
+                <br>
+                <br>
+                <input type="radio" id="_4" name="choice">
+                <label for="_4">Hello Hey</label>
+            </div>
+        </div>
+        <div class="cards" id="question_card_3" class="rest_cards">
+            <div class="questions">
+                <div class="title"><h3>Boolean Operators</h3><span>Medium</span></div>
+                <b><p class="problem_statement">What will be the output of the following statement?</p></b>
+<pre>
+<code>
+s = "abcdef"
+print (s[2:])
+</code>
+</pre>
+            </div>
+            <div class="options">
+                <b><p>Options : </b>Pick one correct answer from below</p>
+                <input type="radio" id="_1" name="choice">
+                <label for="_1">bcdef</label>
+                <br>
+                <br>
+                <input type="radio" id="_2" name="choice">
+                <label for="_2">cdef</label>
+                <br>
+                <br>
+                <input type="radio" id="_3" name="choice">
+                <label for="_3">abcdef</label>
+                <br>
+                <br>
+                <input type="radio" id="_4" name="choice">
+                <label for="_4">None of the Above</label>
+            </div>
+        </div>
+        <div class="cards" id="question_card_4" class="rest_cards">
+            <div class="questions">
+                <div class="title"><h3>Boolean Operators</h3><span>Medium</span></div>
+                <b><p class="problem_statement">What will be the output of the following statement?</p></b>
+                <p>
+                    The following questions consist of a set of three figures X, Y and Z showing a sequence of folding of a piece of paper. Fig (Z) shows the manner in which the folded paper has been cut. These three figures are followed by four answer figures from which you have to choose a figure which would most closely resemble the unfolded form fig. (Z)
+                </p>
+                <img id="main_image" src="q4_question_image.png" alt="ques_4_image">
+                <span>a <img id="img_a" src="ques_4_option_a.png" alt="ques_4_option_a_image"></span>
+                <span>b <img id="img_b" src="ques_4_option_b.png" alt="ques_4_option_b_image"></span>
+                <span>c <img id="img_c" src="ques_4_option_c.png" alt="ques_4_option_c_image"></span>
+                <span>d <img id="img_d" src="ques_4_option_d.png" alt="ques_4_option_d_image"></span>
+            </div>
+            <div class="options">
+                <b><p>Options : </b>Pick one correct answer from below</p>
+                <input type="radio" id="_1" name="choice">
+                <label for="_1">a</label>
+                <br>
+                <br>
+                <input type="radio" id="_2" name="choice">
+                <label for="_2">b</label>
+                <br>
+                <br>
+                <input type="radio" id="_3" name="choice">
+                <label for="_3">c</label>
+                <br>
+                <br>
+                <input type="radio" id="_4" name="choice">
+                <label for="_4">d</label>
+            </div>
+        </div>
+        <div id="result">
+            <h2>Your Scorecard :- </h2>
+        </div>
+        <script>
+
+            let question_number = 1
+
+            let time_left = 10
+
+            let timer = document.getElementById('timer')
+
+            timer.style.color = "greenyellow"
+
+            function updateTime()
+            {
+                if(time_left == 0)
+                {
+                    updateQuestion()
+
+                    time_left = 10
+
+                    timer.style.color = "green"
+                }
+
+                timer.innerText = time_left+" seconds left"
+
+                time_left--
+
+                if(time_left <= 5)
+                {
+                    timer.style.color = "red"
+                }
+            }
+
+            updateTime()
+
+            let intervalId = setInterval(updateTime, 500)
+
+            const result = document.getElementById('result') // Returns a reference to the first object with the specified value of the ID attribute.
+
+            function updateQuestion()
+            {
+                let old_ques_card = document.getElementById('question_card_'+question_number)
+
+                old_ques_card.style.display = "none"
+
+                question_number++
+
+                if(question_number == 5)
+                {
+                    clearInterval(intervalId)
+                
+                    timer.style.display = "none"
+
+                    result.style.display = "block"
+
+                    return
+                }
+
+                let new_ques_card = document.getElementById('question_card_'+question_number)
+
+                new_ques_card.style.display = "block"
+            }
+
+        </script>
 </body>
 </html>
