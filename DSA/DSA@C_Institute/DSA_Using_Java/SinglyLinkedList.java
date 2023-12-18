@@ -18,7 +18,7 @@ class SinglyLinkedList
 {
 	Node start;
 
-	LinkedList() 
+	SinglyLinkedList()
 	{
 		start = null;
 	}
@@ -217,6 +217,8 @@ class SinglyLinkedList
 		} 
 		else if(start == null && pos == 1)
 		{
+			Node node = new Node(data);
+
 			start = node;
 
 			System.out.print("\n" + data + " added at position " + pos + " of the Linked List sucessfully...");
@@ -402,7 +404,7 @@ class SinglyLinkedList
 
 	// we will check if a node in the linkedlist holds the address of the starting node in its next pointer
 
-	boolean checkCircular(Node node)
+	static boolean checkCircular(Node node)
 	{
 		if(node == null)
 		{
@@ -425,17 +427,121 @@ class SinglyLinkedList
 			return false;
 		}
 	}
+
+	static Node mergeTwoSortedLists(Node start1, Node start2)
+	{
+		Node temp1 = start1;
+
+		Node temp2 = start2;
+
+		Node start3 = null; // the start of resultant merged linked list
+
+		Node temp3 = start3; // to keep track of, and store the address of the current last node
+
+		while(temp1 != null && temp2 != null)
+		{
+			if(temp1.data < temp2.data)
+			{
+				// insert the data of temp1 at the end of the merged linkedlist
+
+				Node node = new Node(temp1.data);
+
+				if(start3 == null)
+				{
+					start3 = node;
+
+					temp3 = start3;
+				}
+				else
+				{
+					temp3.next = node;
+
+					temp3 = temp3.next;
+				}
+
+				temp1 = temp1.next;
+			}
+			else // if temp2.data <= temp1.data
+			{
+				// insert the data of temp2 at the end of the merged linkedlist
+
+				Node node = new Node(temp2.data);
+
+				if(start3 == null)
+				{
+					start3 = node;
+
+					temp3 = start3;
+				}
+				else
+				{
+					temp3.next = node;
+
+					temp3 = temp3.next;
+				}
+
+				temp2 = temp2.next;
+			}
+		}	
+
+		if(temp1 == null && temp2 != null) // when the second linked list still contains some values to be processed, whereas the first linked list is empty now
+		{
+			while(temp2 != null)
+			{
+				Node node = new Node(temp2.data);
+
+				if(start3 == null)
+				{
+					start3 = node;
+
+					temp3 = start3;
+				}
+				else
+				{
+					temp3.next = node;
+
+					temp3 = temp3.next;
+				}
+
+				temp2 = temp2.next;
+			}
+		}
+		else if(temp2 == null && temp1 != null) // when the first linked list still contains some values to be processed, whereas the second linked list is empty now
+		{
+			while(temp1 != null)
+			{
+				Node node = new Node(temp1.data);
+
+				if(start3 == null)
+				{
+					start3 = node;
+
+					temp3 = start3;
+				}
+				else
+				{
+					temp3.next = node;
+
+					temp3 = temp3.next;
+				}
+
+				temp1 = temp1.next;
+			}
+		}
+
+		return start3;
+	}
 }	
 
-class Main 
+class Main
 {
 	public static void main(String args[]) 
 	{
 		Scanner kb = new Scanner(System.in);
 
-		LinkedList ll = new LinkedList();
+		SinglyLinkedList ll = new SinglyLinkedList();
 
-		// initializing Linked List ll with null is not correct, it throws
+		// initializing Singly Linked List ll with null is not correct, it throws
 		// NullPointerExeption in many cases
 		// which are not needed to be handled by normal if-else statements,
 		// and exception handling is not recommended here to handle caveats in the code.
@@ -444,7 +550,7 @@ class Main
 
 		do 
 		{
-			System.out.print("\nSelect your choice (1-12) :\n--------------------------\n\n1.  Create\n2.  Display\n3.  Display From End\n4.  Insert At Beginning\n5.  Insert At Middle (At Desired Position)\n6.  Insert At End\n7.  Delete From Beginning\n8.  Delete From Middle (At desired position)\n9.  Delete From End\n10. Check Size\n11. Search an Element\n12. Check if the LinkedList is Circular (true/false)\n13. Reverse the Linked List (in-place)\n\nYour Choice : ");
+			System.out.print("\nSelect your choice (1-12) :\n--------------------------\n\n1.  Create\n2.  Display\n3.  Display From End\n4.  Insert At Beginning\n5.  Insert At Middle (At Desired Position)\n6.  Insert At End\n7.  Delete From Beginning\n8.  Delete From Middle (At desired position)\n9.  Delete From End\n10. Check Size\n11. Search an Element\n12. Check if the LinkedList is Circular (true/false)\n13. Merge Two Sorted Linked Lists\n14. Reverse the Linked List (in-place)\n\nYour Choice : ");
 
 			int operation = kb.nextInt();
 
@@ -456,10 +562,9 @@ class Main
 
 					int n = kb.nextInt();
 
-					// Linked List ll = new Linked List(); // we can't declare and define it like this
-					// here in switch case
+					// SinglyLinkedList ll = new SinglyLinkedList(); // we can't declare and define it like this here in switch case
 
-					ll = new LinkedList();
+					ll = new SinglyLinkedList();
 
 					ll.createList(n);
 
@@ -565,9 +670,58 @@ class Main
 
 					// n1.next = n2;
 					// n2.next = n3;
-					// n3.next = null;
+					// n3.next = null; // null is already placed at the next of each node, as per its definition in the Node class
 
-					System.out.print("\n"+ll.checkCircular(n1));
+					System.out.print("\n"+SinglyLinkedList.checkCircular(n1));
+
+					break;
+
+				case 13:
+				
+					// linked list 1
+
+					Node n4 = new Node(10);
+					Node n5 = new Node(15);
+					Node n6 = new Node(50);	
+
+					n4.next = n5;
+					n5.next = n6;
+					n6.next = null;
+
+					// linked list 2
+
+					Node n7 = new Node(2);
+					Node n8 = new Node(25);
+
+					n7.next = n8;
+					n8.next = null;
+
+					Node start_m = SinglyLinkedList.mergeTwoSortedLists(n4, n7);
+
+					if(start_m == null)
+					{
+						System.out.print("\nThe Linked List is Currently Empty !");
+					}
+					else 
+					{
+						System.out.println("\nThe Linked List obtained after merging the given two sorted Linked Lists is as follows :\n");
+
+						Node temp = start_m;
+
+						while(temp != null)
+						{
+							if(temp.next == null)
+							{
+								System.out.print(temp.data);
+							}
+							else
+							{
+								System.out.print(temp.data+" -> ");
+							}
+
+							temp = temp.next;
+						}
+					}
 
 					break;
 

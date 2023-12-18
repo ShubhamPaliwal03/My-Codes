@@ -30,7 +30,7 @@ class MileageCalculator
 		{
 			case 1:
 
-				System.out.print("\nEnter the odometer reading before fully refueling the tank last time (in Kms) : ");
+				System.out.print("\nEnter the odometer reading after fully refueling the tank last time (in Kms) : ");
 
 				float prev_odo_reading = kb.nextFloat();
 
