@@ -82,7 +82,7 @@ class Adder implements ActionListener // after implementing ActionListener inter
 
 		// set the size of the JFrame
 
-		jf.setSize(470, 400);
+		jf.setSize(470, 170);
 
 		// add the labels, textfields and buttons
 

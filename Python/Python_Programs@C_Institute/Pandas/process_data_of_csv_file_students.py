@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('students.csv')
+df = pd.read_csv('students_data.csv')
 
 print("\nThe Data of the 1st and 2nd row is : ")
 

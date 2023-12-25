@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -6,6 +7,8 @@ import java.io.*;
 public class Main extends JFrame implements ActionListener
 {
 	private JScrollPane scrollPane;
+
+	private DefaultTableModel tableModel;
 
 	private JTable table;
 
@@ -49,7 +52,11 @@ public class Main extends JFrame implements ActionListener
 
 		fileMenu.add(openItem);
 
+		fileMenu.addSeparator();
+
 		fileMenu.add(saveItem);
+
+		fileMenu.addSeparator();
 
 		fileMenu.add(addNewRecordItem);
 
@@ -68,6 +75,20 @@ public class Main extends JFrame implements ActionListener
 		// set the size of the JFrame
 
 		setSize(500, 500);
+
+		tableModel = new DefaultTableModel();
+
+		// create a table
+
+		table = new JTable(tableModel);
+
+		// create a scroll pane for the table
+
+		scrollPane = new JScrollPane(table);
+
+		// add the scroll pane to the center of the frame
+
+		add(scrollPane, BorderLayout.CENTER);
 
 		// center the frame
 
@@ -123,15 +144,25 @@ public class Main extends JFrame implements ActionListener
 					System.out.println(e);
 				}
 
+				// fetch the data from the csv file
+
 				// create an array of strings containing all the rows
 
 				String[] rows = sb.toString().split("\n");
 
+				// extract the columnnames
+
 				String[] columnNames = rows[0].split(",");
+
+				// add the new column names
+
+				tableModel.setColumnIdentifiers(columnNames);
 
 				// create two-dimensional array of data
 
 				Object[][] data = new Object[rows.length - 1][columnNames.length];
+
+				// place the data at its correct position in the data matrix
 
 				for(int j = 1; j < rows.length; j++)
 				{
@@ -143,15 +174,19 @@ public class Main extends JFrame implements ActionListener
 					}
 				}
 
-				// create a table
+				// remove the previous data (if any) from the table
 
-				table = new JTable(data, columnNames);
+				while(tableModel.getRowCount() > 0)
+				{
+					tableModel.removeRow(0);
+				}
 
-				// create a scroll pane
+				// add the new data to the table
 
-				scrollPane = new JScrollPane(table);
-
-				add(scrollPane);
+				for(Object[] row : data)
+				{
+					tableModel.addRow(row);
+				}
 			}
 		}
 		else if(ae.getSource() == addNewRecordItem)
@@ -166,7 +201,7 @@ public class Main extends JFrame implements ActionListener
 
 				BufferedInputStream bin = new BufferedInputStream(fin);
 
-				int i = 0
+				int i = 0;
 
 				while((i = bin.read()) != '\n')
 				{
@@ -181,9 +216,127 @@ public class Main extends JFrame implements ActionListener
 
 			String columnNames[] = sb.toString().split(",");
 
-			JDialog recordInputDialog = new JDialog();
+			JDialog recordInputDialog = new JDialog(this, "Add New Font", true);
+
+			// create an object of FlowLayout
+
+			FlowLayout fl = new FlowLayout();
+
+			// set the layout of the dialog box to FlowLayout
+
+			recordInputDialog.setLayout(fl);
+
+			// set the size of the dialog
+
+			recordInputDialog.setSize(340, 220);
+
+			// for(String columnName : columnNames)
+			// {
+			// 	JTextField jtf = new 
+			// }
+
+			// create text fields to input the field data
+
+			JTextField s_no_field = new JTextField(20);
+
+			JTextField name_field = new JTextField(20);
+
+			JTextField roll_no_field = new JTextField(20);
+
+			// create labels for the text fields
+
+			JLabel s_no_label = new JLabel("S.No. => ");
+
+			JLabel name_label = new JLabel("Name => ");
+
+			JLabel roll_no_label = new JLabel("Roll No. => ");
+
+			// add the resp. labels and fields to the dialog box
+
+			recordInputDialog.add(s_no_label);
+
+			recordInputDialog.add(s_no_field);
+
+			recordInputDialog.add(name_label);
+
+			recordInputDialog.add(name_field);
+
+			recordInputDialog.add(roll_no_label);
+
+			recordInputDialog.add(roll_no_field);
+
+			// create an ok button
+
+			JButton ok_btn = new JButton("Ok");
+
+			// create a cancel button
+
+			JButton cancel_btn = new JButton("Cancel");
+
+			ok_btn.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent ae)
+				{
+					StringBuilder sb = new StringBuilder();
+
+					sb.append("\n");
+
+					sb.append(s_no_field.getText());
+
+					sb.append(", ");
+
+					sb.append(name_field.getText());
+
+					sb.append(", ");
+
+					sb.append(roll_no_field.getText());
+
+					String filepath = getTitle();
+
+					try
+					{
+						FileOutputStream fout = new FileOutputStream(filepath, true); // opening the file in append mode (by passing true along with filepath in function call)
+
+						BufferedOutputStream bout = new BufferedOutputStream(fout);
+
+						byte[] b = sb.toString().getBytes();
+
+						bout.write(b);
+
+						bout.flush();
+
+						bout.close();
+
+						fout.close();
+					}
+
+					catch(Exception e)
+					{
+						System.out.println(e);
+					}
+
+					// get the row data as a String in csv format
+
+					String row_csv_data = sb.toString().substring(1, sb.length());
+
+					// get the row data
+
+					Object[] row_data = row_csv_data.split(",");
+
+					tableModel.addRow(row_data);
+				}
+			});
+
+			// adding the buttons to the dialog box
+
+			recordInputDialog.add(ok_btn);
+
+			recordInputDialog.add(cancel_btn);
+
+			// set the visibility of the dialog box to true, ie., make it visible.
+
+			recordInputDialog.setVisible(true);
 		}
-		
 	}
 
 	public static void main(String[] args)
