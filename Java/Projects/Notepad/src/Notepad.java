@@ -3,11 +3,67 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.*;
 import java.awt.*;
+import java.util.concurrent.*;
+
+// create a class to load the fonts and place them in the JComboBox in a seperate thread
+
+class FontLoaderThread extends Thread
+{
+	private String threadName;
+
+	FontLoaderThread(String threadName)
+	{
+		super(threadName);
+
+		this.threadName = threadName;
+
+		start();
+	}
+
+	public void run()
+	{
+		try
+		{
+			System.out.println(threadName+" started...");
+
+			// create a JComboBox consisting of all the available system fonts
+
+			JComboBox<String> fontFamilyComboBox = new JComboBox<>();
+
+			// get the available system fonts
+
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
+			String[] fontFamilyNames = ge.getAvailableFontFamilyNames();
+
+			// add the available system fonts to the combo box
+
+			for(String fontFamilyName : fontFamilyNames)
+			{
+				fontFamilyComboBox.addItem(fontFamilyName);
+			}
+
+			System.out.println(threadName+" completed...");
+
+			Notepad.fontFamilyComboBox = fontFamilyComboBox;
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}
 
 class Notepad
 {
+	static volatile JComboBox<String> fontFamilyComboBox = new JComboBox<>();
+
 	public static void main(String args[]) throws Exception
 	{
+		// create a new thread for loading the fonts available in the system
+
+		FontLoaderThread fThread = new FontLoaderThread("FontLoaderThread");
+
 		// create a JFrame
 
 		JFrame frame = new JFrame("Untitled - Notepad (Unsaved)");
@@ -143,22 +199,7 @@ class Notepad
 
 		JPanel fontDialogPanel1 = new JPanel();
 
-		// create a JComboBox consisting of all the available system fonts
 
-		JComboBox<String> fontFamilyComboBox = new JComboBox<>();
-
-		// get the available system fonts
-
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-
-		String[] fontFamilyNames = ge.getAvailableFontFamilyNames();
-
-		// add the available system fonts to the combo box
-
-		for(String fontFamilyName : fontFamilyNames)
-		{
-			fontFamilyComboBox.addItem(fontFamilyName);
-		}
 
 		// create a panel to display sample text on.
 
@@ -1348,18 +1389,18 @@ class Notepad
 				return false;
 			}
 
-			// @Override
-			// public void actionPerformed(ActionEvent ae)
-			// {
-			// 	String title = frame.getTitle();
+			@Override
+			public void actionPerformed(ActionEvent ae)
+			{
+				String title = frame.getTitle();
 
-			// 	if(title.contains("(Unsaved)"))
-			// 	{
-			// 		String data = textArea.getText();
+				if(title.contains("(Unsaved)"))
+				{
+					String data = textArea.getText();
 
-			// 		if(containsWord())
-			// 	}	
-			// }
+					// if(containsWord())
+				}	
+			}
 		});
 
 		fontItem.addActionListener(e -> fontDialog.setVisible(true)); // lambda function
