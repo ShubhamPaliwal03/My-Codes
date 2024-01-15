@@ -21,15 +21,15 @@ class InsertUserInputDataIntoDatabase
 
 		System.out.print("\nFirst name : ");
 
-		String fname = kb.next();
+		String fname = kb.nextLine();
 
 		System.out.print("\nLast name : ");
 
-		String lname = kb.next();
+		String lname = kb.nextLine();
 
 		System.out.print("\nCourse name : ");
 
-		String course = kb.next();
+		String course = kb.nextLine();
 
 		System.out.print("\nEmail ID : ");		
 
@@ -41,7 +41,7 @@ class InsertUserInputDataIntoDatabase
 
 		kb.close();
 
-		String query = "INSERT INTO STUDENT VALUES ("+roll+",'"+fname+"','"+lname+"','"+course+"','"+email+"',"+mobile_no+")" ;
+		String query = "INSERT INTO STUDENT VALUES ("+roll+",'"+fname+"','"+lname+"','"+course+"','"+email+"',"+mobile_no+")";
 
 		// create a connection reference
 
@@ -55,7 +55,7 @@ class InsertUserInputDataIntoDatabase
 
 			// get connection
 
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/college", "root", "");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
 
 			//college is the database, root is the name of the database user, defualt password for root is empty
 

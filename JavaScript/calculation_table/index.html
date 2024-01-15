@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Table</title>
+    <style type="text/css">
+        input
+        {
+            text-align: center;
+            color: white;
+            background-color: black;
+            width: 95%;
+            height: 70px;
+        }
+        tr
+        {
+            background-color: black;
+            color: white;
+            text-align: center;
+            transition: background-color 0.5s, color 0.5s, font-weight 0.5s;
+        }
+        tr:hover
+        {
+            color: black;
+            font-weight: bold;
+        }
+        #tr1:hover
+        {
+            background-color: rgb(255, 115, 0);
+        }
+        #tr2:hover
+        {
+            background-color: cyan;
+        }
+        #tr3:hover
+        {
+            background-color: greenyellow;
+        }
+        #tr4:hover
+        {
+            background-color: magenta;
+        }
+        table
+        {
+            width: 80%;
+            height: 400px;
+            margin: 170px auto;
+            border: 10px black solid;
+        }
+        th
+        {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <form action="save.php" id="myForm">
+        <table>
+            <tr>
+                <th>Value 1</th>
+                <th>Value 2</th>
+                <th>Operation</th>
+                <th>Result</th>
+            </tr>
+            <tr id=tr1>
+                <td><input id="val1_1" type="text" placeholder="Enter Value 1" onchange="calculateResult('1')"></td>
+                <td><input id="val2_1" type="text" placeholder="Enter Value 2" onchange="calculateResult('1')"></td>
+                <td><input id="op1" type="text" placeholder="Choose Operation (+ - * /)" onchange="calculateResult('1')"></td>
+                <td id="res1">0</td>
+            </tr>
+            <tr id=tr2>
+                <td><input id="val1_2" type="text" placeholder="Enter Value 1" onchange="calculateResult(2)"></td>
+                <td><input id="val2_2" type="text" placeholder="Enter Value 2" onchange="calculateResult(2)"></td>
+                <td><input id="op2" type="text" placeholder="Choose Operation (+ - * /)" onchange="calculateResult(2)"></td>
+                <td id="res2">0</td>
+            </tr>
+            <tr id=tr3>
+                <td><input id="val1_3" type="text" placeholder="Enter Value 1" onchange="calculateResult(3)"></td>
+                <td><input id="val2_3" type="text" placeholder="Enter Value 2" onchange="calculateResult(3)"></td>
+                <td><input id="op3" type="text" placeholder="Choose Operation (+ - * /)" onchange="calculateResult(3)"></td>
+                <td id="res3">0</td>
+            </tr>
+            <tr id=tr4>
+                <td><input id="val1_4" type="text" placeholder="Enter Value 1" onchange="calculateResult(4)"></td>
+                <td><input id="val2_4" type="text" placeholder="Enter Value 2" onchange="calculateResult(4)"></td>
+                <td><input id="op4" type="text" placeholder="Choose Operation (+ - * /)" onchange="calculateResult(4)"></td>
+                <td id="res4">0</td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+    
+        window.addEventListener("beforeunload", () => document.getElementById('myForm').reset())
+
+        function calculateResult(id_value)
+        {
+            const operation = document.getElementById('op'+id_value).value
+
+            const val1 = Number(document.getElementById('val1_'+id_value).value)
+
+            const val2 = Number(document.getElementById('val2_'+id_value).value)
+
+            const result_cell = document.getElementById('res'+id_value)
+
+            let res = 0
+
+            switch(operation)
+            {
+                case '+':
+
+                    res = val1 + val2
+
+                    break
+
+                case '-':
+
+                    res = val1 - val2
+
+                    break
+
+                case '*': 
+
+                    res = val1 * val2
+
+                    break
+
+                case '/':
+
+                    res = val1 / val2
+
+                    break
+            }
+
+            result_cell.innerText = res
+
+        }
+    </script>
+
+    <!-- <script type="text/javascript">
+        
+        var a = 10, b = 20, c = 20, d = 5, e = 100, f = 25, g = 20, h = 30;
+
+        Method-1 (Using Multiple JS Print Statements)
+
+        document.write("<table>")
+
+            document.write("<tr>")
+                document.write("<th>Value 1</th>")
+                document.write("<th>Value 2</th>")
+                document.write("<th>Operation</th>")
+                document.write("<th>Result</th>")
+            document.write("</tr>")
+
+            document.write("<tr>")
+                document.write("<td>"+a+"</td>")
+                document.write("<td>"+b+"</td>")
+                document.write("<td>+</td>")
+                document.write("<td>"+(a+b)+"</td>")
+            document.write("</tr>")    
+            
+            document.write("<tr>")
+                document.write("<td>"+c+"</td>")
+                document.write("<td>"+d+"</td>")
+                document.write("<td>*</td>")
+                document.write("<td>"+(c*d)+"</td>")
+            document.write("</tr>")  
+
+            document.write("<tr>")
+                document.write("<td>"+e+"</td>")
+                document.write("<td>"+f+"</td>")
+                document.write("<td>/</td>")
+                document.write("<td>"+(e/f)+"</td>")
+            document.write("</tr>") 
+
+            document.write("<tr>")
+                document.write("<td>"+g+"</td>")
+                document.write("<td>"+h+"</td>")
+                document.write("<td>-</td>")
+                document.write("<td>"+(g-h)+"</td>")            
+
+        document.write("</table>")
+
+        Method-2 (Using String Concatenation)
+
+        document.write("<table>"
+                +"<tr>"
+                    +"<th>Value 1</th>"
+                    +"<th>Value 2</th>"
+                    +"<th>Operation</th>"
+                    +"<th>Result</th>"
+                +"</tr>"
+
+                +"<tr id=tr1>"
+                    +"<td>"+a+"</td>"
+                    +"<td>"+b+"</td>"
+                    +"<td>+</td>"
+                    +"<td>"+(a+b)+"</td>"
+                +"</tr>"
+
+                +"<tr id=tr2>"
+                    +"<td>"+c+"</td>"
+                    +"<td>"+d+"</td>"
+                    +"<td>*</td>"
+                    +"<td>"+(c*d)+"</td>"
+                +"</tr>"
+
+                +"<tr id=tr3>"
+                    +"<td>"+e+"</td>"
+                    +"<td>"+f+"</td>"
+                    +"<td>/</td>"
+                    +"<td>"+(e/f)+"</td>"
+                +"</tr>"
+
+                +"<tr id=tr4>"
+                    +"<td>"+g+"</td>"
+                    +"<td>"+h+"</td>"
+                    +"<td>-</td>"
+                    +"<td>"+(g-h)+"</td>"
+                +"</tr>"
+            +"</table>");
+
+    </script> -->
+
+</body>
+</html>

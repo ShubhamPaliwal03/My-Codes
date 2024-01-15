@@ -1,5 +1,19 @@
 /* You have been given  */
 
+// we will be using bit magic / bit manipulation here, Bitwise XOR (^)
+// since we know that bitwise xor gives 1 as the resultant bit if the two bits are different, and 
+// 0 as the resultant bit if the two bits are same, so we obtain the element only once in the array
+// at the end, as the result.
+
+// Dry Run for test case : N = 3, arr[] = {1, 10, 1} =>
+
+// initially :   result = 0
+// i = 0     :   arr[0] = 1,  result = 0 ^ 1  => result = 1
+// i = 1     :   arr[1] = 10, result = 1 ^ 10 => result = 11
+// i = 2     :   arr[2] = 1,  result = 11 ^ 1 => result = 10
+
+// note that appraoch-1 (M1) will work even if other digits have a frequency greater than 2
+
 import java.util.Scanner;
 
 class Main
@@ -24,12 +38,25 @@ class Main
 					count++;
 				}
 
-				if(j == a.length-1 && count == 1)
-				{
-					single_num = a[i];
+				// if(j == a.length-1 && count == 1)
+				// {
+				// 	single_num = a[i];
 
-					break label_outer;
-				}
+				// 	break label_outer;
+				// }
+			}
+
+			// simplified upper logic by eliminating checking one condition,
+			// and instead of checking again and again that if the innner loop is successfully completed,
+			// we can directly check the remaining condition after the complete execution of the inner loop,
+
+			// note that the inner loop is bound to run fully, as there is no break statement inside it.
+
+			if(count == 1)
+			{
+				single_num = a[i];
+
+				break label_outer;
 			}
 		}
 
@@ -69,9 +96,9 @@ class Main
 
 		kb.close();
 
-		// int single_num = singleNumM1(arr);
+		int single_num = singleNumM1(arr);
 
-		int single_num = singleNumM2(arr);
+		// int single_num = singleNumM2(arr);
 
 		System.out.print("\nThe single number of the array is : "+single_num);
 	}

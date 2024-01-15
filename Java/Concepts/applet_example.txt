@@ -20,7 +20,7 @@ public class StringApplet extends Applet
     g.setColor(Color.RED);
   }
 }
-/*<applet 
+/*<applet>
   height="500" 
   width="500" 
   code="StringApplet.java">

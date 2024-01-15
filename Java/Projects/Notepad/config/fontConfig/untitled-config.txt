@@ -1,1 +1,1 @@
-Rockwell Extra Bold,1,28
+Times New Roman,2,28

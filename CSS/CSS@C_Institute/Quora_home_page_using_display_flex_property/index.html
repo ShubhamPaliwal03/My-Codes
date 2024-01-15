@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="quora_favicon.png">
+    <title>Quora</title>
+    <style>
+        body
+        {
+            margin-top: 0px;
+            padding-top: 0px;
+        }
+        #quora_logo_text
+        {
+            font-weight: bold;
+            font-size: 30px;
+            color: #b92b27;
+        }
+        .flex-navbar
+        {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            position: fixed;
+            justify-content: space-evenly;
+            background-color: white;
+            width: 100%;
+            height: 60px;
+            align-items: center;
+            padding-top: 0px;
+            margin-top: 0px;
+        }
+        #search_box
+        {
+            border-radius: 4px;
+            height: 40px;
+            width: 400px;
+        }
+        #try_quora_btn
+        {
+            border-radius: 20px;
+            height: 40px;
+            width: 100px;
+            cursor: pointer;
+        }
+        .flex-add_ques
+        {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        #add_ques_btn
+        {
+            height: 34px;
+            width: 100px;
+            border-radius: 20px 0px 0px 20px; /*top-left top-right bottom-right bottom-left*/
+        }
+        #dropdown, #add_ques_btn
+        {
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background-color: #b92b27;
+            color: white;
+        }
+        #dropdown
+        {
+            height: 34px;
+            width: 40px;
+            border-left: solid 1px brown;
+            border-radius: 20px 0px 0px 20px;
+            transform: scale(-1,-1);
+        }
+        .nav_btns
+        {
+            cursor:pointer;
+            background-color: white;
+            height: 50px;
+            width: 44px;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.705);
+            transition: color 0.1s;
+        }
+        .nav_btns:hover
+        {
+            background-color: gainsboro;
+            opacity: 0.8;
+            color: black;
+        }
+        #btn_flex_container
+        {
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-container
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .flex-container > div
+        {
+            text-wrap: wrap;
+        }
+        .flex-container > div:nth-child(1),:nth-child(2)
+        {
+            margin-right: 10px;
+        }
+        #home_btn
+        {
+            color:#b92b27;
+        }
+        #intrests_section
+        {
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            /* padding-left: 50px; */
+            width: 200px;
+            height: 80vh;
+            /* position: fixed; comment */
+            left: 5px;
+        }
+        .intrests
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f1f2f2;
+        }
+        .intrests > div > button
+        {
+            border: none;
+            outline: none;
+            background-color: #f1f2f2;
+            padding: 10px;
+        }
+        .intrests > div > button:hover
+        {
+            background-color: silver;
+            opacity: 0.8;
+            color: black;
+        }
+        .ad_images
+        {
+            height: 50vh;
+            width: 25vw;
+        }
+        .ads
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            /* position: sticky; */
+            background-color: #f1f2f2;
+        }
+        .ads > div
+        {
+            padding-top: 70px;
+        }
+        /* .ad
+        {
+            margin-bottom: -40px;
+        } */
+        #posts
+        {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            /* margin-left: 13.5vw; comment */
+            background-color: #f1f2f2;
+        }
+        #posts > div
+        {
+            margin-top: 55px;
+        }
+        #profile_innermost
+        {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-left: -3px;
+        }
+        #profile_innermost > div
+        {
+            margin-left: 3px;
+            margin-right: 1px;
+        }
+        #user_image
+        {
+            width: 50px;
+            height: 50px;
+            border: solid 1px black;
+            border-radius: 100%;
+        }
+        #post_link, #user_id_link
+        {
+            color: black;
+            text-decoration: none;
+        }
+        #user_id_link
+        {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        #profile_outer
+        {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        .post
+        {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f1f2f2;
+        }
+        #profile_outermost
+        {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+        }
+        #post_content
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #post_img
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/4ca0345904.js" crossorigin="anonymous"></script>
+    <div class="flex-navbar">
+        <div id="quora_logo_text">Quora</div>
+        <div id="btn_flex_container">
+            <div><button id="home_btn" class="nav_btns" onclick="changeFontColor(this.id)"><i class="fa-solid fa-house"></i></button></div>
+            <div><button id="list_btn" class="nav_btns" onclick="changeFontColor(this.id)"><i class="fa-solid fa-list"></i></button></div>
+            <div><button id="write_btn" class="nav_btns" onclick="changeFontColor(this.id)"><i class="fa-solid fa-pen-to-square"></i></button></div>
+            <div><button id="people_btn" class="nav_btns" onclick="changeFontColor(this.id)"><i class="fa-solid fa-user-group"></i></button></div>
+            <div><button id="notifications_btn" class="nav_btns" onclick="changeFontColor(this.id)"><i class="fa-solid fa-bell"></i></button></div>
+            <div><button id="menu_btn" class="nav_btns" onclick="changeFontColor(this.id)"><i class="fa-solid fa-bars"></i></div></button>
+            <div><button id="net_btn" class="nav_btns" onclick="changeFontColor(this.id)"><i class="fa-solid fa-globe"></i></button></div>
+        </div>
+        <div><input id="search_box" type="search" placeholder="Search Quora"></div>
+        <div><button id="try_quora_btn">Try Quora+</button></div>
+        <div class="flex-add_ques">
+            <div><button id="add_ques_btn">Add Question</button></div>
+            <div><button id="dropdown">^</button></div>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div id="intrests_section">
+            <div class="intrests">
+                <div><button>+ Create Space</button></div>
+                <div><button>Physics</button></div>
+                <div><button>Scientific Research</button></div>
+                <div><button>Innovation</button></div>
+                <div><button>Business</button></div>
+                <div><button>Visiting and Travel</button></div>
+                <div><button>Books</button></div>
+                <div><button>Science</button></div>
+                <div><button>Technology</button></div>
+                <div><button>Education</button></div>
+                <div><button>Environmental Science</button></div>
+                <div><button>Computer Science</button></div>
+                <div><button>Engineering</button></div>
+                <div><button>Coding</button></div>
+                <div><button>Software Development</button></div>
+                <div><button>UI/UX</button></div>
+                <div><button>Management</button></div>
+                <div><button>Consulting</button></div>
+                <div><button>English</button></div>
+                <div><button>Politics</button></div>
+                <div><button>Inventions</button></div>
+            </div>
+        </div>
+        <div id="posts">
+            <div class="post" id="post1">
+                <div id="profile_outermost">
+                    <img id="user_image" src="blank_profile_picture.jpg" alt="blank_profile_picture">
+                    <div id="profile_outer">
+                        <div id="profile_inner">
+                            <div id="profile_innermost">
+                                <div><p><a id="user_id_link" href="index.html#">A. Soper</a></p></div>
+                                <div>.</div>
+                                <div><a id="follow_link" href="index.html#">Follow</a></div>
+                            </div>
+                        </div>    
+                        <div id="user_title">Former Member of Technical Staff at AT&T Bell Labs (1985–1993) . Updated 3y</div>
+                    </div>
+                </div>
+                <p><a id="post_link" href="index.html#">Do you think Bjarne Stroustrup knows the entire C++ language or does he have to refer back to his own book?</a></p>
+                <div id="post_content">
+                    <p>
+                        I feel I am uniquely qualified to answer this question!
+                        It was 1986, and I was working at AT&T Bell Labs. Our department was only the second in the entire company that was using this compiler called cfront for a new language called C++. I knew the C language, and was in the process of learning C++ along with others in my group. One day, I was puzzled by a certain construct in the C++ language.
+                        Now, Stroustrup was also an employee at AT&T Bell Labs. His name and number was listed in the company directory. (Because he was in a different location, I had to dial him using the “8” prefix, if I recall correctly, followed by the location code.)
+                        I called him, and he picked up. I posed my question to him and told him that I had already consulted his C++ book. Without any delay whatsoever, and I mean instantly, he told me to “turn to page X” (I honestly don’t remember the page # after so many years, but it was a very specific topic deep in the book, say on page 197). And I remember that I did not hear any sound of him picking up his book, going through the pages; really, no time elapsed for any of that. It was more akin to a Jennings-level Jeopardy! contestant already providing an answer while the question is still in the process of being asked.
+                        Sure enough, my question had a clear answer on that very page! I was just amazed how he knew the page # by heart! I thanked him and hung up. I thought to myself, no wonder he came up with the language, and wrote the cfront preprocessor all by himself!
+                        I am mad at myself for not getting the book autographed during those days.
+                    </p>
+                    <div>
+                        <img class="post_img" src="https://qph.cf2.quoracdn.net/main-qimg-da113c805f07a570d532b9772f8c629a-lq" alt="bjarne_stroustrup_sitting_at_work">
+                    </div>    
+                </div>
+            </div>
+            <div class="post" id="post1">
+                <div id="profile_outermost">
+                    <img id="user_image" src="blank_profile_picture.jpg" alt="blank_profile_picture">
+                    <div id="profile_outer">
+                        <div id="profile_inner">
+                            <div id="profile_innermost">
+                                <div><p><a id="user_id_link" href="index.html#">A. Soper</a></p></div>
+                                <div>.</div>
+                                <div><a id="follow_link" href="index.html#">Follow</a></div>
+                            </div>
+                        </div>    
+                        <div id="user_title">Former Member of Technical Staff at AT&T Bell Labs (1985–1993) . Updated 3y</div>
+                    </div>
+                </div>
+                <p><a id="post_link" href="index.html#">Do you think Bjarne Stroustrup knows the entire C++ language or does he have to refer back to his own book?</a></p>
+                <div id="post_content">
+                    <p>
+                        I feel I am uniquely qualified to answer this question!
+                        It was 1986, and I was working at AT&T Bell Labs. Our department was only the second in the entire company that was using this compiler called cfront for a new language called C++. I knew the C language, and was in the process of learning C++ along with others in my group. One day, I was puzzled by a certain construct in the C++ language.
+                        Now, Stroustrup was also an employee at AT&T Bell Labs. His name and number was listed in the company directory. (Because he was in a different location, I had to dial him using the “8” prefix, if I recall correctly, followed by the location code.)
+                        I called him, and he picked up. I posed my question to him and told him that I had already consulted his C++ book. Without any delay whatsoever, and I mean instantly, he told me to “turn to page X” (I honestly don’t remember the page # after so many years, but it was a very specific topic deep in the book, say on page 197). And I remember that I did not hear any sound of him picking up his book, going through the pages; really, no time elapsed for any of that. It was more akin to a Jennings-level Jeopardy! contestant already providing an answer while the question is still in the process of being asked.
+                        Sure enough, my question had a clear answer on that very page! I was just amazed how he knew the page # by heart! I thanked him and hung up. I thought to myself, no wonder he came up with the language, and wrote the cfront preprocessor all by himself!
+                        I am mad at myself for not getting the book autographed during those days.
+                    </p>
+                    <div>
+                        <img class="post_img" src="https://qph.cf2.quoracdn.net/main-qimg-da113c805f07a570d532b9772f8c629a-lq" alt="bjarne_stroustrup_sitting_at_work">
+                    </div>    
+                </div>
+                <div class="post" id="post1">
+                    <div id="profile_outermost">
+                        <img id="user_image" src="blank_profile_picture.jpg" alt="blank_profile_picture">
+                        <div id="profile_outer">
+                            <div id="profile_inner">
+                                <div id="profile_innermost">
+                                    <div><p><a id="user_id_link" href="index.html#">A. Soper</a></p></div>
+                                    <div>.</div>
+                                    <div><a id="follow_link" href="index.html#">Follow</a></div>
+                                </div>
+                            </div>    
+                            <div id="user_title">Former Member of Technical Staff at AT&T Bell Labs (1985–1993) . Updated 3y</div>
+                        </div>
+                    </div>
+                    <p><a id="post_link" href="index.html#">Do you think Bjarne Stroustrup knows the entire C++ language or does he have to refer back to his own book?</a></p>
+                    <div id="post_content">
+                        <p>
+                            I feel I am uniquely qualified to answer this question!
+                            It was 1986, and I was working at AT&T Bell Labs. Our department was only the second in the entire company that was using this compiler called cfront for a new language called C++. I knew the C language, and was in the process of learning C++ along with others in my group. One day, I was puzzled by a certain construct in the C++ language.
+                            Now, Stroustrup was also an employee at AT&T Bell Labs. His name and number was listed in the company directory. (Because he was in a different location, I had to dial him using the “8” prefix, if I recall correctly, followed by the location code.)
+                            I called him, and he picked up. I posed my question to him and told him that I had already consulted his C++ book. Without any delay whatsoever, and I mean instantly, he told me to “turn to page X” (I honestly don’t remember the page # after so many years, but it was a very specific topic deep in the book, say on page 197). And I remember that I did not hear any sound of him picking up his book, going through the pages; really, no time elapsed for any of that. It was more akin to a Jennings-level Jeopardy! contestant already providing an answer while the question is still in the process of being asked.
+                            Sure enough, my question had a clear answer on that very page! I was just amazed how he knew the page # by heart! I thanked him and hung up. I thought to myself, no wonder he came up with the language, and wrote the cfront preprocessor all by himself!
+                            I am mad at myself for not getting the book autographed during those days.
+                        </p>
+                        <div>
+                            <img class="post_img" src="https://qph.cf2.quoracdn.net/main-qimg-da113c805f07a570d532b9772f8c629a-lq" alt="bjarne_stroustrup_sitting_at_work">
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div class="ads">
+            <div class="ad">
+                <img class="ad_images" src="apple_advertisement.jpg" alt="apple_ad">
+            </div>
+            <div class="ad">
+                <img class="ad_images" src="samsung_advertisement2.jpg" alt="samsung_ad">
+            </div>
+            <div class="ad">
+                <img class="ad_images" src="vw_advertisment.png" alt="samsung_ad">
+            </div>
+            <div class="ad">
+                <img class="ad_images" src="bose_advertisment.png" alt="samsung_ad">
+            </div>
+            <div class="ad">
+                <img class="ad_images" src="dell_advertisement.jpg" alt="samsung_ad">
+            </div>
+            <div class="ad">
+                <img class="ad_images" src="google_advertisement.jpg" alt="samsung_ad">
+            </div>
+            <div class="ad">
+                <img class="ad_images" src="apple_advertisement2.jpg" alt="samsung_ad">
+            </div>
+            <div class="ad">
+                <img class="ad_images" src="samsung_advertisement.jpg" alt="samsung_ad">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let prev_active_page_btn_id = "home_btn"
+
+    function changeFontColor(current_active_page_btn_id)
+    {
+        const current_active_page_btn = document.getElementById(current_active_page_btn_id)
+        
+        // fetch the current active page btn
+
+        // change the color of the current active page button to shade of red (#b92b27)
+
+        current_active_page_btn.style.color = "#b92b27";
+
+        // fetch the prev active page btn
+        
+        const prev_active_page_btn = document.getElementById(prev_active_page_btn_id)
+        
+        // change the color of the previous active button back to shade of black again
+
+        prev_active_page_btn.style.color = "rgba(0, 0, 0, 0.705)"
+
+        // the current active page btn id will be the previous active page btn id for the next current active page btn
+
+        prev_active_page_btn_id = current_active_page_btn_id
+    }
+</script>
+</html>

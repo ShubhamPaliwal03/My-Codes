@@ -47,6 +47,7 @@ class FontLoaderThread extends Thread
 
 			Notepad.fontFamilyComboBox = fontFamilyComboBox;
 		}
+
 		catch(Exception e)
 		{
 			System.out.println(e);
@@ -69,6 +70,8 @@ class Notepad
 		JFrame frame = new JFrame("Untitled - Notepad (Unsaved)");
 
 		frame.setSize(500, 500);
+
+		frame.setLocationRelativeTo(null);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -185,6 +188,8 @@ class Notepad
 
 		JDialog fontDialog = new JDialog(frame, "Font", true);
 
+		fontDialog.setLocationRelativeTo(frame);
+
 		// create an object of flow layout
 
 		FlowLayout fl = new FlowLayout();
@@ -198,8 +203,6 @@ class Notepad
 		// create a panel for the resp. combo box
 
 		JPanel fontDialogPanel1 = new JPanel();
-
-
 
 		// create a panel to display sample text on.
 
@@ -1403,7 +1406,17 @@ class Notepad
 			}
 		});
 
-		fontItem.addActionListener(e -> fontDialog.setVisible(true)); // lambda function
+		// below given lambda expression defines and represents the actionListener interface 
+		// it is used here to define the functional interface (an interface having only one abstract method (here, actionPerformed() method))
+
+		// when an action event is generated, the lambda expression is executed, and the dialog box is displayed.
+
+		// where, e is the parameter of the lambda expression, it represents an object of ActionEvent, which is passed to the actionPerformed() method
+
+		// and, fontDialog.setVisible(true) is the body of the lambda expression, since there is only one statement in the body,
+		// therefore, we can skip the curly braces {}.
+
+		fontItem.addActionListener(ae -> fontDialog.setVisible(true));
 
 		// add JMenuItems to the File Menu
 

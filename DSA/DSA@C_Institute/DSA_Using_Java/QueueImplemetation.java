@@ -64,7 +64,7 @@ class Queue
 
 			System.out.println("\n"+data+" deleted from the Queue...");
 
-			if(front > rear) // ie., the queue is empty now and we reset both the front and the rear to -1
+			if(front > rear) // ie., if the queue is empty, we reset both the front and the rear to -1
 			{
 				front = rear = -1;
 			}

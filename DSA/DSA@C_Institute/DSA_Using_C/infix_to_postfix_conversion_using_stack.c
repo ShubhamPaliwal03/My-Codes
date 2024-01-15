@@ -87,7 +87,7 @@ int main()
         }
         else if(getprecedence(stack[top]) < getprecedence(infix[i]))
         {
-          stack[++top]=infix[i];
+          stack[++top] = infix[i];
         }
         else
         {
@@ -118,7 +118,7 @@ int main()
   }
   while(top != -1)
   {
-    if(stack[top]=='(')
+    if(stack[top] == '(')
     {
       top--;
 
