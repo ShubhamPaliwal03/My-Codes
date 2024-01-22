@@ -59,6 +59,39 @@ class Notepad
 {
 	static volatile JComboBox<String> fontFamilyComboBox = new JComboBox<>();
 
+	public static ArrayList<ArrayList<Integer>> findWordIndicesInString(String str, String word)
+	{
+		ArrayList<ArrayList<Integer>> indices = new ArrayList<ArrayList<Integer>>();
+
+		int index = 0;
+
+		int str_len = str.length();
+
+		int word_len = word.length();
+
+		while(index < str_len)
+		{
+			if(str.startsWith(word, index))
+			{
+				ArrayList<Integer> arr = new ArrayList<>();
+
+				arr.add(index);
+
+				arr.add(index + (word_len - 1));
+
+				index += word_len;
+
+				indices.add(arr);
+			}
+			else
+			{
+				index++;
+			}
+		}
+
+		return indices;
+	}
+
 	public static void main(String args[]) throws Exception
 	{
 		// create a new thread for loading the fonts available in the system
@@ -74,6 +107,10 @@ class Notepad
 		frame.setLocationRelativeTo(null);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// create an object of flow layout
+
+		FlowLayout fl = new FlowLayout();
 
 		// create a JMenuBar
 
@@ -107,11 +144,23 @@ class Notepad
 
 		exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_DOWN_MASK));
 
+		// create a JMenu for "Edit" options
+
+		JMenu editMenu = new JMenu("Edit");
+
+		// create JMenuItems for the editMenu
+
+		JMenuItem findItem = new JMenuItem("Find");
+
+		// set the keyboard shortcut for the findItem using the KeyStroke, which will serve as an accelerator
+
+		findItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK | KeyEvent.SHIFT_DOWN_MASK));
+
 		// creata a JMenu for "Format" options
 
 		JMenu formatMenu = new JMenu("Format");
 
-		// Create JMenu items for the formatMenu
+		// Create JMenuItems for the formatMenu
 
 		JMenuItem fontItem = new JMenuItem("Font");
 
@@ -184,15 +233,58 @@ class Notepad
 
 		frame.add(scrollPane);
 
+		// create a JDialog for find option
+
+		JDialog	findDialog = new JDialog(frame, "Find", true);
+
+		findDialog.setSize(340, 120);
+
+		findDialog.setLocationRelativeTo(frame);
+
+		findDialog.setLayout(fl);
+
+		JLabel findTextLabel = new JLabel("Text: ");
+
+		JTextField findTextField = new JTextField(15);
+
+		JButton findBtn = new JButton("Find");
+
+		findDialog.add(findTextLabel);
+
+		findDialog.add(findTextField);
+
+		findDialog.add(findBtn);
+
+		findItem.addActionListener(new ActionListener()
+		{	
+			public void actionPerformed(ActionEvent ae)
+			{
+				findDialog.setVisible(true);
+			}
+		});
+
+		findBtn.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				ArrayList<ArrayList<Integer>> indices = findWordIndicesInString(textArea.getText(), findTextField.getText());
+
+				for(ArrayList<Integer> indexArr : indices)
+				{
+					int start_index = indexArr.get(0);
+
+					int end_index = indexArr.get(1);
+
+					textArea.select(start_index, end_index+1);
+				}
+			}
+		});
+
 		// create a dialog box for font formating options
 
 		JDialog fontDialog = new JDialog(frame, "Font", true);
 
 		fontDialog.setLocationRelativeTo(frame);
-
-		// create an object of flow layout
-
-		FlowLayout fl = new FlowLayout();
 
 		// set the layout of the dialog box to flow layout
 
@@ -1438,6 +1530,10 @@ class Notepad
 
 		fileMenu.add(openItem);
 
+		// add JMenuItems to the Edit Menu
+
+		editMenu.add(findItem);
+
 		// add JMenuItems to the Format Menu
 
 		formatMenu.add(fontItem);
@@ -1445,6 +1541,10 @@ class Notepad
 		// add the file menu to the menu bar
 
 		menuBar.add(fileMenu);
+
+		// add the edit menu to the menu bar
+
+		menuBar.add(editMenu);
 
 		// add the format menu to the menu bar
 

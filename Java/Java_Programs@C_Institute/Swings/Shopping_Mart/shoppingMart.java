@@ -19,6 +19,132 @@ class shoppingMart
 
 	private static JTable table;
 
+	public static void updateCartTable()
+	{
+		// get all the necessary values from the cart table
+
+		try
+		{
+			// get the total number of rows present in the table using a sql query
+
+			ResultSet resultSet1 = statement.executeQuery("SELECT COUNT(p_id) FROM cart");
+
+			int rows_present_in_cart = 0;
+
+			if(resultSet1.next())
+			{
+				rows_present_in_cart = resultSet1.getInt("COUNT(p_id)");
+			}
+
+			// create arrays for storing data fetched from sql queries
+
+			Integer[] p_ids = new Integer[rows_present_in_cart];
+
+			String[] p_names = new String[rows_present_in_cart];
+
+			Integer[] p_qtys = new Integer[rows_present_in_cart];
+
+			Integer[] p_prices = new Integer[rows_present_in_cart];
+
+			Integer[] p_total_amounts = new Integer[rows_present_in_cart];
+
+			// get all the data from the 'cart' table using a query
+
+			ResultSet resultSet2 = statement.executeQuery("SELECT * FROM cart");
+
+			int index = 0;
+
+			while(resultSet2.next())
+			{
+				p_ids[index] = resultSet2.getInt("p_id");
+
+				p_prices[index] = resultSet2.getInt("rate");
+
+				p_qtys[index] = resultSet2.getInt("quantity");
+
+				p_total_amounts[index] = resultSet2.getInt("total");
+
+				index++;
+			}
+
+			// get the names of all the products using their respective product id's from the 'product' table, using their p_id, via a sql query
+
+			index = 0;
+
+			for(Integer pID : p_ids)
+			{
+				ResultSet resultSet3 = statement.executeQuery("SELECT p_name FROM product WHERE p_id = "+pID);
+
+				if(resultSet3.next())
+				{
+					p_names[index++] = resultSet3.getString("p_name");
+				}
+			}
+
+			// make a 2d array of data, representing a table fetched from the database
+
+			Object[][] data = new Object[rows_present_in_cart][5];
+
+			for(int i = 0; i < rows_present_in_cart; i++)
+			{
+				for(int j = 0; j < 5; j++)
+				{
+					switch(j)
+					{
+						case 0 :
+
+							data[i][j] = p_ids[i];
+
+							break;
+
+						case 1:
+
+							data[i][j] = p_names[i];	
+
+							break;
+
+						case 2:
+						
+							data[i][j] = p_qtys[i];
+
+							break;	
+
+						case 3:
+						
+							data[i][j] = p_prices[i];
+
+							break;	
+
+						case 4:
+						
+							data[i][j] = p_total_amounts[i];	
+
+							break;
+					}
+				}
+			}
+
+			// remove the previous data from the table
+
+			while(tableModel.getRowCount() > 0)
+			{
+				tableModel.removeRow(0);
+			}
+
+			// add the new data to the table
+
+			for(Object[] row : data)
+			{
+				tableModel.addRow(row);
+			}
+		}
+
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+
 	public static void main(String[] args)
 	{
 		// create the main frame
@@ -41,7 +167,7 @@ class shoppingMart
 
 		JButton updateProductBtn = new JButton("Update Product");
 
-		JButton generateBillBtn = new JButton("Generate Bill");
+		JButton placeOrderBtn = new JButton("Place Order");
 
 		// dialog for adding records
 
@@ -282,7 +408,7 @@ class shoppingMart
 
 		placeOrderFrame.add(showCartBtn);
 
-		generateBillBtn.addActionListener(ae ->
+		placeOrderBtn.addActionListener(ae ->
 		{
 			try
 			{
@@ -303,6 +429,30 @@ class shoppingMart
 
 			placeOrderFrame.setVisible(true);
 		});
+
+		// create a frame for showing the cart
+
+		JFrame cartFrame = new JFrame("Your Cart");
+
+		cartFrame.setSize(450, 300);
+
+		cartFrame.setLocationRelativeTo(null);
+
+		// cartFrame.setLayout(fl);
+
+		// create a dynamic JTable to display the cart
+
+		String[] columns = {"Product ID", "Product Name", "Product Quantity", "Product Price", "Total Amount"};
+
+		tableModel = new DefaultTableModel(columns, 0);
+
+		table = new JTable(tableModel);
+
+		// create a scroll pane for the panel
+
+		JScrollPane scrollPane = new JScrollPane(table);
+
+		cartFrame.add(scrollPane, BorderLayout.CENTER);
 
 		addToCartBtn.addActionListener(ae ->
 		{
@@ -333,24 +483,17 @@ class shoppingMart
 
 				// running a query and checking if the product already exists in the cart, if so, then update the quantity and total amount
 
-				Boolean productAlreadyExists = false;
-
-				ResultSet resultSet2 = statement.executeQuery("SELECT p_id, quantity FROM cart WHERE p_id = '"+productId+"'");
+				ResultSet resultSet2 = statement.executeQuery("SELECT quantity FROM cart WHERE p_id = '"+productId+"'");
 
 				if(resultSet2.next()) // if the result set is not empty, ie,. the product already exists in the cart
 				{
-					int cartProductId = resultSet2.getInt("p_id");
-
 					int existing_product_qty = resultSet2.getInt("quantity");
 
 					int updated_product_qty = existing_product_qty + productQuantity;
 
 					int total_amount = updated_product_qty * productPrice;
 
-					if(cartProductId == productId)
-					{
-						int rows_affected = statement.executeUpdate("UPDATE cart SET quantity = "+updated_product_qty+", total = "+total_amount);
-					}
+					int rows_affected = statement.executeUpdate("UPDATE cart SET quantity = "+updated_product_qty+", total = "+total_amount+" where p_id = '"+productId+"'");
 				}
 				else
 				{
@@ -366,158 +509,18 @@ class shoppingMart
 			}
 
 			JOptionPane.showMessageDialog(placeOrderFrame, "Product Added To Cart...");
+
+			// update the my cart table
+
+			updateCartTable();
+
 		});
-
-		// create a frame for showing the cart
-
-		JFrame cartFrame = new JFrame("Your Cart");
-
-		cartFrame.setSize(450, 300);
-
-		cartFrame.setLocationRelativeTo(null);
-
-		// cartFrame.setLayout(fl);
-
-		// create a dynamic JTable to display the cart
-
-		String[] columns = {"Product ID", "Product Name", "Product Quantity", "Product Price", "Total Amount"};
-
-		tableModel = new DefaultTableModel(columns, 0);
-
-		table = new JTable(tableModel);
-
-		// create a scroll pane for the panel
-
-		JScrollPane scrollPane = new JScrollPane(table);
-
-		cartFrame.add(scrollPane, BorderLayout.CENTER);
 
 		showCartBtn.addActionListener(ae ->
 		{
 			cartFrame.setVisible(true);
 
-			// get all the necessary values from the cart table
-
-			try
-			{
-				// get the total number of rows present in the table using a sql query
-
-				ResultSet resultSet1 = statement.executeQuery("SELECT COUNT(p_id) FROM cart");
-
-				int rows_present_in_cart = 0;
-
-				if(resultSet1.next())
-				{
-					rows_present_in_cart = resultSet1.getInt("COUNT(p_id)");
-				}
-
-				// create arrays for storing data fetched from sql queries
-
-				Integer[] p_ids = new Integer[rows_present_in_cart];
-
-				String[] p_names = new String[rows_present_in_cart];
-
-				Integer[] p_qtys = new Integer[rows_present_in_cart];
-
-				Integer[] p_prices = new Integer[rows_present_in_cart];
-
-				Integer[] p_total_amounts = new Integer[rows_present_in_cart];
-
-				// get all the data from the 'cart' table using a query
-
-				ResultSet resultSet2 = statement.executeQuery("SELECT * FROM cart");
-
-				int index = 0;
-
-				while(resultSet2.next())
-				{
-					p_ids[index] = resultSet2.getInt("p_id");
-
-					p_prices[index] = resultSet2.getInt("rate");
-
-					p_qtys[index] = resultSet2.getInt("quantity");
-
-					p_total_amounts[index] = resultSet2.getInt("total");
-
-					index++;
-				}
-
-				// get the names of all the products using their respective product id's from the 'product' table, using their p_id, via a sql query
-
-				index = 0;
-
-				for(Integer pID : p_ids)
-				{
-					ResultSet resultSet3 = statement.executeQuery("SELECT p_name FROM product WHERE p_id = "+pID);
-
-					if(resultSet3.next())
-					{
-						p_names[index++] = resultSet3.getString("p_name");
-					}
-				}
-
-				// make a 2d array of data, representing a table fetched from the database
-
-				Object[][] data = new Object[rows_present_in_cart][5];
-
-				for(int i = 0 ; i < rows_present_in_cart; i++)
-				{
-					for(int j = 0; j < 5; j++)
-					{
-						switch(j)
-						{
-							case 0 :
-
-								data[i][j] = p_ids[i];
-
-								break;
-
-							case 1:
-
-								data[i][j] = p_names[i];	
-
-								break;
-
-							case 2:
-							
-								data[i][j] = p_qtys[i];
-
-								break;	
-
-							case 3:
-							
-								data[i][j] = p_prices[i];
-
-								break;	
-
-							case 4:
-							
-								data[i][j] = p_total_amounts[i];	
-
-								break;
-						}
-					}
-				}
-
-				// remove the previous data from the table
-
-				while(tableModel.getRowCount() > 0)
-				{
-					tableModel.removeRow(0);
-				}
-
-				// add the new data to the table
-
-				for(Object[] row : data)
-				{
-					tableModel.addRow(row);
-				}
-			}
-
-			catch(Exception e)
-			{
-				System.out.println(e);
-			}
+			updateCartTable();
 		});
 
 		frame.add(addProductBtn);
@@ -526,7 +529,7 @@ class shoppingMart
 
 		frame.add(updateProductBtn);
 
-		frame.add(generateBillBtn);
+		frame.add(placeOrderBtn);
 
 		frame.setVisible(true);
 	}

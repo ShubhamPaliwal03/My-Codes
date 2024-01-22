@@ -20,7 +20,7 @@ cols1 = int(input("\nEnter the no. of rows in the 1st matrix you want to create 
 
 mat1 = []
 
-print("\nEnter",rows1*cols1,"elements into the array of order",rows,"x",cols,"\n")
+print("\nEnter",rows1*cols1,"elements into the matrix of order",rows,"x",cols,"\n")
 
 for i in range(rows1):
 
@@ -38,7 +38,7 @@ cols2 = int(input("\nEnter the no. of rows in the 2nd matrix you want to create 
 
 mat2 = []
 
-print("\nEnter",rows2*cols2,"elements into the array of order",rows,"x",cols,"\n")
+print("\nEnter",rows2*cols2,"elements into the matrix of order",rows,"x",cols,"\n")
 
 for i in range(rows2):
 
@@ -48,4 +48,4 @@ for i in range(rows2):
 
 		row2.append(int(input()))
 
-	mat2.append(row2)	
+	mat2.append(row2)

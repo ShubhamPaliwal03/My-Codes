@@ -1,1 +1,1 @@
-Times New Roman,2,28
+Wide Latin,2,23

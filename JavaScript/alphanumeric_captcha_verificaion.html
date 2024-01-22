@@ -9,12 +9,22 @@
         {
             margin-right: 15px;
         }
+        #div2
+        {
+            border: solid 1px black;
+            border-radius: 5px;
+            background-color: lightgoldenrodyellow;
+            height: 50px;
+            width: 170px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
     <div id="captcha_box">
         <h2>Captcha</h2>
             <script>
+                document.write("<div id = div2>")
                 for(let i = 1; i <= 6; i++)
                 {   
                     if(i % 3 == 0)
@@ -34,10 +44,11 @@
                         document.write("<span class=captcha_codes id=cc"+i+">"+digit+"</span>")
                     }
                 }
+                document.write("</div>")
 
                 function getRandomArbitrary(min, max)
                 {
-                    return Math.floor(Math.random() * (max - min) + min)
+                    return Math.floor((Math.random() * (max - min)) + min)
                 }
 
                 const colors = ['red','green','blue','orange','purple','goldenrod']

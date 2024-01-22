@@ -13,11 +13,11 @@
         .questions
         { 
             position: relative;
-            top: 140px;
+            top: 110px;
             padding: 50px;
             margin-left: 5px;
             margin-right: 10px;
-            width: 750px;
+            width: 600px;
             height: 500px;
             background-color: #282b30;
             float: left;
@@ -26,9 +26,9 @@
         .options
         {
             position: relative;
-            top: 140px;
+            top: 110px;
             padding: 50px;
-            width: 750px;
+            width: 600px;
             margin: 0px;
             height: 500px;
             background-color: #282b30;
@@ -45,10 +45,41 @@
             width: 50px;
             height: 50px;
         }
+        .optionsInner
+        {
+            margin-top: 80px;
+        }
+        #submit
+        {
+            position: relative;
+            top: 0.5vh;
+            left: 93vw;
+            height: 40px;
+            width: 80px;
+            font-size: 18px;
+            color: white;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: scale 0.5s;
+        }
+        #submit:hover
+        {
+            scale: 1.1;
+        }
+        #timer
+        {
+            position: relative;
+            left: 0.5vw;
+            top: 3vh;
+        }
     </style>
 </head>
 <body>
-        <span id="timer"></span>
+    <span id="timer"></span>
+    <form id="responsesForm" action="evaluateResponces.php">
+        <input type="submit" value="Submit" name="submit" id="submit">
         <div class="cards" id="question_card_1">
             <div class="questions">
                 <div class="title"><h3>Boolean Operators</h3><span>Easy</span></div>
@@ -70,20 +101,22 @@ int main()
             </div>
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
-                <input type="radio" id="_1" name="choice">
-                <label for="_1">1</label>
-                <br>
-                <br>
-                <input type="radio" id="_2" name="choice">
-                <label for="_2">0</label>
-                <br>
-                <br>
-                <input type="radio" id="_3" name="choice">
-                <label for="_3">Both A and B</label>
-                <br>
-                <br>
-                <input type="radio" id="_4" name="choice">
-                <label for="_4">None of the Above</label>
+                <div class="optionsInner">
+                    <input type="radio" id="_1" name="q1_choice">
+                    <label for="_1">1</label>
+                    <br>
+                    <br>
+                    <input type="radio" id="_2" name="q1_choice">
+                    <label for="_2">0</label>
+                    <br>
+                    <br>
+                    <input type="radio" id="_3" name="q1_choice">
+                    <label for="_3">Both A and B</label>
+                    <br>
+                    <br>
+                    <input type="radio" id="_4" name="q1_choice">
+                    <label for="_4">None of the Above</label>
+                </div>    
             </div>
         </div>
         <div class="cards" id="question_card_2" class="rest_cards">
@@ -111,19 +144,19 @@ int main()
             </div>
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
-                <input type="radio" id="_1" name="choice">
+                <input type="radio" id="_1" name="q2_choice">
                 <label for="_1">Hello</label>
                 <br>
                 <br>
-                <input type="radio" id="_2" name="choice">
+                <input type="radio" id="_2" name="q2_choice">
                 <label for="_2">Hi</label>
                 <br>
                 <br>
-                <input type="radio" id="_3" name="choice">
+                <input type="radio" id="_3" name="q2_choice">
                 <label for="_3">Hello Hi</label>
                 <br>
                 <br>
-                <input type="radio" id="_4" name="choice">
+                <input type="radio" id="_4" name="q2_choice">
                 <label for="_4">Hello Hey</label>
             </div>
         </div>
@@ -140,20 +173,22 @@ print (s[2:])
             </div>
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
-                <input type="radio" id="_1" name="choice">
-                <label for="_1">bcdef</label>
-                <br>
-                <br>
-                <input type="radio" id="_2" name="choice">
-                <label for="_2">cdef</label>
-                <br>
-                <br>
-                <input type="radio" id="_3" name="choice">
-                <label for="_3">abcdef</label>
-                <br>
-                <br>
-                <input type="radio" id="_4" name="choice">
-                <label for="_4">None of the Above</label>
+                <div class="optionsInner">
+                    <input type="radio" id="_1" name="q3_choice">
+                    <label for="_1">bcdef</label>
+                    <br>
+                    <br>
+                    <input type="radio" id="_2" name="q3_choice">
+                    <label for="_2">cdef</label>
+                    <br>
+                    <br>
+                    <input type="radio" id="_3" name="q3_choice">
+                    <label for="_3">abcdef</label>
+                    <br>
+                    <br>
+                    <input type="radio" id="_4" name="q3_choice">
+                    <label for="_4">None of the Above</label>
+                </div>
             </div>
         </div>
         <div class="cards" id="question_card_4" class="rest_cards">
@@ -171,30 +206,35 @@ print (s[2:])
             </div>
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
-                <input type="radio" id="_1" name="choice">
+                <input type="radio" id="_1" name="q4_choice">
                 <label for="_1">a</label>
                 <br>
                 <br>
-                <input type="radio" id="_2" name="choice">
+                <input type="radio" id="_2" name="q4_choice">
                 <label for="_2">b</label>
                 <br>
                 <br>
-                <input type="radio" id="_3" name="choice">
+                <input type="radio" id="_3" name="q4_choice">
                 <label for="_3">c</label>
                 <br>
                 <br>
-                <input type="radio" id="_4" name="choice">
+                <input type="radio" id="_4" name="q4_choice">
                 <label for="_4">d</label>
             </div>
         </div>
         <div id="result">
             <h2>Your Scorecard :- </h2>
         </div>
+        </form>
         <script>
+
+            const perQuesTime = 3 // 30 secs
+
+            const alertTime = 10 // 10 secs
 
             let question_number = 1
 
-            let time_left = 10
+            let time_left = perQuesTime
 
             let timer = document.getElementById('timer')
 
@@ -206,16 +246,16 @@ print (s[2:])
                 {
                     updateQuestion()
 
-                    time_left = 10
+                    time_left = perQuesTime
 
-                    timer.style.color = "green"
+                    timer.style.color = "greenyellow"
                 }
 
                 timer.innerText = time_left+" seconds left"
 
                 time_left--
 
-                if(time_left <= 5)
+                if(time_left <= alertTime)
                 {
                     timer.style.color = "red"
                 }
@@ -223,7 +263,7 @@ print (s[2:])
 
             updateTime()
 
-            let intervalId = setInterval(updateTime, 500)
+            let intervalId = setInterval(updateTime, 1000)
 
             const result = document.getElementById('result') // Returns a reference to the first object with the specified value of the ID attribute.
 
@@ -240,6 +280,8 @@ print (s[2:])
                     clearInterval(intervalId)
                 
                     timer.style.display = "none"
+
+                    document.getElementById("submit").click() // auto submit the form after the test time has completed
 
                     result.style.display = "block"
 

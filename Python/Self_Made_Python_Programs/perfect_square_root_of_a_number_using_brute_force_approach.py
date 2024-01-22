@@ -13,8 +13,8 @@ while i<=num//2:
 
 	i+=1
 
-print(i)
+# print(i)
 
 if i>num//2:
 
-	print("The Perfect Square Root of",num,"Does Not Exist!")	
+	print("The Perfect Square Root of",num,"Does Not Exist!")

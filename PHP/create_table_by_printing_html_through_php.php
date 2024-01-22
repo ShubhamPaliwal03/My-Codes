@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Table</title>
     <style>
-        td
+        table,td
         {
             border : solid 1px black;
+            border-collapse: collapse;
+        }
+        td
+        {
+            padding: 5px;
+        }
+        tr:nth-child(even)
+        {
+            background-color: goldenrod;
+        }
+        tr:nth-child(odd)
+        {
+            background-color: cornflowerblue;
         }
     </style>
 </head>
