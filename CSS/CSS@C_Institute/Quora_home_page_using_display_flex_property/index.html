@@ -43,6 +43,11 @@
             height: 40px;
             width: 100px;
             cursor: pointer;
+            transition: scale 0.3s;
+        }
+        #try_quora_btn:hover
+        {
+            scale: 1.1;
         }
         .flex-add_ques
         {
@@ -55,6 +60,11 @@
             height: 34px;
             width: 100px;
             border-radius: 20px 0px 0px 20px; /*top-left top-right bottom-right bottom-left*/
+            transition: scale 0.3s;
+        }
+        #add_ques_btn:hover
+        {
+            scale: 1.1;
         }
         #dropdown, #add_ques_btn
         {
@@ -71,6 +81,11 @@
             border-left: solid 1px brown;
             border-radius: 20px 0px 0px 20px;
             transform: scale(-1,-1);
+            transition: scale 0.3s;
+        }
+        #dropdown:hover
+        {
+            scale: 1.1;
         }
         .nav_btns
         {
@@ -82,13 +97,14 @@
             outline: none;
             font-size: 20px;
             color: rgba(0, 0, 0, 0.705);
-            transition: color 0.1s;
+            transition: color 0.3s, scale 0.3s;
         }
         .nav_btns:hover
         {
             background-color: gainsboro;
             opacity: 0.8;
             color: black;
+            scale: 1.1;
         }
         #btn_flex_container
         {

@@ -147,7 +147,69 @@ class shoppingMart
 
 	public static void main(String[] args)
 	{
-		// create the main frame
+		// create the admin login frame
+
+		JFrame loginFrame = new JFrame("Admin Panel");
+
+		loginFrame.setSize(350, 300);
+
+		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		loginFrame.setLocationRelativeTo(null);
+
+		FlowLayout fl = new FlowLayout();
+
+		loginFrame.setLayout(fl);
+
+		JLabel usernameLabel = new JLabel("Enter Username : ");
+
+		JLabel passwordLabel = new JLabel("Enter Password : ");
+
+		JTextField usernameTextfield = new JTextField(15);
+
+		JTextField passwordTextfield = new JTextField(15);
+
+		JButton loginBtn = new JButton("Login");
+
+		loginFrame.add(usernameLabel);
+
+		loginFrame.add(usernameTextfield);
+
+		loginFrame.add(passwordLabel);
+
+		loginFrame.add(passwordTextfield);
+
+		loginFrame.add(loginBtn);
+
+		// JDBC
+
+		try
+		{
+			// load the drivers
+
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+
+		try
+		{
+			// get the connection to the 'mart' database
+
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mart", sql_username, sql_password);
+
+			// create a statement object
+
+			statement = connection.createStatement();
+		}
+
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 
 		JFrame frame = new JFrame("Shopping Mart");
 
@@ -157,9 +219,13 @@ class shoppingMart
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		FlowLayout fl = new FlowLayout();
-
 		frame.setLayout(fl);
+
+		JLabel productOpsLabel = new JLabel("Product Operations");
+
+		JPanel productOpsPanel = new JPanel();
+
+		productOpsPanel.setSize(175, 150);
 
 		JButton addProductBtn = new JButton("Add Product");
 
@@ -167,7 +233,35 @@ class shoppingMart
 
 		JButton updateProductBtn = new JButton("Update Product");
 
-		JButton placeOrderBtn = new JButton("Place Order");
+		JButton placeOrderBtn = new JButton("Place Order"); // to be changed
+
+		JButton showAllProductsBtn = new JButton("Show All Products");
+
+		productOpsPanel.add(productOpsLabel);
+
+		productOpsPanel.add(addProductBtn);
+
+		productOpsPanel.add(deleteProductBtn);
+
+		productOpsPanel.add(updateProductBtn);
+
+		productOpsPanel.add(showAllProductsBtn);
+
+		// productOpsPanel.add(placeOrderBtn);
+
+		JPanel billAndDetailsPanel = new JPanel();
+
+		JLabel billAndDetailsLabel = new JLabel("Bill And Details");
+
+		JButton billBtn = new JButton("Bill");
+
+		JButton ordersBtn = new JButton("Orders");
+
+		billAndDetailsPanel.add(billAndDetailsLabel);
+
+		billAndDetailsPanel.add(billBtn);
+
+		billAndDetailsPanel.add(ordersBtn);
 
 		// dialog for adding records
 
@@ -251,35 +345,63 @@ class shoppingMart
 
 		productDetailsUpdateDialog.setLocationRelativeTo(null);
 
-		// JDBC
+		frame.add(productOpsPanel);
 
-		try
+		frame.add(billAndDetailsPanel);
+
+		// frame.add(addProductBtn);
+
+		// frame.add(deleteProductBtn);
+
+		// frame.add(updateProductBtn);
+
+		// frame.add(placeOrderBtn);
+
+		loginFrame.setVisible(true);
+
+		loginBtn.addActionListener(new ActionListener()
 		{
-			// load the drivers
+			public void actionPerformed(ActionEvent ae)
+			{
+				String username = usernameTextfield.getText();
 
-			Class.forName("com.mysql.jdbc.Driver");
-		}
+				String password = passwordTextfield.getText();
 
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
+				String user_provided_password = "";
 
-		try
-		{
-			// get the connection to the 'mart' database
+				try
+				{
+					ResultSet resultSet = statement.executeQuery("SELECT password FROM admin WHERE username = '"+username+"'");
 
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mart", sql_username, sql_password);
+					if(resultSet.next()) // if the result set is not empty
+					{
+						user_provided_password = resultSet.getString("password");
 
-			// create a statement object
+						if(user_provided_password.equals(password))
+						{
+							JOptionPane.showMessageDialog(loginFrame, "Login Successful !\nWelcome "+username+" !");
 
-			statement = connection.createStatement();
-		}
+							frame.setVisible(true); // show the main frame
 
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
+							loginFrame.setVisible(false); // hide the login frame
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(loginFrame, "Incorrect Password Entered !");
+						}
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(loginFrame, "User Not Found !");
+					}
+				}
+
+				catch(Exception e)
+				{
+					System.out.println(e);
+				}
+			}
+		});
 
 		addProductBtn.addActionListener(ae -> 
 		{
@@ -523,14 +645,6 @@ class shoppingMart
 			updateCartTable();
 		});
 
-		frame.add(addProductBtn);
-
-		frame.add(deleteProductBtn);
-
-		frame.add(updateProductBtn);
-
-		frame.add(placeOrderBtn);
-
-		frame.setVisible(true);
+		// frame.setVisible(true);
 	}
 }

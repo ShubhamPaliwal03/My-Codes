@@ -36,7 +36,7 @@
             box-sizing: border-box;
             float: left;
         }
-        #question_card_2, #question_card_3, #question_card_4, #result
+        #question_card_2, #question_card_3, #question_card_4, #resultOuter
         {
             display: none;
         }
@@ -74,6 +74,17 @@
             left: 0.5vw;
             top: 3vh;
         }
+        #resultOuter
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #score
+        {
+            font-size: 50px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +99,7 @@
 
             <form id="responsesForm" method="post" action="index.php">
         <span id="timer"></span>
-        <input type="submit" value="Submit" name="submit" id="submit">
+        <input type="submit" value="Submit" name="submit" id="submitBtn">
         <div class="cards" id="question_card_1">
             <div class="questions">
                 <div class="title"><h3>Boolean Operators</h3><span>Easy</span></div>
@@ -231,8 +242,10 @@ print (s[2:])
                 <label for="_4">d</label>
             </div>
         </div>
-        <div id="result">
-            <h2>Your Scorecard :- </h2>
+        <div id="resultOuter">
+            <div id="result">
+                <p id="score"></p>
+            </div>
         </div>
         </form>
         <script>
@@ -274,7 +287,11 @@ print (s[2:])
 
             let intervalId = setInterval(updateTime, 1000)
 
-            const result = document.getElementById('result') // Returns a reference to the first object with the specified value of the ID attribute.
+            const resultOuter = document.getElementById('resultOuter') // Returns a reference to the first object with the specified value of the ID attribute.
+
+            const submitBtn = document.getElementById('submitBtn')
+
+            submitBtn.addEventListener("click", showResult)
 
             function updateQuestion()
             {
@@ -286,13 +303,7 @@ print (s[2:])
 
                 if(question_number == 5)
                 {
-                    clearInterval(intervalId)
-                
-                    timer.style.display = "none"
-
-                    document.getElementById("submit").click() // auto submit the form after the test time has completed
-
-                    result.style.display = "block"
+                    showResult()
 
                     return
                 }
@@ -302,9 +313,57 @@ print (s[2:])
                 new_ques_card.style.display = "block"
             }
 
+            function showResult()
+            {
+                clearInterval(intervalId)
+                
+                timer.style.display = "none"
+
+                submitBtn.click() // auto submit the form after the test time has completed
+
+                resultOuter.style.display = "block"
+
+                const score = document.getElementById('score')
+
+                <?php
+                
+                    $answers = Array("None of the Above", "Hello Hi", "cdef", "b"); // answer key for matching the answers
+
+                    $unattempted = 0;
+
+                    $attempted = 0;
+
+                    $score = 0;
+
+                    $i = 0;
+
+                    foreach($_POST as $k => $v)
+                    {
+                        if(!isset($k))
+                        {
+                            $unattempted++;
+                        }
+                        else
+                        {
+                            $attempted++;
+
+                            if($v === $answers[$i])
+                            {
+                                $score += 10;
+                            }
+                        }
+
+                        $i++;
+                    }
+                    
+                    echo 'score.innerHTML = "Your Score :-"+'.$score.+' / 40';
+                ?>    
+            }
+
         </script> 
         
         <?php
+
         }
     ?>
 </body>
