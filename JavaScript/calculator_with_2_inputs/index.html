@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="outer">
+        <div id="blur-overlay"></div>
+        <div id="inner">
+            <label class="front">Num1&nbsp;:&nbsp;<input type="text" id="num1"></label>
+            <br><br>
+            <label class="front">Num2&nbsp;:&nbsp;<input type="text" id="num2"></label>
+            <br><br>
+            <label class="front">Result&nbsp;:&nbsp;<input type="text" id="result" readonly></label>
+            <br><br>
+            <button onclick="getResult('+')" class="front">+</button>
+            <button onclick="getResult('-')" class="front">-</button>
+            <button onclick="getResult('*')" class="front">*</button>
+            <button onclick="getResult('/')" class="front">/</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

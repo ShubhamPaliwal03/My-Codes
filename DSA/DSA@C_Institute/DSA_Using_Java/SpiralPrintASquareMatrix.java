@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class SpiralPrintAMatrix
+class SpiralPrintASquareMatrix
 {
 	Scanner kb = new Scanner(System.in);
 

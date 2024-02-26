@@ -1,0 +1,53 @@
+body
+{
+    margin-top: 2em;
+}
+
+.subjects
+{
+    height: 10em;
+    width: 10em;
+}
+
+#outer-container
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5em;
+}
+
+.inner-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 5em;
+}
+
+.col
+{
+    text-align: center;
+}
+
+.topic-name
+{
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+#heading
+{
+    margin: 1em;
+    font-size: 2.5em;
+}
+
+#navigation_menu
+{
+    margin-left: 2.4em;
+    font-size: 1.1em;
+}
+
+a
+{
+    text-decoration: none;
+}

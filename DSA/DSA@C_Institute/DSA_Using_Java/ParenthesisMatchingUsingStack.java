@@ -81,26 +81,32 @@ class ParenthesisMatchingUsingStack
 		{
 			char ch = expression.charAt(i);
 
-			if(ch == '(' || ch == '{' || ch == '[') // if the current character in the expression is a opening parenthesis, then push it to the stack
+			// if the current character in the expression is a opening parenthesis, then push into the stack
+
+			if(ch == '(' || ch == '{' || ch == '[')
 			{
 				myStack.push(ch);
 			}
-			else if(myStack.peek() == '(' && ch == ')' || myStack.peek() == '{' && ch == '}' || myStack.peek() == '[' && ch == ']') // if there is an opening parenthesis at the top of the stack and there is a matching closing parenthesis at the current index of the string
+
+			// if there is an opening parenthesis at the top of the stack,
+			// and there is a matching closing parenthesis at the current index of the string
+
+			else if(myStack.peek() == '(' && ch == ')' || myStack.peek() == '{' && ch == '}' || myStack.peek() == '[' && ch == ']')
 			{
 				myStack.pop();
 			}
-			else if(ch == ')' || ch == '}' || ch == ']') // if there is no opening parenthesis present on the top of the stack  
+
+			// if there is a closing parenthesis, and there is no matching opening parenthesis present on the top of the stack
+
+			else if(ch == ')' || ch == '}' || ch == ']')
 			{
 				return false;
 			}
 		}
 
-		if(myStack.isEmpty()) // if the stack is empty, then the expression will be balanced
-		{
-			return true;
-		}
+		// if the stack is empty, then the expression will be balanced
 
-		return false;
+		return myStack.isEmpty();
 	}
 
 	public static void main(String[] args)

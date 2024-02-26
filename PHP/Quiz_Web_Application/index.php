@@ -49,11 +49,11 @@
         {
             margin-top: 80px;
         }
-        #submit
+        #submitBtn
         {
             position: relative;
             top: 0.5vh;
-            left: 93vw;
+            left: 87vw;
             height: 40px;
             width: 80px;
             font-size: 18px;
@@ -64,7 +64,26 @@
             font-weight: 600;
             transition: scale 0.5s;
         }
-        #submit:hover
+        #submitBtn:hover
+        {
+            scale : 1.1;
+        }
+        #nextBtn
+        {
+            position: relative;
+            top: 0.5vh;
+            left: 158vh;
+            height: 40px;
+            width: 80px;
+            font-size: 18px;
+            color : white;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: scale 0.5s;
+        }
+        #nextBtn:hover
         {
             scale: 1.1;
         }
@@ -84,14 +103,55 @@
         {
             font-size: 50px;
             font-style: italic;
+            color: green;
         }
     </style>
 </head>
 <body>
     <?php
         if(isset($_POST['submit'])) // if the quiz is submitted
-        {
+        {                
+            $answers = Array("None of the Above", "Hello Hi", "cdef", "b"); // answer key for matching the answers
 
+            $unattempted = 0;
+
+            $attempted = 0;
+
+            $score = 0;
+
+            $i = 0;
+
+            foreach($_POST as $k => $v)
+            {
+                if(!isset($k) && $k !== "submit" && $k != "next")
+                {
+                    $unattempted++;
+                }
+                else
+                {
+                    $attempted++;
+
+                    if($v === $answers[$i])
+                    {
+                        $score += 10;
+                    }
+                }
+
+                if($k !== "submit" && $k !== "next")
+                {
+                    $i++;
+                }
+            }
+            
+            ?>
+
+            <div id="resultOuter">
+                <div id="result">
+                    <p id="score"><?php echo"Your Score :- $score / 40";?></p>
+                </div>
+            </div>
+
+            <?php
         }
         else // initially, when the quiz is not submitted
         {
@@ -100,6 +160,7 @@
             <form id="responsesForm" method="post" action="index.php">
         <span id="timer"></span>
         <input type="submit" value="Submit" name="submit" id="submitBtn">
+        <input type="button" value="Next" name="next" id="nextBtn" onclick="nextQuestion()">
         <div class="cards" id="question_card_1">
             <div class="questions">
                 <div class="title"><h3>Boolean Operators</h3><span>Easy</span></div>
@@ -122,19 +183,19 @@ int main()
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
                 <div class="optionsInner">
-                    <input type="radio" id="_1" name="q1_choice">
+                    <input type="radio" id="_1" name="q1_choice" value="1">
                     <label for="_1">1</label>
                     <br>
                     <br>
-                    <input type="radio" id="_2" name="q1_choice">
+                    <input type="radio" id="_2" name="q1_choice" value="0">
                     <label for="_2">0</label>
                     <br>
                     <br>
-                    <input type="radio" id="_3" name="q1_choice">
+                    <input type="radio" id="_3" name="q1_choice" value="Both A and B">
                     <label for="_3">Both A and B</label>
                     <br>
                     <br>
-                    <input type="radio" id="_4" name="q1_choice">
+                    <input type="radio" id="_4" name="q1_choice" value="None of the Above">
                     <label for="_4">None of the Above</label>
                 </div>    
             </div>
@@ -164,19 +225,19 @@ int main()
             </div>
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
-                <input type="radio" id="_1" name="q2_choice">
+                <input type="radio" id="_1" name="q2_choice" value="Hello">
                 <label for="_1">Hello</label>
                 <br>
                 <br>
-                <input type="radio" id="_2" name="q2_choice">
+                <input type="radio" id="_2" name="q2_choice" value="Hi">
                 <label for="_2">Hi</label>
                 <br>
                 <br>
-                <input type="radio" id="_3" name="q2_choice">
+                <input type="radio" id="_3" name="q2_choice" value="Hello Hi">
                 <label for="_3">Hello Hi</label>
                 <br>
                 <br>
-                <input type="radio" id="_4" name="q2_choice">
+                <input type="radio" id="_4" name="q2_choice" value="Hello Hey">
                 <label for="_4">Hello Hey</label>
             </div>
         </div>
@@ -194,19 +255,19 @@ print (s[2:])
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
                 <div class="optionsInner">
-                    <input type="radio" id="_1" name="q3_choice">
+                    <input type="radio" id="_1" name="q3_choice" value="bcdef">
                     <label for="_1">bcdef</label>
                     <br>
                     <br>
-                    <input type="radio" id="_2" name="q3_choice">
+                    <input type="radio" id="_2" name="q3_choice" value="cdef">
                     <label for="_2">cdef</label>
                     <br>
                     <br>
-                    <input type="radio" id="_3" name="q3_choice">
+                    <input type="radio" id="_3" name="q3_choice" value="abcdef">
                     <label for="_3">abcdef</label>
                     <br>
                     <br>
-                    <input type="radio" id="_4" name="q3_choice">
+                    <input type="radio" id="_4" name="q3_choice" value="None of the Above">
                     <label for="_4">None of the Above</label>
                 </div>
             </div>
@@ -226,31 +287,26 @@ print (s[2:])
             </div>
             <div class="options">
                 <b><p>Options : </b>Pick one correct answer from below</p>
-                <input type="radio" id="_1" name="q4_choice">
+                <input type="radio" id="_1" name="q4_choice" value="a">
                 <label for="_1">a</label>
                 <br>
                 <br>
-                <input type="radio" id="_2" name="q4_choice">
+                <input type="radio" id="_2" name="q4_choice" value="b">
                 <label for="_2">b</label>
                 <br>
                 <br>
-                <input type="radio" id="_3" name="q4_choice">
+                <input type="radio" id="_3" name="q4_choice" value="c">
                 <label for="_3">c</label>
                 <br>
                 <br>
-                <input type="radio" id="_4" name="q4_choice">
+                <input type="radio" id="_4" name="q4_choice" value="d">
                 <label for="_4">d</label>
-            </div>
-        </div>
-        <div id="resultOuter">
-            <div id="result">
-                <p id="score"></p>
             </div>
         </div>
         </form>
         <script>
 
-            const perQuesTime = 3 // 30 secs
+            const perQuesTime = 30 // 30 secs
 
             const alertTime = 10 // 10 secs
 
@@ -313,6 +369,15 @@ print (s[2:])
                 new_ques_card.style.display = "block"
             }
 
+            function nextQuestion()
+            {
+                updateQuestion()
+
+                time_left = perQuesTime
+
+                timer.style.color = "greenyellow"
+            }
+
             function showResult()
             {
                 clearInterval(intervalId)
@@ -322,49 +387,14 @@ print (s[2:])
                 submitBtn.click() // auto submit the form after the test time has completed
 
                 resultOuter.style.display = "block"
-
-                const score = document.getElementById('score')
-
-                <?php
-                
-                    $answers = Array("None of the Above", "Hello Hi", "cdef", "b"); // answer key for matching the answers
-
-                    $unattempted = 0;
-
-                    $attempted = 0;
-
-                    $score = 0;
-
-                    $i = 0;
-
-                    foreach($_POST as $k => $v)
-                    {
-                        if(!isset($k))
-                        {
-                            $unattempted++;
-                        }
-                        else
-                        {
-                            $attempted++;
-
-                            if($v === $answers[$i])
-                            {
-                                $score += 10;
-                            }
-                        }
-
-                        $i++;
-                    }
-                    
-                    echo 'score.innerHTML = "Your Score :-"+'.$score.+' / 40';
-                ?>    
             }
 
-        </script> 
-        
+        </script>
+
         <?php
 
         }
-    ?>
+
+        ?>
 </body>
 </html>

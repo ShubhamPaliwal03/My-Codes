@@ -28,7 +28,7 @@
 
         foreach($_POST as $key => $value)
         {
-          if(empty($value) || $value == "" || $value == null)
+          if(empty($value) || $value=="" || $value==null)
           {
             array_push($emptyFields, " * This is a required field ");
 

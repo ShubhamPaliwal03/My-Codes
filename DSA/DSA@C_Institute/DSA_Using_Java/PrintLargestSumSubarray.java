@@ -56,7 +56,7 @@ class PrintLargestSumSubarray
 			}
 		}
 
-		System.out.println("\nThe Largest Sum Subarray is as follows : \n");
+		System.out.println("\nThe Largest Sum Subarray has a Sum of "+max_sum+" is as follows : \n");
 
 		for(int i = start; i <= end; i++)
 		{

@@ -1,0 +1,45 @@
+body
+{
+    background-image: url('math_image.jpg');
+    /* background-size: contain; */
+    /* background-repeat: no-repeat; */
+}
+
+#outer
+{
+    height: 10em;
+    width: 20em;
+    border: solid 2px black;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    position: relative;
+    top: 30vh;
+    background-image: url('math_image.jpg');
+    border-radius: 10px;
+    filter: blur(5px);
+    position: relative;
+    z-index: 0;
+}
+
+#inner
+{
+    position: relative;
+    z-index: 1;
+}
+
+.front
+{
+    position: relative;
+    z-index: 2;
+}
+
+button
+{
+    width: 3em;
+    margin-right: 0.5em;
+    text-align: center;
+    height: 2em;
+}
