@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.*;
 import java.awt.*;
-import java.util.concurrent.*;
+import com.formdev.flatlaf.FlatDarkLaf;
 
 // create a class to load the fonts and place them in the JComboBox in a seperate thread
 
@@ -61,7 +61,7 @@ class Notepad
 
 	public static ArrayList<ArrayList<Integer>> findWordIndicesInString(String str, String word)
 	{
-		ArrayList<ArrayList<Integer>> indices = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> indices = new ArrayList<>();
 
 		int index = 0;
 
@@ -190,7 +190,7 @@ class Notepad
 
 		try
 		{
-			FileInputStream fin = new FileInputStream("D:/Programming/Languages/Java/Projects/Notepad/config/fontConfig/untitled-config.txt");
+			FileInputStream fin = new FileInputStream("./config/fontConfig/untitled-config.txt");
 
 			BufferedInputStream bin = new BufferedInputStream(fin);
 
@@ -280,7 +280,7 @@ class Notepad
 			}
 		});
 
-		// create a dialog box for font formating options
+		// create a dialog box for font formatting options
 
 		JDialog fontDialog = new JDialog(frame, "Font", true);
 
@@ -366,7 +366,7 @@ class Notepad
 
 				String name_of_file = opened_file.getName();
 
-				File configFile = new File("D:/Programming/Languages/Java/Projects/Notepad/config/fontConfig/"+name_of_file+"-config.txt");
+				File configFile = new File("./config/fontConfig/"+name_of_file+"-config.txt");
 
 				String fontConfigData = selectedFontFamily+","+currentFontStyleValue+","+currentFontSize;
 
@@ -513,7 +513,7 @@ class Notepad
 
 				String name_of_file = opened_file.getName();
 
-				File configFile = new File("D:/Programming/Languages/Java/Projects/Notepad/config/fontConfig/"+name_of_file+"-config.txt");
+				File configFile = new File("./config/fontConfig/"+name_of_file+"-config.txt");
 
 				String fontConfigData = currentFontFamily+","+selectedFontStyleValue+","+currentFontSize;
 
@@ -563,7 +563,7 @@ class Notepad
 
 		// create an array of Integer values, consisting of all the standard font sizes (8 - 28)
 
-		Integer[] fontSizes = new Integer[21];
+		Integer[] fontSizes = new Integer[43];
 
 		Integer fs = 8;
 
@@ -631,7 +631,7 @@ class Notepad
 
 				String name_of_file = opened_file.getName();
 
-				File configFile = new File("D:/Programming/Languages/Java/Projects/Notepad/config/fontConfig/"+name_of_file+"-config.txt");
+				File configFile = new File("./config/fontConfig/"+name_of_file+"-config.txt");
 
 				String fontConfigData = currentFontFamily+","+currentFontStyleValue+","+selectedFontSize;
 
@@ -745,7 +745,7 @@ class Notepad
 
 				String filename = file.getName();
 
-				String filepath = "D:/Programming/Languages/Java/Projects/Notepad/config/fontConfig/"+filename+"-config.txt";
+				String filepath = "./config/fontConfig/"+filename+"-config.txt";
 
 				StringBuilder sb = new StringBuilder();
 
@@ -779,7 +779,7 @@ class Notepad
 				{
 					try
 					{
-						FileInputStream fin = new FileInputStream("D:/Programming/Languages/Java/Projects/Notepad/config/fontConfig/untitled-config.txt");
+						FileInputStream fin = new FileInputStream("./config/fontConfig/untitled-config.txt");
 
 						BufferedInputStream bin = new BufferedInputStream(fin);
 
@@ -817,7 +817,7 @@ class Notepad
 
 				// Object fontFamily = currentFontFamily;
 
-				fontFamilyComboBox.setSelectedItem(currentFontFamily); // passing a String class object as an actual argument will work as String class is the sub class of Object class
+				fontFamilyComboBox.setSelectedItem(currentFontFamily); // passing a String class object as an actual argument will work, as String class is the subclass of Object class (whose object is required as argument)
 
 				fontStyleComboBox.setSelectedItem(currentFontStyleValue);
 
@@ -1351,7 +1351,7 @@ class Notepad
 								{
 									// create a new font config file
 
-									File configFile = new File("D:/Programming/Languages/Java/Projects/Notepad/config/fontConfig/"+name_of_file+"-config.txt");
+									File configFile = new File("./config/fontConfig/"+name_of_file+"-config.txt");
 
 									FileOutputStream fout = new FileOutputStream(configFile);
 
@@ -1482,6 +1482,18 @@ class Notepad
 				}
 
 				return false;
+
+			}
+
+			public void clearTextArea()
+			{
+				// clear the current contents of the text area
+
+				textArea.setText("");
+
+				// set the title of the JFrame of the notepad to the program's default Jframe title
+
+				frame.setTitle("Untitled - Notepad (Unsaved)");
 			}
 
 			@Override
@@ -1493,8 +1505,191 @@ class Notepad
 				{
 					String data = textArea.getText();
 
-					// if(containsWord())
-				}	
+					if(containsWord(title, "Untitled")) // this means that the file is not currently present anywhere in the system, as it is having 'Unsaved' and 'Untitled' together in the title
+					{
+						// prompt the user, asking him whether he/she wants to save the unsaved and untitled file
+
+						int userChoice = JOptionPane.showConfirmDialog(frame,"Do you want to save the Untitled file?","Confirmation",JOptionPane.YES_NO_OPTION);
+
+						// check the user's choice and display the corresponding message
+
+						if(userChoice == JOptionPane.YES_OPTION)
+						{
+							// same as save as
+
+							// show the JFileChooser dialog
+
+							int result = fileChooser.showSaveDialog(frame);
+
+							if(result == JFileChooser.APPROVE_OPTION)
+							{
+								// get the selected file
+
+								File selectedFile = fileChooser.getSelectedFile();
+
+								// get the filename
+
+								String filename = selectedFile.getAbsolutePath();
+
+								// get the name of the file
+
+								String name_of_file = selectedFile.getName();
+
+								// add the absolute file path in the title bar of the notepad
+
+								frame.setTitle(filename + " - Notepad (Saved)");
+
+								// write the data from the current text area of the notepad to the file created
+
+								try
+								{
+									// create an object of FileOutputStream class
+
+									FileOutputStream fout = new FileOutputStream(filename);
+
+									// create an object of BufferedOutputStream class
+
+									BufferedOutputStream bout = new BufferedOutputStream(fout);
+
+									// create a byte array containing the data
+
+									byte[] b = data.getBytes();
+
+									// write the data to the object of BufferedOutputStream
+
+									bout.write(b);
+
+									// flush the BufferedOutputStream
+
+									bout.flush();
+
+									// close the object of BufferedOutputStream class
+
+									bout.close();
+
+									// close the object of FileOutputStream class
+
+									fout.close();
+								}
+
+								catch(Exception e)
+								{
+									System.out.println(e);
+								}
+
+								try
+								{
+									// create a new font config file
+
+									File configFile = new File("./config/fontConfig/"+name_of_file+"-config.txt");
+
+									FileOutputStream fout = new FileOutputStream(configFile);
+
+									BufferedOutputStream bout = new BufferedOutputStream(fout);
+
+									String fontConfigData = "Consolas,0,20";
+
+									byte[] b = fontConfigData.getBytes();
+
+									bout.write(b);
+
+									bout.flush();
+
+									bout.close();
+
+									fout.close();
+								}
+
+								catch(Exception e)
+								{
+									System.out.println(e);
+								}
+
+								clearTextArea();
+							}
+						}
+						else
+						{
+							clearTextArea();
+						}
+					}
+					else // if the file exists in the system but isn't updated as per the current modification(s)
+					{
+						// same as save
+
+						String currFilePath = "";
+
+						if(title.contains("(Unsaved)"))
+						{
+							currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+						}
+						else if(title.contains("(Saved)"))
+						{
+							currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+						}
+
+						// to get the name of the file
+
+						File file = new File(currFilePath);
+
+						String name_of_file = file.getName();
+
+						int userChoice = JOptionPane.showConfirmDialog(frame,"Do you want to save changes to "+name_of_file,"Confirmation",JOptionPane.YES_NO_OPTION);
+
+						if(userChoice == JOptionPane.YES_OPTION)
+						{
+							frame.setTitle(title.substring(0, title.length() - 8) + "Saved)");
+
+							// write the data from the text area of the notepad to the file currently opened in the notepad
+
+							try
+							{
+								// create an object of FileOutputStream
+
+								FileOutputStream fout = new FileOutputStream(currFilePath);
+
+								// create an object of BufferedOutputStream
+
+								BufferedOutputStream bout = new BufferedOutputStream(fout);
+
+								// create a byte array containing the String 'data', using the method getBytes()
+
+								byte[] b = data.getBytes();
+
+								// write the data to the object of ByteOutputStream class
+
+								bout.write(b);
+
+								// flush the BufferedOutputStream
+
+								bout.flush();
+
+								// close the object of BufferedOutputStream class
+
+								bout.close();
+
+								// close the object of FileOutputStream class
+
+								fout.close();
+							}
+
+							catch(Exception e)
+							{
+								System.out.println(e);
+							}
+
+							clearTextArea();
+						}
+						else
+						{
+							clearTextArea();
+						}
+					}
+				}
+
+				// exit from the application (close it)
+
+				System.exit(0); // if 0 is passed as argument (exit code), it indicates normal and successfull termination of the program, whereas 1 and -1 indicate abnormal termination.
 			}
 		});
 
@@ -1512,9 +1707,13 @@ class Notepad
 
 		// add JMenuItems to the File Menu
 
+		fileMenu.add(newItem);
+
+		fileMenu.addSeparator(); // adds a separator line
+
 		fileMenu.add(openItem);
 
-		fileMenu.addSeparator(); // adds a seperator line
+		fileMenu.addSeparator();
 
 		fileMenu.add(saveItem);
 
@@ -1524,11 +1723,7 @@ class Notepad
 
 		fileMenu.addSeparator();
 
-		fileMenu.add(newItem);
-
-		fileMenu.addSeparator();
-
-		fileMenu.add(openItem);
+		fileMenu.add(exitItem);
 
 		// add JMenuItems to the Edit Menu
 
@@ -1553,6 +1748,23 @@ class Notepad
 		// set the menu bar for the JFrame
 
 		frame.setJMenuBar(menuBar);
+
+		/* new features */
+
+//		menuBar.setBackground(new Color(64,64,64));
+//		fileMenu.setForeground(Color.WHITE);
+//		editMenu.setForeground(Color.WHITE);
+//		formatMenu.setForeground(Color.WHITE);
+//		textArea.setBackground(new Color(28,28,28));
+//		textArea.setForeground(Color.WHITE);
+//		textArea.setCaretColor(Color.WHITE);
+//		UIManager.put("JButton.background", Color.BLACK);
+//		UIManager.put("JButton.foreground", Color.WHITE);
+
+//		FlatDarkLaf.setup(); //setting the look and feel
+//		JFrame.setDefaultLookAndFeelDecorated(true);
+//		frame.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(64,64,64));
+//		frame.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
 
 		// set the frame visibility to true
 

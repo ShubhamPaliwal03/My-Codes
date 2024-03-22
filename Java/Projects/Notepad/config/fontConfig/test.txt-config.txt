@@ -1,1 +1,1 @@
-Magneto,0,20
+Consolas,0,20

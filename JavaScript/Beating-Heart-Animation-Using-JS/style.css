@@ -1,0 +1,13 @@
+#heart_img
+{
+    transition: 1s scale; /* 'cause an actual human heart beats at 1.2 bps (72 bpm) ;) */
+    cursor: pointer;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25dvh;
+}

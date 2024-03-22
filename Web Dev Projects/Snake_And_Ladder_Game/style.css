@@ -1,0 +1,77 @@
+body
+{
+    background-image: url('images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#dice_img
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    outline: solid 1px black;
+}
+#dice
+{
+    height: 100px;
+    width: 100px;
+    padding: 0px;
+    border-radius: 10px;
+    transition: transform 1s;
+}
+table
+{
+    border-collapse: collapse;
+    border: solid 3px black;
+}
+td
+{
+    border: solid 2px transparent;
+    height: 60px;
+    width: 60px;
+}
+#outer
+{
+    position: relative;
+    top: 5vh;
+    left: 5vw;
+    background-image: url('images/gameboard.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 10vw;
+}
+.tokens
+{
+    height: 25px;
+    width: 25px;
+}
+#message
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+    width: 280px;
+    font-size: 30px;
+    margin-left: 100px;
+    background-color: lightyellow;
+    text-align: center;
+    border-radius: 10px;
+    color: red;
+    font-weight: 700;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.confetti-button-wrapper canvas 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}

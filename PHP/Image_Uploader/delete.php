@@ -9,6 +9,7 @@
     unlink($_GET['img_name']);
 
     header("refresh:1;url=http://localhost/PHP_Work/Image_Uploader/show_all_images.php");
+    
 ?>
 
 <!DOCTYPE html>
