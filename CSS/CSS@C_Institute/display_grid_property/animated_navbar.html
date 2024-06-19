@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            padding: 0;
+            margin: 0;
+        }
+        #navbar
+        {
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+            /* gap: 20px; */
+            height: 50px;
+        }
+        li
+        {
+            text-shadow: 1px 1px 2px black;
+            text-align: center;
+            padding: 5px;
+            width: 25%;
+            font-size: 20px;
+            background-image: linear-gradient(to bottom right, lightgray, lightcyan);
+            height: 100%;
+            line-height: 50px;
+        }
+        li:hover
+        {
+            background-image: linear-gradient(to bottom right, lightcyan, lightgray);
+        }
+        ul
+        {
+            list-style-type: none;
+            /* background-color: lightskyblue; */
+        }
+        li:nth-child(1)
+        {
+            color: red;
+            animation: infinite anim1 4s linear;
+        }
+        li:nth-child(2)
+        {
+            color: yellow;
+            animation: infinite anim2 4s linear;
+        }
+        li:nth-child(3)
+        {
+            color: green;
+            animation: infinite anim3 4s linear;
+        }
+        li:nth-child(4)
+        {
+            color: blueviolet;
+            animation: infinite anim4 4s linear;
+        }
+        @keyframes anim1 
+        {
+            0%
+            {
+                color: yellow;
+            }
+            25%
+            {
+                color: green;
+            }
+            50%
+            {
+                color: blueviolet;
+            }
+            100%
+            {
+                color: red;
+            }
+        }
+        @keyframes anim2
+        {
+            0%
+            {
+                color: green;
+            }
+            25%
+            {
+                color: blueviolet;
+            }
+            50%
+            {
+                color: yellow;
+            }
+            100%
+            {
+                color: red;
+            }
+        }
+        @keyframes anim3
+        {
+            0%
+            {
+                color: yellow;
+            }
+            25%
+            {
+                color: blueviolet;
+            }
+            50%
+            {
+                color: green;
+            }
+            100%
+            {
+                color: red;
+            }
+        }
+        @keyframes anim4
+        {
+            0%
+            {
+                color: blueviolet;
+            }
+            25%
+            {
+                color: red;
+            }
+            50%
+            {
+                color: yellow;
+            }
+            100%
+            {
+                color: green;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul id="navbar">
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Contact</li>
+            <li>Products</li>
+        </ul>
+    </nav>
+</body>
+</html>

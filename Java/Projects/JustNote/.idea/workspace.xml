@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7fb7aacc-4389-4f98-8308-34655e082b79" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JustNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JustNote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/fontConfig/test.txt-config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/fontConfig/test.txt-config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/fontConfig/untitled-config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/fontConfig/untitled-config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/99146_notepad.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/FontLoaderThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/99146_notepad.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FontLoaderThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notepad.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2h3rH749TqS27dXYl7ReQiSxAAQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fb7aacc-4389-4f98-8308-34655e082b79" name="Changes" comment="" />
+      <created>1716833511754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716833511754</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person can marry or cannot marry</title>
+    <style type="text/css">
+
+        body
+        {
+            background-color: black;
+            color: white;
+        }
+
+        table
+        {
+            position: relative;
+            top: 250px;
+            left: 270px;
+            height: 200px;
+            width: 1000px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 100px;
+        }
+
+        #allowed
+        {
+            border: solid 7px green;
+            background-color: lawngreen;
+        }
+
+        #not_allowed
+        {
+            border: solid 7px red;
+            background-color: tomato;
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var age =  17
+        var gender = "fm"
+
+        document.write("<table>"+"<tr>")
+        
+        if(gender == "m")
+        {
+            if(age>=21)
+            {
+                document.write("<td id=allowed>M</td><td id=allowed>"+age+"</td>")
+            }
+            else
+            {
+                document.write("<td id=not_allowed>M</td><td id=not_allowed>"+age+"</td>")
+            }
+        }
+        else
+        {
+            if(age>=18)
+            {
+                document.write("<td id=allowed>F</td><td id=allowed>"+age+"</td>")
+            }
+            else
+            {
+                document.write("<td id=not_allowed>F</td><td id=not_allowed>"+age+"</td>")
+            }
+        }
+            
+        document.write("</tr>"+"</table>")
+
+    </script>
+</body>
+</html>

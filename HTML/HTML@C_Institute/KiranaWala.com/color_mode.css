@@ -1,0 +1,29 @@
+input[type="checkbox"]
+{
+    display: none;
+}
+
+#btn1
+{
+    position: relative;
+    left: 1490px;
+    top: -115px;
+}
+
+#modeIcon
+{
+    height: 30px;
+    width: 30px;
+}
+
+.dark
+{
+    background-color: black;
+    color: white;
+}
+
+.light
+{
+    background-color: white;
+    color: black;
+}

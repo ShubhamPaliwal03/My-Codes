@@ -1,0 +1,51 @@
+<!-- Challenge 2:
+Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.
+
+Example string: 'the quick brown fox'
+Expected Output: 'The Quick Brown Fox ' -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Into Title Case</title>
+</head>
+<body>
+    <script>
+
+        function toTitleCase(string)
+        {
+            let title_case_string = ""
+
+            for(let i = 0; i < string.length; i++)
+            {
+                if(i == 0 || (i > 0 && s[i-1] == ' ')) // if the character is the 1st character or a character after a space
+                {
+                    if(string.charAt(i) >= 'a' && string.charAt(i) <= 'z')
+                    {
+                        title_case_string += string.charAt(i).toUpperCase()
+                    }
+                    else
+                    {
+                        title_case_string += string.charAt(i)    
+                    }
+                }
+                else
+                {
+                    title_case_string += string.charAt(i)
+                }
+            }
+
+            return title_case_string
+        }
+
+        let s = 'the quick brown fox' 
+
+        let title_case_string = toTitleCase(s)
+
+        console.log(title_case_string)
+
+    </script>
+</body>
+</html>

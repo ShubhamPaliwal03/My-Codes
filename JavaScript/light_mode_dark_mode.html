@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Color Mode</title>
+</head>
+<body id="b1">
+
+    <div id="div1">Hello World</div>
+
+    <button id="btn1">Change Message</button>
+
+    <button id="themeDark">Dark Theme</button>
+
+    <script type="text/javascript">
+
+        const button1 = document.getElementById("btn1")
+        
+        button1.addEventListener("click",changeContent)
+        
+        const div = document.getElementById("div1")
+
+        function changeContent()
+        {
+            div.innerHTML = "Bye World"
+        }
+
+        const button2 = document.getElementById("themeDark")
+
+        button2.addEventListener("click",applyDarkTheme)
+
+        let themeName = "darkTheme"
+
+        function applyDarkTheme()
+        {
+            const body = document.getElementById("b1")
+
+            if(themeName === "darkTheme")
+            {
+                b1.style.backgroundColor = "black"
+
+                div.style.color = "white"
+
+                // changes the text only
+
+                button2.innerText = "Light Theme"
+
+                themeName = "lightTheme"
+            }
+            else if(themeName === "lightTheme")
+            {
+                b1.style.backgroundColor = "white"
+
+                div.style.color = "black"
+
+                button2.innerText = "Dark Theme"
+
+                themeName = "darkTheme"
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

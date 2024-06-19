@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slice() method in array in JS</title>
+</head>
+<body>
+    <script>
+
+        const colors = ["red","green","blue","yellow","purple"]
+
+        // extracting elements from index 1 (inclusive) to index 4 (exclusive)
+
+        const slicedColors = colors.slice(1,4)
+
+        console.log(slicedColors)
+
+        // extracting last 2 elements from the end of the array
+
+        const fruits = ["apple","banana","cherry","date"]
+
+        const lastTwoFruits = fruits.slice(-2)
+
+        console.log(lastTwoFruits)
+
+        // if you omit both the startIndex and endIndex parameters, slice() will create a copy of the original array
+
+        const originalArray = [1,2,3,4,5]
+
+        const copiedArray = originalArray.slice()
+
+        console.log(copiedArray)
+
+        console.log(originalArray === copiedArray)
+
+        // Output : false (because they are two seperate arrays with different )
+
+    </script>
+</body>
+</html>

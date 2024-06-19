@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Elements To To-Do List</title>
+</head>
+<body>
+    <input type="text" id="textfield"> <button onclick="addTask()">Add Task</button>
+
+    <h2>Tasks</h2>
+    
+    <ol id="list"></ol>
+
+    <script>
+
+        function addTask()
+        {   
+            const task = document.getElementById("textfield").value
+
+            if(task != "")
+            {       
+                const list_item = document.createElement("li")
+                
+                const node = document.createTextNode(task)
+                
+                list_item.appendChild(node)
+                
+                const list = document.getElementById("list")
+                
+                list.appendChild(list_item)
+            }
+        }
+            
+       </script>
+</body>
+</html>

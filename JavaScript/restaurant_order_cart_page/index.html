@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Order Cart</title>
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            color: white;
+        }
+        div
+        {
+            height: 100vh;
+            width: 50%;
+            margin: 0px;
+            box-sizing: border-box;
+            /* The specified width and height (and respective min/max properties) on this element determine the border box of the element. */
+        }
+        #available_menu_items
+        {
+            background: url('menu_img.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            float: left;
+            border-right: solid 3px black;
+        }
+        #selected_menu_items
+        {
+            background: url('cart_img.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            float: left;
+        }
+        .inner
+        {
+            margin-left: 30px;
+        }
+        #cart_items
+        {
+            list-style-type: none;
+        }
+        #cart_items li
+        {
+            margin-bottom: 10px;
+        }
+        #msg
+        {
+            font-size: 30px;
+            width: 200px;
+            position: relative;
+            left: 270px;
+            top: 300px;
+        }
+        #menu
+        {
+            margin-top: 200px;
+        }
+        #cart_title
+        {
+            position: relative;
+            top: 100px;
+            left: 250px;
+            font-size: 50px;
+            font-style:italic; 
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        table
+        {
+            border: solid 2px white;
+            position: absolute;
+            top: 250px;
+            left: 925px;
+            width: 450px;
+            border-collapse: collapse;
+        }
+        th, td
+        {
+            border: solid 2px white;
+            text-align: center;
+        }
+        th
+        {
+            color: yellow;
+        }
+        #total_amt_title, #total_amt_cell
+        {
+            color: red;
+        }
+    </style>
+    <!-- <style>
+        /* Common styles for both large screens and smaller screens */
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            color: white;
+        }
+    
+        div {
+            box-sizing: border-box;
+        }
+    
+        .inner {
+            margin-left: 30px;
+        }
+    
+        #cart_items li {
+            margin-bottom: 10px;
+        }
+    
+        table {
+            border: solid 2px white;
+            border-collapse: collapse;
+        }
+    
+        th, td {
+            border: solid 2px white;
+            text-align: center;
+        }
+    
+        th {
+            color: yellow;
+        }
+    
+        #total_amt_title, #total_amt_cell {
+            color: red;
+        }
+    
+        /* Styles for larger screens */
+    
+        #available_menu_items, #selected_menu_items {
+            height: 100vh;
+            width: 50%;
+            float: left;
+            background-size: cover;
+        }
+    
+        #available_menu_items {
+            background: url('menu_img.jpg');
+            border-right: solid 3px black;
+        }
+    
+        #selected_menu_items {
+            background: url('black_bcg.jpg');
+        }
+    
+        /* Styles for smaller screens */
+    
+        @media only screen and (max-width: 768px) {
+            #available_menu_items, #selected_menu_items {
+                width: 100%;
+                float: none;
+                border: none;
+                margin-bottom: 20px; /* Adjust as needed */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            table {
+                width: 100%;
+                left: auto;
+                top: auto;
+                margin-top: 20px; /* Adjust as needed */
+            }
+    
+            #cart_title {
+                left: 0;
+                font-size: 30px;
+                text-align: center;
+            }
+    
+            #msg {
+                left: 0;
+                text-align: center;
+            }
+    
+            #total_amt_title {
+                text-align: center;
+            }
+    
+            #total_amt_cell {
+                text-align: center;
+            }
+        }
+    </style> -->
+</head>
+<body>
+    <div id="available_menu_items">
+        <div class="inner" id="menu">
+            <u><h2>Please Select From Here</h2></u>
+            <select id="dropdown_menu">
+                <option value="Margerita Pizza">Margerita Pizza</option>
+                <option value="Veggie Farm Pizza">Veggie Farm Pizza</option>
+                <option value="Chilli Paneer">Chilli Paneer</option>
+                <option value="Paneer Tikka">Paneer Tikka</option>
+                <option value="Masala Dosa">Masala Dosa</option>
+                <option value="Cheese Burger">Cheese Burger</option>
+                <option value="French Fries">French Fries</option>
+            </select>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    <div id="selected_menu_items">
+        <div class="inner" id="cart">
+            <p id="cart_title">Your Cart</p>
+            <div id="msg">
+                <p>Cart is Empty!</p>
+            </div>
+            <ul id="cart_items"></ul>
+        </div>
+    </div>
+    <script>
+
+        const menu_item_data = [["Margerita Pizza", 250], ["Veggie Farm Pizza", 200], ["Chilli Paneer", 220], ["Paneer Tikka", 260], ["Masala Dosa", 150], ["Cheese Burger", 120], ["French Fries", 100], ["Coke", 50], ["Paneer Wrap", 100]]
+
+        const selected_menu_items = []
+
+        let cart_empty = true
+
+        let id = 0
+        
+        const table = document.createElement('table')
+
+        const cart_div = document.getElementById('cart')
+
+        let total_amount = 0
+
+        let total_amt_displayed = false
+
+        function addToCart()
+        {
+            if(cart_empty == true)
+            {
+                cart_div.appendChild(table)
+
+                const tr1 = document.createElement('tr')
+
+                table.appendChild(tr1)
+
+                const th1 = document.createElement('th')
+
+                th1.innerText = "Item Name"
+
+                tr1.appendChild(th1)
+
+                const th2 = document.createElement('th')
+
+                th2.innerText = "Quantity"
+
+                tr1.appendChild(th2)
+
+                const th3 = document.createElement('th')
+
+                th3.innerText = "Price"
+
+                tr1.appendChild(th3)                
+
+                const th4 = document.createElement('th')
+
+                th4.innerText = "Amount"
+
+                tr1.appendChild(th4)
+
+                const msg_div = document.getElementById('msg')
+
+                cart_div.removeChild(msg_div)
+
+                cart_empty = false
+            }
+
+            const dropdown = document.getElementById('dropdown_menu')
+
+            const selected_value = dropdown.value
+
+            let res = itemExists(selected_value)
+
+            if(res == -1) // if the item is a new item
+            {
+                if(total_amt_displayed == true) // if the total bill row is on display
+                {   
+                    // first, we will have to delete the entire total amount row from the table
+                    
+                    const total_amount_row = document.getElementById("total_amt_row")
+                    
+                    table.removeChild(total_amount_row)
+                }
+                    
+                selected_menu_items.push([String(selected_value), Number(1), Number(id)]) // adding the menu item to the array
+
+                const tr = document.createElement('tr')
+
+                table.appendChild(tr)
+
+                const item_name = document.createElement('td')
+
+                item_name.id = "name_itm"+id
+
+                item_name.innerText = selected_value
+
+                tr.appendChild(item_name)
+
+                const quantity = document.createElement('td')
+
+                quantity.id = "qty_itm"+id
+
+                item_quantity = 1
+
+                quantity.innerText = item_quantity
+                
+                tr.appendChild(quantity)
+
+                const price = document.createElement('td')
+
+                price.id = "prc_itm"+id
+
+                const item_price = getPrice(selected_value)
+
+                price.innerText = item_price
+
+                tr.appendChild(price)
+
+                const amount = document.createElement('td')
+
+                amount.id = "amt_itm"+id
+
+                amount.innerText =  item_price * item_quantity
+
+                tr.appendChild(amount)
+                
+                // we will now add the total amount row
+
+                addTotalAmountRow(id)
+
+                id++
+            }
+            else // if the item has been previously selected / ordered
+            {
+                item_id_in_table = getId(res)
+
+                // fetching the table data cell having the quanity of the selected menu item
+                
+                const qty = document.getElementById('qty_itm'+item_id_in_table)
+                
+                // fetching the price of the selected menu item
+
+                const price = document.getElementById('prc_itm'+item_id_in_table)
+
+                // updating the quantity of the selected menu item
+
+                qty.innerText++
+
+                // updating the maintained value of quantity of the selected menu item
+
+                selected_menu_items[res][1]++
+
+                // fetching the table data cell having the amount of the selected menu item
+
+                const amt = document.getElementById('amt_itm'+item_id_in_table)
+
+                amt.innerText = price.innerText * qty.innerText
+
+                // update the total bill amount
+
+                const total_amount_cell = document.getElementById('total_amt_cell')
+
+                total_amount += Number(price.innerText)
+
+                total_amount_cell.innerText = total_amount
+            }
+
+            if(total_amt_displayed == false)
+            {
+                addTotalAmountRow(id-1)
+            }
+        }
+
+        function addTotalAmountRow(id)
+        {
+            const amount = document.getElementById('amt_itm'+(id))
+
+            // add 1 empty row for aesthetic purposes
+
+            const row = document.createElement('tr')
+
+            table.appendChild(row)
+
+            // (using the same variable name as variables declared with const have block level scope)
+
+            const col = document.createElement('td')
+
+            row.appendChild(col)
+
+            // add 3 cols to the row
+
+            for(let i = 1; i <= 3; i++)
+            {
+                const col = document.createElement('td')
+
+                row.appendChild(col)
+            }
+
+            // add a row containing the total amount of the bill
+
+            const total_amount_row = document.createElement('tr')
+
+            total_amount_row.id = "total_amt_row"
+
+            // add the resp. row to the table
+
+            table.appendChild(total_amount_row)
+
+            // add the column having the text "Total :-"
+
+            const title = document.createElement('td')
+
+            title.id = "total_amt_title"
+
+            // Colspan Sets or retrieves the number columns in the table that the object should span.
+
+            title.colSpan = 3
+
+            total_amount_row.appendChild(title)
+
+            title.innerText = "Total Bill Amount :-"
+
+            // add the total amount in the table row
+
+            const total_amount_cell = document.createElement('td')
+
+            total_amount_cell.id = "total_amt_cell"
+
+            total_amount_row.appendChild(total_amount_cell)
+
+            // update the total amount
+
+            total_amount += Number(amount.innerText)
+
+            total_amount_cell.innerText = total_amount
+
+            total_amt_displayed = true
+        }
+
+        function getPrice(item_name)
+        {
+            for(let i = 0; i < menu_item_data.length; i++)
+            {
+                if(menu_item_data[i][0] == item_name)
+                {
+                    return menu_item_data[i][1]
+                }
+            }
+        }
+
+        function itemExists(item_name)
+        {
+            for(let i = 0; i < selected_menu_items.length; i++)
+            {
+                if(selected_menu_items[i][0] == item_name)
+                {
+                    return i
+                }
+            }
+
+            return -1
+        }
+
+        function getId(index)
+        {
+            return selected_menu_items[index][2]
+        }
+
+    </script>
+</body>
+</html>

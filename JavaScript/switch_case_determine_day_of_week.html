@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Determine Day of Week</title>
+    <style type="text/css">
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&family=Tilt+Prism&display=swap');
+
+        body
+        {
+            background-color: black;
+        }
+
+        #today
+        {
+            padding-top: 20px;
+            position: relative;
+            top: 250px;
+            left: 170px;
+            height: 100px;
+            width: 1200px;
+            background-color: yellow;
+            color: black;
+            text-align: center;
+            font-size: 4em;
+            border-radius: 30px 7px;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            transition: background-color 0.3s, font-size 1s, padding-bottom 1s, border-top 1s, border-right 2s, border-bottom 3s, border-left 4s;
+        }
+
+        #today:hover
+        {
+            padding-bottom: 15px;
+            background-color: cyan;
+            font-size: 5em;
+            border-top: groove 10px red;
+            border-left: groove 10px red;
+            border-right: groove 10px red;
+            border-bottom: groove 10px red;
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        let dayNumber = 4;
+        let dayName;
+
+        switch(dayNumber)
+        {
+            case 1:
+
+                dayName = "Sunday";
+                break;
+
+            case 2:
+
+                dayName = "Monday";
+                break;
+                
+            case 3:
+                
+                dayName = "Tuesday";
+                break;
+
+            case 4:
+                
+                dayName = "Wednesday";
+                break;
+
+            case 5:
+                
+                dayName = "Thursday";
+                break;
+
+            case 6:
+                
+                dayName = "Friday";
+                break;
+
+            case 7:
+                
+                dayName = "Saturday";
+                break;
+             
+            default:
+                
+                dayName = "Invalid day"
+        }
+
+        console.log("Today's Day is : "+dayName);
+        document.write("<p id=today>Today's Day is : "+dayName+"</p>")
+
+    </script>
+</body>
+</html>

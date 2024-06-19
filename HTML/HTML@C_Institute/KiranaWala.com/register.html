@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register-KiranaWala</title>
+	<link rel="stylesheet" href="color_mode.css">
+	<style>
+		a
+		{
+			margin-left: 50px;
+			margin-right: 50px;
+		}
+	</style>
+</head>
+<script src="color_mode.js"></script>
+<body class="color_mode">
+	<img src="logo.png" style="height: 150px; width: 500px;" alt="Company Logo">
+	<!-- <b><u>KiranaWala.com</u></b> -->
+	<hr>
+	<a href="home.html">Home</a>|<a href="about_us.html">About Us</a>|<a href="contact_us.html">Contact Us</a>|<a href="todays_price_list.html">Today's Price List</a>|<a href="#">Register</a>|<a href="login.html">Login</a>|</a><a href="terms_and_conditions.html">Terms and Conditions</a>|</a><a href="privacy_policy.html">Privacy Policy</a>
+	<!-- # is used inside anchor tag so that when we already present on the same page, then it won't refresh when we click on home  -->
+	<hr>
+	<img src="https://www.drupal.org/files/project-images/reg_confirm_email_with_button_0.png" style="height:200px; width:200px;" alt="Registration Image">
+	<!-- You can make a table inside a form or a form inside a table, the latter (second one) is a good practice -->
+	<form>
+		<table>
+			<tr>
+				<td><b><u>Register</u></b> :-</td>
+			</tr>
+
+			<tr>
+				<td>
+					<br>
+					<label for="name">Enter name : </label>
+				</td>
+
+				<td>
+					<br>
+					<input id="name" required placeholder="Enter your name" type="text" name="name" style="width: 330px;">
+					<!-- name is used for saving data on the server-->
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<br>
+					<label for="mobile">Enter mobile number : </label>
+				</td>
+
+				<td>
+					<br>
+					<input type="number" required placeholder="Enter your mobile number" min="1000000000" max="9999999999" name="mobile" style="width: 330px;">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<br>
+					<label for="email">Enter email : </label>
+				</td>
+
+				<td>
+					<br>
+					<input id="email" required placeholder="username@domain.com" type="email" name="email"style="width: 330px;">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<br>
+					<label for="password">Enter password : </label>
+				</td>
+
+				<td>
+					<br>
+					<input id="password" required placeholder="6-10 character,atleast 1 uppercase letter,symbol,number" maxlength="10" type="password" type="password" name="" style="width: 330px;">
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<br>
+					<label for="confirm_password">Confirm password : </label>
+				</td>
+
+				<td>
+					<br>
+					<input id="password" required placeholder="Re-enter your password" maxlength="10" type="password" name="" style="width: 330px;">	
+				</td>				
+			</tr>
+			<!-- colspan is used to merge two columns -->
+			<tr>
+				<td colspan="2">
+					<br>
+					<b>Select gender</b> : 	<label for="male">Male</label>
+										 	<input id="male" value="male" type="radio" name="gender">
+										 	<label for="female">Female</label>
+										 	<input id="female" value="female" type="radio" name="gender">
+										 	<label for="pnts">Prefer not to say</label>
+										 	<input id="pnts" value="not determined" type="radio" name="gender">
+					<br>
+				</td>	
+			</tr>
+
+			<tr>
+				<td colspan="2">
+					<br>
+					<label for="recieve_updates">Do You Want To Recieve Future Updates<input id="recieve_updates" type="checkbox" name=""></label>
+					<label for="tnc">I Accept All The Terms And Conditions<input id="tnc" type="checkbox" name=""></label>
+				</td>			
+			</tr>
+			
+			<tr>
+				<td><br>Already Registered?<a href="login.html"> Login</a></td>
+			</tr>
+
+			<tr>
+				<td>
+					<br>
+					<input type="submit" name="submit" value="Register!">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<br>
+					<input type="reset" name="reset" value="Clear All Fields!">
+				</td>
+			</tr>
+
+		</table>
+	</form>
+</body>
+</html>

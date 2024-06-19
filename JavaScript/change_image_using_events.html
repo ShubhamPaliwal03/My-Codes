@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Image On Click</title>
+    <style>
+        #img1
+        {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button id="btn1">Click Here To Change Image</button> -->
+
+    <label>
+        <img src="tickmark.jpg" id="img1" alt="image">
+        <br>
+        <button id="btn1">Click Here To Uncheck</button>
+    </label>
+
+    <script>
+
+        const button1 = document.getElementById("btn1")
+
+        let image1 = document.getElementById("img1")
+
+        button1.addEventListener("click",changeImage)
+
+        let img_name = "tickmark.jpg"
+
+        function changeImage()
+        {
+            if(img_name === "tickmark.jpg")
+            {
+                image1.src = "crossmark.jpg"
+                
+                img_name = "crossmark.jpg"
+
+                button1.innerHTML = "Click Here To Check"
+            }
+            else if(img_name === "crossmark.jpg")
+            {
+                image1.src = "tickmark.jpg"
+                
+                img_name = "tickmark.jpg"
+
+                button1.innerHTML = "Click Here To Uncheck"
+            }
+        }
+
+    </script>
+</body>
+</html>

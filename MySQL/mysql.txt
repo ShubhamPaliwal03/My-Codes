@@ -1,0 +1,971 @@
+MySql:
+MySql is an open source implementation of standard sql, currently obtained by Oracle.
+Structured Query Language is a non procedural language for working with relational database management systems. 
+
+In RDBMS the data is stored in term of tables. A table is a collection of rows and columns.
+A table represent a real world entity. A column represents the attribute of the entity. A row is an instance of the entity.
+
+A database is a collection of tables. A database can represnet and entire organization's data, and it can have tables which represents the different entities in the organization.
+
+Creating a database 
+Syntax:
+create database databasename
+Example:
+create database school
+
+
+Creating Tables in MySQL 
+In order to create a new table within a database, we use the MySQL "CREATE TABLE" statement. The "CREATE TABLE" statement is one of the most complex statement in MySQL.
+
+The following illustrates the syntax of the CREATE TABLE statement in the simple form:
+
+CREATE TABLE [IF NOT EXISTS] table_name( column_list);
+
+Let’s examine the syntax in greater detail:
+
+1)we specify the name of table that we want to create after the CREATE TABLE keywords. The table name must be unique within a database. The IF NOT EXISTS  is an optional part of the statement that allows us to check if the table we are creating already exists in the database. If this is the case, MySQL will ignore the whole statement and it will not create any new table. It is highly recommended  to use IF NOT EXISTS in every CREATE TABLE statement for preventing from an error of creating a new table that already exists.
+2)we specify a list of columns for the table in the column_list section. Columns are separated by a comma ( ,).  
+
+To define a column for the table in the CREATE TABLE statement, we use the following syntax:
+
+column_name data_type[size] [NOT NULL|NULL] [DEFAULT value] [AUTO_INCREMENT]
+
+The most important components of the syntax above are:
+
+1) The column_name specifies the name of the column. Each column always associates with  a specific data type and the size e.g.,   VARCHAR(255). 
+2) The  NOT NULL or NULL indicates that the column accepts NULL value or not.
+3) The DEFAULT value is used to specify the default value of the column.
+4) The AUTO_INCREMENT indicates that the value of column is increased by one whenever a new row is inserted into the table. Each table has one and only one AUTO_INCREMENT column.
+
+Example of MySQL CREATE TABLE statement
+
+CREATE TABLE IF NOT EXISTS tasks
+ (
+  task_id int(11) NOT NULL AUTO_INCREMENT,
+  subject varchar(45) DEFAULT NULL,
+  start_date DATE DEFAULT NULL,
+  end_date DATE DEFAULT NULL,
+  description varchar(200) DEFAULT NULL,
+  PRIMARY KEY (task_id)
+);
+
+_____________________________________________________________________________________
+_____________________________________________________________________________________
+
+MySQL create sequence
+
+In MySQL, a sequence is a list of integers generated in the ascending order i.e., 1,2,3… Many applications need sequences to generate unique numbers mainly for identification e.g., customer ID in CRM, employee number in HR, equipment number in services management system, etc.
+
+To create a sequence in MySQL automatically, we set the AUTO_INCREMENT attribute to a column, which typically is primary key column. The following are rules that you must follow when you use AUTO_INCREMENT attribute:
+
+1) Each table has only one AUTO_INCREMENT column whose data type is typically integer or float which is very rare.
+2) The   AUTO_INCREMENT column must be indexed, which means it can be either PRIMARY KEY or UNIQUE index.
+3) The AUTO_INCREMENT column must have NOT NULL constraint. When we set AUTO_INCREMENT attribute to a column, MySQL will make it NOT NULL for us in case we don’t define it explicitly.
+MySQL create sequence example
+
+The following example creates employees table whose emp_no column is AUTO_INCREMENT column:
+CREATE TABLE employees
+(
+    emp_no INT(4) AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name  VARCHAR(50)
+);
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL primary key
+
+A primary key is a column or a set of columns that uniquely identifies each row in the table. The following are the rules that we must follow when we define a primary key for a table:
+
+1) A primary key must contain unique values. If the primary key consists of multiple columns, the combination of values in these columns must be unique.
+2) A primary key column cannot contain NULL values. It means that we have to declare the primary key column with NOT NULL attribute. If we don’t, MySQL will force the primary key column as NOT NULL implicitly.
+3) A table has only one primary key.
+
+Because MySQL works faster with integers, the primary key column’s type should be an integer type e.g., INT or BIGINT. We can choose a smaller integer type such as TINYINT, SMALLINT, etc., however we should make sure that the range of values of the integer type for the primary key is sufficient for storing all possible rows that the table may have.
+
+A primary key column often has AUTO_INCREMENT attribute that generates a unique sequence for the key automatically. The primary key of the next row is greater than the previous one.
+
+MySQL creates an index named PRIMARY with PRIMARY type for the primary key in a table.
+
+Defining MySQL PRIMARY KEY Constraints
+
+MySQL allows us to create a primary key by defining a primary key constraint when we create or modify the table.
+
+Defining MySQL PRIMARY KEY constraints using CREATE TABLE statement
+
+MySQL allows us to create the primary key when we create the table by using the CREATE TABLE statement. To create a PRIMARY KEY constraint for the table, we specify the PRIMARY KEY in the primary key column’s definition.
+
+The following example creates users table whose primary key is user_id column:
+CREATE TABLE users
+(
+   user_id INT AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(40),
+   password VARCHAR(255),
+   email VARCHAR(255)
+);
+We can also specify the PRIMARY KEY at the end of the CREATE TABLE statement as follows:
+CREATE TABLE roles
+(
+   role_id INT AUTO_INCREMENT,
+   role_name VARCHAR(50),
+   PRIMARY KEY(role_id)
+);
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL Foreign Key
+Introduction to MySQL foreign key
+
+A foreign key is a field in a table that matches a field of another table. A foreign key places constraints on data in the related tables that, which enables MySQL to maintain referential integrity.
+
+Eg. We have two tables: customers and orders. Each customer has zero or more orders and each order belongs to only one customer. The relationship between customers table and orders table is one-to-many, and it is established by a foreign key in the orders table specified by the customerNumber field. The customerNumber field in the orders table relates to the customerNumber primary key field in customers table.
+
+The customers table is called parent table or referenced table, and the orders table is known as child table or referencing table.
+
+A foreign key has not only one column but also a set of columns. The columns in the child table often refer to the primary key columns in the parent table.
+
+A table may have more than one foreign key, and each foreign key in the child table can have a different parent table.
+
+A row in the child table must contain values that exist in the parent table e.g., each order record in the orders table must have a customerNumber that exists in the customers table. Multiple orders can refer to the same customer therefore this relationship is called one (customer) to many (orders), or one-to-many.
+
+Foreign keys enforce referential integrity that helps us maintain the consistency and integrity of the data automatically. For example, we cannot create an order for a non-existent customer.
+
+In addition, we can set up a cascade on delete action for the customerNumber foreign key so that when we delete a customer in the customers table, all the orders associated with the customer are also deleted. This saves our time and efforts of using multiple DELETE statements or a DELETE JOIN statement.
+
+The same as deletion, we can also define a cascade on update action for the customerNumber foreign key to perform cross-table update without using multiple UPDATE statements or an UPDATE JOIN statement.
+
+
+MySQL create table foreign key
+
+The following syntax illustrates how to define a foreign key in a child table in CREATE TABLE statement.
+
+CONSTRAINT constraint_name
+FOREIGN KEY foreign_key_name (columns)
+REFERENCES parent_table(columns)
+ON DELETE action
+ON UPDATE action
+
+Let’s examine the syntax in greater detail:
+
+The CONSTRAINT clause allows us to define constraint name for the foreign key constraint. If we omit it, MySQL will generate a name automatically.
+
+The FOREIGN KEY clause specifies the columns in the child table that refer to primary key columns in the parent table. We can put a foreign key name after FOREIGN KEY clause or leave it to let MySQL to create a name for us. Notice that MySQL automatically creates an index with the foreign_key_name name.
+
+The REFERENCES clause specifies the parent table and its columns to which the columns in the child table refer. The number of columns in child table and parent table specified in the FOREIGN KEY and REFERENCES must be the same.
+
+The ON DELETE clause allows us to define what happens to the records in the child table when the records in the parent table are deleted. If we omit the ON DELETE clause and delete a record in the parent table that has records in the child table refer to, MySQL will reject the deletion. In addition, MySQL also provides us with actions so that we can have other options such as ON DELETE CASCADE that lets MySQL to delete records in the child table that refer to a record in the parent table when the record in the parent table is deleted. If we don’t want the related records in the child table to be deleted, we use the ON DELETE SET NULL action instead. MySQL will set the foreign key column values in the child table to NULL when the record in the parent table is deleted, with a condition that the foreign key column in the child table must accept NULL values. Notice that if we use ON DELETE NO ACTION or ON DELETE RESTRICT action, MySQL will reject the deletion.
+
+The ON UPDATE clause enables us to specify what happens to the rows in the child table when rows in the parent table are updated. We can omit the ON UPDATE clause to let MySQL to reject any update to the rows in the child table when the rows in the parent table are updated. The ON UPDATE CASCADE action allows us to perform cross-table update, and the ON UPDATE SET NULL action resets the values in the rows in the child table to NULL values when the rows in the parent table are updated. The ON UPDATE NO ACTION or UPDATE RESTRICT actions reject any updates.
+
+MySQL create table foreign key example
+
+The following example creates a dbdemo database and two tables: categories and products. Each category has one or more products and each product belongs to only one category. The cat_id field in the products table is defined as a foreign key with UPDATE ON CASCADE and DELETE ON RESTRICT actions.
+
+CREATE DATABASE IF NOT EXISTS dbdemo;
+ 
+USE dbdemo;
+ 
+CREATE TABLE categories
+(
+   cat_id int not null auto_increment primary key,
+   cat_name varchar(255) not null,
+   cat_description text
+) ;
+ 
+CREATE TABLE products
+(
+   prd_id int not null auto_increment primary key,
+   prd_name varchar(355) not null,
+   prd_price decimal,
+   cat_id int not null,
+   FOREIGN KEY fk_cat(cat_id)
+   REFERENCES categories(cat_id)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+);
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL ALTER TABLE 
+
+The ALTER TABLE statement is used to change the structure of existing tables.We can use the ALTER TABLE statement to add or drop column, change data type of column, add primary key, rename table and many more. The following illustrates the ALTER TABLE statement syntax:
+
+
+ALTER TABLE table_name action1[,action2,…]
+
+To alter an existing table:
+
+First, we specify the table name that we want to change after the ALTER TABLE keywords.
+Second, we list a set of actions that we want to apply to the table. An action can be anything such as adding a new column, adding primary key, renaming table, etc. The  ALTER TABLE statement allows us to apply multiple actions in a single ALTER TABLE statement, each action is separated by a comma (,).
+
+Let’s create a new table for practicing the ALTER TABLE statement.
+
+We’re going to create a new table named  tasks in our sample database. The following is the script for creating the tasks table.
+
+
+CREATE  TABLE tasks 
+(
+  task_id INT NOT NULL ,
+  subject VARCHAR(45) NULL ,
+  start_date DATE NULL ,
+  end_date DATET NULL ,
+  description VARCHAR(200) NULL ,
+  PRIMARY KEY (task_id) ,
+  UNIQUE INDEX task_id_UNIQUE (task_id ASC) 
+);
+
+
+
+Suppose we want the value of the  task_id column to be increased automatically by one whenever we insert a new record into the  tasks table. To do this, we use the ALTER TABLE statement to set the attribute of the task_id  column to AUTO_INCREMENT as follows:
+
+
+ALTER TABLE tasks
+CHANGE COLUMN task_id task_id INT(11) NOT NULL AUTO_INCREMENT;
+
+
+Using MySQL ALTER TABLE statement to add a new column into a table
+ALTER TABLE tasks ADD COLUMN complete DECIMAL(2,1) NULL AFTER description;
+
+
+Using MySQL ALTER TABLE to drop a column from a table
+ALTER TABLE tasks DROP COLUMN description;
+
+Renaming table using MySQL ALTER TABLE statement
+ALTER TABLE tasks RENAME TO work_items;
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL DROP TABLE
+To remove existing tables we use DROP TABLE statement.
+
+DROP TABLE IF EXISTS tasks;
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL INSERT statement
+
+The MySQL INSERT statement allows us to insert data into tables. The following illustrates the syntax of the INSERT statement:
+
+INSERT INTO table(column1,column2...)VALUES (value1,value2,...)
+
+First, after the INSERT INTO, we specify the table name and a list of comma-separated columns inside parentheses.  Then we put a comma-separated values of the corresponding columns inside parentheses followed the VALUES keyword.
+
+We need to have the INSERT privilege to use the INSERT statement.
+
+Let’s create a new table named tasks for practicing the INSERT statement.
+
+CREATE TABLE IF NOT EXISTS tasks (
+  task_id int(11) NOT NULL AUTO_INCREMENT,
+  subject varchar(45) DEFAULT NULL,
+  start_date DATE DEFAULT NULL,
+  end_date DATE DEFAULT NULL,
+  description varchar(200) DEFAULT NULL,
+  PRIMARY KEY (task_id)
+)
+For example, if we want to insert a new task into the tasks table, we use the INSERT statement as follows:
+
+INSERT INTO tasks(subject,start_date,end_date,description)
+VALUES('Learn MySQL INSERT','2014-01-01','2014-01-02','Start learning..')
+
+After executing the statement, MySQL returns a message to indicate how many rows were affected. In this case, one row were affected.
+
+We can also insert values in multiple values by a single insert statement. To do so we use following syntax:
+
+INSERT INTO table(column1,column2...)
+VALUES (value1,value2,...),
+       (value1,value2,...),
+...
+
+Example :
+
+INSERT INTO tasks(subject,start_date,end_date,description)
+VALUES ('Task 1','2014-01-01','2014-01-02','Description 1'),
+       ('Task 2','2014-01-01','2014-01-02','Description 2'),
+       ('Task 3','2014-01-01','2014-01-02','Description 3');
+
+If we specify the values of the corresponding column for all columns in the table, we can ignore the column list in the INSERT statement as follows:
+
+
+INSERT INTO table VALUES (value1,value2,...)
+
+and
+
+INSERT INTO table
+VALUES (value1,value2,...),
+       (value1,value2,...),
+...
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL SELECT statement
+
+The MySQL SELECT statement allows us to retrieve zero or more rows from tables or views. The SELECT statement is the one of the most commonly used queries in MySQL.
+The SELECT statement returns a result that is a combination of columns and rows, which is also known as a result set.
+
+MySQL SELECT syntax
+
+The following illustrates the syntax of the SELECT statement:
+
+SELECT column_1,column_2...	
+FROM table_1
+[INNER | LEFT |RIGHT] JOIN table_2 ON conditions
+WHERE conditions
+GROUP BY group 
+HAVING group_conditions
+ORDER BY column_1 [ASC | DESC]
+LIMIT offset, row_count
+
+The SELECT statement is composed of several clauses:
+
+SELECT chooses which columns of  the table you want to get the data.
+
+FROM specifies the table from which you get the data.
+
+JOIN gets data from multiple table based on certain join conditions.
+
+WHERE filters rows to select.
+
+GROUP BY group rows to apply aggregate functions on each group.
+
+HAVING filters group based on groups defined by GROUP BY clause.
+
+ORDER BY specifies the order of the returned result set.
+
+LIMIT constrains number of returned rows.
+
+MySQL SELECT Examples
+
+To select all columns and rows from the employees table, we use the following query:
+
+SELECT * FROM employees
+
+The asterisk (*) notation is a shorthand of selecting all columns in the table.
+
+The SELECT statement also allows us to query partial data of a table by specifying a list of comma-separated columns in the SELECT clause. For example, if we want to view only first name, last name and job title of the employees,we use the following query:
+
+
+SELECT lastname,
+       firstname,
+       jobtitle
+FROM employees
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+MySQL WHERE
+If we use the SELECT statement to query the data from a table without the WHERE clause, we will get all rows in the  table, which sometimes brings more data than we need. The WHERE clause allows us to specify exact rows to select based on given conditions e.g., find all customers in the india.
+
+
+The following query selects all customers whose country is U.S. from the customers table. We use the WHERE clause to filter the customers. In the WHERE clause, we compare the values of the country column with the india literal string.
+
+SELECT customerName, city FROM customers WHERE country = 'india';
+
+We can form a simple condition like the query above, or a very complex one that combines multiple expressions with logical operators such as AND and OR. For example, to find all customers in the india . and also in the bikaner city, we use the following query:
+
+
+SELECT customerName,city FROM customers WHERE country='india' AND city='bikaner';
+
+We can test the condition for not only equality but also inequality. For example, to find all customers whose credit limit is greater than 200.000 rs, we use the following query:
+
+SELECT customerName,creditlimit FROM customers WHERE creditlimit > 200000;
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MYSQL LIKE operator
+
+The LIKE operator is commonly used to select data based on patterns. Using the LIKE operator in appropriate way is essential to increase the query performance.
+
+The LIKE operator allows us to select data from a table based on a specified pattern. Therefore the LIKE operator is often used in the WHERE clause of the SELECT statement.
+
+MySQL provides two wildcard characters for using with the LIKE operator, the percentage % and underscore _.
+
+The percentage ( %) wildcard allows us to match any string of zero or more characters.
+The underscore ( _) wildcard allows us to match any single character.
+
+MySQL LIKE examples
+
+Suppose you want to search for employee whose first name starts with character ‘ a‘, you can use the percentage wildcard ( %) at the end of the pattern as follows:
+
+SELECT employeeNumber, lastName, firstName FROM employees 
+WHERE firstName LIKE 'a%';
+
+MySQL scans the whole employees table to find employee whose first name starts with character ‘ a’ and followed by any number of characters.
+
+To search for employee whose last name ends with ‘ on‘ string e.g., Shiron, Moon, you can use the % wildcard at the beginning of the pattern as the following query:
+
+
+SELECT employeeNumber, lastName, firstName FROM employees
+WHERE lastName LIKE '%on'
+
+
+If we know the searched string is embedded inside in the column, we can use the percentage ( %) wildcard at the beginning and the end of the pattern. For example, to find all employees whose last names contain ‘ on‘ string, we can execute following query:
+
+
+SELECT employeeNumber, lastName, firstName
+FROM employees
+WHERE lastname LIKE '%on%'
+
+MySQL LIKE with underscore( _) wildcard
+
+To find employee whose first name starts with T, ends with m and contains any single character between e.g., Tim,Tin,Tip, we use the underscore wildcard to construct the pattern as follows:
+
+SELECT employeeNumber, lastName, firstName
+FROM employees WHERE firstname LIKE 'T_m'
+
+MySQL LIKE operator with NOT operator
+
+The MySQL allows us to combine the NOT operator with the LIKE operator to find string that does not match a specific pattern.
+
+Suppose we want to search for employee whose last name does not start with character ‘ B‘, we can use the NOT LIKE with the pattern as the following query:
+
+
+SELECT employeeNumber, lastName, firstName FROM employees
+WHERE lastName NOT LIKE 'B%'
+
+Note : The pattern is not case sensitive with the LIKE operator therefore the ‘b%’ and ‘B%’ patterns produce the same result.
+
+MySQL LIKE with ESCAPE clause
+
+Sometimes the pattern, which we want to match, contains wildcard character e.g., 10%, _20… etc. In this case, you we use the ESCAPE clause to specify the escape character so that MySQL interprets the wildcard character as literal character. If we don’t specify the escape character explicitly, the backslash character ‘ \‘ is the default escape character.
+
+For example, if we want to find product whose product code contains string _20, we can perform following query:
+
+SELECT productCode, productName
+FROM products
+WHERE productCode LIKE '%\_20%'
+
+Or we can specify a different escape character e.g., ‘ $‘ by using the ESCAPE clause:
+
+
+SELECT productCode, productName
+FROM products
+WHERE productCode LIKE '%$_20%' ESCAPE '$'
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL IN Operator
+
+The IN operator allows us to determine if a specified value matches any one of a list or a subquery. The following illustrates the syntax of the IN operator.
+
+SELECT column_list
+FROM table_name
+WHERE (expr|column) IN ('value1','value2',...)
+
+In the query above:
+
+We can use a column or an expression ( expr) with the IN operator in the WHERE clause of the SELECT statement.
+The values in the list must be separated by a comma (,)
+The IN operator can also be used in the WHERE clause of other statements such as INSERT, UPDATE, DELETE, etc.
+The IN operator returns 1 if the value of the  column or the result of the expr expression is equal to any value in the list, otherwise it returns 0.
+
+When the values in the list are all constants:
+
+First, MySQL evaluates the values based on the type of the column or result of the  expr.
+Second, MySQL sorts the values.
+Third, MySQL searches for values using binary search algorithm which is very fast.
+Therefore a query that uses the IN operator with a list of constants will perform very fast.
+
+If the expr or any value in the list is NULL, the IN operator returns NULL.
+
+We can combine the IN operator with the NOT operator to determine if a value does not match any value in a list or a subquery.
+
+MySQL IN examples
+
+If we want to find out all offices which locates in the india and france, we can use the IN operator as the following query:
+
+
+SELECT officeCode, city, phone FROM offices
+WHERE country IN ('india','france')
+
+
+We can achieve the same result with the OR operator as the following query:
+
+SELECT officeCode, city, phoneFROM offices 
+WHERE country = 'india' OR country = 'france'
+
+In case the list has many values, we have to construct a very long statement with multiple OR operators. Hence the IN operator allows us to shorten the query and make the query more readable.
+
+To get offices that does not locate in india and france, we can use NOT IN in the WHERE clause as follows:
+
+SELECT officeCode, city, phone
+FROM offices
+WHERE country NOT IN ('india','france')
+
+
+MySQL IN with subquery
+
+The IN operator is often used with a subquery. For example, if we want to find order whose total amount is greater than 60K, we can use the IN operator as the following  query:
+
+
+SELECT orderNumber,customerNumber,status,shippedDate
+FROM orders WHERE orderNumber IN
+ (
+    SELECT orderNumber
+    FROM   orderDetails
+    GROUP BY orderNumber
+    HAVING SUM(quantityOrdered * priceEach) > 60000
+)
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL BETWEEN Operator
+
+The BETWEEN operator allows us to specify a range to test. The following illustrates the syntax of the BETWEEN operator:
+
+
+expr [NOT] BETWEEN begin_expr AND end_expr
+
+All expressions: expr, begin_expr and end_expr must return values with the same data type.
+
+The BETWEEN operator returns 1 if the value of the expr  is greater than or equal to (>=) the value of begin_expr and less than or equal to (<= ) the value of end_expr, otherwise it returns 0.
+
+The NOT BETWEEN returns 1 if the value of expr  is less than (<) the value of begin_expr or greater than the value of end_expr, otherwise it returns 0.
+
+If any expression above is NULL, the BETWEEN returns NULL.
+
+The BETWEEN operator is typically used in the WHERE clause of SELECT, INSERT, UPDATE and DELETE statements.
+
+MySQL BETWEEN examples
+
+Suppose we want to find product whose buy price within the range of 90 and 100,we can use the BETWEEN operator as the following query:
+
+SELECT productCode,productName,buyPrice 
+FROM products WHERE buyPrice BETWEEN 90 AND 100
+
+
+We can achieve the same result by using the greater than or equal ( >=) and less than or equal ( <=) operators as the following query:
+
+SELECT productCode,productName,buyPrice FROM products
+WHERE buyPrice >= 90 AND buyPrice <= 100
+
+To find the product whose buy price is out of the range of 20 and 100,we combine the BETWEEN operator with the NOT operator as follows:
+
+
+SELECT productCode,productName,buyPrice FROM products
+WHERE buyPrice NOT BETWEEN 20 AND 100
+
+The query above is equivalent to the following query that uses the comparison operators, greater than operator ( >) and less than operator ( <) and a logical operator OR.
+
+SELECT productCode,productName,buyPrice FROM products
+WHERE buyPrice < 20 OR buyPrice > 100
+
+When we use the BETWEEN operator with date values, to get the best result,we should use the CAST function to explicitly convert the type of column or expression to the DATE type. For example, to get the orders whose required date is from 01/01/2003 to 01/31/2003, we use the following query:
+
+
+SELECT orderNumber,requiredDate,status FROM orders
+WHERE requireddate BETWEEN 
+CAST('2003-01-01' AS DATE) AND  CAST('2003-01-31' AS DATE)
+
+
+In the query above, because the data type of the required date column is DATE so we used the CAST function to convert the literal strings ‘ 2003-01-01‘ and ‘ 2003-12-31‘ to the DATE data type.
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL ORDER BY
+
+When we use the SELECT statement to query data from a table, the result set is not sorted in a specific order. To sort the result set, we use the ORDER BY clause. The ORDER BY clause allows us to:
+
+Sort a result set by a single column or multiple columns.
+Sort a result set by different columns in ascending or descending order.
+
+The following illustrates the syntax of the ORDER BY clause:
+
+SELECT col1, col2,...
+FROM tbl
+ORDER BY col1 [ASC|DESC], col2 [ASC|DESC],...
+
+The ASC stands for ascending and the DESC stands for descending. By default, the ORDER BY clause sorts the result set in ascending order  if we don’t  specify ASC or DESC explicitly
+
+MySQL ORDER BY examples
+
+The following query selects contacts from the customers table and sorts the contacts by last name in ascending order.
+
+SELECT contactLastname,contactFirstname FROM customers
+ORDER BY contactLastname;
+
+
+If we want to sort the contact by last name in descending order, we specify the DESC after the contactLastname column in the ORDER BY clause as the following query:
+
+SELECT contactLastname,contactFirstname
+FROM customers
+ORDER BY contactLastname DESC
+
+
+If we want to sort the contacts by last name in descending order and first name in ascending order, we specify both  DESC and ASC in the corresponding column as follows:
+
+SELECT contactLastname,contactFirstname
+FROM customers
+ORDER BY contactLastname DESC, 
+         contactFirstname ASC;
+
+
+In the query above, the ORDER BY clause sorts the result set by  last name in descending order first, and then sorts the sorted result set by first name in ascending order to produce the final result set.
+
+
+The ORDER BY clause also allows us to sort the result set based on an expression. The following query selects the order line items from the orderdetails table. It calculates the subtotal for each line item and sorts the result set based on the order number and subtotal.
+
+SELECT ordernumber, quantityOrdered * priceEach 
+FROM orderdetails
+ORDER BY ordernumber, 
+         quantityOrdered * priceEach
+
+
+To make the result more readable, we can use a column alias, and sort the result based on the column alias.
+
+
+SELECT orderNumber, 
+       quantityOrdered * priceEach AS subTotal
+FROM orderdetails
+ORDER BY orderNumber, 
+         subTotal;
+
+
+In the query above, we used subtotal as the column alias for the quantityOrdered * priceEach expression and sorted the result set based on the subtotal alias.
+
+MySQL ORDER BY with customer sort order
+
+The ORDER BY clause enables us to define our own custom sort order for the values in a column using the FIELD() function. For example, if we want to sort the orders based on the following status by the following order:
+
+In Process
+On Hold
+Cancelled
+Resolved
+Disputed
+Shipped
+
+We can use the FIELD() function to map those values to a list of numeric values and use the numbers for sorting; See the following query:
+
+
+SELECT orderNumber, status FROM orders
+ORDER BY FIELD(status, 'In Process', 
+                       'On Hold', 
+                       'Cancelled',
+                       'Resolved',
+                       'Disputed',
+                       'Shipped');
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL DISTINCT
+
+When querying data from a table, we may get duplicate rows. In order to remove the duplicate rows, we use the DISTINCT operator in the SELECT statement. The syntax of using the DISTINCT operator is as follows:
+
+SELECT DISTINCT columns FROM table_name
+WHERE where_conditions
+
+Let’s take a look a simple example of using the DISTINCT operator to select the distinct last names of employees from the employees table.
+
+First, we query the last names of employees from the employees table using the SELECT statement as follows:
+
+
+SELECT lastname FROM employees
+ORDER BY lastname 
+
+Some employees has the same last name  Verma, Soni, etc. To remove the duplicate last names,we use the DISTINCT operator in the SELECT clause as follows:
+
+SELECT DISTINCT lastname
+FROM employees
+ORDER BY lastname
+
+The duplicate last names are eliminated in the result set when we use the DISTINCT operator.
+
+MySQL DISTINCT and NULL values
+
+If a column has NULL values and we use the DISTINCT operator for that column, MySQL will keep one NULL value and eliminate the other because the DISTINCT operator treats all NULL values as the same value.
+
+For example, in the customers table, we have many rows with state column has NULL values. When we use the DISTINCT operator to query states of customers, we will see distinct states plus a NULL value as the following query:
+
+
+SELECT DISTINCT state
+FROM customers
+MySQL DISTINCT NULL value
+
+
+We can use the DISTINCT operator with more than one column. The combination of all columns will be used to define the uniqueness of the row in the result set.
+
+For example, to get the unique combination of city and state from the customers table,we use the following query:
+
+SELECT DISTINCT state, city
+FROM customers
+WHERE state IS NOT NULL ORDER BY state, city
+
+
+Without the DISTINCT operator, we will get duplicate combination state and city as follows:
+
+SELECT state, city
+FROM customers
+WHERE state IS NOT NULL
+ORDER BY state, city
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL LIMIT
+
+The LIMIT clause is used in the SELECT statement to constrain the number of rows in a result set. The LIMIT clause accepts one or two arguments. The values of both arguments must be zero or positive integer constants.
+
+The following illustrates the LIMIT clause syntax with 2 arguments:
+
+SELECT * FROM tbl LIMIT offset, count
+
+Let’s see what the offset and count mean in the LIMIT clause:
+
+The offset specifies the offset of the first row to return. The offset of the first row is 0, not 1.
+The count specifies maximum number of rows to return.
+When we use LIMIT with one argument, this argument will be used to specifies the maximum number of rows to return from the beginning of the result set.
+
+
+SELECT * FROM tbl LIMIT count
+
+The query above is equivalent to the following query with the LIMIT clause that accepts two arguments:
+
+SELECT * FROM tbl LIMIT 0, count
+
+We can use the LIMIT clause to select the first N rows in a table as follows:
+
+SELECT * FROM tbl LIMIT N
+
+For example, to select the first 10 customers, we use the following query:
+
+SELECT customernumber,customername,creditlimit FROM customers LIMIT 10;
+
+The LIMIT clause often used with ORDER BY clause. First, we use the ORDER BY clause to sort the result set based on a certain criteria, and then we use LIMIT clause to find lowest or highest values.
+
+For example, to select 5 customers who have the highest credit limit, we use the following query:
+
+SELECT customernumber,customername,creditlimit FROM customers ORDER BY creditlimit DESC LIMIT 5;
+
+
+And the following query returns 5 customers who have the lowest credit limit:
+
+SELECT customernumber,customername,creditlimit
+FROM customers ORDER BY creditlimit ASC LIMIT 5;
+
+One of the toughest questions in MySQL is how to select the N highest values in a result set e.g., select the second most expensive product, which we cannot use MAX or MIN functions to answer. However, we can use MySQL LIMIT to answer those kinds of questions.
+
+
+Our task is to get the product, which is the second most expensive product in the products result set. In order to do so, we use LIMIT clause to select 1 row from the second row as the following query: (notice that the offset starts from zero)
+
+
+SELECT productName,
+       buyprice
+FROM products
+ORDER BY buyprice DESC
+LIMIT 1, 1
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL UPDATE Statement
+
+The UPDATE statement is used to update existing data in tables. It can be used to change column values of a single row, a group of rows or all rows in a table.
+
+The following illustrates the MySQL UPDATE statement syntax:
+
+ UPDATE [LOW_ PRIORITY] [IGNORE] table_name [, table_name...] 
+ SET column_name1 = expr1  [, column_name2=expr2 ...] [WHERE condition]
+
+Let’s examine the UPDATE statement in detail:
+
+Followed by the UPDATE keyword is the name of the table that we want to update data. In MySQL, we can change the data of multiple tables using a single UPDATE statement. If the UPDATE statement violates any integrity constraint, MySQL does not perform the update and issues an error message.
+
+The SET clause determines the column names of the table and the new values. The new values could be literal values, result of expressions or subqueries.
+
+The WHERE clause determines which rows will be updated. It is an optional element of the UPDATE statement. If the WHERE clause is omitted, all rows in the table will be updated. The WHERE clause is so important that we should not forget. Sometimes, we may want to change just one row of the table; if we forget the WHERE clause, the UPDATE statement will update all the rows, which is not what we expected.
+
+The LOW_PRIORITY keyword is used to delay the execution until no other connections read data from the table. It is used for controlling the update process in MySQL database server.
+
+The IGNORE keyword is used to execute the update even there is an error occurred during the execution of the UPDATE statement. The error in the update process could be duplicate value on a unique column, the new value does not match with the column’s data type, etc.
+
+
+Example:
+
+In this example, we are going to update the email of Tarun Verma to the new email tarun@cinstitute.org.in
+
+
+First, to make sure that we update the email successfully, we query Tarun’s email using the SELECT statement as follows:
+
+SELECT firstname,lastname,email FROM employees WHERE firstname = 'Tarun'
+
+
+Second, we can update his current email to the new email using the UPDATE statement as the following query:
+
+UPDATE employees SET email = 'tarun@cinstitute.org.in'  
+WHERE firstname = 'Tarun'
+
+Because we just want to update Tarun’s record so we use the WHERE clause to specify the firstname='Tarun'. The SET clause sets the email column value to the new email.
+
+Third, we execute the SELECT statement again to verify the change.
+
+
+SELECT firstname,lastname,email FROM employees WHERE firstname = 'Tarun'
+mysql update single column
+
+To update multiple columns, we need to specify them in the SET clause. The following query updates both tarun’s last name and email:
+
+
+UPDATE employees SET lastname = 'Verma',
+    email = 'tarun@cinstitute.org.in' WHERE firstname = 'Tarun';
+
+Le’ts check the changes:
+
+
+SELECT firstname,lastname,email FROM employees WHERE firstname = 'Tarun';
+
+
+
+We can provide the values for the SET clause from a SELECT statement that selects data from other tables. For example, first we check if is there any customer who does not have sales representative:
+
+
+SELECT customername, 
+          salesRepEmployeeNumber
+FROM customers
+WHERE salesRepEmployeeNumber IS NULL;
+
+
+We can take any sale representative and update for those customers:
+
+UPDATE customers
+SET salesRepEmployeeNumber = 
+    (
+      SELECT employeeNumber 
+      FROM employees
+      WHERE jobtitle = 'Sales Rep'
+      LIMIT 1
+    )
+WHERE salesRepEmployeeNumber IS NULL;
+
+The SELECT statement returns an employee number of the employee whose job title is Sales Rep. The UPDATE statement uses this employee number and update it for the customers whose sales representative is not available.
+
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL DELETE Statement
+
+It is used to delete data from one or more tables in MySQL.
+MySQL delete from one table
+
+To remove data from a single table, we use the following DELETE statement:
+
+DELETE FROM table   
+[WHERE conditions] [ORDER BY ...] [LIMIT rows]
+
+Followed the DELETE FROM clause is the table name that we want to delete records.
+
+The WHERE clause specifies which rows we want to delete. If a record meets the WHERE condition, it is deleted permanently from the table. If we omit the WHERE clause, all records in the table are deleted.
+
+The DELETE statement returns the number of rows deleted specified by the ROW_COUNT() function.
+
+Notice that the ROW_COUNT() function returns the number of rows inserted, updated or deleted by the last INSERT, UPDATE or DELETE statement
+
+
+Suppose we want to remove employees whose officeNumber is 4, we use the DELETE statement with the WHERE clause as the following query:
+
+DELETE FROM employees 
+WHERE officeCode = 4
+
+To delete all employee records from the employees table, we use the DELETE statement without the WHERE clause as follows:
+
+DELETE FROM employees
+
+All employee records in the employees table were deleted.
+
+
+To delete records from multiple tables, we use one of the following DELETE statements:
+
+DELETE table_1, table_2,...
+FROM table-refs   
+[WHERE conditions]
+ 
+DELETE FROM table_1, table_2,...
+USING table-refs
+[WHERE conditions]
+
+Let’s examine each statement in greater detail:
+
+Both DELETE statements delete records from multiple tables i.e., table_1, table_2,… specified after the DELETE keyword.
+The first DELETE statement uses the FROM clause while the second one use the USING clause.
+The WHERE clause is used to determine which record to be deleted.
+Both statements return the number of rows deleted from the multiple tables.
+
+
+
+Let’s take a look at the offices and employees tables in the MySQL sample database.
+
+
+Suppose one office is closed and we want to remove all employee records in the employees table associated with that office and also the office itself in the offices table, we can use the second form of the MySQL DELETE statement
+
+The following query removes the office record with the code is 1 in the offices table and also all employee records associated with the office 1 in the employees table:
+
+
+DELETE employees, 
+       offices 
+FROM employees, 
+     offices 
+WHERE employees.officeCode = offices.officeCode  AND 
+      offices.officeCode = 1
+We can verify the changes by using the following SELECT statements to query data from both employees table and offices table.
+
+SELECT * FROM employees 
+WHERE officeCode = 1;
+ 
+SELECT * FROM offices
+WHERE officeCode = 1;
+We can achieve the same effect by using the second form of the MySQL DELETE statement as follows:
+
+DELETE FROM employees, offices 
+USING employees, offices 
+WHERE employees.officeCode = offices.officeCode  AND 
+      offices.officeCode = 1
+___________________________________________________________________________________
+___________________________________________________________________________________
+
+MySQL aggregate functions
+
+
+AVG - calculates the average value of a set of values or an expression.
+COUNT - count the number rows in a table.
+SUM - calculates the sum of a set of values or an expression.
+MIN - finds the minimum value in a set of values
+MAX - finds the maximum value in a set of values
+
+
+
+MySQL string functions
+
+CONCAT - combines two or more strings into one string.
+CONCAT_WS()- Allows to specify a separator character also.
+LENGTH and CHAR_LENGTH - get the length of strings in bytes and in characters.
+REPLACE - searches and replaces a substring in a string.
+SUBSTRING -  extracts a substring starting from a position with a specific length.
+LOWER()/LCASE()-
+UPPER()/UCASE()-
+REVERSE()-
+
+
+
+MySQL date and time functions
+
+DATEDIFF - calculates the number of days between two DATE or DATETIME values.
+DATE_FORMAT – formats a date value based on a specified date format.
+STR_TO_DATE - converts a string into a date and time value based on a specified format.
+NOW - returns the current date and time at which the statement executed.
+
+
+
+Other MySQL functions
+
+LAST_INSERT_ID - obtains the last generated sequence number of the last inserted record.
+CAST – converts a value of any type into a value with a specified type.
+___________________________________________________________________________________
+___________________________________________________________________________________

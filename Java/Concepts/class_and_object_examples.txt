@@ -1,0 +1,43 @@
+class Student
+{
+  // data members, instance variables, attributes, properties
+  private String name;
+  private int roll;
+  private String institute;
+
+  //method or member methods or instance method or behavior or actions
+  void inputDetails()
+  {  java.util.Scanner scanner=new java.util.Scanner(System.in);
+    System.out.print("Enter details of student");
+    System.out.print("\nName : ");
+    name=scanner.next();
+    System.out.print("\nInstitute : ");
+    institute=scanner.next();
+    System.out.print("\nRoll number : ");
+    roll=scanner.nextInt();
+  }  
+  void printDetails()
+  {  System.out.print("\nDetails of student");
+    System.out.print("\nName : "+name);
+    System.out.print("\nInstitute : "+institute);
+    System.out.print("\nRoll number : "+roll);
+  }  
+}
+class Main
+{
+  public static void main(String[]args)
+  {
+    //Creating reference variable
+    Student s1;
+    //Creating refrence value(object/instance) and assigning it into refrence variable
+    s1=new Student();
+
+    Student s2=new Student();
+    s1.inputDetails();
+    s2.inputDetails();
+
+
+    s1.printDetails();
+    s2.printDetails();
+  }
+}

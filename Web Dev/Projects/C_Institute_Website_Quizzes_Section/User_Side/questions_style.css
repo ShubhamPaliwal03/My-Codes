@@ -1,0 +1,41 @@
+body
+{
+    margin-top: 2em;
+}
+
+#outer-container
+{
+    margin-top: 3em;
+}
+
+.inner-container
+{
+    margin-left: 2.4em;
+}
+
+#navigation_menu
+{
+    margin-left: 2.4em;
+    font-size: 1.1em;
+}
+
+#heading
+{
+    margin-left: 1em;
+    font-size: 2.5em;
+}
+
+.question
+{
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+/* .options
+{
+    font-size: 1em;
+    border: solid 2px lightskyblue;
+    height: 2.5em;
+    width: 10em;
+    padding: 2em;
+} */

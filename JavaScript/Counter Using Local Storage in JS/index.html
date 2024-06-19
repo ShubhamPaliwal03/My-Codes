@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter using Local Storage</title>
+    <style>
+        div
+        {
+            display: flex;
+            justify-content: center;
+        }
+        #counter
+        {
+            position: relative;
+            top: 50vh;
+            scale: 2;
+        }
+
+        h2
+        {
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <h2>You are seeing the value of count stored in the local storage of the browser</h2>
+    <div id="counter">
+        <div id="count_disp_area"></div>&nbsp;
+        <button id="increase">+</button>
+        <button id="decrease">-</button>
+    </div>
+    <script>
+
+        const count_disp_area = document.getElementById('count_disp_area')
+
+        count_disp_area.innerText = localStorage.getItem("count")
+
+        const incr_btn = document.getElementById('increase')
+
+        incr_btn.addEventListener("click", incr_count)
+
+        const decr_btn = document.getElementById('decrease')
+
+        decr_btn.addEventListener("click", decr_count)
+
+        function incr_count()
+        {
+            curr_count = localStorage.getItem("count")
+
+            curr_count++
+            
+            localStorage.setItem("count", curr_count)
+            
+            count_disp_area.innerHTML = localStorage.getItem("count")
+        }
+        
+        function decr_count()
+        {
+            if(curr_count > 0)
+            {    
+                curr_count = localStorage.getItem("count")
+                
+                curr_count--
+                
+                localStorage.setItem("count", curr_count)
+                
+                count_disp_area.innerHTML = localStorage.getItem("count")
+            }
+        }
+    </script>
+</body>
+</html>

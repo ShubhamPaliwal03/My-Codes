@@ -1,0 +1,154 @@
+html
+{
+    overflow: hidden;
+}
+body
+{
+    border: solid 2px black;
+    background-image: linear-gradient(violet, deepskyblue);
+    box-sizing: border-box;
+    width: 97.8dvw;
+    height: 96dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em;
+}
+#message-1, #message-2
+{
+    font-size: 8em;
+    font-weight: 900;
+    margin-left: 1em;
+}
+#message-1::after
+{
+    content: "I";
+    animation: animation1 2s linear 0.1s infinite alternate;
+}
+@keyframes animation1
+{   
+    0%
+    {
+        content: "I a";
+    }
+    7%
+    {
+        content: "I am";
+    } 
+    14%   
+    {
+        content: "I am a";
+    }
+    21%
+    {
+        content: "I am a P";
+    }
+    28%
+    {
+        content: "I am a Pr";
+    }
+    35%
+    {
+        content: "I am a Pro";
+    }
+    42%
+    {
+        content: "I am a Prog";
+    }
+    49%
+    {
+        content: "I am a Progr";
+    }
+    56%
+    {
+        content: "I am a Progra";
+    }
+    63%
+    {
+        content: "I am a Program";
+    }
+    70%
+    {
+        content: "I am a Programm";
+    }
+    77%
+    {
+        content: "I am a Programme";
+    }
+    84%
+    {
+        content: "I am a Programmer";
+    }
+    91%
+    {
+        content: "I am a Programmer";
+    }
+    98%
+    {
+        content: "I am a Programmer!";
+    }
+}
+#message-2::after
+{
+    content: "I";
+    animation: animation2 2s linear 0.1s infinite alternate;
+}
+@keyframes animation2
+{
+    0%
+    {
+        content: "I L";
+    }
+    10%
+    {
+        content: "I Lo";
+    }
+    20%
+    {
+        content: "I Lov";
+    }
+    30%
+    {
+        content: "I Love";
+    }
+    40%
+    {
+        content: "I Love C";
+    }
+    50%
+    {
+        content: "I Love Co";
+    }
+    60%
+    {
+        content: "I Love Cod";
+    }
+    70%
+    {
+        content: "I Love Codi";
+    }
+    80%
+    {
+        content: "I Love Codin";
+    }
+    90%
+    {
+        content: "I Love Coding";
+    }
+    100%
+    {
+        content: "I Love Coding!";
+    }
+}
+@media(max-width: 1214px)
+{
+    body
+    {
+        width: 93vw;
+        height: 96.5vh;
+    }
+    #message-1, #message-2
+    {
+        font-size: 2em;
+    }
+}

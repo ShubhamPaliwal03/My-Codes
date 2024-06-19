@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using AJAX</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function()
+            {
+                $('#btn').click(
+                    function()
+                    {
+                        $('#data').load('data.txt')
+                    }
+                )
+            }
+        )
+    </script>
+</head>
+<body>
+    <div id="data"></div>
+    <button id="btn">Load Data</button>
+</body>
+</html>

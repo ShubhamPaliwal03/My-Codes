@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Number</title>
+    <style type="text/css">
+
+        body
+        {
+            background-color: black;
+        }
+        span
+        {
+            position: relative;
+            top: 300px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 100px;
+            height: 100px;
+            width: 100px;
+            border-radius: 20px;
+        }
+        #pos
+        {
+            left: 290px;
+            background-color: rgb(51, 249, 29);
+            color: green;
+        }
+        #zero
+        {
+            left: 550px;
+            background-color: yellow;
+            color: red;
+        }
+        #neg
+        {
+            left: 260px;
+            background-color: lightsalmon;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var num = 2;
+
+        if(num>=0)
+        {
+            if(num>0)
+            {
+                document.write("<span id=pos>"+num+" is a Positive Number"+"</span>");
+            }
+            else
+            {
+                document.write("<span id=zero>"+num+" is Zero");
+            }
+        }
+        else
+        {
+            document.write("<span id=neg>"+num+" is a Negative Number");
+        }
+
+    </script>
+</body>
+</html>

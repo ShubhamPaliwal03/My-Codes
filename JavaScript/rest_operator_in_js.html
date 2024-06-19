@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Operator in JS</title>
+</head>
+<body>
+    <script>
+
+        // using the rest operator (...) to collect the remaining elements
+
+        const fruits = ["apple", "banana" ,"cherry", "date"]
+
+        const [first,...rest] = fruits
+
+        console.log("first : "+first) // output : "apple"
+
+        console.log("rest : "+rest) // output : ["banana", "cherry", "date"]
+
+        // combining the rest operator (...) with regular elements
+        
+        const [First, second,...Rest] = ["apple", "banana", "cherry", "date"]
+
+        console.log("First : "+First) // output : "apple"
+
+        console.log("second : "+second) // output : "banana"
+
+        console.log("Rest : "+Rest) // output : ["cherry","date"]
+
+        let arr = [2,5,6,78,9,9,23,1354,87]
+
+        let [x,y,z,...arr2] = arr
+
+        console.log("x, y, z : "+x,y,z)
+
+        console.log("arr2 : "+arr2)
+
+        let [...arr3] = arr // creates a new array arr3
+        
+        // thus we can also use it for copying the contents of one array to another array
+
+        console.log("arr3 : "+arr3)
+
+        arr4 = arr // creates a reference (nickname or alias) of arr (assigning the name arr4 to arr)
+
+        console.log("arr4 : "+arr4)
+
+        console.log("arr===arr3 ? : "+(arr===arr3)) // output : false, as arr and arr3 are two different array objects
+
+        console.log("arr===arr4 ? : "+(arr===arr4)) // output : true, as arr and arr4 are the references of the same object, or we can say that they are the same array objects
+
+
+    </script>
+</body>
+</html>

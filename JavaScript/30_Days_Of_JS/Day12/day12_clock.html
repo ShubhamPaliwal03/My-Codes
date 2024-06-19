@@ -1,0 +1,39 @@
+<!-- Challenge 12
+Write a JavaScript program to create a clock.
+Note: The output will come every second.
+Expected Console Output:
+"14:37:42"
+"14:37:43"
+ "14:37:44"
+"14:37:45"
+"14:37:46"
+"14:37:47" -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    <script>
+
+        // here, we are the setInterval() method to display the updated time after every 1 second, or 1000 milliseconds
+
+        // the setInterval() method takes two parameters, the name of the method that that to be invoked, and time after which it has to be called (in ms), it will be called repeatedly after every t milliseconds
+
+        setInterval(displayTime, 1000)
+
+        function displayTime()
+        {
+            const date = new Date()
+
+            let time = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
+            
+            console.log(time)
+        }
+            
+    </script>
+</body>
+</html>
