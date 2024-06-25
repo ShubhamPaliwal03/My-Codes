@@ -1,14 +1,22 @@
 <?php
-    if(isset($_COOKIE['username']))
+    if(isset($_COOKIE['username']) && isset($_COOKIE['uid']))
     {
         include('../connect.php');
 
+        $username = $_COOKIE['username'];
+        $uid = $_COOKIE['uid'];
+
         if(isset($_POST['create_post']))
         {
+            ?><script>
+                const post_success_sound = new Audio('../sounds/post_success.mp3');
+                post_success_sound.volume = 1.0;
+                post_success_sound.play();
+            </script><?php
 
-            $post_content = $_POST['post_content'];
+            $post_content = mysqli_real_escape_string($conn, $_POST['post_content']);
             $username = $_COOKIE['username'];
-            $uid = $_COOKIE['uid'];
+            $post_title = mysqli_real_escape_string($conn, $_POST['post_title']);
 
             if(isset($_POST['post_image']))
             {
@@ -19,14 +27,31 @@
                 $post_image = "none";
             }
 
-            $sql = "insert into `posts` (uid, post_content, date_and_time, post_image) values ('$uid', '$post_content', NOW(), '$post_image')";
+            $sql = "insert into `posts` (uid, post_title, post_content, date_and_time, post_image) values ('$uid', '$post_title', '$post_content', NOW(), '$post_image')";
 
             mysqli_query($conn, $sql);
-
-            // header('index.php');
         }
-         
-        $sql = "select username, user_image";
+        else if(isset($_POST['delete_post']))
+        {
+            $pid = $_POST['pid'];
+
+            $sql = "delete from `posts` where pid = $pid";
+
+            mysqli_query($conn, $sql);
+        }
+        else if(isset($_POST['update_post']))
+        {
+            
+        }
+
+        $sql_users = "select user_title, user_image from `users` where uid = $uid";
+        
+        $user_record = mysqli_query($conn, $sql_users);
+
+        $data = mysqli_fetch_assoc($user_record);
+
+        $user_title = $data['user_title'];
+        $user_image = "./user_images/$data[user_image]";
 
         ?>
             <!DOCTYPE html>
@@ -50,11 +75,35 @@
                             </div>
                             <hr>
                             <div class="inner-flex-container">
+                                <input type="text" name="post_title" id="post-title-input" placeholder="Place your post title...">
+                            </div>
+                            <div class="inner-flex-container">
                                 <textarea name="post_content" id="post-content-textarea" placeholder="Say something..."></textarea>
                             </div>
                             <hr>
                             <div class="inner-flex-container">
                                 <input type="submit" value="Post" id="post-pop-up-create-post-btn" name="create_post" disabled>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="post-pop-up-inner-container">
+                        <form action="index.php" method="post">
+                            <div id="cancel-btn">
+                                <i class="fa-solid fa-xmark" id="cancel-icon"></i>
+                            </div>
+                            <div class="inner-flex-container">
+                                <div>Edit Post</div>
+                            </div>
+                            <hr>
+                            <div class="inner-flex-container">
+                                <input type="text" name="post_title" id="post-title-input">
+                            </div>
+                            <div class="inner-flex-container">
+                                <textarea name="post_content" id="post-content-textarea"></textarea>
+                            </div>
+                            <hr>
+                            <div class="inner-flex-container">
+                                <input type="submit" value="Update" id="post-pop-up-create-post-btn" name="update_post" disabled>
                             </div>
                         </form>
                     </div>
@@ -113,7 +162,20 @@
                                 </a>
                             </div>
                         </div>
-                        <div><input id="search_box" type="search" placeholder="Search Quora"></div>
+                        <div id="search-section">
+                            <div><input id="user-post-search-box" type="search" placeholder="Search Quora" class="searchbar"></div>
+                            <div id="searchbar-results">
+                                <form action="search_results.php">
+                                    <button type="submit" id="submit-search-button" name="submit-search">
+                                        <div id="search-string-showcase">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                            <span>Search: </span>
+                                            <span class="search-string"></span>
+                                        </div>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                         <div><button id="try_quora_btn">Try Quora+</button></div>
                         <div>
                             <a href="./dashboard.php" title="User">
@@ -151,119 +213,107 @@
                                 <div><button>Inventions</button></div>
                             </div>
                         </div>
-                        <div id="posts">
+                        <div class="posts">
                             <div id="post-box">
                                 <div id="post-profile-pic-container">
-                                    <img src="./images/unlogged_profile_image.webp" alt="blank_profile_picture">
+                                    <img src="<?php echo($user_image);?>" alt="user_profile_picture">
                                 </div>
                                 <div id="outer">
                                     <div>
-                                        <input type="search" placeholder="What do you want to ask or share?">
+                                        <input type="search" placeholder="What do you want to ask or share?" class="searchbar">
                                     </div>
                                     <div id="options">
                                         <div id="ask-btn">
                                             <a href="">Ask</a>
                                         </div>
-                                        |
+                                        <span>|</span>
                                         <div id="answer-btn">
                                             <a href="">Answer</a>
                                         </div>
-                                        |
+                                        <span>|</span>
                                         <div id="create-post-btn">
                                             Post
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <?php
 
-                            <div class="post">
-                                <div id="profile_outermost">
-                                    <img class="user_image" src="./images/unlogged_profile_image.webp" alt="blank_profile_picture">
-                                    <div id="profile_outer">
-                                        <div id="profile_inner">
-                                            <div id="profile_innermost">
-                                                <div><p><a id="user_id_link" href="#">A. Soper</a></p></div>
-                                                <div>.</div>
-                                                <div><a class="follow-link" href="#">Follow</a></div>
-                                            </div>
-                                        </div>
-                                        <div class="user_title">Former Member of Technical Staff at AT&T Bell Labs (1985–1993) . Updated 3y</div>
+                            $count_posts_sql = "select COUNT(*) as count from `posts` where uid = $uid";
+
+                            $res = mysqli_query($conn, $count_posts_sql);
+                            $data = mysqli_fetch_assoc($res);
+                            $number_of_posts_by_user = $data['count'];
+
+                            if($number_of_posts_by_user === "0")
+                            {
+                                ?>
+                                    <div id="empty-post-feed-msg-container">
+                                        <i class="fa-solid fa-newspaper" id="post-icon"></i>
+                                        <p class="msg">You haven't posted anything yet!</p>
                                     </div>
-                                </div>
-                                <h3><a class="post_link" href="#">Do you think Bjarne Stroustrup knows the entire C++ language or does he have to refer back to his own book?</a></h3>
-                                <div class="post_content">
-                                        I feel I am uniquely qualified to answer this question!
-                                        It was 1986, and I was working at AT&T Bell Labs. Our department was only the second in the entire company that was using this compiler called cfront for a new language called C++. I knew the C language, and was in the process of learning C++ along with others in my group. One day, I was puzzled by a certain construct in the C++ language.
-                                        Now, Stroustrup was also an employee at AT&T Bell Labs. His name and number was listed in the company directory. (Because he was in a different location, I had to dial him using the “8” prefix, if I recall correctly, followed by the location code.)
-                                        I called him, and he picked up. I posed my question to him and told him that I had already consulted his C++ book. Without any delay whatsoever, and I mean instantly, he told me to “turn to page X” (I honestly don’t remember the page # after so many years, but it was a very specific topic deep in the book, say on page 197). And I remember that I did not hear any sound of him picking up his book, going through the pages; really, no time elapsed for any of that. It was more akin to a Jennings-level Jeopardy! contestant already providing an answer while the question is still in the process of being asked.
-                                        Sure enough, my question had a clear answer on that very page! I was just amazed how he knew the page # by heart! I thanked him and hung up. I thought to myself, no wonder he came up with the language, and wrote the cfront preprocessor all by himself!
-                                        I am mad at myself for not getting the book autographed during those days.
-                                    <div>
-                                        <img class="post_img" src="https://qph.cf2.quoracdn.net/main-qimg-da113c805f07a570d532b9772f8c629a-lq" alt="bjarne_stroustrup_sitting_at_work">
-                                    </div>    
-                                </div>
-                            </div>
+                                <?php
+                            }
 
+                            $sql_posts = "select pid, post_title, post_content, date_and_time, post_image from `posts` where uid = $uid";
 
-                            <div class="post" id="post1">
-                                <div id="profile_outermost">
-                                    <img id="user_image" src="./images/blank_profile_picture.jpg" alt="blank_profile_picture">
-                                    <div id="profile_outer">
-                                        <div id="profile_inner">
-                                            <div id="profile_innermost">
-                                                <div><p><a id="user_id_link" href="#">A. Soper</a></p></div>
-                                                <div>.</div>
-                                                <div><a class="follow-link" href="#">Follow</a></div>
-                                            </div>
-                                        </div>    
-                                        <div id="user_title">Former Member of Technical Staff at AT&T Bell Labs (1985–1993) . Updated 3y</div>
-                                    </div>
-                                </div>
-                                <p><a id="post_link" href="#">Do you think Bjarne Stroustrup knows the entire C++ language or does he have to refer back to his own book?</a></p>
-                                <div id="post_content">
-                                    <p>
-                                        I feel I am uniquely qualified to answer this question!
-                                        It was 1986, and I was working at AT&T Bell Labs. Our department was only the second in the entire company that was using this compiler called cfront for a new language called C++. I knew the C language, and was in the process of learning C++ along with others in my group. One day, I was puzzled by a certain construct in the C++ language.
-                                        Now, Stroustrup was also an employee at AT&T Bell Labs. His name and number was listed in the company directory. (Because he was in a different location, I had to dial him using the “8” prefix, if I recall correctly, followed by the location code.)
-                                        I called him, and he picked up. I posed my question to him and told him that I had already consulted his C++ book. Without any delay whatsoever, and I mean instantly, he told me to “turn to page X” (I honestly don’t remember the page # after so many years, but it was a very specific topic deep in the book, say on page 197). And I remember that I did not hear any sound of him picking up his book, going through the pages; really, no time elapsed for any of that. It was more akin to a Jennings-level Jeopardy! contestant already providing an answer while the question is still in the process of being asked.
-                                        Sure enough, my question had a clear answer on that very page! I was just amazed how he knew the page # by heart! I thanked him and hung up. I thought to myself, no wonder he came up with the language, and wrote the cfront preprocessor all by himself!
-                                        I am mad at myself for not getting the book autographed during those days.
-                                    </p>
-                                    <div>
-                                        <img class="post_img" src="https://qph.cf2.quoracdn.net/main-qimg-da113c805f07a570d532b9772f8c629a-lq" alt="bjarne_stroustrup_sitting_at_work">
-                                    </div>    
-                                </div>
-                                <div class="post" id="post1">
+                            $post_records = mysqli_query($conn, $sql_posts);
+
+                            while($data = mysqli_fetch_assoc($post_records))
+                            {
+                                $pid = $data['pid'];
+                                $post_title = $data['post_title'];
+                                $post_content = $data['post_content'];
+                                $date_and_time = $data['date_and_time'];
+                                $post_image = $data['post_image'];
+
+                                ?>
+                                <div class="post">
                                     <div id="profile_outermost">
-                                        <img id="user_image" src="./images/blank_profile_picture.jpg" alt="blank_profile_picture">
+                                        <img class="user_image" src="<?php echo($user_image);?>" alt="user_profile_picture">
                                         <div id="profile_outer">
                                             <div id="profile_inner">
                                                 <div id="profile_innermost">
-                                                    <div><p><a id="user_id_link" href="#">A. Soper</a></p></div>
+                                                    <div><p><a id="user_id_link" href="#"><?php echo($username);?></a></p></div>
                                                     <div>.</div>
                                                     <div><a class="follow-link" href="#">Follow</a></div>
                                                 </div>
-                                            </div>    
-                                            <div id="user_title">Former Member of Technical Staff at AT&T Bell Labs (1985–1993) . Updated 3y</div>
+                                            </div>
+                                            <div class="user_title"><?php if($user_title !== "none") echo($user_title)." .";?> Updated <?php echo($date_and_time);?></div>
                                         </div>
                                     </div>
-                                    <p><a id="post_link" href="#">Do you think Bjarne Stroustrup knows the entire C++ language or does he have to refer back to his own book?</a></p>
-                                    <div id="post_content">
-                                        <p>
-                                            I feel I am uniquely qualified to answer this question!
-                                            It was 1986, and I was working at AT&T Bell Labs. Our department was only the second in the entire company that was using this compiler called cfront for a new language called C++. I knew the C language, and was in the process of learning C++ along with others in my group. One day, I was puzzled by a certain construct in the C++ language.
-                                            Now, Stroustrup was also an employee at AT&T Bell Labs. His name and number was listed in the company directory. (Because he was in a different location, I had to dial him using the “8” prefix, if I recall correctly, followed by the location code.)
-                                            I called him, and he picked up. I posed my question to him and told him that I had already consulted his C++ book. Without any delay whatsoever, and I mean instantly, he told me to “turn to page X” (I honestly don’t remember the page # after so many years, but it was a very specific topic deep in the book, say on page 197). And I remember that I did not hear any sound of him picking up his book, going through the pages; really, no time elapsed for any of that. It was more akin to a Jennings-level Jeopardy! contestant already providing an answer while the question is still in the process of being asked.
-                                            Sure enough, my question had a clear answer on that very page! I was just amazed how he knew the page # by heart! I thanked him and hung up. I thought to myself, no wonder he came up with the language, and wrote the cfront preprocessor all by himself!
-                                            I am mad at myself for not getting the book autographed during those days.
-                                        </p>
-                                        <div>
-                                            <img class="post_img" src="https://qph.cf2.quoracdn.net/main-qimg-da113c805f07a570d532b9772f8c629a-lq" alt="bjarne_stroustrup_sitting_at_work">
-                                        </div>    
+                                    <h3><a class="post_link" href="#"><?php echo($post_title);?></a></h3>
+                                    <div class="post_content">
+                                    <?php 
+                                        echo($post_content);
+
+                                        if($post_image !== "none") 
+                                        {
+                                            ?>
+                                            <div>
+                                                <img class="post_img" src="./images/post_images/<?php echo($post_image);?>" alt="post_image">
+                                            </div>
+                                            <?php
+                                        }
+                                    ?>
                                     </div>
+                                    <form action="index.php" method ="post">
+                                    <div class="post-info-bar">
+                                        <div class="post-more-options">
+                                            <div class="post-more-options-container">
+                                                <input type="text" name="pid" value="<?php echo($pid);?>" hidden>
+                                                <input type="submit" name="update_post" value="Update Post">
+                                                <input type="submit" name="delete_post" value="Delete Post">
+                                            </div>
+                                            <i class="fa-solid fa-ellipsis" id="post-more-options-icon"></i>
+                                        </div>
+                                    </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>    
+                                <?php
+                            }
+                            ?>
+                        </div>
                         <div class="ads">
                             <div class="ad">
                                 <img class="ad_images" src="./images/apple_advertisement.jpg" alt="ad">
@@ -291,11 +341,10 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
+                <script src="script.js"></script>
+                <script src="https://kit.fontawesome.com/4ca0345904.js" crossorigin="anonymous"></script>
             </body>
-            <script src="script.js"></script>
-            <script src="https://kit.fontawesome.com/4ca0345904.js" crossorigin="anonymous"></script>
             </html>
         <?php
     }

@@ -7,8 +7,10 @@
         $password = $_POST['password'];
         $security_question = $_POST['security_question'];
         $answer = $_POST['answer'];
+        $user_image = "default_user_image.webp";
+        $user_title = "none";
 
-        $sql = "insert into users (username, password, security_question, security_answer) values ('$username', '$password', '$security_question', '$answer')";
+        $sql = "insert into users (username, password, security_question, security_answer, user_image, user_title) values ('$username', '$password', '$security_question', '$answer', '$user_image', '$user_title')";
 
         if(mysqli_query($conn, $sql))
         {

@@ -1,5 +1,6 @@
 body
 {
+    background-color: #f1f2f2;
     margin-top: 0px;
     padding-top: 0px;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -39,7 +40,7 @@ a
     align-items: center;
     padding-top: 0px;
     margin-top: 0px;
-    z-index: 1002;
+    z-index: 999;
 }
 .flex-navbar > div
 {
@@ -49,7 +50,7 @@ a
 {
     border-radius: 4px;
     height: 40px;
-    width: 35.8em;
+    width: 400px;
 }
 #try_quora_btn
 {
@@ -130,6 +131,7 @@ a
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: #f1f2f2;
 }
 .flex-container > div
 {
@@ -214,13 +216,14 @@ a
     display: flex;
     flex-direction: column;
     margin-top: 6px;
-    background-color: #f1f2f2;
     /* width: 52%; */
     width: 44%;
     word-wrap: break-word;
     position: relative;
     /* left: 3.5em; */
     left: 5.2em;
+    background-color: white;
+    /* background-color: white; */
 }
 /* .posts > div
 {
@@ -293,7 +296,6 @@ a
     border: solid 1px black;
     padding: 1em;
     margin-top: 3.4em;
-    z-index: 1;
 }
 #post-box > #outer
 {
@@ -371,12 +373,12 @@ a
 {
     transform: scale(1.1);
 }
-.post-pop-up-outer-container
+#post-pop-up-outer-container
 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(36,36,36,.9);
+    background-color: rgba(0, 0, 0, 0.785);
     overflow: hidden;
     margin: 0px;
     padding: 0px;
@@ -397,7 +399,6 @@ a
     background-color: white;
     border-radius: 5px;
     z-index: 1000;
-    /* display: none; */
 }
 #post-content-textarea
 {
@@ -525,29 +526,5 @@ a
 }
 .searchbar
 {
-    padding-left: 0.5em;
-}
-#searchbar-results
-{
-    background-color: white;
-    position: absolute;
-    height: 15em;
-    width: 29.8em;
-    left: 35.1em;
-    top: 3.2em;
-    border-radius: 4px;
-    z-index: 1;
-    display: none;
-}
-#search-string-showcase
-{
-    margin-left: 0.5em;
-}
-#submit-search-button
-{
-    width: 100%;
-    height: 3em;
-    text-align: start;
-    border: none;
-    cursor: pointer;
+    padding-left: 1em;
 }

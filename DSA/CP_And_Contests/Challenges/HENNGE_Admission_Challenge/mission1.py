@@ -48,4 +48,3 @@
 
 # 	input_n_testcases(n)
 
-print(input())
