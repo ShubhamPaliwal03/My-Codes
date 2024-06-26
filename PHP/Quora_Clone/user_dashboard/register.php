@@ -3,10 +3,10 @@
     {
         include('connect.php');
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $security_question = $_POST['security_question'];
-        $answer = $_POST['answer'];
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $security_question = mysqli_real_escape_string($conn, $_POST['security_question']);
+        $answer = mysqli_real_escape_string($conn, $_POST['answer']);
         $user_image = "default_user_image.webp";
         $user_title = "none";
 

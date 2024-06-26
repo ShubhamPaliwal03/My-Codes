@@ -10,11 +10,19 @@
     <div id="bill-container">
         <label for="select_product">Product : </label>
         <select id="select_product">
-            <option value="150">Dosa</option>
+            <script>
+                const products = [["Dosa", 150], ["Pizza", 130], ["Noodles", 110], ["Burger", 70], ["French Fries", 80], ["Lime Soda", 50]];
+    
+                for(let product of products)
+                {
+                    document.write(`<option value=${product[1]}>${product[0]}</option>`);
+                }
+            </script>
+            <!-- <option value="150">Dosa</option>
             <option value="130">Pizza</option>
             <option value="110">Noodles</option>
             <option value="70">Burger</option>
-            <option value="80">French Fries</option>
+            <option value="80">French Fries</option> -->
         </select>
         <br>
         <br>

@@ -64,46 +64,47 @@
                 <title>Quora</title>
             </head>
             <body>
-                <div id="post-pop-up-outer-container">
-                    <div id="post-pop-up-inner-container">
+                <!-- <script type="module" src="../jquery.js"></script> -->
+                <div class="post-pop-up-outer-container">
+                    <div class="post-pop-up-inner-container">
                         <form action="index.php" method="post">
-                            <div id="cancel-btn">
-                                <i class="fa-solid fa-xmark" id="cancel-icon"></i>
+                            <div class="cancel-btn">
+                                <i class="fa-solid fa-xmark" class="cancel-icon"></i>
                             </div>
                             <div class="inner-flex-container">
                                 <div>Create Post</div>
                             </div>
                             <hr>
                             <div class="inner-flex-container">
-                                <input type="text" name="post_title" id="post-title-input" placeholder="Place your post title...">
+                                <input type="text" name="post_title" class="post-title-input" placeholder="Place your post title...">
                             </div>
                             <div class="inner-flex-container">
-                                <textarea name="post_content" id="post-content-textarea" placeholder="Say something..."></textarea>
+                                <textarea name="post_content" class="post-content-textarea" placeholder="Say something..."></textarea>
                             </div>
                             <hr>
                             <div class="inner-flex-container">
-                                <input type="submit" value="Post" id="post-pop-up-create-post-btn" name="create_post" disabled>
+                                <input type="submit" value="Post" class="post-pop-up-modify-post-btn" name="create_post" disabled>
                             </div>
                         </form>
                     </div>
-                    <div id="post-pop-up-inner-container">
+                    <div class="post-pop-up-inner-container">
                         <form action="index.php" method="post">
-                            <div id="cancel-btn">
-                                <i class="fa-solid fa-xmark" id="cancel-icon"></i>
+                            <div class="cancel-btn">
+                                <i class="fa-solid fa-xmark" class="cancel-icon"></i>
                             </div>
                             <div class="inner-flex-container">
                                 <div>Edit Post</div>
                             </div>
                             <hr>
                             <div class="inner-flex-container">
-                                <input type="text" name="post_title" id="post-title-input">
+                                <input type="text" name="post_title" class="post-title-input">
                             </div>
                             <div class="inner-flex-container">
-                                <textarea name="post_content" id="post-content-textarea"></textarea>
+                                <textarea name="post_content" class="post-content-textarea"></textarea>
                             </div>
                             <hr>
                             <div class="inner-flex-container">
-                                <input type="submit" value="Update" id="post-pop-up-create-post-btn" name="update_post" disabled>
+                                <input type="submit" value="Update" class="post-pop-up-modify-post-btn" name="update_post" disabled>
                             </div>
                         </form>
                     </div>
@@ -164,17 +165,17 @@
                         </div>
                         <div id="search-section">
                             <div><input id="user-post-search-box" type="search" placeholder="Search Quora" class="searchbar"></div>
-                            <div id="searchbar-results">
-                                <form action="search_results.php">
-                                    <button type="submit" id="submit-search-button" name="submit-search">
-                                        <div id="search-string-showcase">
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                            <span>Search: </span>
-                                            <span class="search-string"></span>
-                                        </div>
-                                    </button>
-                                </form>
-                            </div>
+                            <form action="search_results.php">
+                                <div id="searchbar-results">
+                                        <button type="submit" id="submit-search-button" name="submit-search">
+                                            <div id="search-string-showcase">
+                                                <i class="fa-solid fa-magnifying-glass"></i>
+                                                <span class="profile-text">Search: </span>
+                                                <span class="search-string"></span>
+                                            </div>
+                                        </button>
+                                </div>
+                            </form>
                         </div>
                         <div><button id="try_quora_btn">Try Quora+</button></div>
                         <div>
@@ -342,6 +343,7 @@
                         </div>
                     </div>
                 </div>
+                <script type="module" src="../jquery.js"></script>
                 <script src="script.js"></script>
                 <script src="https://kit.fontawesome.com/4ca0345904.js" crossorigin="anonymous"></script>
             </body>

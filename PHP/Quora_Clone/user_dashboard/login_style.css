@@ -16,6 +16,7 @@ body
     border: solid 1px black;
     height: 45vh;
     width: 30%;
+    border-radius: 0.5em;
 }
 .outer-flex-container > div
 {
