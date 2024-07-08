@@ -5,44 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fb7aacc-4389-4f98-8308-34655e082b79" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JustNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JustNote.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fontConfig/test.txt-config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/fontConfig/test.txt-config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fontConfig/untitled-config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/fontConfig/untitled-config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/99146_notepad.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/FontLoaderThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepad/Notepad.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/99146_notepad.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FontLoaderThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notepad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java_Programs@C_Institute/CartSystemDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java_Programs@C_Institute/CartSystemDesign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PHP/Quora_Clone/database_backup/quora_clone.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PHP/Quora_Clone/database_backup/quora_clone.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PHP/Quora_Clone/user_dashboard/secured/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PHP/Quora_Clone/user_dashboard/secured/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PHP/Quora_Clone/user_dashboard/secured/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PHP/Quora_Clone/user_dashboard/secured/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PHP/Quora_Clone/user_dashboard/secured/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PHP/Quora_Clone/user_dashboard/secured/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PHP/Using_WebSockets_in_PHP/Basics/client.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PHP/Using_WebSockets_in_PHP/Basics/client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PHP/Using_WebSockets_in_PHP/Basics/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PHP/Using_WebSockets_in_PHP/Basics/server.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Web Dev/Projects/Tic-Tac-Toe/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Web Dev/Projects/Tic-Tac-Toe/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/JSP_Scriptlet_Example/src/main/WebContent/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/.settings/org.eclipse.wst.server.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/Tomcat v9.0 Server at localhost-config/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/Tomcat v9.0 Server at localhost-config/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/Tomcat v9.0 Server at localhost-config/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/Tomcat v9.0 Server at localhost-config/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/Tomcat v9.0 Server at localhost-config/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/Servers/Tomcat v9.0 Server at localhost-config/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/WebContent/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/WebContent/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/WebContent/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/WebContent/jsp_declaration.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/WebContent/scriptlet_example.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/WebContent/using_class_in_JSP.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspandservlet/jspservletdemo/src/com/shubhampaliwal/Student.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +58,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="ProjectId" id="2h3rH749TqS27dXYl7ReQiSxAAQ" />
   <component name="ProjectViewState">

@@ -46,12 +46,69 @@ const post_title_inputs = document.getElementsByClassName('post-title-input');
 const create_post_title_input = post_title_inputs[0];
 const update_post_title_input = post_title_inputs[1];
 
+const update_post_hidden_pid_field = document.getElementById('pid');
+
+const getEditPostContent = (event) => {
+
+    const post_id = event.target.id;
+    const table_pid = post_id.substring(4, post_id.length);
+
+    // set the value of the pid field, to enable editing of post, this will be used in SQL query via PHP
+    update_post_hidden_pid_field.value = table_pid;
+
+    jQuery.ajax({
+
+        url: "./get_post_data.php",
+        type: "post",
+        dataType: "json", // to use the JSON format for the request and response
+        data: {pid : table_pid},
+        success: (result) => {
+
+            // here, we don't need to parse the JSON object into JavaScript object explicitly
+            // as the data is implicitly converted from String format to JSON format on the server side (for us, PHP), 
+            // and from JSON format to String format on the client-side (here),
+            // because we have set the dataType as json here in the object.
+
+            // destructuring the JavaScript object to extract the information
+            const {post_title, post_content} = result;
+
+            // set the post title and content to the one of the current post
+            update_post_title_input.value = post_title;
+            update_post_content_textarea.value = post_content;
+        },
+        error: (xhr, status, error) => {
+            console.log(error);
+        }
+    });
+};
+
+const update_post_btns = document.getElementsByClassName('update-post-btn');
+
+// getElementsByClassName() returns an HTML Collection, whereas querySelectorAll() returns an array
+// to convert the HTML Collection into an array, we can either use the spread operator (...), or use Array.from()
+
+const update_post_btns_array = [...update_post_btns];
+// const update_post_btns_array = Array.from(update_post_btns);
+
+update_post_btns_array.forEach((update_post_btn) => {
+
+    update_post_btn.addEventListener('click', (event) => {
+    
+        getEditPostContent(event);
+
+        app_container.style.position = "fixed";
+        post_pop_up_outer_container.style.display = "flex";
+        update_post_pop_up_inner_container.style.display = "block";
+    });
+});
+
 let isClickedFromSearchSection = false;
 
 post_btn.addEventListener('click', () => {
 
     app_container.style.position = "fixed";
     post_pop_up_outer_container.style.display = "flex";
+    create_post_pop_up_inner_container.style.display = "block";
 });
 
 const checkIfTextAreaEmpty = () => {
@@ -103,12 +160,14 @@ create_post_cancel_btn.addEventListener('click', () => {
 
     app_container.style.position = "static";
     post_pop_up_outer_container.style.display = "none";
+    create_post_pop_up_inner_container.style.display = "none";
 });
 
 update_post_cancel_btn.addEventListener('click', () => {
 
     app_container.style.position = "static";
     post_pop_up_outer_container.style.display = "none";
+    update_post_pop_up_inner_container.style.display = "none";
 });
 
 create_post_card_btn.addEventListener('mouseover', () => {
@@ -178,11 +237,6 @@ const update_search_results = (search_query, results) => {
 
     const searchbar_results = document.getElementById('searchbar-results');
 
-    // <div id="search-profiles-result-container">
-    //     <div class="search-profile">Shubham Paliwal</div>
-    //     <div class="search-profile">Shubhman Gill</div>
-    // </div>
-
     const old_search_profiles_container = document.getElementById('search-profiles-result-container');
 
     if(old_search_profiles_container !== null) {
@@ -197,8 +251,8 @@ const update_search_results = (search_query, results) => {
 
     users.pop(); // to remove the unnecessary empty string at the end of the array
 
-    for(let user_data of users)
-    {
+    for(let user_data of users) {
+
         const user_details = user_data.split(":");
 
         const username = user_details[0].split(" ");
@@ -269,7 +323,7 @@ const update_search_results = (search_query, results) => {
 
 const getSearchResults = () => {
 
-    let search_query = user_post_search_box.value;
+    const search_query = user_post_search_box.value;
 
     jQuery.ajax({
         url: './get_search_results.php',

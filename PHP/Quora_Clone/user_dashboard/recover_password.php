@@ -43,13 +43,16 @@
                         <title>Show Password</title>
                     </head>
                     <body>
-                        <h1>Hey, <?php echo $username;?></h1>
-                        <br>
-                        <h2>Your Password is : <b><?php echo $password;?></b></h2>
-                        <br>
-                        <a href="login.php">Login</a>
-                        <br>
-                        <h3>Health Tip : A handful of almonds a day, keeps the need of password recovery away :&rpar;</h2>
+                        <div class="outer-container">
+                            <h1>Hey, <?php echo $username;?></h1>
+                            <br>
+                            <h2>Your Password is : <b><?php echo $password;?></b></h2>
+                            <br>
+                            <a href="login.php">Login</a>
+                            <br>
+                            <br>
+                            <h3>Pro Tip : A handful of almonds a day, keeps the need of password recovery away :&rpar;</h2>
+                        </div>
                     </body>
                     </html>           
                 <?php
@@ -67,7 +70,7 @@
                     <title>Recover Password</title>
                 </head>
                 <body>
-                    <div class="outer-flex-container">
+                    <div class="outer-container">
                         <h2>Recover Password</h2>
                         <form action="recover_password.php" method="post">
                             <div class="inner-flex-container">
@@ -83,7 +86,7 @@
                                     <fieldset>
                                         <legend>Answer</legend>
                                         <input type="text" name="security_answer">
-                                        <div id="error_msg">
+                                        <div id="error-msg">
                                             <div>Answer doesn't match!</div>
                                             <!-- <a href="forgot_password.php">Try with different username</a> -->
                                         </div>
@@ -98,6 +101,7 @@
                                         <label for="show_password">Show Password</label>
                                     </fieldset>
                                 </div>
+                                <br>
                                 <div>
                                     <input type="text" hidden name="username" value="<?php echo $username;?>">
                                     <input type="submit" value="Verify and Proceed" name="proceed">
@@ -122,7 +126,7 @@
                 <title>Recover Password</title>
             </head>
             <body>
-                <div class="outer-flex-container">
+                <div class="outer-container">
                     <h2>Recover Password</h2>
                     <form action="recover_password.php" method="post">
                         <div class="inner-flex-container">
@@ -149,6 +153,7 @@
                                     <label for="change_password">Change Password</label>
                                 </fieldset>
                             </div>
+                            <br>
                             <div>
                                 <input type="text" hidden name="username" value="<?php echo $username;?>">
                                 <input type="submit" value="Verify and Proceed" name="proceed">

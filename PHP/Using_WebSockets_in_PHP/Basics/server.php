@@ -23,7 +23,7 @@
     // return type : bool (Returns true on success or false on failure).
     
     $host = "127.0.0.1"; // we can also use 'localhost' here
-    $port = 4950;
+    $port = 8085;
 
     $result = socket_bind($socket, $host, $port) or die('Not Able To Bind Socket With Host'); // binds a name to a socket
 

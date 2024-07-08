@@ -44,7 +44,7 @@ a
 }
 .flex-navbar > div
 {
-    margin-right: 0.5em;
+    margin-right: 1em;
 }
 #user-post-search-box
 {
@@ -147,12 +147,30 @@ a
 }
 #intrests_section
 {
+    /* display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    width: 200px;
+    height: 80dvh;
+    left: 5px; */ /**/
+    /* display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    width: 200px;
+    height: 80dvh;
+    left: -162px;
+    background-color: #f1f2f2;
+    width: 143%;
+    position: relative; */
     display: flex;
     flex-direction: column;
     padding-top: 60px;
     width: 200px;
     height: 80dvh;
-    left: 5px;
+    left: -162px;
+    background-color: #f1f2f2;
+    width: 143%;
+    position: relative;
 }
 .intrests
 {
@@ -187,6 +205,18 @@ a
 }
 .ads
 {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f1f2f2;
+    padding: 0px 0.5em;
+    position: relative; */
+    /* left: 1.8em; */ /**/
+    /* left: 2.8em;
+    box-sizing: border-box;
+    width: 30em; */
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -194,10 +224,10 @@ a
     background-color: #f1f2f2;
     padding: 0px 0.5em;
     position: relative;
-    /* left: 1.8em; */
-    left: 2.8em;
+    left: 0.8em;
     box-sizing: border-box;
-    width: 30em;
+    width: 83em;
+    position: relative;
 }
 .ads > div
 {
@@ -213,17 +243,34 @@ a
 } */
 .posts
 {
+    /* display: flex;
+    flex-direction: column;
+    margin-top: 6px; */
+    /* width: 52%; */ /**/
+    /* width: 100%;
+    word-wrap: break-word;
+    position: relative; */
+    /* left: 3.5em; */ /**/
+    /* left: 5.2em;
+    background-color: white; */
+    /* background-color: white; */ /**/
+    /* height: 92vh;
+    overflow-y: auto;
+    overflow-x: hidden; */
+
     display: flex;
     flex-direction: column;
     margin-top: 6px;
-    /* width: 52%; */
-    width: 44%;
+    width: 190%;
     word-wrap: break-word;
     position: relative;
     /* left: 3.5em; */
     left: 5.2em;
     background-color: white;
-    /* background-color: white; */
+    height: 92vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: -149px;
 }
 /* .posts > div
 {
@@ -527,4 +574,42 @@ a
 .searchbar
 {
     padding-left: 1em;
+}
+
+.matching-user-info-container
+{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin: 1rem 1rem;
+}
+.posts > div:first-of-type
+{
+    margin-left: 1em;
+}
+hr
+{
+    width: 100%;
+    color: gainsboro;
+}
+.posts > hr:first-of-type
+{
+    color: gray;
+}
+.follow-btn
+{
+    border-radius: 25px;
+    width: 5.5em;
+    height: 2.2em;
+    border: none;
+}
+.Follow
+{
+    background-color: #e9e9ed;
+    color: #000000;
+}
+.Unfollow
+{
+    background-color: #2e69ff;
+    color: #ffffff;
 }

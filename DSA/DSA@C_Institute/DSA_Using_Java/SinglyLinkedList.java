@@ -531,7 +531,48 @@ class SinglyLinkedList
 
 		return start3;
 	}
-}	
+
+	static void sortUsingStraightSelectionSort(Node start)
+	{
+		for(Node i = start; i != null; i = i.next)
+		{
+			for(Node j = i.next; j != null; j = j.next)
+			{
+				if(i.data > j.data)
+				{
+					int temp = i.data;
+
+					i.data = j.data;
+
+					j.data = temp;
+				}
+			}
+		}
+	}
+
+	static void sortUsingBubbleSort(Node start)
+	{
+		for(Node i = start; i != null; i = i.next)
+		{
+			for(Node j = start; j.next != null; j = j.next)
+			{
+				if(j.data > j.next.data)
+				{
+					int temp = j.data;
+
+					j.data = j.next.data;
+
+					j.next.data = temp;
+				}
+			}
+		}
+	}
+
+	static void sortUsingInsertionSort(Node start)
+	{
+		
+	}
+}
 
 class Main
 {
@@ -550,7 +591,7 @@ class Main
 
 		do 
 		{
-			System.out.print("\nSelect your choice (1-12) :\n--------------------------\n\n1.  Create\n2.  Display\n3.  Display From End\n4.  Insert At Beginning\n5.  Insert At Middle (At Desired Position)\n6.  Insert At End\n7.  Delete From Beginning\n8.  Delete From Middle (At desired position)\n9.  Delete From End\n10. Check Size\n11. Search an Element\n12. Check if the LinkedList is Circular (true/false)\n13. Merge Two Sorted Linked Lists\n14. Reverse the Linked List (in-place)\n\nYour Choice : ");
+			System.out.print("\nSelect your choice (1-12) :\n--------------------------\n\n1.  Create\n2.  Display\n3.  Display From End\n4.  Insert At Beginning\n5.  Insert At Middle (At Desired Position)\n6.  Insert At End\n7.  Delete From Beginning\n8.  Delete From Middle (At desired position)\n9.  Delete From End\n10. Check Size\n11. Search an Element\n12. Check if the LinkedList is Circular (true/false)\n13. Merge Two Sorted Linked Lists\n14. Reverse the Linked List (in-place)\n15. Sort the LinkedList\n\nYour Choice : ");
 
 			int operation = kb.nextInt();
 
@@ -725,9 +766,44 @@ class Main
 
 					break;
 
+				case 15:
+
+					System.out.print("\nWhich sorting technique would you like to use : \n\n1. Selection Sort\n2. Bubble Sort\n3. Insertion Sort\n\nSelect Your Choice : ");
+
+					int sorting_algo_choice = kb.nextInt();
+
+					switch(sorting_algo_choice)
+					{
+						case 1:
+
+							SinglyLinkedList.sortUsingStraightSelectionSort(ll.start);
+
+							System.out.print("\nLinked List Sorted successfully using Straight Selection Sort...");
+
+							break;
+
+						case 2:
+
+							SinglyLinkedList.sortUsingBubbleSort(ll.start);
+
+							System.out.print("\nLinked List Sorted successfully using Bubble Sort...");
+
+							break;
+
+						case 3:
+						
+							break;
+
+						default:
+
+							System.out.println("\nPlease select a valid sorting algorithm choice (1-3)!");
+					}
+
+					break;
+
 				default:
 
-					System.out.print("\nPlease enter a valid operation (1-12) !");
+					System.out.print("\nPlease enter a valid operation (1-12)!");
 			}
 
 			System.out.print("\n\nPress y/Y to continue and Press any other key to exit...\n\nYour Choice : ");

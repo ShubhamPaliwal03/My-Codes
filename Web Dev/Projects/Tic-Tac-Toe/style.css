@@ -124,6 +124,8 @@ body
     display: none;
     top: 0px;
     left: 0px;
+    /* width: 0px; */
+    /* transition: width 1s ease-in-out; */
 }
 #grid-container-3
 {

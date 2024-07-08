@@ -3,7 +3,6 @@ import java.util.*;
 class Product
 {
 	private String name;
-
 	private int price;
 
 	public void inputProductDetails()
@@ -33,15 +32,12 @@ class Product
 class Cart
 {
 	private LinkedList<Product> productList;
-
 	private LinkedList<Integer> quantityList;
-
 	private double totalBill;
 
 	Cart()
 	{
 		productList = new LinkedList<>();
-
 		quantityList = new LinkedList<>();
 	}
 

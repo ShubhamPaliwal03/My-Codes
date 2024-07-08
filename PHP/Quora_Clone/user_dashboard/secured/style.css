@@ -263,7 +263,8 @@ a
 }
 .post
 {
-    margin: 10px 0;
+    /* margin: 10px 0; */
+    margin: 0px 15px;
     padding: 10px;
     background-color: #f1f2f2;
 }
@@ -398,7 +399,7 @@ a
     background-color: white;
     border-radius: 5px;
     z-index: 1000;
-    /* display: none; */
+    display: none;
 }
 .post-content-textarea
 {
@@ -499,14 +500,14 @@ a
     cursor: pointer;
     /* display: none; */
 }
-.post-more-options-container > input[type="submit"]
+.post-more-options-container > input[type="submit"], .post-more-options-container > input[type="button"]
 {
     background-color: white;
     padding: 0.5em 1em;
     box-sizing: border-box;
     border: none;
 }
-.post-more-options-container > input[type="submit"]:hover
+.post-more-options-container > input:hover
 {
     background-color: gainsboro;
 }

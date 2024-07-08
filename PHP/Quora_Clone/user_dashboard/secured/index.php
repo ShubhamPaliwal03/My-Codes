@@ -41,7 +41,13 @@
         }
         else if(isset($_POST['update_post']))
         {
-            
+            $post_title_input = $_POST['post_title'];
+            $post_content_input = $_POST['post_content'];
+            $pid = $_POST['pid'];
+
+            $sql = "update `posts` set post_title = '$post_title_input', post_content = '$post_content_input', date_and_time = NOW() where pid = $pid";
+
+            mysqli_query($conn, $sql);
         }
 
         $sql_users = "select user_title, user_image from `users` where uid = $uid";
@@ -105,6 +111,7 @@
                             <hr>
                             <div class="inner-flex-container">
                                 <input type="submit" value="Update" class="post-pop-up-modify-post-btn" name="update_post" disabled>
+                                <input type="text" name="pid" id="pid" hidden>
                             </div>
                         </form>
                     </div>
@@ -164,16 +171,18 @@
                             </div>
                         </div>
                         <div id="search-section">
-                            <div><input id="user-post-search-box" type="search" placeholder="Search Quora" class="searchbar"></div>
-                            <form action="search_results.php">
+                            <form action="search_results.php" method="post">
+                                <div>
+                                    <input id="user-post-search-box" name="search_query" type="search" placeholder="Search Quora" class="searchbar">
+                                </div>
                                 <div id="searchbar-results">
-                                        <button type="submit" id="submit-search-button" name="submit-search">
-                                            <div id="search-string-showcase">
-                                                <i class="fa-solid fa-magnifying-glass"></i>
-                                                <span class="profile-text">Search: </span>
-                                                <span class="search-string"></span>
-                                            </div>
-                                        </button>
+                                    <button type="submit" id="submit-search-button" name="submit-search">
+                                        <div id="search-string-showcase">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                            <span class="profile-text">Search: </span>
+                                            <span class="search-string"></span>
+                                        </div>
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -299,16 +308,16 @@
                                     ?>
                                     </div>
                                     <form action="index.php" method ="post">
-                                    <div class="post-info-bar">
-                                        <div class="post-more-options">
-                                            <div class="post-more-options-container">
-                                                <input type="text" name="pid" value="<?php echo($pid);?>" hidden>
-                                                <input type="submit" name="update_post" value="Update Post">
-                                                <input type="submit" name="delete_post" value="Delete Post">
+                                        <div class="post-info-bar">
+                                            <div class="post-more-options">
+                                                <div class="post-more-options-container">
+                                                    <input type="text" id="pid" name="pid" value="<?php echo($pid);?>" hidden>
+                                                    <input type="button" class="update-post-btn" id="post<?php echo ($pid)?>" name="update_post" value="Update Post">
+                                                    <input type="submit" name="delete_post" value="Delete Post">
+                                                </div>
+                                                <i class="fa-solid fa-ellipsis" id="post-more-options-icon"></i>
                                             </div>
-                                            <i class="fa-solid fa-ellipsis" id="post-more-options-icon"></i>
                                         </div>
-                                    </div>
                                     </form>
                                 </div>
                                 <?php
