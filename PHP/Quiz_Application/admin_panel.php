@@ -64,12 +64,12 @@
                 <a href="add_new_question.php"><button>Add New Question</button></a>
             </div>
             <div>
-                <button>Update New Question</button>
+                <button>Update A Question</button>
             </div>
         </div>
         <div id="inner2">
             <div>
-                <button>Delete New Question</button>
+                <button>Delete A Question</button>
             </div>
             <div>
                 <button>Show All Questions</button>

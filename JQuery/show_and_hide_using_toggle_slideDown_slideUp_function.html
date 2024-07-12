@@ -22,15 +22,15 @@
                     {            
                         const btn = document.getElementById('hide_ans')
             
-                        if(btn.innerText == "Hide Answer")
+                        if(btn.innerText === "Hide Answer")
                         {
-                            $('#q1').slideUp(3000)
+                            $('#answer').slideUp(1000)
 
                             btn.innerText = "Show Answer"
                         }
                         else // if user clicks on show answer
                         {
-                            $('#q1').slideDown(3000)
+                            $('#answer').slideDown(1000)
 
                             btn.innerText = "Hide Answer"
                         }
@@ -58,6 +58,6 @@
         </div>
     </div>
     <br>
-    <button id="hide_ans">Hide Answer</button>
+    <button id="hide_ans">Show Answer</button>
 </body>
 </html>

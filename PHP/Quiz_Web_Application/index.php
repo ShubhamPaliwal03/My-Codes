@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Quiz</title>
-    <style>
+    <!-- <style>
         body
         {
             background-color: #1e2124;
@@ -105,7 +106,7 @@
             font-style: italic;
             color: green;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <?php
