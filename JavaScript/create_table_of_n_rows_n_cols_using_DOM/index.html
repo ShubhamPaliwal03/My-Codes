@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Table Of N Rows and M Cols</title>
+    <style>
+
+        td
+        {
+            padding: 0px;
+            margin: 0px;
+            border: solid 1px black;
+            height: 100px;
+            width: 150px;
+        }
+
+        table
+        {
+            border-collapse: collapse;
+        }
+
+        img
+        {
+            width: inherit;
+            height: inherit;
+        }
+
+    </style>
+</head>
+<body id="b1">
+    Enter Rows : <input type="text" id="getRows">
+    <br><br>
+    Enter Cols : &nbsp;<input type="text" id="getCols">
+    <br><br>
+    <button id="create_table" onclick="createTable()">Create Table</button>
+    <br><br>
+    <!-- <table id="table1"></table> --> <!-- you can also add table using JavaScript in DOM, as done below -->
+    <script>
+
+        const table = document.createElement("table")
+
+        table.id = "table1"
+
+        const body = document.getElementById("b1")
+
+        body.appendChild(table)
+
+        function createTable()
+        {   
+            const rows = document.getElementById("getRows").value
+            
+            const cols = document.getElementById("getCols").value
+
+            for(let i = 1; i <= rows; i++)
+            {
+                const table_row = document.createElement("tr")
+
+                for(let j = 1; j <= cols; j++)
+                {
+                    const image = document.createElement("img")
+
+                    image.src = "img.jpg"
+
+                    image.alt = "image"
+
+                    const table_data = document.createElement("td")
+
+                    table_data.appendChild(image)
+            
+                    table_row.appendChild(table_data)
+                }
+
+                const table1 = document.getElementById("table1")
+    
+                table1.appendChild(table_row)
+            }
+
+            // logic for adding a 1 x 1 column
+            
+            // const table_row = document.createElement("tr")
+            
+            // const table_data = document.createElement("td")
+            
+            // table_row.appendChild(table_data)
+
+            // const table1 = document.getElementById("table1")
+
+            // table1.appendChild(table_row)
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React DOM Manipulation Example</title>
+    <!-- react algorithm -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- react dom algorithm -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <h1>React DOM Manipulation</h1>
+    <div id="root"></div>
+    <script>
+        const rootElement = document.getElementById('root');
+
+        // React.createElement(tagname, props, content)
+
+        const reactHeadElement = React.createElement("h1", {style: {color: "red"}}, "Hello from React");
+
+        ReactDOM.render(reactHeadElement, rootElement);
+    </script>
+</body>
+</html>

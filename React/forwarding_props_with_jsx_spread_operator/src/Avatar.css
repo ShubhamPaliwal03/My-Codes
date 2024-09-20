@@ -1,0 +1,14 @@
+.avatar
+{
+    border: solid 2px black;
+}
+
+.sepia
+{
+    filter: sepia(60%);
+}
+
+.thickBorder
+{
+    border: solid 5px black;
+}

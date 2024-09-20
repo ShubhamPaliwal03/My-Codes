@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        #parent-container
+        {
+            height: 500px;
+            width:500px;
+            background-color: lightgoldenrodyellow;
+            border: solid 1px darkgoldenrod;
+            cursor: pointer;
+            gap: 2rem;
+        }
+        #child-container
+        {
+            height: 250px;
+            width:250px;
+            background-color: lightskyblue;
+            border: solid 1px darkblue;
+            cursor: pointer;
+        }
+        .column-flex-container
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent-container" class="column-flex-container">
+        Parent Container
+        <div id="child-container" class="column-flex-container">
+            Child Container
+        </div>
+    </div>
+    <script>
+        const parent_container = document.getElementById('parent-container');
+        const child_container = document.getElementById('child-container');
+
+        parent_container.addEventListener('mouseover', () => {
+
+            console.log("Mouse over parent");
+        });
+
+        parent_container.addEventListener('mouseout', () => {
+
+            console.log("Mouse out parent");
+        });
+
+        child_container.addEventListener('mouseover', () => {
+
+            console.log("Mouse over parent");
+        });
+
+        child_container.addEventListener('mouseout', () => {
+
+            console.log("Mouse out parent");
+        });
+    </script>
+</body>
+</html>

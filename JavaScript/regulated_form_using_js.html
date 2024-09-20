@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+
+        h1
+        {
+            text-align: center;
+            font-size: 50px;
+            text-decoration: underline;
+            margin-bottom: -50px;
+            margin-top: 100px;
+        }
+
+        table,td,th
+        {
+            text-align: center;
+            border: solid 2px black;
+            border-collapse: collapse;
+        }
+
+        table
+        {
+            margin: 10% auto;
+        }
+
+        td
+        {
+            padding: 5px;
+        }
+
+        td,th
+        {
+            width: 170px;
+        }
+
+        div
+        {
+            width: 150px;
+        }
+
+        button
+        {
+            height: 40px;
+            width: 160px;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <h1>Form</h1>
+
+    <form action="save.php">
+
+        <script>
+
+            const row_names = ["Name","Father's Name","Mother's Name","Mobile Number","Email Address","Residential Address","Aadhar Number"]
+
+            const row_ids = ["name","fname","mname","mobile","email","address","aadhar"]
+
+            const row_types = ["text","text","text","number","text","text","number"]
+
+            document.write("<table>")
+
+            for(let i = 0; i < row_names.length; i++)
+            {
+                document.write("<tr>")
+                
+                    document.write("<th><label for="+row_ids[i]+">"+row_names[i]+"</label></th>")
+                    
+                    document.write("<td><input type="+row_types[i]+" name="+row_ids[i]+" onblur=checkTextField(this.id) onchange=updateUnfilledCount(this.id) id="+row_ids[i]+"></td>")
+        
+                    document.write("<td><div id=div_"+row_ids[i]+"></div></td>")
+
+                document.write("</tr>")
+            }
+
+            document.write("<tr>"+
+                                "<td id=msg></td>"+
+
+                                "<td id=submit_reset>"+
+                                    "<button id=submit type=submit disabled>Submit</button>"+
+                                "</td>"+
+
+                                "<td id=submit_reset>"+
+                                    "<button type=reset onclick=reloadPage()>Reset</button>"+
+                                "</td>"
+
+                            +"</tr>")
+
+            document.write("</table>")
+
+            for(let row_id of row_ids) // to set the values of min, max, and maxlength
+            {
+                const txt_field = document.getElementById(row_id)
+
+                if(row_id == "mobile")
+                {
+                    txt_field.setAttribute("minlength", "10")
+                    txt_field.setAttribute("maxlength", "10")
+                }
+                else if(row_id == "aadhar")
+                {
+                    txt_field.setAttribute("minlength", "12")
+                    txt_field.setAttribute("maxlength", "12")
+                }
+            }
+
+            let unfilled_count = row_names.length
+
+            function reloadPage()
+            {
+                location.reload() // to reload the current document
+            }
+
+            let prev_id = "" // a global variable to keep track of the previous element id
+
+            function updateUnfilledCount(changed)
+            {
+                const txt_field = document.getElementById(changed)
+
+                if(txt_field.value == "")
+                {
+                    unfilled_count++ // there is no need of any extra condition here as JS doesn't consider empty string or whitespace input as a change
+                }
+                else
+                {
+                    if(prev_id != changed) // to stop false counts by checking if the user is blurring and focusing and changing the same textfield multiple times
+                    {
+                        unfilled_count--
+                    }
+                }
+
+                prev_id = changed
+            }
+
+            function checkTextField(blurred)
+            {
+                const txt_field = document.getElementById(blurred)
+
+                const d1 = document.getElementById("div_"+blurred)
+
+                if(txt_field.value == "")
+                {
+                    // console.log("Empty")
+
+                    d1.innerText = "*this is a required field"
+
+                    d1.style.color = "red"
+                }
+                else
+                {
+                    d1.innerText = ""
+                }
+
+                const msgbox = document.getElementById("msg")   
+
+                msgbox.style.fontSize = "15px"
+
+                const submit = document.getElementById("submit")
+                
+                if(unfilled_count > 0)
+                {
+                    // msgbox.innerText = "*Please fill all the required fields!"
+
+                    msgbox.innerText = "You haven't filled "+unfilled_count+" fields!"
+                    
+                    msgbox.style.color = "red"
+                    
+                    submit.setAttribute("disabled","") // setAttribute(name, value)
+
+                    /*  
+                        Sets the value of an attribute on the specified element. 
+                        If the attribute already exists, the value is updated; 
+                        otherwise a new attribute is added with the specified name and value.
+                    */
+                }
+                else
+                {
+                    msgbox.innerText = "You can submit the form now!"
+
+                    msgbox.style.color = "green"
+
+                    submit.removeAttribute("disabled")
+
+                    /*  
+                        To get the current value of an attribute, use getAttribute(); 
+                        to remove an attribute, call removeAttribute().
+                    */
+                }
+
+                if(blurred == "name" || blurred == "fname" || blurred == "mname")
+                {
+                    // console.log(txt_field.value.length)
+
+                    let flag = true
+
+                    for(let i in txt_field.value)
+                    {
+                        if(!(txt_field.value[i] >= 'A' && txt_field.value[i] <= 'Z' || txt_field.value[i] >= 'a' && txt_field.value[i] <= 'z' || txt_field.value[i] == " "))
+                        {
+                            flag = false
+
+                            break
+                        }
+                    }
+                        
+                    if(flag == false)
+                    {
+                        d1.innerText = "Name can only contain letters and whitespaces!"
+
+                        d1.style.color = "red"
+                    }
+                    else
+                    {
+                        d1.innerText = ""
+                    }
+
+                }
+                else if(blurred == "mobile" || blurred == "aadhar")
+                {
+                    let flag = false
+
+                    for(let ch of txt_field.value)
+                    {
+                        if(!(ch == '0' && ch == '9'))
+                        {
+                            flag = false
+                            
+                            break
+                        }
+                    }
+
+                    if(flag == false)
+                    {
+                        d1.innerText = "Number can only contain digits!"
+
+                        d1.style.color = "red"
+                    }
+                    else
+                    {
+                        d1.innerText = ""
+                    }
+                }
+            }
+
+        </script>
+
+    </form>
+    
+</body>
+</html>

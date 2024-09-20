@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Demo</title>
+    <style>
+
+        body
+        {
+            background-color: black;
+            color: white;
+        }
+
+        img
+        {
+            position: relative;
+            top: 130px;
+            height: 200px;
+            width: 250px;
+            transition: top 2s;
+        }
+
+        img:hover
+        {
+            top: 330px;
+        }
+
+        h1
+        {
+            font-size: 70px;
+            text-align: center;
+            font-style: italic;
+            text-decoration: underline;
+            /* text-decoration: wavy underline black; */
+        }
+        
+    </style>
+</head>
+<body>
+    <script>
+        document.write("<h1>Logos Of MAANGM Companies</h1>")
+
+        const arr = ['meta-logo.jpg','apple-logo.png','amazon-logo.png','netflix-logo.png','google-logo.jpg','Microsoft-logo.jpg']
+
+        for(let i=0;i<arr.length;i++)
+        {
+            document.write("<img src="+arr[i]+" alt=img"+(i+1)+">&nbsp;")
+        }
+
+    </script>
+</body>
+</html>

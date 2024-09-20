@@ -1,0 +1,53 @@
+	cout<<"\nEnter the colour of band "<<i<<":";
+					cin>>bc1;
+			
+					switch(bc1)
+					{
+					
+					case 'b':
+						bv1 = 0;
+						break;
+						
+					case 'B':
+						bv1 = 1;
+						break;
+						
+					case 'r':
+						bv1 = 2;
+						break;
+						
+					case 'o':
+						bv1 = 2;
+						break;
+						
+					case 'y':
+						bv1 = 2;
+						break;
+						
+					case 'l':
+						bv1 = 2;
+						break;
+						
+					case 'c':
+						bv1 = 2;
+						break;
+						
+					case 'v':
+						bv1 = 2;
+						break;
+						
+					case 'g':
+						bv1 = 2;
+						break;
+						
+					case 'w':
+						bv1 = 2;
+						break;
+									
+					case 'G':
+						bv1 = 2;
+						break;
+						
+					case 's':
+						bv1 = 2;
+						break;			

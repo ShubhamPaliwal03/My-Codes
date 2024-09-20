@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show and Hide Using toggle() function</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function()
+            {
+                $('#show_ans').click(
+                    function()
+                    {
+                        $('#answer').toggle(500);
+                        
+                        changeText()
+                    }
+                );
+            }
+        );
+
+        function changeText()
+        {
+            const btn = document.getElementById('show_ans')
+            
+            if(btn.innerText == "Show Answer")
+            {
+                btn.innerText = "Hide Answer"
+            }
+            else
+            {
+                btn.innerText = "Show Answer"
+            }
+        }
+    </script>
+    <style>
+        #answer
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p> Q1. Who invented C Language</p>
+    <p><label><input type="radio" name="q1">A. Dennis Ritchie</label></p>
+    <p><label><input type="radio" name="q1">B. Ben Thompson</label></p>
+    <p><label><input type="radio" name="q1">C. Bjarne Stroustrup</label></p>
+    <p><label><input type="radio" name="q1">D. Both A and B</label></p>
+    <div id="answer">
+        <u>Correct Answer</u> : D. Both A and B
+    </div>
+    <br>
+    <button id="show_ans">Show Answer</button>
+</body>
+</html>

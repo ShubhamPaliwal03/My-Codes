@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Sizing</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .box1
+        {
+            background-color:red;
+            margin: 30px;
+            height: 2320px;
+            width: 233px;
+            border: 2px solid black;
+        }
+        .box2
+        {
+            background-color:aqua;
+            /* margin: 20px; */
+            /* because margin is not considered in this case */
+            height: 20px;
+            width:100%;
+            padding: 6px;
+            border: 5px solid grey;
+            box-sizing: border-box;
+        }
+    </style>
+    <!-- So,due to margin collapse,the effective height between box 1 and 2 will be 30px,box 1 will occupy 30px and box 2 will occupy 20px from the same 30x which is given to box1-->
+</head>
+<body>
+    <div class="box1">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde consequuntur veritatis, ab laboriosam sed voluptatibus mollitia recusandae at, deserunt eveniet voluptas quibusdam obcaecati excepturi minima architecto nisi, similique quod. Dolores saepe consequatur libero corporis!
+    <div class="box2"></div>
+    <!-- here,box 2 is child class of box1-->
+    </div>
+</body>
+</html>

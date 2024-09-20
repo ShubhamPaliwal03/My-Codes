@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show and Hide Using slideUp() and slideDown() function</title>
+    <style type="text/css">
+        #q1
+        {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function()
+            {
+                $("#q1").slideDown(3000)
+
+                $('#hide_ans').click(
+                    function()
+                    {            
+                        const btn = document.getElementById('hide_ans')
+            
+                        if(btn.innerText === "Hide Answer")
+                        {
+                            $('#answer').slideUp(1000)
+
+                            btn.innerText = "Show Answer"
+                        }
+                        else // if user clicks on show answer
+                        {
+                            $('#answer').slideDown(1000)
+
+                            btn.innerText = "Hide Answer"
+                        }
+                    }
+                )
+            }
+        )
+    </script>
+    <style>
+        #answer
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="q1">
+        <p> Q1. Who invented C Language</p>
+        <p><label><input type="radio" name="q1">A. Dennis Ritchie</label></p>
+        <p><label><input type="radio" name="q1">B. Ben Thompson</label></p>
+        <p><label><input type="radio" name="q1">C. Bjarne Stroustrup</label></p>
+        <p><label><input type="radio" name="q1">D. Both A and B</label></p>
+        <div id="answer">
+            <u>Correct Answer</u> : D. Both A and B
+        </div>
+    </div>
+    <br>
+    <button id="hide_ans">Show Answer</button>
+</body>
+</html>

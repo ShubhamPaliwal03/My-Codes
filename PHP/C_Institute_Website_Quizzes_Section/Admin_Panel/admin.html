@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin_style.css">
+    <title>Quizzes - Admin Panel</title>
+</head>
+<body>
+    <div id="heading">Admin Panel</div>
+    <div id="outer-container">
+        <div id="nav">
+            <div id="subject" onclick="openSection('subject_menu')">Manage Subjects
+                <!-- <button id="add_subject_menu" disabled>Add Subject</button>
+                <button id="update_subject_menu" disabled>Update Subject</button>
+                <button id="delete_subject_menu" disabled>Delete Subject</button> -->
+            </div>
+            <div id="topic" onclick="openSection('topic_menu')">Manage Topics</div>
+            <div id="question" onclick="openSection('question_menu')">Manage Questions</div>
+        </div>
+        <div class="options" id="subject_menu">
+            <div>
+                <label for="subject_field">Subject Name&nbsp;:&nbsp;</label><input type="text" name="" class="input_field" id="subject_field" placeholder="Enter Subject Name">
+            </div>
+            <div>
+                <button id="add_subject_btn" name="add_subject" class="buttons">Add</button>
+            </div>
+        </div>
+        <div class="options" id="topic_menu">
+            <div>
+                <label for="subjects-dropbox">Select Subject</label>&nbsp;:&nbsp;
+                <select name="" id="subjects-dropbox" class="dropbox">
+                    <option value="">C</option>
+                    <option value="">C++</option>
+                </select>
+            </div>
+            <div>
+                <label>Topic&nbsp;:&nbsp;<input type="text" name="topic" class="input_field" id="topic_field" placeholder="Enter Topic Name"></label>
+                &nbsp;
+            </div>
+            <div>
+                <button id="add_topic_btn" class="buttons">Add</button>
+            </div>
+        </div>
+        <div class="options" id="question_menu">
+            <div id="inner-container1-question_menu" class="inner-containers-question_menu">
+                <div>
+                    <label for="subjects-dropbox">Select Subject</label>&nbsp;:&nbsp;
+                    <select name="" id="subjects-dropbox" class="dropbox">
+                        <option value="">C</option>
+                        <option value="">C++</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="topics-dropbox">Select Topic</label>&nbsp;:&nbsp;
+                    <select name="" id="topics-dropbox" class="dropbox">
+                        <option value="">Arrays</option>
+                        <option value="">Strings</option>
+                    </select>
+                </div>
+            </div>
+            <div id="inner-container2-question_menu" class="inner-containers-question_menu">
+                <div>
+                    <label for="question_field">Question&nbsp;:&nbsp;</label><input type="text" name="" class="input_field" id="question_field"  placeholder="Enter Question">
+                </div>
+                <div>
+                    <label for="option_a">Option A&nbsp;:&nbsp;</label><input type="text" name="" class="input_field" id="option_a" placeholder="Enter Option A">
+                </div>
+                <div>
+                    <label for="option_b">Option B&nbsp;:&nbsp;</label><input type="text" name="" class="input_field" id="option_b" placeholder="Enter Option B">
+                </div>
+                <div>
+                    <label for="option_c">Option C&nbsp;:&nbsp;</label><input type="text" name="" class="input_field" id="option_c" placeholder="Enter Option C">
+                </div>
+                <div>
+                    <label for="option_d">Option D&nbsp;:&nbsp;</label><input type="text" name="" class="input_field" id="option_d" placeholder="Enter Option D">
+                </div>
+            </div>
+            <div id="inner-container3-question_menu" class="inner-containers-question_menu">
+                <div>
+                    <label for="correct_option-dropbox">Select Correct Option</label>&nbsp;:&nbsp;
+                    <select name="" id="correct_option-dropbox" class="dropbox">
+                        <option value="">A</option>
+                        <option value="">B</option>
+                        <option value="">C</option>
+                        <option value="">D</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="explanation">Explanation&nbsp;:&nbsp;</label><input type="text" name="" class="input_field" id="explanation" placeholder="Enter Explanation">
+                </div>
+                <div>
+                    <button id="add_question_btn" name="add_question" class="buttons">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        prev_section_id = "subject_menu"
+
+        function openSection(current_section_id)
+        {   
+            // hide the previous section
+
+            const prev_section = document.getElementById(prev_section_id)
+
+            prev_section.style.display = "none"
+
+            // show the current (clicked) section
+
+            const current_section = document.getElementById(current_section_id)
+
+            current_section.style.display = "flex"
+
+            prev_section_id = current_section_id
+        }
+
+    </script>
+</body>
+</html>

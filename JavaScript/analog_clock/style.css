@@ -1,0 +1,72 @@
+#clock-container
+{
+    height: 4rem;
+    width: 4rem;
+}
+:root
+{
+    --clock-height: 10rem;
+    --clock-width: 10rem;
+}
+.clock
+{
+    background-image: url('./resources/images/clock\ template.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    background-color: #16191e;
+    height: var(--clock-height);
+    width: var(--clock-width);
+    box-sizing: content-box;
+    border-radius: 50%;
+    border: solid 15px #242931;
+    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.2);
+    inset: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+.clock-bcg-img
+{
+    height: 10rem;
+    width: 10rem;
+}
+.flexbox-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.hand
+{
+    /* position: relative; */
+    background-color: #ffffff;
+    /* margin: auto; */
+    /* left: 0;
+    right: 0; */
+    border-radius: 5px;
+    transform-origin: bottom;
+}
+.hands
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hours
+{
+    height: calc(var(--clock-height) * (37 / 100));
+    width: calc(var(--clock-height) * (6.25 / 100));
+    /* top: 6.25rem; */
+}
+.minutes
+{
+    height: calc(var(--clock-height) * (50 / 100));
+    width: calc(var(--clock-height) * (3.125 / 100))
+    /* top: 5rem; */
+}
+.seconds
+{
+    height: calc(var(--clock-height) * (56.25 / 100));
+    width: calc(var(--clock-height) * (1.875 / 100));
+    /* top: 4.375rem; */
+    background-color: #2987e4;
+}

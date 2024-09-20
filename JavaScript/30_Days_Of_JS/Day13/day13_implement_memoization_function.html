@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implement Memoization Function</title>
+</head>
+<body>
+    <script>
+        function memoize(func)
+        {
+            const cache = {} // creates a map
+
+            // const cache = new Map()
+            
+            return function (...args)
+            {
+                const key = args.toString()
+
+                if(!(key in cache))
+                {
+                    cache[key] = func(...args)
+                }
+
+                return cache[key]
+            }
+        }
+
+        function fact(n)
+        {
+            if(n == 0 || n == 1)
+            {
+                return 1
+            }
+
+            return n * fact(n-1)
+        }
+
+        const memoizedFact = memoize(fact)
+
+        console.log('Factorial of 3 from simple function : ',fact(3))
+
+        console.log('Factorial of 3 from memoization function : ',memoizedFact(3))
+    </script>
+</body>
+</html>

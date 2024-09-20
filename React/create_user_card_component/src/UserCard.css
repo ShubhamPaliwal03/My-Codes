@@ -1,0 +1,54 @@
+.card
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 20%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px #16919c;
+    margin-bottom: 5rem;
+    background-color: white;
+    padding-bottom: 1rem;
+}
+
+/* .card > *
+{
+    margin-bottom: 1rem;
+} */
+
+.card-bcg
+{
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.bold
+{
+    font-weight: 700;
+}
+
+.grey
+{
+    color: gray;
+}
+
+.para
+{
+    width: 80%;
+    text-align: center;
+}
+
+.user-img
+{
+    clip-path: circle();
+    height: 5rem;
+}
+
+hr
+{
+    width: 100%;
+    color: gray;
+    opacity: 0.2;
+}

@@ -1,0 +1,7 @@
+The Text Content Analysis of the file is as follows : 
+
+Number of Alphabets : 97
+
+Number of Digits : 8
+
+Number of Symbols : 32

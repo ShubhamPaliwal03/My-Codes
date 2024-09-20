@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Of A Number</title>
+    <style type="text/css">
+
+        h1
+        {
+            text-align: center;
+        }
+
+        body
+        {
+            background-color: black;
+            color: white;
+        }
+    
+        table
+        {
+            position: relative;
+            top: 40px;
+            left: 665px;
+            text-align: center;
+            height: 200px;
+            width: 200px;
+            border: solid 2px white;
+            /* border: 5px solid; */
+            /* border-image: linear-gradient(red, blue) 30; */
+            border-collapse: collapse;
+        }
+
+        #col1
+        {
+            border-right: solid 2px white;
+            /* border-right: 5px solid;
+            border-image: linear-gradient(red, blue) 30; */
+        }
+
+        tr
+        {
+            height: 50px;
+            width: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        let num = 2
+
+        document.write("<h1>Table of "+num+"</h1>")
+
+        document.write("<table>")
+
+        for(let i=1;i<=10;i++)
+        {
+            document.write(
+                    "<tr>"
+                        +"<td id=col1>"+num+" x "+i+"</td>"
+                        +"<td id=col2>"+num*i+"<td>"    
+                    +"</tr>"          
+                        )                    
+        }
+
+        document.write("</table>")
+
+    </script>
+</body>
+</html>

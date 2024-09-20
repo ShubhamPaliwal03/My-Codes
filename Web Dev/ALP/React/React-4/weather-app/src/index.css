@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body
+{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001331;
+    color: white;
+    font-family: sans-serif;
+    /* color: black; */
+}
+.weather-card
+{
+    /* background: linear-gradient(135deg, rgb(82, 229, 231) 10%, rgb(19, 12, 183) 100%); */
+    background: linear-gradient(180deg, rgb(82, 229, 231) -20%, rgb(19, 12, 183) 100%);
+    height: 38rem;
+    width: 24rem;
+    border-radius: 15px;
+}
+.column-flex-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:0.5rem;
+}
+.row-flex-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.weather-condition-icon
+{
+    height: 7rem;
+    margin: 1.5rem 0;
+    animation: grow-shrink 2s infinite linear alternate;
+}
+.weather-condition-icon.sunny
+{
+    animation: rotation 10s infinite linear;
+}
+.weather-condition-icon.clear
+{
+    animation: swing 3s infinite linear alternate;
+}
+.moon
+{
+    filter: hue-rotate(170deg) saturate(130%) brightness(115%);
+}
+.humidity-icon, .wind-icon
+{
+    height: 2rem;
+}
+.info-container-1 > h1
+{
+    margin-top: -0.5rem;
+    margin-bottom: -0.1rem;
+}
+.info-container-1 > h2
+{
+    margin-bottom: -0.1rem;
+}
+.searchbar-container
+{
+    margin-top: 1rem;
+}
+.searchbar
+{
+    height: 2.5rem;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    padding: 0 1rem;
+    font-size: 1rem;
+    transition: width 0.5s ease-in-out;
+    /* width: 11rem; */
+    /* set the max-width to be 58% of the width of the weather-card, 
+    to resolve the searchbar width on focus-blur animation */
+    max-width: calc(24rem * 0.58);
+}
+.search-btn
+{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.locate-btn
+{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.locate-btn.disabled
+{
+    opacity: 0.5;
+    cursor: progress;
+}
+.search-icon
+{
+    height: 1.5rem;
+}
+.location-icon
+{
+    scale: 1.5;
+    color: black;
+}
+@keyframes rotation
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+
+    to
+    {
+        transform: rotate(360deg);
+    }
+}
+@keyframes grow-shrink
+{
+    from
+    {
+        scale: 1;
+    }
+
+    to
+    {
+        scale: 1.1;
+    }
+}
+@keyframes swing
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    50%
+    {
+        transform: rotate(20deg);
+    }
+    100%
+    {
+        transform: rotate(0deg);
+    }
+}
+.wind-info
+{
+    gap: 0rem;
+}
+#wind-dir-compass img
+{
+    height: 5rem;
+}
+#wind-dir-compass
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#wind-dir-compass-outer
+{
+    filter: invert(100%);
+}
+#wind-dir-compass-arrow
+{
+    position: absolute;
+    transition: transform 0.5s ease-in-out;
+}
+@media screen and (max-width : 410px)
+{
+    .weather-card
+    {
+        width: 22rem;
+        height: 38rem;
+    }
+    .searchbar
+    {
+        width: 10rem;
+    }
+}
+@media screen and (max-width : 350px)
+{
+    body
+    {
+        font-size: 0.8rem;
+    }
+    .weather-card
+    {
+        width: 18rem;
+        height: 33rem;
+    }
+    .searchbar
+    {
+        width: 6rem;
+    }
+}

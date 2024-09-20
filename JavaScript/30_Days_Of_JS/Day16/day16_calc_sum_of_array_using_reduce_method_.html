@@ -1,0 +1,47 @@
+<!-- Challenge 16
+Problem Description:
+Write a JavaScript function named sumArray that takes an array of numbers and returns the sum of all the numbers in the array using the reduce() method.
+Inputs:
+An array of numbers.
+Outputs:
+A number representing the sum of the array.
+Hints:
+The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+Solution Approach:
+Initialize the reduce() method with an initial accumulator value of 0. Then, for each value in the array, add it to the accumulator. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Numbers in Array Using Reduce() Method</title>
+</head>
+<body>
+    <script>
+
+        /* reduce() :- 
+
+            1. A function that accepts up to four arguments, namely previousValue, currentValue, currentIndex, and array.
+            2. The reduce method calls the callbackfn function one time for each element in the array. 
+            
+        */
+
+        // call back function for reduce method
+
+        function sumArray(sum, num)
+        {
+            return sum + num
+        }
+
+        // test cases
+
+        console.log([1,2,3,4].reduce(sumArray))
+        console.log([-1,2,-3,4,7].reduce(sumArray))
+        console.log([0].reduce(sumArray))
+        console.log([-1].reduce(sumArray))
+        // console.log([].reduce(sumArray)) // Uncaught TypeError : reduce of empty array with no initial value
+
+    </script>
+</body>
+</html>

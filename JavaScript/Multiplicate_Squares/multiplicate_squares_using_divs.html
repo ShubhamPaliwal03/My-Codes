@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicate Squares</title>
+    <style type="text/css">
+
+        div
+        {
+            border: solid 1px black;
+        }
+
+        button
+        {
+            position: relative;
+            top: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="outer" class="_0" style="height: 100px; width: 100px;"></div>
+
+    <button id="multiply_btn" onclick="multiplicate()">Multiplicate</button>
+
+    <script>
+
+        const colors = ['red','green','blue','white','yellow']
+
+        let outer_box = document.getElementById('outer')
+
+        outer_box.style.backgroundColor = "lightgreen"
+        
+        let side = outer_box.style.height
+
+        side = side.substring(0, side.length-2) / 2
+        
+        // we get the value as, for eg. => 100px, we remove the px using substring() method, and then divide the value by 4, and get a Number datatype value at the end as implicit type conversion of String to Number occurs on division by a Number 
+        
+        let times_multiplicated = 0
+        
+        function multiplicate()
+        {
+            if(side > 10) // if the value of side is less than or equal to 10, then we don't multiplicate it further
+            {
+                let inner_boxes = document.getElementsByClassName("_"+times_multiplicated)
+
+                times_multiplicated++
+
+                for(let ib = 0; ib < inner_boxes.length; ib++)
+                {
+                    for(let i = 1; i <= 4; i++)
+                    {
+                        let div = document.createElement('div')
+                        
+                        div.style.height = side+"px"
+                        
+                        div.style.width = side+"px"
+                        
+                        div.className = "_"+times_multiplicated
+
+                        inner_boxes.item(ib).appendChild(div)
+                        
+                        div.style.backgroundColor = colors[times_multiplicated-1]
+                    }
+                }
+
+                side = side / 2
+
+            }
+        }    
+        
+        </script>
+</body>
+</html>

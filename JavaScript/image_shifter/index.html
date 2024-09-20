@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Shifter</title>
+    <style>
+
+        img
+        {
+            height: 150px;
+            width: 200px;
+            margin-right: 25px;
+            border-radius: 7px;
+        }
+
+        #image_list
+        {
+            position: relative;
+            top: 220px;
+            left: 200px;
+        }
+
+        .btn
+        {
+            position: relative;
+            top: 600px;
+            left: 630px;
+            height: 50px;
+            width: 100px;
+            font-size: 25px;
+            margin-right: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="btn" id="shift_left" onclick="shiftLeft()"><</button>
+
+    <button class="btn" id="shift_right" onclick="shiftRight()">></button>
+
+    <script>
+
+        const images = ['bcg0','bcg1','bcg2','bcg3','bcg4']
+
+        document.write("<div id=image_list>")
+
+        for(let i in images)
+        {
+            document.write("<img src="+images[i]+".jpg alt=image class=images id="+i+">")
+        }
+
+        document.write("</div>")
+
+        // 0 1 2 3 4
+
+        // 4 0 1 2 3
+
+        function shiftRight()
+        {
+            images[0] = images[images.length-1]
+            
+            for(let i = 0; i < images.length - 1; i++)
+            {
+                images[i+1] = images[i]
+            }
+
+            for(let i = 0; i < images.length; i++)
+            {
+                let image = document.getElementById(i)
+
+                image.src = images[i]+".jpg"
+            }
+        }
+
+        // 0 1 2 3 4
+
+        // 1 2 3 4 0
+
+        function shiftLeft()
+        {
+            for(let i = images.length-1; i > 0; i--)
+            {
+                images[i-1] = images[i] 
+            }
+            
+            images[images.length-1] = images[0]
+
+            for(let i = 0; i < images.length; i++)
+            {
+                let image = document.getElementById(i)
+
+                image.src = images[i]+".jpg"
+            }
+        }
+
+    </script>
+
+</body>
+</html>

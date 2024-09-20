@@ -1,0 +1,27 @@
+body 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+#form-container
+{
+    border: solid 1px black;
+    padding: 2rem;
+    margin-bottom: 5rem;
+}
+#form-container > div
+{
+    margin-bottom: 2rem;
+}
+table, td, th
+{
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+td, th
+{
+    padding: 0.5rem;
+}

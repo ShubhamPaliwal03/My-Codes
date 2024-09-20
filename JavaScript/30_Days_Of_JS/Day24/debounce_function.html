@@ -1,0 +1,49 @@
+<!-- Challenge 24
+Description:
+Implement a debounce function that takes a function and a delay as arguments. The returned function should ensure that the original function is not called more than once in the specified delay.
+Solution Approach:
+Use a timer and clear it on each invocation to delay the function execution. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce function</title>
+</head>
+<body>
+    <script>
+
+        function debounce(func, delay)
+        {
+            let tid
+
+            return function(...args)
+            {
+                if(tid)
+                {
+                    clearTimeout(tid)
+                }
+
+                tid = setTimeout(() => 
+                {
+                    func.apply(this, args)
+                }, delay)
+            }   
+        }
+
+        const myFunc = debounce(() => 
+        {
+            console.log("Function Called...")
+        }, 2000)
+
+        for(let i = 0; i < 10; i++) // we can clearly see
+        {
+            myFunc()
+
+            setTimeout(() => { }, 1000)
+        }
+
+    </script>
+</body>
+</html>

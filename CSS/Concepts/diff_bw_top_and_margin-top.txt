@@ -1,0 +1,17 @@
+When to use top and when to use margin-top :
+------------------------------------------
+
+when making an element relative, you are supposed to use top. why:
+
+margin-top has to do with the element’s box model. it adds to its box model height.
+top has to do with its position, the offset. the offset leaves the box model’s height at the same value.
+that says top and margin-top are not the same.
+
+so: top is the same box, but moved, margin-top is a “taller” box. by position:relative you declare your intention to move the box, not change it to a bigger one. so top it is.
+
+on the side note: position:relative has two effects:
+
+the element will still occupy its box model space at the position where he was previously before being moved using top, left.
+it will appear “floated” to the new position, that is, w/o taking space, like being taken out of the normal flow at its new position.
+using only margin-top on a position:relative element will only “move” the content inside it, the element will be found at the same offset.
+

@@ -1,0 +1,59 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.83);
+    color: white;
+}
+#controls-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+#controls-container > #buttons > button
+{
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+#buttons 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#outer-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px white;
+    border-radius: 15px;
+    width: 35%;
+    height: 30%;
+}
+#outer-container > div:nth-of-type(1), #outer-container > div:nth-of-type(2) 
+{
+    border-right: solid 1px red;
+}
+#outer-container > div 
+{
+    height: 100%;
+    width: 33.33%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+select
+{
+    width: 70%;
+    height: 15%;
+}

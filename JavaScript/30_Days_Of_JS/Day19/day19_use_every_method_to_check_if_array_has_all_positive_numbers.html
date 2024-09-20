@@ -1,0 +1,84 @@
+<!-- Challenge 19
+Problem Description:
+Write a JavaScript function named allPositive that checks whether all numbers in a given array are positive using the every() method.
+Inputs:
+An array of numbers.
+Outputs:
+A boolean value. Return true if all numbers are positive, otherwise false.
+Hints:
+The every() method tests whether all elements in the array pass the test implemented by the provided function.
+Solution Approach:
+Use the every() method and provide a callback that checks if the number is positive. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    /*
+        every() :-
+
+            1. Definition and Purpose => 
+
+                Array.every() method considers all the elements of an array and then further checks whether all the elements in the array satisfy the given condition (passed by the user) or not, that is provided by a method passed to it as the argument(Determines whether all the members of an array satisfy the specified test).
+
+                A function that accepts up to three arguments. The every method calls
+                the predicate function for each element in the array until the predicate returns a value
+                which is coercible to the Boolean value false, or until the end of the array.
+
+            2. Syntax :- 
+
+                i. Arrow function
+
+                    every((element,index,array) => {...code...})
+
+                        index, and array are optional parameters
+
+                ii. Callback function
+
+                    every(callbackFn, thisArg)
+
+                        thisArg is an optional parameters
+
+                iii. Inline callback function
+                
+                    every(function (element, index, array) {...code...}, thisArg)
+
+                        index, array, and thisArg are optional parameters.
+
+            3. Return value :- 
+
+                It returns a boolean value true if all the elements of the array follow the condition implemented by the argument method. 
+
+                If any one of the elements of the array does not satisfy the argument method, then this method returns false.
+    */
+    
+        // using arrow function
+
+        let checkAllPos = (val) => {return val >= 0} 
+
+        console.log([0,1,2,3].every(checkAllPos))
+
+        console.log([3,2,1,0,-1,-2,-3].every(checkAllPos))
+
+        // using callback function
+
+        function allPositive(val)
+        {
+            return val >= 0
+        }
+
+        // test cases
+
+        console.log([0,1,2,3].every(allPositive))
+
+        console.log([3,2,1,0,-1,-2,-3].every(allPositive))
+
+    </script>
+</body>
+</html>

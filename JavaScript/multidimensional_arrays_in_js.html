@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional arrays in JS</title>
+</head>
+<body>
+    <script>
+
+        let a = [10,20,30] // 1d matrix
+        let b = [40,50,60] // 1d matrix
+        let c = [70,80,90] // 1d matrix
+
+        let m = [a,b,c] // 2d array or matrix
+
+        // printing the 2d array or matrix
+
+        document.write("<h1><u>2-D Array</u> :-</h1>")
+
+        // Method-1
+
+        document.write("<h3><u>Via Method - 1</u> :-</h3>")
+
+        for(let i=0;i<m.length;i++) // m.length returns the length of the 1st dimension of the matrix, which is 3 in this case
+        {
+            for(let x of m[i]) // this for of loop iterates over every ith 2nd dimension of the matrix, in this case, it is used to print the elements of the 2nd dimension
+            {
+                document.write(x+"&nbsp;")
+            }
+
+            document.write("<br>")
+        }
+
+        // Method-2
+
+        document.write("<h3><u>Via Method - 2</u> :-</h3>")
+
+        for(let i=0;i<m.length;i++) // m.length returns the length of the 1st dimension of the matrix, which is 3 in this case
+        {
+            for(let j=0;j<m[i].length;j++) // m[i].length returns the length of the ith 2nd dimension of the matrix each time, which is 3 everytime in this case as the matrix is not a jagged matrix
+            {
+                document.write(m[i][j]+"&nbsp;")
+            }
+
+            document.write("<br>")
+        }
+
+        let array3d = [m,m,m,m] // 3d array of matrices,or array of arrays of arrays
+        
+        // printing the 3d array
+        
+        document.write("<h1>3-D Array :</h1>")
+
+        // Method-1
+
+        document.write("<h3><u>Via Method - 1</u> :-</h3>")
+
+        for(let i=0;i<array3d.length;i++) // array3d.length returns the length of the 1st dimension of the 3-d array, which is 4 in this case
+        {
+            for(let j=0;j<array3d[i].length;j++) // array3d[i].length returns the length of the ith 2nd dimension of the 3d-array each time, it returns 3 everytime in this case as it is not a jagged 3d array
+            {
+                for(let k=0;k<array3d[i][j].length;k++) // array3d[i][j].length returns the length of the jth 1st dimension of the 3-d array each time, it returns 3 everytime in this case as it is not a jagged 3d array
+                {
+                    document.write(array3d[i][j][k]+"&nbsp;")
+                }
+
+                document.write("<br>")
+            }
+
+            document.write("<br>")
+        }
+
+        document.write("<h3><u>Via Method - 2</u> :-</h3>")
+
+        for(let i=0;i<array3d.length;i++) // array3d.length returns the length of the 1st dimension of the 3d-array, which is 4 in this case
+        {
+            for(let dim2 of array3d[i]) // this for of loop iterates over every ith 2nd dimension (dim2) of the 3-d array, which helps in accessing the 3rd dimension of the 3d-array in the next nested for of loop
+            {
+                for(let dim3 of dim2) // this for of loop iterates over every 3rd dimension (dim3) of the 3d-array, in this case it is used to print the elements of the 3rd dimension
+                {
+                    document.write(dim3+"&nbsp;")
+                }
+
+                document.write("<br>")
+            }
+
+            document.write("<br>")
+        }
+
+    </script>
+</body>
+</html>

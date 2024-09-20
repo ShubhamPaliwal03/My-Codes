@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Demo</title>
+    <style type="text/css">
+        .flex-container
+        {
+            border: solid 1px black;
+
+            display: flex;
+
+            /* Rule : Justification along the main axis, Alignment across the cross axis */
+            
+            /* Justifying the content along the main axis of the container => */
+
+            /* justify-content : ; => align the flex items along the main axis of current line of the flex container */
+
+            /* justify-content: flex-start; */
+            /* by default, flex items are packed towards the start of the line*/
+            
+            /* justify-content: flex-end; */
+            /* flex items are placed towards the end of the line */
+            
+            /* justify-content: center; */
+            /* flex items are placed towards the center of the line */
+
+            /* justify-content: space-between; */
+            /* flex items are evenly distributed in the line, with no space on the both the ends */
+
+            /* justify-content: space-around; */
+            /* flex items are evenly distributed in the line, with half the space as the space in-between the containers on either end*/
+
+            /* justify-content: space-evenly; */
+            /* flex items are evenly distributed within the alignment container along the main axis , ie., it will evenly distribute space all around the container*/
+
+            /* Aligning the content along the cross azis => */
+
+            /* align-items: ; =>  aligns items along the cross axis of the current line of the flex container */
+
+            /* align-items: stretch; */
+            /* by default,  all the flex items take up the entire space*/
+
+            /* align-items: flex-start; */
+            /* flex items are positioned to the start */
+
+            /* align-items: center; */
+            /* flex items are positioned to the center */
+
+            /* align-items: flex-end; */
+            /* flex items are positioned to the end */
+
+            /* order property is used to apply a certain order to the flex items */
+
+            /* Controls the order in which the children of a flex container appear within the flex container, by assigning them to the ordinal groups. */
+
+            /* It is highly not recommended to use the order property to order the elements, because it only changes the order of the 
+               elements visually through css rules, and does not actually change the order of the elements in DOM.
+
+                And, as we know that there are many such cases where using this can cause havocs in the code, 
+
+                Eg. => 
+                
+                1. In case of Form Elements, the flow of focus follows the order as specified in the DOM, and not the visual order, hence
+                   it can create major ui issues in the code.
+
+                2. In case of Screen Readers, they also follow the DOM order and not the visual order.
+
+                Hence, it is to be used only in the worst-case scenarios, where you cannot touch the HTML DOM, and yet have to change the order visually.
+            */
+
+            /* align-content: ; */
+
+            /* 
+                If we don't want the flexbox to shrink, which is its property to which it has been set to by default, ie., nowrap
+                then we can use the flex-wrap property and set it to wrap. So, now if we reduce the size of the flexbox container, then it will start wrapping
+            */
+
+            /* flex-wrap: wrap; */
+        }
+
+        .box
+        {
+            background-color: #aaa;
+            border: solid 2px red;
+            width: 100px;
+            color: white;
+            font-weight: 700;
+            margin: 0.5rem;
+        }
+
+        .box-1
+        {
+            min-height: 100px;
+            /* order: 3; */
+        }
+
+        .box-2
+        {
+            min-height: 200px;
+            /* order: 2; */
+        }
+
+        .box-3
+        {
+            min-height: 300px;
+            /* order: 1; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+    </div>
+</body>
+</html>

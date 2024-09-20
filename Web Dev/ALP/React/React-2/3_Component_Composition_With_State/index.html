@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Composition With State</title>
+
+    <!-- react algorithm -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- react dom algorithm -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- transpiler -> translator  -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        *
+        {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .counter
+        {
+            margin-top: 2rem;
+            border-bottom: 2px solid gray;
+            padding-bottom: 1rem;
+        }
+
+        .counter:first-of-type
+        {
+            border-top: 2px solid gray;
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Component Composition With State</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+
+        function Counter(props) {
+
+            const [value, setValue] = React.useState(props.initialValue);
+
+            function increaseCount() {
+
+                setValue(value + 1);
+            }
+
+            function decreaseCount() {
+
+                if (value == props.initialValue) return;
+
+                setValue(value - 1);
+            }
+
+            return (
+                <div className="counter">
+                    <div className="count">Count is {value}</div>
+                    <button onClick={increaseCount}>+</button>
+                    <button onClick={decreaseCount}>-</button>
+                </div>
+            );
+        }
+
+        function CounterParent() {
+
+            return(
+                <div id="counterParent">
+                    <Counter initialValue={0}/>
+                    <Counter initialValue={1}/>
+                    <Counter initialValue={2}/>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<CounterParent/>, rootElement);
+    </script>
+</body>
+</html>

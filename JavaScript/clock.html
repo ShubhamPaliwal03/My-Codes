@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    <span id="time"></span>
+    <script>
+        
+        function displayTime()
+        {
+            var time = document.getElementById('time')
+
+            var now = new Date()
+
+            var hours = now.getHours()
+
+            var mins = now.getMinutes()
+
+            var secs = now.getSeconds()
+
+            hours = hours < 10 ? "0"+hours : hours
+
+            mins = mins < 10 ? "0"+mins : mins
+
+            secs = secs < 10 ? "0"+secs : secs
+            
+            time.innerText = hours+":"+mins+":"+secs
+        }
+
+        displayTime()
+
+        setInterval(displayTime, 1000)
+
+    </script>
+</body>
+</html>

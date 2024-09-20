@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Grid : Demo-1</title>
+    <style type="text/css">
+        .grid-container
+        {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            /* The gap CSS property is a shorthand property for row-gap and column-gap specifying the gutters between grid rows and columns. */
+            gap: 10px;
+            background-color: #2196f3;
+            padding: 10px;
+        }
+        .grid-container > div
+        {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The grid-template columns Property</h1>
+    <div class="grid-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+</body>
+</html>
