@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Quiz App</title>
+</head>
+<body>
+    <form method="post" action="./save_question.php">
+        <div id="ques_textarea">
+            <textarea name="question" id="ques" cols="50" rows="20" placeholder="Enter Your Question Here"></textarea>
+        </div>
+        <div id="options_textareas">
+            <textarea name="optionA" id="optionA" cols="30" rows="10" placeholder="Enter Option A"></textarea>
+            <textarea name="optionB" id="optionB" cols="30" rows="10" placeholder="Enter Option B"></textarea>
+            <textarea name="optionC" id="optionC" cols="30" rows="10" placeholder="Enter Option C"></textarea>
+            <textarea name="optionD" id="optionD" cols="30" rows="10" placeholder="Enter Option D"></textarea>
+            <!-- <textarea name="" id="" cols="30" rows="10" placeholder="Enter Answer Of This Question"></textarea><br> -->
+        </div>
+        <div id="answer_selection">
+            Select The Correct Option For Your Question : <select name="answer" id="ans">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+            </div>
+        </select><br>
+        <div id="explanation_textarea">
+            <textarea name="explanation" id="expl" cols="30" rows="10" placeholder="Enter Explanation Of This Question"></textarea><br>
+        </div>
+
+        <input type="submit" name="submit" value="Submit">
+        <input type="reset" name="reset" value="Reset">
+
+    </form>
+</body>
+</html>

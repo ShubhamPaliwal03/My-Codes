@@ -1,0 +1,37 @@
+<!-- Challenge 22
+Problem Statement: Write a function to deeply compare two objects for equality.
+Description: Given two objects, the function should return true if they are deeply equal and false otherwise.
+Solution Approach: Recursively compare properties of both objects. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeply Print The Object</title>
+</head>
+<body>
+    <script>
+
+        function printDeeply(obj)
+        {
+            for(let key in obj)
+            {
+                if(Object.keys(obj[key]).length == 0)
+                {
+                    console.log(obj[key])
+                }
+                else
+                {
+                    printDeeply(obj[key])
+                }   
+            }
+        }
+
+        const obj = { a: 1, b: { c: 2, d: 7 } };
+
+        printDeeply(obj)
+
+    </script>
+</body>
+</html>

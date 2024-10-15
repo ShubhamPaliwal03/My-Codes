@@ -1,0 +1,44 @@
+<!-- Challenge 27
+Description:
+Write a generator function range that takes two arguments, start and end, and yields all the numbers in that range.
+Solution Approach:
+Use the function* syntax for generator functions and the yield keyword. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 27 - Use Generator Functions To Print A Range Of Values</title>
+</head>
+<body>
+
+    Generator-Function: A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the yield keyword rather than return. The yield statement suspends the function’s execution and sends a value back to the caller, but retains enough state to enable the function to resume where it is left off. When resumed, the function continues execution immediately after the last yield run. 
+
+    <!--
+        Generator Function :- 
+        
+        1.
+            A generator-function is defined like a normal functon, but whenever it needs to generate a value, it does so with the 'yield' keyword rather than the 'return' keyword.
+        2.
+            The yield statement supends the function's execution and sends the desired value back to the caller, but it retains enough state to enable the function to resume where it was left off.
+        3.
+            When resumed, the function continues the execution immediately after the last yield run.
+    -->
+
+    <script>
+        function* range(start, end)
+        {
+            for(let i = start; i <= end; i++)
+            {
+                yield i
+            }
+        }
+
+        for(let num of range(0, 5))
+        {
+            console.log(num)
+        }
+    </script>
+</body>
+</html>

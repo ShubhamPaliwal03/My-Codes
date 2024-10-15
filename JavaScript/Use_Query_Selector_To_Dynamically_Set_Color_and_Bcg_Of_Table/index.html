@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Query Selector To Dynamically Set Color and Bcg Of Table</title>
+    <style>
+        td
+        {
+            height: 1rem;
+            width: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        // const table=document.querySelector("table")
+
+        // const allRows=table.querySelectorAll("tr")
+
+        // let rowCount=1
+        
+        // for(const aRow of allRows)
+        // {
+        //     const allTds=aRow.querySelectorAll("td")
+        //     let columnCount=1
+        //     for(const aTd of allTds)
+        //     {
+        //         if(rowCount%2==0)
+        //         {
+        //             if(columnCount%2==0)
+        //             {
+        //                 aTd.style.backgroundColor="red"
+
+        //             }
+        //             else
+        //             {
+        //                 aTd.style.backgroundColor="blue"
+
+        //             }
+        //         }
+        //         else
+        //         {
+        //             if(columnCount%2==0)
+        //             {
+        //                 aTd.style.backgroundColor="blue"
+
+        //             }
+        //             else
+        //             {
+        //                 aTd.style.backgroundColor="red"
+
+        //             }
+        //         }
+        //         columnCount++
+        //     }
+        //     rowCount++
+        // }
+
+        const table = document.querySelector('table');
+
+        const rows = table.querySelectorAll('tr');
+
+        let rowCount = 0;
+
+        for (const row of rows) {
+
+            let colCount = 0;
+
+            const cells = row.querySelectorAll('td');
+
+            for (const cell of cells) {
+
+                if (rowCount % 2 === 0) {
+                    
+                    if (colCount % 2 === 0) {
+
+                        cell.style.backgroundColor = "#44a340";
+                        cell.style.color = "white";
+                    }
+                    else {
+
+                        cell.style.backgroundColor = "#8cc665";
+                        cell.style.color = "black";
+                    }
+                }
+                else {
+    
+                    if (colCount % 2 === 0) {
+
+                        cell.style.backgroundColor = "#8cc665";
+                        cell.style.color = "black";
+                    }
+                    else {
+
+                        cell.style.backgroundColor = "#44a340";
+                        cell.style.color = "white";
+                    }
+                }
+
+                colCount++;
+            }
+
+            rowCount++;
+        }
+    </script>
+</body>
+</html>

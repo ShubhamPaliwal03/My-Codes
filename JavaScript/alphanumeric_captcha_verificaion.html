@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify - Captcha</title>
+    <style>
+        .captcha_codes
+        {
+            margin-right: 15px;
+        }
+        #div2
+        {
+            border: solid 1px black;
+            border-radius: 5px;
+            background-color: lightgoldenrodyellow;
+            height: 50px;
+            width: 170px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="captcha_box">
+        <h2>Captcha</h2>
+            <script>
+                document.write("<div id = div2>")
+                for(let i = 1; i <= 6; i++)
+                {   
+                    if(i % 3 == 0)
+                    {
+                        let ascii = getRandomArbitrary(65, 90)
+            
+                        let char = String.fromCharCode(ascii) // fromCharCode() is a function that converts unicode values to characters 
+            
+                        document.write("<span class=captcha_codes id=cc"+i+">"+char+"</span>")
+                    }
+                    else
+                    {
+                        let digit_str = (String)(Math.random())
+            
+                        let digit = digit_str.charAt(digit_str.length-1)
+
+                        document.write("<span class=captcha_codes id=cc"+i+">"+digit+"</span>")
+                    }
+                }
+                document.write("</div>")
+
+                function getRandomArbitrary(min, max)
+                {
+                    return Math.floor((Math.random() * (max - min)) + min)
+                }
+
+                const colors = ['red','green','blue','orange','purple','goldenrod']
+
+                for(let i = 1; i <= 6; i++)
+                {
+                    let captcha_code = document.getElementById("cc"+i)
+
+                    captcha_code.style.color = colors[i-1]
+
+                    if(i % 2 == 0)
+                    {
+                        captcha_code.style.fontSize = 20+"px"
+                    }
+                    else if(i % 3 == 0)
+                    {
+                        captcha_code.style.fontSize = 25+"px"
+                    }
+                    else
+                    {
+                        captcha_code.style.fontSize = 30+"px"
+                    }
+                }
+            </script>
+    </div>
+</body>
+</html>

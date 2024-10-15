@@ -1,0 +1,160 @@
+<!-- 
+
+    Some Key Concepts :-
+
+        1. document object :-
+
+            Any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree.
+
+        2. getElementsByClass() method :-
+        
+            Returns a HTMLCollection of the elements in the object on which the method was invoked (a document or an element) that have all the classes given by classNames. The classNames argument is interpreted as a space-separated list of classes.
+
+            Example of HTMLCollection :-
+
+                HTMLCollection { 0: td#outer._0, length: 1, … }
+
+                We can fetch or access the value of a node object at a particular index by using the for of loop, or by using the item() method with the name of the object which stores the HTMLCollection of elements with that particular class name.
+
+                eg. => for(let ic = 0; ic < inner_cells.length; i++)
+                       {
+                            inner_cell.item(ic)
+                       }
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicate Squares</title>
+    <style type="text/css">
+
+        body
+        {
+            display: flex;
+            justify-content: center;
+        }
+
+        table,button
+        {
+            position: relative;
+            top: 30vh;
+        }
+
+        table,tr,td
+        {
+            padding: 0px;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="outer" class="_0" style="height: 200px; width: 200px;"></div>
+        </tr>       
+    </table>
+
+    <button id="multiply_btn" onclick="multiplicate(),playAudio()">Multiplicate</button>
+
+    <audio id="btn_sound" src="mechanicalclamp_alert.mp3"></audio>
+
+    <script>
+
+        function playAudio()
+        {
+            let sound = document.getElementById('btn_sound')
+
+            sound.autoplay = true
+
+            sound.load()
+
+            let mul_btn = document.getElementById('multiply_btn')
+
+            while(sound.duration > 0 && !sound.paused)
+            {
+                mul_btn.disabled = true
+            }
+
+            mul_btn.disabled = false
+        }
+
+        const colors = ['red','#097770','yellow','blue','white']
+
+        // const colors = ['#1e3d59', '#f5f0e1', '#ff6e40', '#ffc13b']
+
+        // const colors = ['#d902ee','#ffd79d','#f162ff','#320d3e']
+
+        let outer_cell = document.getElementById('outer')
+
+        outer_cell.style.backgroundColor = "lightgreen"
+
+        outer_cell.style.border = "solid 3px black"
+        
+        let side = outer_cell.style.height
+
+        side = side.substring(0, side.length-2) / 2
+        
+        // we get the value as, for eg. => 100px, we remove the px using substring() method, and then divide the value by 4, and get a Number datatype value at the end as implicit type conversion of String to Number occurs on division by a Number 
+        
+        let times_multiplicated = 0
+        
+        function multiplicate()
+        {
+            if(side > 10) // if the value of side is less than or equal to 10, then we don't multiplicate it further
+            {
+                let inner_cells = document.getElementsByClassName("_"+times_multiplicated)
+
+                times_multiplicated++
+
+                // using for of loop will enable us directly iterate over the HTMLCollection of objects
+
+                for(let ic of inner_cells)
+                {
+                    let row1 = document.createElement('tr')
+
+                    for(let i = 1; i <= 2; i++)
+                    {
+                        let cell = document.createElement('td')
+                        
+                        cell.style.height = side+"px"
+                        
+                        cell.style.width = side+"px"
+                        
+                        cell.className = "_"+times_multiplicated
+
+                        cell.style.backgroundColor = colors[times_multiplicated-1]
+
+                        row1.appendChild(cell)
+                    }
+
+                    ic.appendChild(row1)
+
+                    let row2 = document.createElement('tr')
+
+                    for(let i = 1; i <= 2; i++)
+                    {
+                        let cell = document.createElement('td')
+                        
+                        cell.style.height = side+"px"
+                        
+                        cell.style.width = side+"px"
+                        
+                        cell.className = "_"+times_multiplicated
+                        
+                        cell.style.backgroundColor = colors[times_multiplicated-1]
+
+                        row2.appendChild(cell)
+                    }
+
+                    ic.appendChild(row2)
+                }
+                
+                side = side / 2
+            }
+        }    
+        </script>
+</body>
+</html>

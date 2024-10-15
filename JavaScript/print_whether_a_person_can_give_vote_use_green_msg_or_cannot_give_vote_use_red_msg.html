@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person can give vote or cannot give vote</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@1,700&display=swap');
+        #out_of_range
+        {
+            color: yellow;
+        }
+        #true
+        {
+            color: rgb(47, 255, 64);
+        }
+        #false
+        {
+            color: red;
+        }
+        body
+        {
+            background-color: black;
+        }
+        p
+        {
+            font-weight: bold;
+            font-size: 70px;
+            margin-top: 300px;
+            text-align: center;
+            font-family:'Arvo',serif;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        var age = 19;
+
+        var result = age>=0 && age<=150 ? age>=18?"<p id=true>The Person Can Give Vote</p>":"<p id=false>The Person Cannot Give Vote</p>" : "<p id=out_of_range>Just Forget About Voting! The Person Can't Logically Exist!<p>";
+        // var result = age>=18?"<p id=true>The Person Can Give Vote</p>":"<p id=false>The Person Cannot Give Vote</p>";    
+        // var result = age>=18?"<p id='true'>The Person Can Give Vote</p>":"<p id='false'>The Person Cannot Give Vote</p>";
+        // var result = age>=18?'<p id="true">The Person Can Give Vote</p>':'<p id="false">The Person Cannot Give Vote</p>';
+        // var result = age>=18?"<p id="true">The Person Can Give Vote</p>":"<p id="false">The Person Cannot Give Vote</p>";+
+
+        document.write(result);
+    </script>
+</body>
+</html>

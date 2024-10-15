@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Up Boxes in JS</title>
+    <style>
+
+        body
+        {
+            background-color: black;
+            color: cyan;
+        }
+
+        p
+        {
+            position: relative;
+            top: 190px;
+            font-size: 90px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <script>
+        
+        alert("Do you want to proceed...")
+
+        let partyGiverName = prompt("Who will give us the party ❓")
+        
+        if(partyGiverName)
+        {
+            let result = confirm(`Do you really want to give the a treat to us ${partyGiverName} 🤩`)
+
+            if(result)
+            {
+                document.write(`<p>${partyGiverName} is ready to give us party 🥳</p>`)
+            }
+            else
+            {
+                document.write(`<p>${partyGiverName} is not ready to give us party 😒</p>`)
+            }
+        }
+        else
+        {
+            document.write("<p>What the hell 😤, no one is ready to give us party...😡</p>")
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form Tag</title>
+</head>
+<body>
+	<!-- <form> tag	:
+			
+			To create a form, we use form tag.
+
+			<form>
+			.
+			.
+			.
+			</form>	
+
+			A form is used to collect information from the user.
+
+			Following attributes are commonly used with <form> tag :
+
+				i) action :
+
+						this attribute specifies the url of a server side script on which form data is sent.
+				
+				ii) method : 
+
+						this attribute specifies the method of the data passing from client to server when we submit the form.
+
+				A <form> contains form control to capture the user's info.
+				In HTML, most of the form controls are created using the <input> tag.
+				The type attribute is used to specify the different types of controls.
+
+				Label :
+
+					A label is created using the <label> tag.
+
+					A label is a text, on which when we click, an input field gets the focus.
+
+					A label is connected to an input field using the 'for' attribute.
+					The 'for' attribute contains the id of the input element.
+					
+					Example :
+
+						<label for ="s1">Enter age</label>
+
+						The above table is connected to the input element having the id="s1".
+
+					style sttribute can be used with width attribute to adjust the size of the input field.
+
+				<input type="text"> :
+
+					Creates a single line text entry area/single line text entry field.
+
+				<input type="password"> :
+					
+					Used to create a password input field/creates a single line text field with masked input.
+
+				<input type="email"> :
+					
+					Used to create a number input field.
+
+				<input type="number"> :
+					
+					Used to create a radio button.
+
+					To make radios in a group, we use the same value for name attribute of all radio button.
+
+					Radio button used for multiple option single selection.
+
+				<input type="checkbox"> :
+
+					Used to create a checkbox.
+
+					Used for multiple option multiple selection.
+
+				<input> type="submit"> :
+					
+					It is used to create a submit button. When we click on a submit button, then data is filled in form control is sent to the server side page specified in action attributed of the form.
+
+					If we do not specify any url in action attribute, then data is submitted on same page.
+
+				<input type="reset"> :
+					
+					It is used to create a reset button.
+
+					When we click on a reset button, then all form fields are cleared.
+				
+				name attribute is used for saving data on the server
+
+				colspan attribute is used to merge two columns
+
+				value attribute :
+				
+					The value attribute is used with the input fields.
+
+					It is used to specify the value / predefined value of the field.
+
+				placeholder attribute :
+				
+					It is mostly used with input tags.
+					
+					The text specified for placeholder is displayed as watermark text in the input field, this placeholder text is automatically removed when you start typing in the input field.
+
+				required :
+					
+					The required attribute is used to make a field mandatory.
+
+					If no information is filled, then it shows a prompt to fill the information.
+
+				min and max :
+
+					Generally, these attributes are used with type="number"
+
+				maxlength :
+				
+					It is generally used with type="text" and type="password".
+
+					It limits the characters that can be entered in an input field.
+
+				disabled :
+				
+					It is used to diable a form element.
+
+					The data of a disabled field is not sent to the server side page when submit button is pressed.
+
+				readonly :
+					
+					The readonly attribute makes a field uneditable, but when we submit the form, the readonly fields are also submitted.	
+
+				size :
+				
+					The size attribute is used inside the input tag to increase the size of the input field.
+
+					It can be used with number, text, password, email, etc.
+
+				style :
+
+					The style attribute of CSS is also used inside the input tag to change the width of the input field.
+					
+					style="width:200px;"
+				
+				tabindex :
+
+					The tabindex attribute is used to specify the tab index on which the form field is activated.
+
+					By default, the tabindices are set to 1.
+
+				accesskey :
+				
+					It is used to set the access key of the input field.
+
+					A particular field can be accessesd by alt + accesskey .
+
+				You can make a table inside a form or a form inside a table, the latter (second one) is a good practice 
+				
+				a table inside a form tag is used to put the html elements present inside the form tag in a proper well spaced order.
+
+				-->
+
+	 <form action="save.php">
+		
+	 	<label for="name">Enter your name : </label>
+	 	<input id="name" value="Shubham" readonly maxlength="10" required placeholder="Enter your full name" type="text" name="name">
+	 	<br>
+
+	 	<label for="password">Password</label>
+	 	<input id="password" required minlength="6" maxlength="10" placeholder="Enter your password" type="password" name="password">
+	 	<br>
+
+	 	<label for="email">Enter your Email Address : </label>
+	 	<input id="email" required placeholder="user@domain.com" type="email" name="email" disabled>
+	 	<br>
+
+	 	<label for="mobile">Enter your mobile number : </label>
+	 	<input id="mobile" min="1000000000" max="9999999999" required placeholder="Enter your mobile number" type="number" name="mobile">
+	 	<br>
+
+	 	Select your Gender : <label for="male">Male</label>
+	 						 <input id="male" value="male" type="radio" name="gender"> |
+	 						 <!-- Method-1, connecting <label> and <input> tag via for attribute-->
+
+
+	 						 <label>Female<input id="female" type="radio" name="gender"></label> |
+	 						 <!-- Method-2, connecting <label> and <input> tag by nesting -->
+
+	 						 <label>Prefer Not To Say
+	 						 	<input id="pnts" value="not declared" type="radio" name="gender">
+	 						</label>
+	 	<br>
+	 	Hobbies
+	 	<br>
+	 	<label><input type="checkbox">Coding</label>
+	 	<label><input type="checkbox">Experimenting and Research</label>
+	 	<label><input type="checkbox">Reading articles and news about new technologies and scientific topics</label>
+	 	<label><input type="checkbox">Exploring Nature</label>
+	 	<label><input type="checkbox">Exercising</label>
+	 	<br>
+
+	 	<br>
+	 	<label for=profile>Profile Photo</label>
+	 	<input type="file" name="" id="profile">
+		<br>
+
+	 	<br>
+	 	<label for="country">Country</label>
+	 	<select id="country" multiple>
+	 		<option>Israel</option>
+	 		<option selected>India</option>
+	 		<option>USA</option>
+	 		<option>Germany</option>
+	 		<option>UAE</option>
+	 	</select>
+	 	<br>
+
+	 	<br>
+	 	<input type="submit" name="submit" value="Register!">
+	 	<br>
+
+	 	<br>
+	 	<input type="reset" name="reset" value="Clear fields!">
+
+	 </form>
+</body>
+</html>

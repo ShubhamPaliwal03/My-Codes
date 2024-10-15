@@ -1,0 +1,46 @@
+<!-- Challenge 17
+Problem Description:
+Write a JavaScript function named filterOutOdd that uses the filter() method to filter out odd numbers from an array.
+Inputs:
+An array of numbers.
+Outputs:
+An array of numbers without odd numbers.
+Hints:
+Use the filter() method to create a new array with all elements that pass the test implemented by the provided function.
+Solution Approach:
+Use the filter() method and provide a callback that checks if the number is even. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* filter() => 
+        
+            1. Returns the element(s) of an array that meet the condition specified in a callback function.
+
+            2. A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
+
+            3. Syntax :- array.filter(callback, (number, index, arr), thisValue)
+
+        */    
+
+        function getEvenValues(value)
+        {
+            return value % 2 == 0 // filter out the odd values, and obtain an array only having even values.
+        }
+
+        // test cases
+
+        console.log([1,2,3,4,5].filter(getEvenValues))
+        console.log([89,74,25,36,1,9].filter(getEvenValues))
+        console.log([-5,-8,59,-98,100].filter(getEvenValues))
+
+    </script>
+</body>
+</html>

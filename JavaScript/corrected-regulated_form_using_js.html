@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style type="text/css">
+        h1
+        {
+            text-align: center;
+            font-size: 50px;
+            text-decoration: underline;
+            margin-bottom: -50px;
+            margin-top: 100px;
+        }
+        table,td,th
+        {
+            text-align: center;
+            border: solid 2px black;
+            border-collapse: collapse;
+        }
+        table
+        {
+            margin: 10% auto;
+        }
+        td
+        {
+            padding: 5px;
+        }
+        td,th
+        {
+            width: 170px;
+        }
+        div
+        {
+            width: 150px;
+        }
+        button
+        {
+            height: 40px;
+            width: 160px;
+        }
+        .error
+        {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form</h1>
+    <form action="save.php">
+        <table>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" id="name" onblur="checkTxtField('name','errName')" onchange="MaintainErrorCount()"></td>
+                <td><div id="errName" class="error"></div></td>
+            </tr>
+            <tr>
+                <th>Father's Name</th>
+                <td><input type="text" id="fname" onblur="checkTxtField('fname','errFname')" onchange="MaintainErrorCount()"></td>
+                <td><div id="errFname" class="error"></div></td>
+            </tr>
+            <tr>
+                <th>Mother's Name</th>
+                <td><input type="text" id="mname" onblur="checkTxtField('mname','errMname')" onchange="MaintainErrorCount()"></td>
+                <td><div id="errMname" class="error"></div></td>
+            </tr>
+            <tr>
+                <th>Mobile Number</th>
+                <td><input type="number" id="mobile" onblur="checkTxtField('mobile','errMobile')" onchange="MaintainErrorCount()"></td>
+                <td><div id="errMobile" class="error"></div></td>
+            </tr>
+            <tr>
+                <th>Email Address</th>
+                <td><input type="text" id="email" onblur="checkTxtField('email','errEmail')" onchange="MaintainErrorCount()"></td>
+                <td><div id="errEmail" class="error"></div></td>
+            </tr>
+            <tr>
+                <th>Residential Address</th>
+                <td><input type="text" id="address" onblur="checkTxtField('address','errAddress')" onchange="MaintainErrorCount()"></td>
+                <td><div id="errAddress" class="error"></div></td>
+            </tr>
+            <tr>
+                <th>Aadhar Number</th>
+                <td><input type="number" id="aadhar" onblur="checkTxtField('aadhar','errAadhar')" onchange="MaintainErrorCount()"></td>
+                <td><div id="errAadhar" class="error"></div></td>
+            </tr>
+            <tr>
+                <td><div id="finalErrorField"></div></td>
+                <td><button id="submit" type="submit" disabled>Submit</button></td>
+                <td><button id="reset" type="reset">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+
+        let errorCount = 0
+
+        function MaintainErrorCount()
+        {
+            
+        }
+
+        const submitButton = document.getElementById("submit")
+
+        function checkTxtField(id, errField)
+        {
+            let inputElement = document.getElementById(id)
+
+            let inputValue = inputElement.value
+
+            let errorField = document.getElementById(errField)
+
+            let prev_txt_box_id = ""
+
+            if(inputValue == "")
+            {
+                errorField.innerHTML = "*this is a required field"
+
+                if(prev_txt_box_id != id)
+                {
+                    errorCount++
+                }
+            }
+            else
+            {
+                errorField.innerHTML = ""
+
+                if(prev_txt_box_id != id)
+                {
+                    errorCount--
+                }
+            }
+
+            prev_txt_box_id = id
+
+            // fetch all error class elements
+
+            let errors = document.getElementsByClassName("error") // returns an array of elements with the provided class name
+
+            let i
+
+            for(i = 0; i < errors.length; i++) // fetching the text in the error fields
+            {
+                let errorText = errors[i].innerHTML
+
+                if(errorText != "") // if there is an error message, then we break out of the loop
+                {
+                    break
+                }
+            }
+
+            // if there is no error message, then the loop will run completely without executing the break statement, so we enable the submit button.
+
+            if(i == errors.length)
+            {
+                submitButton.disabled = false
+            }
+            else // if there is an error message, then the loop will not run completely and a break statement will be executed, so we disable the submit button.
+            {
+                submitButton.disabled = true
+            }
+
+            const finalErrorField = document.getElementById("finalErrorField")
+
+            // console.log(errorCount)
+
+            if(errorCount > 0)
+            {
+                finalErrorField.innerHTML = "You haven only filled "+errorCount+" fields!"
+            }
+            else
+            {
+                finalErrorField.innerHTML = ""
+            }
+        }
+
+    </script>
+</body>
+</html>

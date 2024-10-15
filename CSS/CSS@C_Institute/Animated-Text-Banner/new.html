@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        body
+        {
+            background-image: linear-gradient(deeppink, deepskyblue);
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .text::after
+        {
+            animation: animation1 linear 2s 0.1s infinite alternate;
+            content: "";
+            /* margin-left: 2em; */
+            /* font-size: 5em;
+            font-weight: 900; */
+        }
+        .text
+        {
+            font-size: 4em;
+            font-weight: 900;
+        }
+        @keyframes animation1
+        {
+            0%{content: "I";}
+            10%{content: "I L";}
+            20%{content: "I Lo";}
+            29%{content: "I Lov";}
+            38%{content: "I Love";}
+            47%{content: "I Love C";}
+            58%{content: "I Love Co";}
+            67%{content: "I Love Cod";}
+            78%{content: "I Love Codi";}
+            87%{content: "I Love Codin";}
+            95%{content: "I Love Coding";}
+            100%{content: "I Love Coding!";}
+        }
+    </style>
+</head>
+<body>
+    <p class="text"></p>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+
+        img,.btns
+        {
+            border: solid 5px white;
+            border-radius: 15px;
+        }
+
+        #display_area
+        {
+            position: relative;
+            left: 250px;
+            top: 20px;
+            height: 500px;
+            width: 1000px;
+        }
+
+        .thumbs
+        {
+            height: 150px;
+            width: 250px;
+        }
+
+        #collection_view
+        {
+            position: relative;
+            top: 20px;
+            left: 25px;
+        }
+
+        #prev
+        {
+            font-size: 20px;
+            width: 25px;
+            height: 60px;
+            position: relative;
+            right: 1000px;
+            bottom: 200px;
+        }
+
+        #next
+        {
+            font-size: 20px;
+            width: 25px;
+            height: 60px;
+            position: relative;
+            left: 440px;
+            bottom: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <img id="display_area" src="bcg0.jpg" alt="display_image">
+
+    <button type="button" id="prev"><</button>
+
+    <button type="button" id="next">></button>
+
+    <script>
+        let border_color = "grey"
+
+        let current_image_index = 0
+
+        
+        const arr = ['bcg0.jpg','bcg1.jpg','bcg2.jpg','bcg3.jpg','bcg4.jpg']
+        
+        document.write("<div id=collection_view>")
+            
+        for(let img in arr)
+        {
+            document.write("<button onclick=move_to(this.id) class=btns id="+img+"><img class=thumbs id=thumb"+img+" class=thumbnails src="+arr[img]+"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+        }
+        
+        document.write("</div>")
+
+        const current_bordered_thumbnail = document.getElementById("thumb"+current_image_index)
+        
+        current_bordered_thumbnail.style.border = "solid 6px "+border_color
+        
+        const prev = document.getElementById("prev")
+        
+        prev.addEventListener("click",backward)
+
+        function backward()
+        {
+            if(current_image_index > 0)
+            {
+                const image = document.getElementById("display_area")
+                
+                const current_bordered_thumbnail = document.getElementById("thumb"+current_image_index)
+
+                current_bordered_thumbnail.style.border = "solid 6px white"
+                
+                current_image_index -= 1
+                
+                image.src = arr[current_image_index]
+                
+                const updated_bordered_thumbnail = document.getElementById("thumb"+current_image_index)
+                
+                updated_bordered_thumbnail.style.border = "solid 6px "+border_color
+            }
+        }
+
+        const next = document.getElementById("next")
+
+        next.addEventListener("click",forward)
+
+        function forward()
+        {
+            if(current_image_index < arr.length - 1)
+            {
+                const image = document.getElementById("display_area")
+
+                const current_bordered_thumbnail = document.getElementById("thumb"+current_image_index)
+
+                current_bordered_thumbnail.style.border = "solid 6px white"
+
+                current_image_index += 1
+
+                const updated_bordered_thumbnail = document.getElementById("thumb"+current_image_index)
+
+                updated_bordered_thumbnail.style.border = "solid 6px "+border_color
+
+                image.src = arr[current_image_index]
+            }
+        }
+
+        function move_to(img_id) // here, we have kept the value of image id and image index to be the same
+        {
+            const image = document.getElementById("display_area")
+
+            image.src = "bcg"+img_id+".jpg"
+
+            const current_bordered_thumbnail = document.getElementById("thumb"+current_image_index)
+
+            current_bordered_thumbnail.style.border = "solid 6px white"
+
+            current_image_index = img_id
+
+            const updated_bordered_thumbnail = document.getElementById("thumb"+current_image_index)
+
+            updated_bordered_thumbnail.style.border = "solid 6px "+border_color
+        }
+
+    </script>
+</body>
+</html>

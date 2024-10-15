@@ -1,0 +1,49 @@
+class Person
+{
+  private int age;
+  private String name;
+  public void setPersonDetails(int age,String name)
+  {
+    this.age=age;
+    this.name=name;
+  }
+  public void printPersonalDetails()
+  {  System.out.println("Personal details are");
+    System.out.println("Name "+this.name);
+    System.out.println("Age "+this.age);
+  }
+}
+class Student extends Person
+{
+    private int rollNumber;
+    public void setAcademicDetails(int roll)  
+    {
+      this.rollNumber=roll;
+    }
+    public void printAcdemicDetails()
+    {
+      System.out.println("Roll number "+this.rollNumber);
+    }
+    // public void setAcademicDetails(String name,int age,int rollNumber)
+    // {
+    //   setPersonDetails(age,name);
+    //   this.rollNumber=rollNumber;
+    // }
+    // public void printAcademicDetails()
+    // {
+    //   printPersonalDetails();
+    //   System.out.println("Academic details");
+    //   System.out.println("Roll Number "+this.rollNumber);
+    // }
+}
+class Main
+{  public static void main(String []args)
+  {  Student s1=new Student();
+    s1.setPersonDetails(27,"Jatin Songara");
+    s1.setAcademicDetails(1001);
+    s1.printAcdemicDetails();
+    s1.printPersonalDetails();
+    // s1.setAcademicDetails("Jaid",20,10001);
+    // s1.printAcademicDetails();
+  }
+}

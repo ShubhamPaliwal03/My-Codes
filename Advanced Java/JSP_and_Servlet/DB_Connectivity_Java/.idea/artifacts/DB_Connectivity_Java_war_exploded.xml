@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="DB_Connectivity_Java:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/DB_Connectivity_Java_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="DB_Connectivity_Java" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/mysql-connector.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/javax.annotation-api-1.3.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/javax.servlet.jsp.jstl-1.2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/javax.servlet.jsp.jstl-api-1.2.1.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="DB_Connectivity_Java/web/Web" />
+    </root>
+  </artifact>
+</component>

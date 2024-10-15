@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Border</title>
+    <style type="text/css">
+        #div1
+        {
+            height: 150px;
+            width: 150px;
+            background-color: greenyellow;
+
+            border-style: solid;
+            border-color: red;
+            border-width: 5px;
+
+            /* 
+            The above properties set the border of all four sides.
+            The above all three properties can be specified using border only.
+            */
+
+            /* given below is the shorthand to set all the attributes of border property in one go*/
+            border: solid blue 5px;
+        }
+        #div2
+        {
+            height: 250px;
+            width: 250px;
+            background-color: cyan;
+
+            /* We can also specify the border of a single side also */
+            border-top: dashed red 10px;
+        }
+        #div3
+        {
+            height: 300px;
+            width: 200px;
+            background-color: red;
+            border-top: solid 10px blue;
+            border-bottom: solid 10px blue;
+        }
+        #div4
+        {
+            /* to center a div, you can use set it's margin to => margin : 0px auto; (top,bottom left,right) */
+            
+            margin: 0px auto;
+            background-color: yellowgreen;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <div id="div2"></div>
+
+    <div id="div3"></div>
+
+    <div id="div4"></div>
+</body>    
+</html>

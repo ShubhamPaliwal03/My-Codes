@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+</head>
+<body>
+    <div id="outer">
+        <div id="display_area">0</div>
+        <button id="start" onclick="triggerStart()">Start</button>
+        <button id="stop" onclick="stop()">Stop</button>
+        <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <script>
+
+        let running = false
+
+        const disp = document.getElementById('display_area')
+
+        function start()
+        {
+            let val = Number(disp.innerText)
+            
+            disp.innerText = ++val
+        }
+
+        let intervalId
+
+        function triggerStart()
+        {
+            if(!running)
+            {   
+                intervalId = setInterval(start, 1000)
+                
+                running = true
+            }
+        }
+
+        function stop()
+        {
+            clearInterval(intervalId)
+
+            running = false
+        }
+
+        function reset()
+        {
+            stop()
+
+            disp.innerText = 0
+        }
+
+    </script>
+</body>
+</html>

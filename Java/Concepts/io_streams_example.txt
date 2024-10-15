@@ -1,0 +1,28 @@
+import java.io.*;
+
+class Main
+{
+  public static void main(String []args)throws IOException
+  {
+    FileOutputStream fout1=new FileOutputStream("f1.txt");
+    FileOutputStream fout2=new FileOutputStream("f2.txt");
+
+    ByteArrayOutputStream bout=new ByteArrayOutputStream();
+    bout.write("my name is bhati and my bday is coming dauda dauda".getBytes());
+    bout.writeTo(fout1);
+    bout.writeTo(fout2);
+    bout.close();
+  }
+}
+
+import java.io.*;class Main
+{
+  public static void main(String []args)throws Exception
+  {
+    DataInputStream dis=new DataInputStream(System.in);
+    //Read string from keyboard
+    String s=dis.readLine();
+    int n=Integer.parseInt(s);
+    System.out.println(n);
+  }
+}

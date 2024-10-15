@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Flex Basic Demo</title>
+    <style type="text/css">
+        .flex-container
+        {
+            display: flex;
+            background-color: brown;
+        }
+        .flex-container > div /* > is a selector in css, it is used to select the particular type tag (as given on lhs) elements having the id/class given on rhs*/
+        {
+            background-color: #c2861f;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flex Container</h1>
+    <div class="flex-container">
+        <div>Apple</div>
+        <div>Boy</div>
+        <div>Cat</div>
+        <div>Dog</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,911 @@
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 0000000000000000000000000000000000000000000000000000000000000000
+2024-03-11 23:02:06 0 [Note] InnoDB: 000000000000000000000000000000000000000000000000ecefa36b000203bc
+2024-03-11 23:02:06 0 [Note] InnoDB: End of page dump
+2024-03-11 23:02:06 0 [Note] InnoDB: It is also possible that your operating system has corrupted its own file cache and rebooting your computer removes the error. If the corrupt page is an index page. You can also try to fix the corruption by dumping, dropping, and reimporting the corrupt table. You can use CHECK TABLE to scan your table for corruption. Please refer to https://mariadb.com/kb/en/library/innodb-recovery-modes/ for information about forcing recovery.
+2024-03-11 23:02:06 0 [ERROR] InnoDB: Background Page read failed to read or decrypt [page id: space=3, page number=0]
+2024-03-11 23:02:06 0 [Note] InnoDB: Buffer pool(s) load completed at 240311 23:02:06
+2024-03-11 23:02:06 0 [Note] Reading of all Master_info entries succeeded
+2024-03-11 23:02:06 0 [Note] Added new Master_info '' to hash table
+2024-03-11 23:02:06 0 [Note] c:\xampp\mysql\bin\mysqld.exe: ready for connections.
+Version: '10.4.28-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+dom read ahead 0.00/s
+LRU len: 365, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=22044, Main thread ID=14236, state: making checkpoint
+Number of rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+Number of system rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================
+
+=====================================
+2024-01-06 04:05:01 0x2bd0 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 20 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+srv_master_thread loops: 0 srv_active, 0 srv_shutdown, 1 srv_idle
+srv_master_thread log flush and writes: 1
+----------
+SEMAPHORES
+----------
+OS WAIT ARRAY INFO: reservation count 11
+--Thread 14236 has waited at log0log.cc line 1391 for 299.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+OS WAIT ARRAY INFO: signal count 6
+RW-shared spins 22, rounds 58, OS waits 1
+RW-excl spins 7, rounds 13, OS waits 0
+RW-sx spins 0, rounds 0, OS waits 0
+Spin rounds per wait: 2.64 RW-shared, 1.86 RW-excl, 0.00 RW-sx
+------------
+TRANSACTIONS
+------------
+Trx id counter 345
+Purge done for trx's n:o < 343 undo n:o < 0 state: running but idle
+History list length 41
+LIST OF TRANSACTIONS FOR EACH SESSION:
+--------
+FILE I/O
+--------
+I/O thread 0 state: native aio handle (insert buffer thread)
+I/O thread 1 state: native aio handle (log thread)
+I/O thread 2 state: native aio handle (read thread)
+I/O thread 3 state: native aio handle (read thread)
+I/O thread 4 state: native aio handle (read thread)
+I/O thread 5 state: native aio handle (read thread)
+I/O thread 6 state: native aio handle (write thread)
+I/O thread 7 state: native aio handle (write thread)
+I/O thread 8 state: native aio handle (write thread)
+I/O thread 9 state: native aio handle (write thread)
+Pending normal aio reads: [0, 0, 0, 0] , aio writes: [0, 0, 0, 0] ,
+ ibuf aio reads:, log i/o's:, sync i/o's:
+Pending flushes (fsync) log: 0; buffer pool: 0
+252 OS file reads, 135 OS file writes, 3 OS fsyncs
+0.00 reads/s, 0 avg bytes/read, 0.00 writes/s, 0.00 fsyncs/s
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+Ibuf: size 1, free list len 0, seg size 2, 0 merges
+merged operations:
+ insert 0, delete mark 0, delete 0
+discarded operations:
+ insert 0, delete mark 0, delete 0
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+0.00 hash searches/s, 0.00 non-hash searches/s
+---
+LOG
+---
+Log sequence number 344162
+Log flushed up to   344162
+Pages flushed up to 344162
+Last checkpoint at  344135
+0 pending log flushes, 1 pending chkp writes
+11 log i/o's done, 0.00 log i/o's/second
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+Total large memory allocated 33554432
+Dictionary memory allocated 32552
+Buffer pool size   1003
+Free buffers       638
+Database pages     365
+Old database pages 0
+Modified db pages  0
+Percent of dirty pages(LRU & free pages): 0.000
+Max dirty pages percent: 75.000
+Pending reads 0
+Pending writes: LRU 0, flush list 0, single page 0
+Pages made young 0, not young 0
+0.00 youngs/s, 0.00 non-youngs/s
+Pages read 234, created 131, written 131
+0.00 reads/s, 0.00 creates/s, 0.00 writes/s
+No buffer pool page gets since the last printout
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+LRU len: 365, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=22044, Main thread ID=14236, state: making checkpoint
+Number of rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+Number of system rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================
+InnoDB: ###### Diagnostic info printed to the standard error stream
+2024-01-06  4:05:05 0 [Warning] InnoDB: A long semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 303.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+2024-01-06  4:05:05 0 [Note] InnoDB: A semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 303.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+InnoDB: ###### Starts InnoDB Monitor for 30 secs to print diagnostic info:
+InnoDB: Pending reads 0, writes 0
+
+=====================================
+2024-01-06 04:05:21 0x2bd0 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 20 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+srv_master_thread loops: 0 srv_active, 0 srv_shutdown, 1 srv_idle
+srv_master_thread log flush and writes: 1
+----------
+SEMAPHORES
+----------
+OS WAIT ARRAY INFO: reservation count 11
+--Thread 14236 has waited at log0log.cc line 1391 for 319.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+OS WAIT ARRAY INFO: signal count 6
+RW-shared spins 22, rounds 58, OS waits 1
+RW-excl spins 7, rounds 13, OS waits 0
+RW-sx spins 0, rounds 0, OS waits 0
+Spin rounds per wait: 2.64 RW-shared, 1.86 RW-excl, 0.00 RW-sx
+------------
+TRANSACTIONS
+------------
+Trx id counter 345
+Purge done for trx's n:o < 343 undo n:o < 0 state: running but idle
+History list length 41
+LIST OF TRANSACTIONS FOR EACH SESSION:
+--------
+FILE I/O
+--------
+I/O thread 0 state: native aio handle (insert buffer thread)
+I/O thread 1 state: native aio handle (log thread)
+I/O thread 2 state: native aio handle (read thread)
+I/O thread 3 state: native aio handle (read thread)
+I/O thread 4 state: native aio handle (read thread)
+I/O thread 5 state: native aio handle (read thread)
+I/O thread 6 state: native aio handle (write thread)
+I/O thread 7 state: native aio handle (write thread)
+I/O thread 8 state: native aio handle (write thread)
+I/O thread 9 state: native aio handle (write thread)
+Pending normal aio reads: [0, 0, 0, 0] , aio writes: [0, 0, 0, 0] ,
+ ibuf aio reads:, log i/o's:, sync i/o's:
+Pending flushes (fsync) log: 0; buffer pool: 0
+252 OS file reads, 135 OS file writes, 3 OS fsyncs
+0.00 reads/s, 0 avg bytes/read, 0.00 writes/s, 0.00 fsyncs/s
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+Ibuf: size 1, free list len 0, seg size 2, 0 merges
+merged operations:
+ insert 0, delete mark 0, delete 0
+discarded operations:
+ insert 0, delete mark 0, delete 0
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+0.00 hash searches/s, 0.00 non-hash searches/s
+---
+LOG
+---
+Log sequence number 344162
+Log flushed up to   344162
+Pages flushed up to 344162
+Last checkpoint at  344135
+0 pending log flushes, 1 pending chkp writes
+11 log i/o's done, 0.00 log i/o's/second
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+Total large memory allocated 33554432
+Dictionary memory allocated 32552
+Buffer pool size   1003
+Free buffers       638
+Database pages     365
+Old database pages 0
+Modified db pages  0
+Percent of dirty pages(LRU & free pages): 0.000
+Max dirty pages percent: 75.000
+Pending reads 0
+Pending writes: LRU 0, flush list 0, single page 0
+Pages made young 0, not young 0
+0.00 youngs/s, 0.00 non-youngs/s
+Pages read 234, created 131, written 131
+0.00 reads/s, 0.00 creates/s, 0.00 writes/s
+No buffer pool page gets since the last printout
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+LRU len: 365, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=22044, Main thread ID=14236, state: making checkpoint
+Number of rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+Number of system rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================
+InnoDB: ###### Diagnostic info printed to the standard error stream
+2024-01-06  4:05:36 0 [Warning] InnoDB: A long semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 334.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+2024-01-06  4:05:36 0 [Note] InnoDB: A semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 334.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+InnoDB: ###### Starts InnoDB Monitor for 30 secs to print diagnostic info:
+InnoDB: Pending reads 0, writes 0
+
+=====================================
+2024-01-06 04:05:41 0x2bd0 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 20 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+srv_master_thread loops: 0 srv_active, 0 srv_shutdown, 1 srv_idle
+srv_master_thread log flush and writes: 1
+----------
+SEMAPHORES
+----------
+OS WAIT ARRAY INFO: reservation count 11
+--Thread 14236 has waited at log0log.cc line 1391 for 339.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+OS WAIT ARRAY INFO: signal count 6
+RW-shared spins 22, rounds 58, OS waits 1
+RW-excl spins 7, rounds 13, OS waits 0
+RW-sx spins 0, rounds 0, OS waits 0
+Spin rounds per wait: 2.64 RW-shared, 1.86 RW-excl, 0.00 RW-sx
+------------
+TRANSACTIONS
+------------
+Trx id counter 345
+Purge done for trx's n:o < 343 undo n:o < 0 state: running but idle
+History list length 41
+LIST OF TRANSACTIONS FOR EACH SESSION:
+--------
+FILE I/O
+--------
+I/O thread 0 state: native aio handle (insert buffer thread)
+I/O thread 1 state: native aio handle (log thread)
+I/O thread 2 state: native aio handle (read thread)
+I/O thread 3 state: native aio handle (read thread)
+I/O thread 4 state: native aio handle (read thread)
+I/O thread 5 state: native aio handle (read thread)
+I/O thread 6 state: native aio handle (write thread)
+I/O thread 7 state: native aio handle (write thread)
+I/O thread 8 state: native aio handle (write thread)
+I/O thread 9 state: native aio handle (write thread)
+Pending normal aio reads: [0, 0, 0, 0] , aio writes: [0, 0, 0, 0] ,
+ ibuf aio reads:, log i/o's:, sync i/o's:
+Pending flushes (fsync) log: 0; buffer pool: 0
+252 OS file reads, 135 OS file writes, 3 OS fsyncs
+0.00 reads/s, 0 avg bytes/read, 0.00 writes/s, 0.00 fsyncs/s
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+Ibuf: size 1, free list len 0, seg size 2, 0 merges
+merged operations:
+ insert 0, delete mark 0, delete 0
+discarded operations:
+ insert 0, delete mark 0, delete 0
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+0.00 hash searches/s, 0.00 non-hash searches/s
+---
+LOG
+---
+Log sequence number 344162
+Log flushed up to   344162
+Pages flushed up to 344162
+Last checkpoint at  344135
+0 pending log flushes, 1 pending chkp writes
+11 log i/o's done, 0.00 log i/o's/second
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+Total large memory allocated 33554432
+Dictionary memory allocated 32552
+Buffer pool size   1003
+Free buffers       638
+Database pages     365
+Old database pages 0
+Modified db pages  0
+Percent of dirty pages(LRU & free pages): 0.000
+Max dirty pages percent: 75.000
+Pending reads 0
+Pending writes: LRU 0, flush list 0, single page 0
+Pages made young 0, not young 0
+0.00 youngs/s, 0.00 non-youngs/s
+Pages read 234, created 131, written 131
+0.00 reads/s, 0.00 creates/s, 0.00 writes/s
+No buffer pool page gets since the last printout
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+LRU len: 365, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=22044, Main thread ID=14236, state: making checkpoint
+Number of rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+Number of system rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================
+
+=====================================
+2024-01-06 04:06:01 0x2bd0 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 20 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+srv_master_thread loops: 0 srv_active, 0 srv_shutdown, 1 srv_idle
+srv_master_thread log flush and writes: 1
+----------
+SEMAPHORES
+----------
+OS WAIT ARRAY INFO: reservation count 11
+--Thread 14236 has waited at log0log.cc line 1391 for 359.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+OS WAIT ARRAY INFO: signal count 6
+RW-shared spins 22, rounds 58, OS waits 1
+RW-excl spins 7, rounds 13, OS waits 0
+RW-sx spins 0, rounds 0, OS waits 0
+Spin rounds per wait: 2.64 RW-shared, 1.86 RW-excl, 0.00 RW-sx
+------------
+TRANSACTIONS
+------------
+Trx id counter 345
+Purge done for trx's n:o < 343 undo n:o < 0 state: running but idle
+History list length 41
+LIST OF TRANSACTIONS FOR EACH SESSION:
+--------
+FILE I/O
+--------
+I/O thread 0 state: native aio handle (insert buffer thread)
+I/O thread 1 state: native aio handle (log thread)
+I/O thread 2 state: native aio handle (read thread)
+I/O thread 3 state: native aio handle (read thread)
+I/O thread 4 state: native aio handle (read thread)
+I/O thread 5 state: native aio handle (read thread)
+I/O thread 6 state: native aio handle (write thread)
+I/O thread 7 state: native aio handle (write thread)
+I/O thread 8 state: native aio handle (write thread)
+I/O thread 9 state: native aio handle (write thread)
+Pending normal aio reads: [0, 0, 0, 0] , aio writes: [0, 0, 0, 0] ,
+ ibuf aio reads:, log i/o's:, sync i/o's:
+Pending flushes (fsync) log: 0; buffer pool: 0
+252 OS file reads, 135 OS file writes, 3 OS fsyncs
+0.00 reads/s, 0 avg bytes/read, 0.00 writes/s, 0.00 fsyncs/s
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+Ibuf: size 1, free list len 0, seg size 2, 0 merges
+merged operations:
+ insert 0, delete mark 0, delete 0
+discarded operations:
+ insert 0, delete mark 0, delete 0
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+0.00 hash searches/s, 0.00 non-hash searches/s
+---
+LOG
+---
+Log sequence number 344162
+Log flushed up to   344162
+Pages flushed up to 344162
+Last checkpoint at  344135
+0 pending log flushes, 1 pending chkp writes
+11 log i/o's done, 0.00 log i/o's/second
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+Total large memory allocated 33554432
+Dictionary memory allocated 32552
+Buffer pool size   1003
+Free buffers       638
+Database pages     365
+Old database pages 0
+Modified db pages  0
+Percent of dirty pages(LRU & free pages): 0.000
+Max dirty pages percent: 75.000
+Pending reads 0
+Pending writes: LRU 0, flush list 0, single page 0
+Pages made young 0, not young 0
+0.00 youngs/s, 0.00 non-youngs/s
+Pages read 234, created 131, written 131
+0.00 reads/s, 0.00 creates/s, 0.00 writes/s
+No buffer pool page gets since the last printout
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+LRU len: 365, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=22044, Main thread ID=14236, state: making checkpoint
+Number of rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+Number of system rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================
+InnoDB: ###### Diagnostic info printed to the standard error stream
+2024-01-06  4:06:07 0 [Warning] InnoDB: A long semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 365.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+2024-01-06  4:06:07 0 [Note] InnoDB: A semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 365.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+InnoDB: ###### Starts InnoDB Monitor for 30 secs to print diagnostic info:
+InnoDB: Pending reads 0, writes 0
+
+=====================================
+2024-01-06 04:06:21 0x2bd0 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 20 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+srv_master_thread loops: 0 srv_active, 0 srv_shutdown, 1 srv_idle
+srv_master_thread log flush and writes: 1
+----------
+SEMAPHORES
+----------
+OS WAIT ARRAY INFO: reservation count 11
+--Thread 14236 has waited at log0log.cc line 1391 for 379.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+OS WAIT ARRAY INFO: signal count 6
+RW-shared spins 22, rounds 58, OS waits 1
+RW-excl spins 7, rounds 13, OS waits 0
+RW-sx spins 0, rounds 0, OS waits 0
+Spin rounds per wait: 2.64 RW-shared, 1.86 RW-excl, 0.00 RW-sx
+------------
+TRANSACTIONS
+------------
+Trx id counter 345
+Purge done for trx's n:o < 343 undo n:o < 0 state: running but idle
+History list length 41
+LIST OF TRANSACTIONS FOR EACH SESSION:
+--------
+FILE I/O
+--------
+I/O thread 0 state: native aio handle (insert buffer thread)
+I/O thread 1 state: native aio handle (log thread)
+I/O thread 2 state: native aio handle (read thread)
+I/O thread 3 state: native aio handle (read thread)
+I/O thread 4 state: native aio handle (read thread)
+I/O thread 5 state: native aio handle (read thread)
+I/O thread 6 state: native aio handle (write thread)
+I/O thread 7 state: native aio handle (write thread)
+I/O thread 8 state: native aio handle (write thread)
+I/O thread 9 state: native aio handle (write thread)
+Pending normal aio reads: [0, 0, 0, 0] , aio writes: [0, 0, 0, 0] ,
+ ibuf aio reads:, log i/o's:, sync i/o's:
+Pending flushes (fsync) log: 0; buffer pool: 0
+252 OS file reads, 135 OS file writes, 3 OS fsyncs
+0.00 reads/s, 0 avg bytes/read, 0.00 writes/s, 0.00 fsyncs/s
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+Ibuf: size 1, free list len 0, seg size 2, 0 merges
+merged operations:
+ insert 0, delete mark 0, delete 0
+discarded operations:
+ insert 0, delete mark 0, delete 0
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+0.00 hash searches/s, 0.00 non-hash searches/s
+---
+LOG
+---
+Log sequence number 344162
+Log flushed up to   344162
+Pages flushed up to 344162
+Last checkpoint at  344135
+0 pending log flushes, 1 pending chkp writes
+11 log i/o's done, 0.00 log i/o's/second
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+Total large memory allocated 33554432
+Dictionary memory allocated 32552
+Buffer pool size   1003
+Free buffers       638
+Database pages     365
+Old database pages 0
+Modified db pages  0
+Percent of dirty pages(LRU & free pages): 0.000
+Max dirty pages percent: 75.000
+Pending reads 0
+Pending writes: LRU 0, flush list 0, single page 0
+Pages made young 0, not young 0
+0.00 youngs/s, 0.00 non-youngs/s
+Pages read 234, created 131, written 131
+0.00 reads/s, 0.00 creates/s, 0.00 writes/s
+No buffer pool page gets since the last printout
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+LRU len: 365, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=22044, Main thread ID=14236, state: making checkpoint
+Number of rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+Number of system rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================
+InnoDB: ###### Diagnostic info printed to the standard error stream
+2024-01-06  4:06:38 0 [Warning] InnoDB: A long semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 396.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+2024-01-06  4:06:38 0 [Note] InnoDB: A semaphore wait:
+--Thread 14236 has waited at log0log.cc line 1391 for 396.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+InnoDB: ###### Starts InnoDB Monitor for 30 secs to print diagnostic info:
+InnoDB: Pending reads 0, writes 0
+
+=====================================
+2024-01-06 04:06:41 0x2bd0 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 20 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+srv_master_thread loops: 0 srv_active, 0 srv_shutdown, 1 srv_idle
+srv_master_thread log flush and writes: 1
+----------
+SEMAPHORES
+----------
+OS WAIT ARRAY INFO: reservation count 11
+--Thread 14236 has waited at log0log.cc line 1391 for 399.00 seconds the semaphore:
+S-lock on RW-latch at 00007FF7B918B7D0 created in file log0log.cc line 579
+a writer (thread id 0) has reserved it in mode  exclusive
+number of readers 0, waiters flag 1, lock_word: 0
+Last time write locked in file log0log.cc line 1342
+OS WAIT ARRAY INFO: signal count 6
+RW-shared spins 22, rounds 58, OS waits 1
+RW-excl spins 7, rounds 13, OS waits 0
+RW-sx spins 0, rounds 0, OS waits 0
+Spin rounds per wait: 2.64 RW-shared, 1.86 RW-excl, 0.00 RW-sx
+------------
+TRANSACTIONS
+------------
+Trx id counter 345
+Purge done for trx's n:o < 343 undo n:o < 0 state: running but idle
+History list length 41
+LIST OF TRANSACTIONS FOR EACH SESSION:
+--------
+FILE I/O
+--------
+I/O thread 0 state: native aio handle (insert buffer thread)
+I/O thread 1 state: native aio handle (log thread)
+I/O thread 2 state: native aio handle (read thread)
+I/O thread 3 state: native aio handle (read thread)
+I/O thread 4 state: native aio handle (read thread)
+I/O thread 5 state: native aio handle (read thread)
+I/O thread 6 state: native aio handle (write thread)
+I/O thread 7 state: native aio handle (write thread)
+I/O thread 8 state: native aio handle (write thread)
+I/O thread 9 state: native aio handle (write thread)
+Pending normal aio reads: [0, 0, 0, 0] , aio writes: [0, 0, 0, 0] ,
+ ibuf aio reads:, log i/o's:, sync i/o's:
+Pending flushes (fsync) log: 0; buffer pool: 0
+252 OS file reads, 135 OS file writes, 3 OS fsyncs
+0.00 reads/s, 0 avg bytes/read, 0.00 writes/s, 0.00 fsyncs/s
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+Ibuf: size 1, free list len 0, seg size 2, 0 merges
+merged operations:
+ insert 0, delete mark 0, delete 0
+discarded operations:
+ insert 0, delete mark 0, delete 0
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+Hash table size 4441, node heap has 0 buffer(s)
+0.00 hash searches/s, 0.00 non-hash searches/s
+---
+LOG
+---
+Log sequence number 344162
+Log flushed up to   344162
+Pages flushed up to 344162
+Last checkpoint at  344135
+0 pending log flushes, 1 pending chkp writes
+11 log i/o's done, 0.00 log i/o's/second
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+Total large memory allocated 33554432
+Dictionary memory allocated 32552
+Buffer pool size   1003
+Free buffers       638
+Database pages     365
+Old database pages 0
+Modified db pages  0
+Percent of dirty pages(LRU & free pages): 0.000
+Max dirty pages percent: 75.000
+Pending reads 0
+Pending writes: LRU 0, flush list 0, single page 0
+Pages made young 0, not young 0
+0.00 youngs/s, 0.00 non-youngs/s
+Pages read 234, created 131, written 131
+0.00 reads/s, 0.00 creates/s, 0.00 writes/s
+No buffer pool page gets since the last printout
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+LRU len: 365, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=22044, Main thread ID=14236, state: making checkpoint
+Number of rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+Number of system rows inserted 0, updated 0, deleted 0, read 0
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================

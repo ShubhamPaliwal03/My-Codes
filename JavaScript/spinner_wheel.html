@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner Wheel</title>
+    <style>
+        #wheel
+        {
+            height: 300px;
+            width: 300px;
+            border: 3px solid black;
+            border-radius: 100%;
+            margin: auto;
+        }
+        #wheel .line
+        {
+            height: inherit;
+            width: 3px;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            background-color: black;
+        }
+        .line:nth-child(1)
+        {
+            transform: rotate(0deg);
+        }
+        .line:nth-child(2)
+        {
+            transform: rotate(60deg)
+        }
+        .line:nth-child(3)
+        {
+            transform: rotate(120deg);
+        }
+        .line:nth-child(4)
+        {
+            transform: rotate(180deg);
+        }
+        .line:nth-child(5)
+        {
+            transform: rotate(240deg);
+        }
+        .line:nth-child(6)
+        {
+            transform: rotate(300deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="wheel">
+            <span class="line">1</span>
+            <span class="line">2</span>
+            <span class="line">3</span>
+            <span class="line">4</span>
+            <span class="line">5</span>
+            <span class="line">6</span>
+        </div>
+    </div>
+</body>
+</html>

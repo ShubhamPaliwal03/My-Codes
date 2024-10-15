@@ -1,0 +1,21 @@
+.userCard
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid 15px black;
+    width: 50%;
+    margin-bottom: 5rem;
+    background-color: seashell;
+    padding: 2rem;
+}
+
+.userImage
+{
+    height: 5rem;
+    width: 5rem;
+    clip-path: circle();
+    object-fit: contain;
+    margin-top: 0.5rem;
+}

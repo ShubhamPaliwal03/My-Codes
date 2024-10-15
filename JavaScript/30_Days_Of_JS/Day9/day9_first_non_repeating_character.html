@@ -1,0 +1,51 @@
+<!-- Challenge 9
+Write a JavaScript function to find the first not repeated character.
+Sample arguments : 'abacddbec'
+Expected output : 'e' -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Non-Repeating Character</title>
+</head>
+<body>
+    <script>
+
+        // declaring a new hashmap using the Map() constructor.
+
+        function findFirstNonRepeatingChar(str)
+        {
+            let fMap = new Map()
+
+            for(let char of str)
+            {
+                if(!fMap.has(char))
+                {
+                    fMap.set(char, 1)
+                }
+                else
+                {
+                    fMap.set(char, fMap.get(char)+1)
+                }
+            }
+
+            for(let [key, value] of fMap)
+            {
+                if(value == 1)
+                {
+                    return key
+                }
+            }
+        }
+
+        // test cases
+
+        console.log(findFirstNonRepeatingChar('abacddbec'))
+
+        console.log(findFirstNonRepeatingChar('abcdabce'))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- Challenge 14
+
+Write a JavaScript function to concatenate a given string n times (default is 1). Go to the editor
+Test Data :
+console.log(repeat('Ha!'));
+console.log(repeat('Ha!',2));
+console.log(repeat('Ha!',3));
+
+Outputs
+"Ha!"
+"Ha!Ha!"
+"Ha!Ha!Ha!" -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a function that repeates a string n times (in-place)</title>
+</head>
+<body>
+    <script>
+
+        function repeat(s, n = 1) // passing default parameter for n as 1 because n is undefined when no second parameter is sent for it
+        {
+            repeated = ""
+
+            while(n > 0)
+            {
+                repeated += s
+
+                n--
+            }
+
+            return repeated
+        }
+
+        console.log(repeat('Ha!'))
+        console.log(repeat('Ha!',2))
+        console.log(repeat('Ha!',3))
+
+    </script>
+</body>
+</html>

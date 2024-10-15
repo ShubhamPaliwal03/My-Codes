@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+body
+{
+	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#app-container
+{
+	position: relative;
+	top: 20vh;
+}
+
+#input-container
+{
+	width: 17%;
+	margin: 0px auto;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+table
+{
+	width: 35%;
+	/*margin: 0px auto;*/
+}
+
+table, th, td
+{
+	border: solid 1px black;
+	border-collapse: collapse;
+}
+td, th
+{
+	padding: 0.5em;
+	text-align: center;
+}
+caption
+{
+	font-size: 1.2em;
+	font-weight: 900;
+}

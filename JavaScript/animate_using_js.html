@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate Using JavaScript</title>
+    <style>
+        #container
+        {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: yellow;
+        }
+        #animate
+        {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <p><button onclick="moveDownDiagonally()">Move Down Diagonally</button></p>
+    <p><button onclick="moveUpDiagonally()">Move Up Diagonally</button></p>
+
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+
+    <script>
+
+        let id = null
+
+        let pos = 0
+        
+        let deg = 0
+
+        function moveDownDiagonally()
+        {
+            const element = document.getElementById('animate')
+
+            clearInterval(id)
+
+            id = setInterval(frame, 5)
+
+            function frame()
+            {
+                if(pos == 350)
+                {
+                    element.style.transform = "rotate(90deg)"
+
+                    clearInterval(id)
+                }
+                else
+                {
+                    pos++
+
+                    element.style.top = pos + "px"
+
+                    element.style.left = pos + "px"
+
+                    deg += 4
+
+                    element.style.transform = "rotate("+deg+"deg)"
+                }
+            }
+        }
+
+        function moveUpDiagonally()
+        {
+            let element = document.getElementById('animate')
+
+            clearInterval(id)
+
+            id = setInterval(frame, 5)
+
+            function frame()
+            {
+                if(pos == 0)
+                {
+                    element.style.transform = "rotate(90deg)"
+
+                    clearInterval(id)
+                }
+                else
+                {
+                    pos--
+
+                    element.style.top = pos + "px"
+
+                    element.style.left = pos + "px"
+
+                    deg -= 4
+
+                    element.style.transform = "rotate("+deg+"deg)"
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>

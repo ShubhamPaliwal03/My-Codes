@@ -1,0 +1,53 @@
+<!-- Challenge 11
+Write a JavaScript program to list the properties of a JavaScript object.
+Sample object:
+var student = {
+name : "David Rayy",
+sclass : "VI",
+rollno : 12 };
+Sample Output: name,sclass,rollno -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List the properties of a JavaScript object</title>
+</head>
+<body>
+    <script>
+
+        var student = {
+            name : "David Rayy",
+            sclass : "VI",
+            rollno : "12"
+        };
+
+        function getPropertyList(obj)
+        {
+            propertyList = "" // initialize an empty String
+
+            for(let key in obj)
+            {
+                // we can also write this as :- if(!propertyList), the sole purpose is to check whether the string is empty and we are on the 1st iteration (accessing the first property or key of the object)
+                
+                if(propertyList == "")
+                {   
+                    propertyList += key
+
+                    // we can also use continue statement here instead of else statement after if statement and keep the current statement in the else statement outside the if statement
+                }
+                else
+                {
+                    propertyList += ","+key // we can also write this as :- propertyList += `,${key}`
+                }
+            }
+
+            return propertyList
+        }
+
+        console.log(getPropertyList(student))
+
+    </script>
+</body>
+</html>

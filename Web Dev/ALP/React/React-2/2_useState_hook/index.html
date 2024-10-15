@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Counter using useState() hook in React</title>
+
+    <!-- React algorithm -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    
+    <!-- React DOM algorithm -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- babel (a transpiler (react term) or simply a translator) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>    
+<body>
+
+    <h1>Counter using React useState() hook</h1>
+
+    <!-- div representing the root node of the react dom -->
+    <div id="root"></div>
+
+    <!-- logic for counter -->
+    <script type="text/babel">
+
+        // Counter component (represented as a function)
+
+        function Counter() {
+
+            // set the initial state of the count state variable as 0, 
+            // and store the value and the setValue, as two variables 
+            // (using array destructuring, as useState() returns an array consisting of the current value, and a method to set the particular value)
+
+            const [value, setValue] = React.useState(0);
+
+            // function to handle increment
+
+            function handleIncrement() {
+
+                // don't increment the value above 10 (any desired / custom rule)
+
+                if (value == 10) return;
+
+                // if the value is below 10, set the incremented value
+
+                setValue(value + 1);
+            }
+
+            // function to handle decrement
+
+            function handleDecrement() {
+
+                // don't decrement the value below 0
+
+                if (value == 0) return;
+
+                // if the value is greater than 0, set the decremented value
+
+                setValue(value - 1);
+            }
+
+            // return the counter component (defining it on the go)
+            // it will contain a display area (pass the value i),
+            // and two buttons (pass the resp. function as prop to the child)
+
+            return (
+
+                <div>
+                    <div>Count is {value}</div>
+                    <button onClick={handleIncrement}>+</button>
+                    <button onClick={handleDecrement}>-</button>
+                </div>
+            );
+        }
+
+        // get the reference of the root element (node) of the dom (div with id = root)
+
+        const rootElement = document.getElementById('root');
+
+        // render the Counter component on the root element of the dom (page)
+        // React components can be rendered on the page using ReactDOM.render() method
+
+        ReactDOM.render(<Counter></Counter>, rootElement);
+        
+    </script>
+
+</body>
+</html>

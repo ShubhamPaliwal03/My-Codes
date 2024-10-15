@@ -1,0 +1,22 @@
+class Main
+{
+	public static void main(String []args)
+	{
+		try
+		{	int arr[]=new int[6];
+			arr[5]=10/0;
+			System.out.println(arr[5]);
+		}
+		catch(ArrayIndexOutOfBoundsException aioobe)
+		{
+			System.out.println("Array index out of range");
+		}
+		catch(ArithmeticException e)
+		{	System.out.println("Division by zero");
+		}
+		finally
+		{	System.out.println("This is finally block");
+		}
+		System.out.println("Outside the try catch");
+	}
+}

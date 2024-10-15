@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Atmosight</title>
+</head>
+<body>
+    <div class="weather-card column-flex-container">
+        <div class="searchbar-container row-flex-container">
+            <input class="searchbar" type="search" placeholder="Enter a location">
+            <div class="search-btn row-flex-container" title="Search">
+                <img class="search-icon" src="./images/search.png" alt="">
+            </div>
+            <div class="locate-btn row-flex-container" title="Use Current Location">
+                <!-- <i class="fa-solid fa-location-crosshairs location-icon"></i> -->
+                <i class="fa-solid fa-location-dot location-icon"></i>
+            </div>
+        </div>
+        <div class="info-container-1 column-flex-container">
+            <img class="weather-condition-icon" src="" alt="">
+            <h1>
+                <span class="temperature-value"></span>&deg;C
+            </h1>
+            <br>
+            <span>Feels like <span class="feels-like-temperature-value"></span>&deg;C</span>
+            <h2 class="weather-description"></h2>
+            <h3 class="location"></h3>
+            <small>Last Updated <span class="last-updated-info"></span></small>
+        </div>
+        <div class="info-container-2 row-flex-container">
+            <div class="humidity-info row-flex-container">
+                <img class="humidity-icon" src="./images/humidity.png" alt="humidity-icon">
+                <div class="prop-value-container column-flex-container">
+                    <div><span class="humidity-value"></span>%</div>
+                    <div>Humidity</div>
+                </div>
+            </div>
+            <div class="wind-info row-flex-container">
+                <!-- <img class="wind-icon" src="./images/wind.png" alt="wind-icon"> -->
+                <div id="wind-dir-compass">
+                    <img id="wind-dir-compass-outer" src="./images/compass-icon-outer.png" alt="">
+                    <img id="wind-dir-compass-arrow" src="./images/compass-icon-arrow.png" alt="">
+                </div>
+                <div class="prop-value-container column-flex-container">
+                    <div>
+                        <span class="wind-speed-value"></span> kph
+                    </div>
+                    <div>Wind</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/4ca0345904.js" crossorigin="anonymous"></script>
+</body>
+</html>

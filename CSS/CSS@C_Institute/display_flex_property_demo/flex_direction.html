@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Direction - Demo</title>
+    <style type="text/css">
+        .flex-container
+        {
+            display: flex;
+            flex-direction: column; /* by default, it is set to row */
+            /* flex-direction: row; */
+            /* flex-direction: column-reverse; it does not make changes in the dom */
+            /* flex-direction: row-reverse; */
+            background-color: darkgray;
+        }
+        .flex-container > div
+        {
+            background-color: orange;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flex Direction Property</h1>
+    <div class="flex-container">
+        <div>Apple</div>
+        <div>Boy</div>
+        <div>Cat</div>
+        <div>Dog</div>
+</body>
+</html>

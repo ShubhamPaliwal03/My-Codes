@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandatory Fields</title>
+    <style>
+        #input
+        {
+            height: 50px;
+            width: 400px;
+            font-size: 30px;
+        }
+        #msg
+        {
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input">
+
+    <span id="msg"></span>
+
+    <script>
+
+        const input = document.getElementById("input")
+
+        const msg = document.getElementById("msg")
+
+        input.addEventListener("focus",check)
+        
+        input.addEventListener("blur",check)
+
+        function check()
+        {
+            if(input.value == "") // because when the textfield is empty, it contains an empty string "" or ''
+            {
+                msg.innerHTML = "&nbsp;* this is a mandatory field"
+                input.style.border = "solid 5px red"
+            }
+            else
+            {
+                msg.innerHTML = ""
+                input.style.border = "solid 5px green"
+            }
+        }
+        
+    </script>
+</body>
+</html>

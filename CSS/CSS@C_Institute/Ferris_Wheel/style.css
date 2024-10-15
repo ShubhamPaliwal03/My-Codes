@@ -1,0 +1,215 @@
+body
+{
+    background: url('carnival-theme-background.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#app-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#outer-wheel
+{
+    border: solid 2px black;
+    border-radius: 100%;
+    position: relative;
+    top: 25vh;
+    margin: 0px auto;
+    height: 25em;
+    width: 25em;
+    border: solid 2px black;
+    border-radius: 100%;
+    animation: rotateOuterWheel linear 10s infinite;
+    z-index: 999;
+}
+.inner-wheel
+{
+    background-color: black;
+    border: solid 2px black;
+    border-radius: 100%;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    animation: rotateInnerWheel linear 10s infinite;
+}
+@keyframes rotateOuterWheel
+{
+    from{transform: rotate(0deg)};
+    to{transform: rotate(360deg)};
+}
+@keyframes rotateInnerWheel
+{
+    from{transform: rotate(0deg)};
+    to{transform: rotate(-360deg)};
+
+}
+.inner-wheel:nth-child(1)
+{
+    top: -11px;
+    left: 191px;
+}
+.inner-wheel:nth-child(2)
+{
+    top: 191px;
+    left: -10px;
+}
+.inner-wheel:nth-child(3)
+{
+    top: 191px;
+    left: 391px;
+}
+.inner-wheel:nth-child(4) 
+{
+    top: 48px;
+    left: 332px;
+}
+.inner-wheel:nth-child(5) 
+{
+    top: 391.5px;
+    left: 191px;
+}
+.inner-wheel:nth-child(6) 
+{
+    top: 332px;
+    left: 332px;
+}
+.inner-wheel:nth-child(7)
+{
+    top: 49px;
+    left: 50px;
+}
+.inner-wheel:nth-child(8)
+{
+    top: 331px;
+    left: 49px;
+}
+.line
+{
+    background-color: black;
+    height: 30px;
+    width: 2px;
+}
+.cabin
+{
+    border-radius: 15px;
+    border: solid 2px black;
+    height: 2.5em;
+    width: 3em;
+    z-index: 999;
+}
+.inner-wheel > div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inner-wheel:nth-of-type(1) .cabin
+{
+    background-color: red;
+}
+.inner-wheel:nth-of-type(2) .cabin
+{
+    background-color: yellow;
+}
+.inner-wheel:nth-of-type(3) .cabin
+{
+    background-color: violet;
+}
+.inner-wheel:nth-of-type(4) .cabin
+{
+    background-color: deepskyblue;
+}
+.inner-wheel:nth-of-type(5) .cabin
+{
+    background-color: blue;
+}
+.inner-wheel:nth-of-type(6) .cabin
+{
+    background-color: deeppink;
+}
+.inner-wheel:nth-of-type(7) .cabin
+{
+    background-color: orange;
+}
+.inner-wheel:nth-of-type(8) .cabin
+{
+    background-color: greenyellow;
+}
+.spoke
+{
+    height: 100%;
+    width: 1px;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    background-color: black;
+}
+.spoke:nth-child(1) 
+{
+    transform: rotate(0deg);
+}
+.spoke:nth-child(2) 
+{
+    transform: rotate(45deg);
+} 
+.spoke:nth-child(3)
+{
+    transform: rotate(90deg);
+}
+.spoke:nth-child(4)
+{
+    transform: rotate(135deg);
+}
+#middle-circle 
+{
+    position: absolute;
+    top: 159px;
+    left: 159px;
+    border-radius: 100%;
+    height: 5em;
+    width: 5em;
+    border: solid 2px black;
+    background-color: black;
+}
+.pole
+{
+    position: absolute;
+    top: 388.6px;
+    height: 400px;
+    background-color: black;
+    width: 2px;
+}
+#pole-1
+{
+    transform: rotate(35deg);
+    left: 651px;
+    top: 354px;
+}
+#pole-2
+{
+    height: 330px;
+}
+#pole-3
+{
+    transform: rotate(-35deg);
+    top: 353.5px;
+    left: 882.5px;
+}
+#base-pole
+{
+    transform: rotate(90deg);
+    top: 486.4px;
+    height: 29em;
+}
+@media(max-width: 600px)
+{
+    #app-container
+    {
+        scale: 0.7;
+    }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using JQuery</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        // a function to execute after the DOM is ready.
+        $(document).ready(
+            function()
+            {
+                $("#p1").click(
+                    function()
+                    {
+                        alert("hello world")
+                    }
+                );
+            }
+        );
+    </script>
+</head>
+<body>
+    <p id="p1">
+        Click Me
+    </p>
+</body>
+</html>

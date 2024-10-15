@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ferris Wheel</title>
+</head>
+<body>
+    <div id="app-container">
+        <div id="outer-wheel">
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div class="inner-wheel">
+                <div>
+                    <div class="line"></div>
+                    <div class="cabin"></div>
+                </div>
+            </div>
+            <div id="spokes">
+                <span class="spoke"></span>
+                <span class="spoke"></span>
+                <span class="spoke"></span>
+                <span class="spoke"></span>
+            </div>
+            <div id="middle-circle"></div>
+        </div>
+        <div class="poles">
+            <div id="pole-1" class="pole"></div>
+            <div id="pole-2" class="pole"></div>
+            <div id="pole-3" class="pole"></div>
+            <div id="base-pole" class="pole"></div>
+        </div>
+    </div>
+    <!-- <script>
+        const outer_wheel = document.getElementById('outer-wheel');
+        const inner_wheels = document.querySelectorAll('.inner-wheel');
+
+        let o_deg = 0;
+        let i_deg = 0;
+        let running = false;
+        let interval_id1;
+        let interval_id2;
+
+        outer_wheel.addEventListener('click', () => {
+
+            if(!running)
+            {
+                interval_id1 = setInterval(() => {
+                    outer_wheel.style.transform = "rotate("+o_deg+"deg)";
+                    o_deg += 1;
+                }, 10);
+    
+                interval_id2 = setInterval(() => {
+                    inner_wheels.forEach((w) => {
+                        w.style.transform = "rotate("+i_deg+"deg)";
+                        i_deg -= 1;
+                    });
+                }, 111);
+    
+                running = true;
+            }
+            else{
+                
+                clearInterval(interval_id1);
+                clearInterval(interval_id2);
+
+                running = false;
+            }
+        })
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Set Q2</title>
+    <!-- This is external css -->
+    <link rel="stylesheet" href="style_ps_2.css">
+
+    <!-- This also verifies that Inline CSS has the highest priority, then comes Internal/Embedded followed by External CSS which has the least priority -->
+
+    <!-- This is internal css -->
+    <style>
+        #head
+        {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- This is inline css -->
+    <div id="head" style="color:orange;">
+        <div id="head">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos necessitatibus soluta, repellat praesentium, debitis beatae impedit quibusdam delectus, eveniet itaque rerum! Perspiciatis odio, blanditiis harum suscipit dolor voluptatibus facilis nemo?
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number is Even or Odd</title>
+    <style type="text/css">
+
+        body
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+        p
+        {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            margin: 0px;
+            padding-top: 300px;
+            padding-left: 20px;
+            text-align: center;
+            font-size: 100px;
+        }
+        #even
+        {
+            background-color: lightgreen;
+            color: green;
+        }
+
+        #odd
+        {
+            background-color: lightsalmon;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var num = 31;
+
+        if(num % 2 == 0)
+        {
+            document.write("<p id=even>"+num+" is an Even Number</p>");
+        }
+        else
+        {
+            document.write("<p id=odd>"+ num +" is an Odd Number</p>");
+        }
+
+    </script>
+</body>
+</html>

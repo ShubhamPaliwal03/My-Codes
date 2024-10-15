@@ -1,0 +1,24 @@
+body
+{
+    height: 100vh;
+}
+
+#form-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border: solid 1px black;
+}
+
+table
+{
+    border-spacing: 1rem;
+}
+
+label
+{
+    font-size: 1.2rem;
+}

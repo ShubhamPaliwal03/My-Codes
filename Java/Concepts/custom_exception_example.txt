@@ -1,0 +1,31 @@
+// To create a custom exception we have to create a new class which extends the 
+// exception class.
+import java.util.Scanner;
+class NegativeSalaryException extends Exception
+{
+	public NegativeSalaryException(String msg)
+	{
+		super(msg);
+	}	
+}
+class Main
+{
+	public static void main(String []args)
+	{	Scanner kb=new Scanner(System.in);
+		try
+		{
+			System.out.println("Enter salary : ");
+			int salary=kb.nextInt();	
+			if(salary<0)
+			{	throw new NegativeSalaryException("O bhai, salary kaise - me di tune");
+			}
+			else
+			{	System.out.println("I got "+salary+" rs ");
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}

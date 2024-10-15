@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Property</title>
+    <style>
+        p
+        {
+            position: relative;
+            bottom: 10px;
+        }
+        body
+        {
+            background-color: black;
+            color: white;
+            font-size: 1em;
+            font-family: monospace;
+        }
+        #d1
+        {
+            height: 150px;
+            width: 150px;
+            background-color: yellow;
+            transition: height 2s, width 3s; /*transition: property duration*/
+            color: black;
+            text-align: center;
+            padding-top: 100px;
+        }
+        #d1:hover
+        {
+            height: 200px;
+            width: 300px;
+        }
+        #d2
+        {
+            position: relative;
+            top: 50px;
+            height: 50px;
+            width: 300px;
+            padding-top: 30px;
+            background-color: #e4f0f5;
+            color: black;
+            border-radius: 10px;
+            text-align: center;
+            transition: width 2s;
+        }
+        #d2:hover
+        {
+            color: white;
+            width: 600px;
+            background-color: #909;
+        }
+        #d3
+        {
+            position: relative;
+            top: 100px;
+            left: 20px;
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            background-color: orange;
+            transition: height 2s, width 2s;
+            text-align: center;
+            padding: 30px;
+            color: black;
+        }
+        #d3:hover
+        {
+            height: 150px;
+            width: 150px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Transition Property is used to apply the changes on the element in a given time.
+        For example, the below div d1 increases the height and the width from 150px to 200px, 300px respectively in 2 seconds when we hover on it.
+    </p>
+    <p>
+        Here are a few examples of transition property :-
+    </p>
+    <div id="d1">Hover To See The Transition.</div>
+    <div id="d2">Hover To See The Transition.</div>
+    <div id="d3">Hover Here.</div>
+</body>
+</html>

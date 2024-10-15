@@ -1,0 +1,119 @@
+#cart-empty-image
+{
+    height: 20em;
+    width: 25em;
+}
+body
+{
+    font-family: sans-serif; 
+    margin: 0px;
+    padding: 0px;
+    background-color: #e3e6e6;
+}
+#add_to_cart_btn
+{
+    width: 8em;
+    height: 3em;
+    font-size: 0.9em;
+    background-color: #ffd814;
+    border: none;
+    border-radius: 0.5em;
+    transition: scale 0.2s;
+}
+#add_to_cart_btn:hover
+{
+    scale: 1.1;
+}
+#cart_img
+{
+    height: 2.5em;
+    width: 2.5em;
+    filter: invert(100%);
+}
+#cart-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#cart-container:hover
+{
+    cursor: pointer;
+}
+#navbar
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #131921;
+    padding: 0.5em 0em;
+    position: fixed;
+    z-index: 1000;
+    /* This (below) is done to give our flex-box room to breathe and do it's flex-box thing 
+    If the flex-direction is column, we could use top, left, bottom instead.
+    This works because when we give an element a fixed position and a left and right of 0 or a top and bottom of 0,
+    the element is stretched to fill the space from left to right, or top to bottom.
+    That in turn allows a flex-box to use the amount of space we would expect without position fixed. */
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+.nav-inner:hover
+{
+    border: solid 1px white;
+}
+#cart-item-count
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* position: absolute;
+    z-index: 1000; */
+    font-size: 0.9em;
+    font-weight: 700;
+    background-color: #f89c35;
+    color: #131921;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 1.4em;
+}
+#clear-cart-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#logo
+{
+    height: 2.5em;
+    width: 8em;
+}
+#deliver-to-user, #deliver-to-location
+{
+    margin: 0px;
+    color: white;
+    font-size: 0.9em;
+}
+#deliver-to-location
+{
+    font-weight: 700;
+}
+#location_icon
+{
+    filter: invert(100%);
+    margin-right: 0.5em;
+}
+#deliver-to
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#search_bar
+{
+    height: 2.7em;
+    width: 40vw;
+    font-size: 0.9em;
+    padding-left: 1em;
+}

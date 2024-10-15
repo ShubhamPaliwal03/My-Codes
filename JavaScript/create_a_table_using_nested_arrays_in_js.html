@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Create a table using data from nested arrays in JS</title>
+	<style type="text/css">
+
+        body
+        {
+            background-color: black;
+            color: white;
+        }
+        
+        table
+        {
+            font-size: large;
+            position: relative;
+            top: 150px;
+            left: 350px;
+            text-align: center;
+            height: 400px;
+            width: 800px;
+            border: solid 20px;
+            border-image: linear-gradient(#f6b73c,#4d9f0c) 30;
+        }
+        
+        th,td
+        {
+            outline: solid 2px gold;
+        }
+
+	</style>
+
+</head>
+<body>
+<script type="text/javascript">
+		
+	let columnname = ['Student Name', 'Age', 'Roll Number', 'Mobile']
+
+	let student1 = ['Shubham Paliwal', 20, 1001, 7128423785]
+	let student2 = ['Ujjwal Kunwar', 20, 1002, 8745398745]
+	let student3 = ['Rajat Sharma', 19, 1004, 9632147896]
+	let student4 = ['Vishwajeet Singh', 30, 1005, 8965748512]
+	let student5 = ['Piyush Sharma', 25, 1006, 7451256934]
+
+	let data = [columnname, student1, student2, student3, student4, student5]
+
+	// use nested for of loop, to print the above data in a table form
+
+	document.write("<table>")
+
+	for(let dt of data)
+	{
+		document.write("<tr>")
+
+		if(dt == columnname)
+		{
+			for(let col of columnname)
+			{
+				document.write("<th>"+col+"</th>")
+			}
+		}
+		else
+		{
+			for(let detail of dt)
+			{
+				document.write("<td>"+detail+"</td>")
+			}
+		}
+
+		document.write("</tr>")
+	}
+
+	document.write("</table>")
+
+</script>
+</body>
+</html>

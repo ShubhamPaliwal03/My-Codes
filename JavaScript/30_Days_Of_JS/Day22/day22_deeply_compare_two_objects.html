@@ -1,0 +1,86 @@
+<!-- Challenge 22
+Problem Statement: Write a function to deeply compare two objects for equality.
+Description: Given two objects, the function should return true if they are deeply equal and false otherwise.
+Solution Approach: Recursively compare properties of both objects. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeply Compare Two Objects</title>
+</head>
+<body>
+    <script>
+
+        // function areDeepEqual(obj1, obj2)
+        // {
+        //     if(typeof obj1 !== 'object' || typeof obj2 !== 'object')
+        //     {
+        //         return obj1 === obj2
+        //     }
+
+        //     if(obj1 === null && obj2 === null)
+        //     {
+        //         return true
+        //     }
+
+        //     const keys1 = Object.keys(obj1)
+
+        //     const keys2 = Object.keys(obj2)
+
+        //     if(keys1.length !== keys2.length)
+        //     {
+        //         return false
+        //     }
+
+        //     for(const key of keys1)
+        //     {
+        //         if(!keys2.includes(key) || !areDeepEqual(obj1[key], obj2[key]))
+        //         {
+        //             return false
+        //         }
+        //     }
+
+        //     return true
+        // }
+
+        function areDeepEqual(obj1, obj2)
+        {
+            let keys1 = Object.keys(obj1)
+            
+            let keys2 = Object.keys(obj2)
+            
+            if(keys1.length !== keys2.length)
+            {
+                return false;
+            }
+
+            for(let i = 0; i < keys1.length; i++)
+            {
+                if(Object.keys(keys1[i]).length == 1)
+                {
+                    if(obj1[keys1[i]] !== obj2[keys2[i]])
+                    {
+                        return false
+                    }
+                }
+                else
+                {
+                    areDeepEqual(obj1[keys1[i]], obj2[keys2[i]])
+                }
+            }
+
+            return true
+        }
+
+        // test cases
+
+        console.log(areDeepEqual({ a: 1, b: { c: 2, d: 7 } }, { a: 1, b: { c: 2, d: 3 } }))
+        console.log(areDeepEqual({ a: 1, b: { c: 2, d: 7 } }, { a: 1, b: { c: 2, d: 7 } }))
+        console.log(areDeepEqual({}, {}))
+        console.log(areDeepEqual({ x: 10, y: { z: 20 } }, { x: 10 , y: 20 }))
+
+    </script>
+</body>
+</html>

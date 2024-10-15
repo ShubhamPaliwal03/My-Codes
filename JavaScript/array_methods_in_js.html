@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common array methods in js</title>
+</head>
+<body>
+    <script>
+
+        // declaring an array
+
+        let fruits = ["apple", "banana"]
+
+        console.log(fruits)
+
+        // push()
+
+        console.log("push() :")
+
+        fruits.push("orange")
+
+        console.log(fruits)
+
+        fruits.push("litchi", "grapes")
+
+        console.log(fruits)
+
+        // pop()
+
+        console.log("pop() : ")
+
+        fruits = ["apple", "banana", "orange"]
+
+        console.log(fruits)
+
+        let last_fruit = fruits.pop()
+
+        console.log(fruits)
+
+        console.log(last_fruit)
+
+        // unshift (opposite of push)
+
+        console.log("unshift() :")
+
+        fruits = ["banana", "apple"]
+
+        console.log(fruits)
+
+        fruits.unshift("pomegranate")
+
+        console.log(fruits)
+
+        fruits.unshift("guava","jojoba");
+
+        console.log(fruits)
+
+        console.log("shift() :")
+
+        fruits = ["apple","banana","orange"]
+
+        console.log(fruits)
+
+        let first_fruit = fruits.shift()
+
+        console.log(fruits)
+
+        console.log(first_fruit)
+
+        // concat()
+
+        console.log(fruits)
+
+        let fruits1 = ["orange","litchi"]
+
+        console.log("fruits1 : "+fruits1)
+
+        let fruits2 = ["grape","guava"]
+
+        console.log("fruits2 : "+fruits2)
+
+        let combinedfruits = fruits1.concat(fruits2)
+        
+        console.log(combinedfruits)
+
+        // join()
+
+        fruits = ["orange","litchi"]
+
+        console.log("join() :")
+
+        let fruits_string = fruits.join(", ") // joins with a comma and space
+
+        console.log(fruits_string)
+
+        fruits_string = fruits.join() // by default, the seperated is a ','
+
+        console.log(fruits_string)
+
+    </script>
+</body>
+</html>

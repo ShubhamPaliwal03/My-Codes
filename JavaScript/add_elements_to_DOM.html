@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add elements to DOM</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+    </div>
+    <button onclick="addPara()">Add Paragraph</button>
+    <script type="text/javascript">
+        function addPara()
+        {
+            const para = document.createElement("p")
+
+            const node = document.createTextNode("This is a new p tag.")
+
+            para.appendChild(node)
+
+            const element = document.getElementById("div1")
+
+            element.appendChild(para)
+        }
+    </script>
+</body>
+</html>

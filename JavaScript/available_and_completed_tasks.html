@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        div
+        {
+            height: 100vh;
+            width: 50%;
+            margin: 0px;
+            box-sizing: border-box;
+            /* The specified width and height (and respective min/max properties) on this element determine the border box of the element. */
+        }
+        #available_tasks
+        {
+            float: left;
+            border-right: solid 3px black;
+            background-color: lightcoral;
+        }
+        #completed_tasks
+        {
+            float: left;
+            background-color: greenyellow;
+        }
+        .tInner
+        {
+            margin-left: 10px;
+        }
+        #resultList
+        {
+            list-style-type: none;
+        }
+        #resultList li
+        {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="available_tasks">
+        <div class="tInner">
+            <u><h2>Available Tasks</h2></u>
+            <select id="dropdown">
+                <option value="Solve a DSA Question">Solve a DSA Question</option>
+                <option value="Study Java">Study Java</option>
+                <option value="Study DSA">Study DSA</option>
+                <option value="Study Web Developement">Study Web Developement</option>
+                <option value="Solve a Web Developement Task">Solve a Web Developement Task</option>
+                <option value="Study CS Core Subjects">Study CS Core Subjects</option>
+                <option value="Study CSE Syllabus Subjects">Study CSE Syllabus Subjects</option>
+            </select>
+            <button onclick="addItemToList()">Add To List</button>
+        </div>
+    </div>
+    <div id="completed_tasks">
+        <div class="tInner">
+            <u><h2>Completed Tasks</h2></u>
+            <ul id="resultList"></ul>
+        </div>
+    </div>
+    <script>
+        function addItemToList()
+        {
+            // get the object of select tag which holds the available options
+
+            var dropdown = document.getElementById('dropdown')
+            
+            // get the selected item from the dropdown
+
+            var selectedItem = dropdown.options[dropdown.selectedIndex]
+
+            // get the empty unordered list
+
+            var resultList = document.getElementById('resultList')
+
+            // create a new list item and append it to the unordered list
+
+            var listItem = document.createElement('li')
+
+            // assign the selectedItem into the listItem
+
+            listItem.textContent = selectedItem.text
+
+            // add the listItem into the list
+
+            resultList.appendChild(listItem)
+
+            // now we will also have to remove this item from the list
+
+            dropdown.removeChild(selectedItem)
+        }
+    </script>
+</body>
+</html>

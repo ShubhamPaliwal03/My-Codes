@@ -1,0 +1,35 @@
+-- Selecting the existing records
+
+-- We select data using the 'select' command.
+-- * means select all columns.
+
+select * from student;
+
+-- We can also select specific columns by providing the column name after the 'select' keyword.
+
+select name, roll from student;
+
+-- We can also select the data using the 'where', the 'where' is followed by a condition, the 'where' comes after the table name.
+
+select * from student where age>18;
+
+select * from student where roll > 1003 and roll < 1010;
+
+select * from student where roll < 1005 or roll > 1010;
+
+-- Is a wild card, used in string comparison using like. % means any number of characters.
+
+-- To select names starting with 'a'
+select * from student where name like 'a%';
+
+-- To select names ending with 'a'
+select * from student where name like '%a';
+
+-- To select names having 't'
+select * from student where name like '%t%';
+
+-- To select names having at least one character before 't' and ending with 't'
+select * from student where name like '_%t'; 
+
+-- To select names having exactly 15 characters
+select * from student where name like '_______________';

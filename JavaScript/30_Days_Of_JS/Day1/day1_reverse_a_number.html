@@ -1,0 +1,44 @@
+<!-- Challenge 1:
+Write a JavaScript function that reverses a number.
+Sample Data and output:
+Example: 
+x = 32243;
+Expected Output: 34223 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse a number</title>
+</head>
+<body>
+    <script>
+
+        function reverseNumber(num)
+        {
+            let reverse = 0
+
+            while(num > 0)
+            {
+                let digit = num % 10
+
+                reverse = reverse * 10 + digit
+
+                num = Math.floor(num / 10) 
+                
+                // we use Math.floor() to perform integer division, otherwise float division will be performed
+            }
+
+            return reverse
+        }
+
+        let x = 32243
+
+        let rev = reverseNumber(x)
+
+        console.log(rev)
+
+    </script>
+</body>
+</html>

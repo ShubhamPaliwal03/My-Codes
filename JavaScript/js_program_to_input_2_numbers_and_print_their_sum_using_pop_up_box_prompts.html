@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Two Numbers</title>
+</head>
+<body>
+    <script>
+        let choice = confirm("Click OK to Start...")
+
+        if(choice)
+        {            
+            let num1 = prompt("Enter first number : ")
+
+            let num2 = prompt("Enter second number : ")
+            
+            if(num1 && num2)
+            {
+                let x = Number(num1)
+
+                let y = Number(num2)
+                
+                let sum = x + y
+                
+                alert(`Sum of ${x} and ${y} is : ${sum}`)
+            }
+            else
+            {
+                alert("You did not enter any value!")
+            }
+        }
+
+    </script>
+</body>
+</html>

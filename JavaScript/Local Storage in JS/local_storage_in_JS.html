@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage in JS</title>
+</head>
+<body>
+
+    <div id="demo"></div>
+
+    <script>
+
+        value = localStorage.getItem('name')
+
+        if(!value)
+        {
+            document.getElementById('demo').innerHTML = "Value Not Found In Local Storage"
+        }
+        else
+        {
+            document.getElementById('demo').innerHTML = "Value From Local Storage : "+value+"<br><br>Currently, there are "+localStorage.length+" values in the local storage"+"<br><br>Key on index 0 is : "+localStorage.key(0)
+        }
+        
+    </script>
+
+</body>
+</html>

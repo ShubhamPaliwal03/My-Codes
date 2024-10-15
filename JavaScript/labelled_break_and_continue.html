@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labelled Break And Continue</title>
+</head>
+<body>
+    <script type="text/javascript">
+        
+        document.write("break<br><br>")
+        
+        for(let i=1;i<=5;i++)
+        {
+            for(let j=1;j<=5;j++)
+            {
+                if(i==3)
+                {
+                    break;
+                }
+    
+                document.write(j+"&nbsp;")
+            }
+    
+            document.write("<br>")
+        }
+        
+        document.write("<br>labelled break<br><br>")
+        
+        outerloop:
+        for(let i=1;i<=5;i++)
+        {
+            for(let j=1;j<=5;j++)
+            {
+                if(i==3)
+                {
+                    break outerloop;
+                }
+
+                document.write(j+"&nbsp;")
+            }
+
+            document.write("<br>")
+        }
+
+        document.write("<br>continue<br><br>")
+
+        for(let i=1;i<=5;i++)
+        {
+            for(let j=1;j<=5;j++)
+            {
+                if(i==3)
+                {
+                    continue;
+                }
+
+                document.write(j+"&nbsp;");
+            }
+
+            document.write("<br>");
+        }
+
+        document.write("<br>labelled continue<br><br>")
+
+        outerloop:
+        for(let i=1;i<=5;i++)
+        {
+            for(let j=1;j<=5;j++)
+            {
+                if(i==3)
+                {
+                    continue outerloop;
+                }
+
+                document.write(j+"&nbsp;");
+            }
+
+            document.write("<br>");
+        }
+
+        document.write("<br>labelled continue<br><br>")
+
+        outerloop:
+        for(let i=1;i<=5;i++)
+        {
+            for(let j=1;j<=5;j++)
+            {
+                if(j==3)
+                {
+                    continue outerloop;
+                }
+
+                document.write(j+"&nbsp;");
+            }
+
+            document.write("<br>");
+        }
+
+    </script>
+</body>
+</html>

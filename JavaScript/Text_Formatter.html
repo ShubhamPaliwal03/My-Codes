@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+        body
+        {
+            margin: 50px;
+        }
+
+        #para
+        {
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+
+        .fontFamilies
+        {
+            height: 50px;
+            width: 200px;
+            font-size: 15px;
+        }
+
+        .themes
+        {
+            height: 50px;
+            width: 230px;
+            font-size: 15px;
+        }
+
+        #roboto
+        {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #pm
+        {
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        #satisfy
+        {
+            font-family: 'Satisfy', cursive;
+        }
+
+        #abril
+        {
+            font-family: 'Abril Fatface', serif;
+        }
+
+        .fontStyles
+        {
+            height: 35px;
+            width: 55px;
+        }
+
+        #font_styles
+        {
+            position: relative;
+            left: 230px;
+            bottom: 153px;
+        }
+
+        #bg_modes
+        {
+            position: relative;
+            left: 230px;
+            bottom: 182px;
+        }
+
+        .fontSizeBtns
+        {
+            height: 45px;
+            width: 45px;
+            font-size: 25px;
+        }
+
+        #incr
+        {
+            position: relative;
+            bottom: 496px;
+            left: 415px;
+        }
+
+        #decr
+        {
+            position: relative;
+            bottom: 404px;
+            left: 230px;
+        }
+
+        #font_size_disp
+        {
+            border: solid 1px grey;
+            height: 45px;
+            width: 130px;
+            position: relative;
+            bottom: 450px;
+            left: 279.3px;
+            border-radius: 3px;
+        }
+
+        #fontSizePara
+        {
+            position: absolute;
+            top: -17px;
+            left: 50px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        #text_editor
+        {
+            position: relative;
+            top: 135px;
+            left: 450px;
+        }
+
+        #fontSizeManipulators
+        {
+            position: relative;
+            bottom: 4.5px;
+        }
+
+        #textfield
+        {
+            position: relative;
+            bottom: 250px;
+        }
+
+      </style>
+</head>
+<body id="bdy">
+    <div id="text_editor">
+        <p id="para">My name is Shubham Paliwal</p>
+        <div id="fonts">
+            <button id="roboto" class="fontFamilies" onclick="changeFont('Roboto', 'sans-serif')">Roboto</button>
+            <br><br>
+            <button id="pm" class="fontFamilies" onclick="changeFont('Permanent Marker', 'cursive')">Permanent Marker</button>
+            <br><br>
+            <button id="satisfy" class="fontFamilies" onclick="changeFont('Satisfy', 'cursive')">Satisfy</button>
+            <br><br>
+            <button id="abril" class="fontFamilies" onclick="changeFont('Abril Fatface', 'serif')">Abril Fatface</button>
+        </div>
+        <div id="bg_modes">
+            <button id="light" class="themes" onclick="switchToLightMode()">Light Mode</button>
+            <br><br>
+            <button id="dark" class="themes" onclick="switchToDarkMode()">Dark Mode</button>
+        </div>
+        <div id="font_styles">
+            <button class="fontStyles" id="bold" onclick="changeFontWeight(this.id)"><b>B</b></button>
+            <button class="fontStyles" id="italic" onclick="changeFontStyle(this.id)"><i>I</i></button>
+            <button class="fontStyles" id="underline" onclick="changeFontDecoration(this.id)"><u>U</u></button>
+            <button class="fontStyles" id="line-through" onclick="changeFontDecoration(this.id)"><strike>Strike</strike></button>
+        </div>
+        <div id="fontSizeManipulators">
+            <button id="decr" onclick="decreaseFontSize()" class="fontSizeBtns"><</button>
+            <div id="font_size_disp"><p id="fontSizePara">30</p></div>
+            <button id="incr" onclick="increaseFontSize()" class="fontSizeBtns">></button>
+        </div>
+        <form action="save.php">
+            <div id="textfield_box">
+                <input id="textfield" placeholder="Enter your text here..." onchange="changeText()" type="text">
+            </div>
+        </form>
+    </div>
+    <script>
+        const paragraph = document.getElementById('para');
+
+        function changeFont(font, font_family)
+        {    
+            paragraph.style.fontFamily = "'"+font+"',"+font_family;
+        }
+
+        let prev_btn_id = "";
+
+        let curr_btn_id = "";
+
+        function changeFontWeight(id)
+        {
+            curr_btn_id = id;
+
+            const btn = document.getElementById(id);
+
+            if(prev_btn_id == curr_btn_id)
+            {
+                btn.style.border = "solid 1px transparent";
+
+                paragraph.style.fontWeight = 100;
+
+                curr_btn_id = "";
+            }
+            else
+            {
+                btn.style.border = "solid 1px red";
+
+                paragraph.style.fontWeight = 900;
+            }
+
+            prev_btn_id = curr_btn_id;
+        }
+
+        function changeFontStyle(fontStyle)
+        {
+            curr_btn_id = fontStyle; // as the id is being passed into the onlick event function
+            
+            const btn = document.getElementById(fontStyle);
+            
+            if(prev_btn_id == curr_btn_id)
+            {
+                btn.style.border = "solid 1px transparent";
+                
+                paragraph.style = "normal";
+                
+                curr_btn_id = ""
+            }
+            else
+            {
+                btn.style.border = "solid 1px red";
+                
+                paragraph.style.fontStyle = fontStyle;
+            }
+            
+            prev_btn_id = curr_btn_id;
+        }
+
+        function changeFontDecoration(FontDecoration)
+        {
+            paragraph.style.textDecoration = FontDecoration;
+
+            const btn = document.getElementById(FontDecoration); // as the id is being passed into the onlick event function
+
+            btn.style.border = "solid 1px red";
+        }
+
+        function increaseFontSize()
+        {
+            const fontSizePara = document.getElementById('fontSizePara');
+
+            let curr_font_size = fontSizePara.innerText;
+
+            curr_font_size++;
+
+            fontSizePara.innerText = curr_font_size;
+
+            paragraph.style.fontSize = curr_font_size+"px";
+        }
+
+        function decreaseFontSize()
+        {
+            const fontSizePara = document.getElementById('fontSizePara')
+            
+            let curr_font_size = fontSizePara.innerText;
+
+            if(curr_font_size > 0)
+            {
+                curr_font_size--;
+            }
+
+            fontSizePara.innerText = curr_font_size;
+
+            paragraph.style.fontSize = curr_font_size+"px";
+        }
+
+        function switchToDarkMode()
+        {
+            const b1 = document.getElementById('bdy');
+
+            b1.style.color = "white";
+
+            b1.style.backgroundColor = "black";
+        }
+
+        function switchToLightMode()
+        {
+            const b1 = document.getElementById('bdy');
+
+            b1.style.color = "black";
+
+            b1.style.backgroundColor = "white";
+        }
+
+        function changeText()
+        {
+            const textfield = document.getElementById('textfield');
+
+            let text = textfield.value;
+
+            paragraph.innerText = text
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- Challenge 7
+Write a JavaScript program to check a pair of numbers and return true if one of the numbers is 50 or if their sum is 50. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Pairs</title>
+</head>
+<body>
+    <script>
+        function checkPairs(x, y)
+        {
+            if(x == 50 || y == 50 || x + y == 50)
+            {
+                return true
+            }
+
+            return false
+        }
+
+        // test cases
+
+        console.log(checkPairs(10,40))
+        console.log(checkPairs(10,30))
+        console.log(checkPairs(10,50))
+    </script>
+</body>
+</html>

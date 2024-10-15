@@ -1,0 +1,16 @@
+-- Updating the existing records
+
+-- We use the update command to update the records, generally, we use 'where' with the update command to update the records satisfying the condition
+
+update student set name = 'Swati Khatri' where roll = 1023;
+
+-- Here, the row of the data which is updated will be highlighted or will become bold after the query, this will happen every time we use 'where'.
+
+-- Update the existing age of all the students by 2.
+update student set age = age + 2;
+
+-- Update the age of the student to 20 whose name is 'Narendra Sharma'
+update student set age = 20 where name = 'Narendra Sharma';
+
+-- Update the name of the student(s) to "Shubham Paliwal" whose age is 20.
+update student set name = 'Shubham Paliwal' where age = 20;

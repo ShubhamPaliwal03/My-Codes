@@ -1,0 +1,98 @@
+import java.util.Scanner;
+class Main
+{
+  // static void sumOfTwo()
+  // {
+  //   Scanner kb=new Scanner(System.in);
+  //   System.out.println("Enter two numbers");
+  //   int a=kb.nextInt(),b=kb.nextInt(),c=a+b;
+  //   System.out.printf("Sum of %d and %d is %d",a,b,c);
+
+  // }  
+  public static void main(String []args)
+  {  
+    //sumOfTwo();
+    //main() is static, and we call sumOfTwo() 
+    //inside main so sumOfTwo() is made static
+
+    Main m=new Main();//Creating object of class Main
+    m.sumOfTwo();//calling sumOfTwo() using instance(object) of class Main
+  }
+  void sumOfTwo()
+  {
+    Scanner kb=new Scanner(System.in);
+    System.out.println("Enter two numbers");
+    int a=kb.nextInt(),b=kb.nextInt(),c=a+b;
+    System.out.printf("Sum of %d and %d is %d",a,b,c);
+
+  }
+}
+
+//Function type2
+import java.util.Scanner;
+class Main
+{
+  static void sumOfTwo(int x,int y)//x and y are parameters/formal args
+  {
+    int z=x+y;
+    System.out.println("Sum of "+x+" and "+y+" is "+z);
+  }
+  public static void main(String []args)
+  {
+    Scanner kb=new Scanner(System.in);
+    System.out.println("Enter two numbers");
+    int a=kb.nextInt();
+    int b=kb.nextInt();
+    sumOfTwo(a,b);
+    //a and b are actual arguments/arguments
+    //When sumOfTwo() is called then control is transferred from 
+    //call to defintion and value of a,b are stored into x,y respectively
+  }
+}
+
+import java.util.Scanner;
+class Main
+{
+  public static void main(String []args)
+  {
+      int x;
+      x=sumOfTwo();
+      System.out.println("Sum of two numbers is "+x);
+  }
+  static int sumOfTwo()
+  {
+    Scanner kb=new Scanner(System.in);
+    System.out.println("Enter two numbers");
+    int a=kb.nextInt();
+    int b=kb.nextInt();
+    int c=a+b;
+    return c;
+    //when return is executed then control is transferred from
+    //function defintion to the calling function along with value
+    //if a function returns value then it can be called 
+    //from RHS of assignment as well as it can be called inside
+    //from and expression
+    //if a function does not return any value then it cannot be called
+    //on the RHS of assignment or inside from an expression.
+  }
+}
+
+//combination of type2 and type3
+import java.util.Scanner;
+class Main
+{
+  public static void main(String []args)
+  {
+    Scanner kb=new Scanner(System.in);
+    System.out.println("Enter two numbers");  
+    int a=kb.nextInt();
+    int b=kb.nextInt();
+    int c=sumOfTwo(a,b);
+    System.out.println("Sum of "+a+" and "+b+" is "+c);
+  }
+  static int sumOfTwo(int a,int b)
+  {
+    return a+b;
+  }
+  //Name of formal and actual arguments may be same or different
+}

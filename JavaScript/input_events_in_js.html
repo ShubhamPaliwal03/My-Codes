@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Events in JS</title>
+</head>
+<body>
+    <input type="text" id="input">
+
+    <!-- 
+        focus event  :  This event is generated when the input field gets focus.
+                        We can capture the focus event using the onfocus attribute.
+
+        blur event   :  This event is generated when the input field loses focus.
+                        We can capture the blur event using the onblur attribute.
+
+        change event : This event is generated when the input field content is changed.
+                        We can capture the change event using the onchange attribute.
+
+        input event  : The input event is trigerred when the user types in the input field.
+
+        We can also bind these events with input field using the addEventListener.
+    -->
+
+    <div id="msg"></div>
+
+    <script type="text/javascript">
+
+        const input = document.getElementById("input")
+
+        input.addEventListener("focus",handleFocus)
+        input.addEventListener("blur",handleBlur)
+        input.addEventListener("change",handleChange)
+        // input.addEventListener("input",handleInput)
+
+        const msg = document.getElementById("msg")
+
+        function handleFocus()
+        {
+            msg.innerText = "Input field gets the focus"
+        }
+
+        function handleBlur()
+        {
+            msg.innerText = "Input field lost the focus"
+        }
+
+        function toToggleCase(inputValue) // user-defined function to convert into togglecase
+        {
+            // to convert into togglecase 
+
+            // build a new togglecase string
+
+            toggled = ""
+
+            for(let ch of inputValue)
+            {
+                if(ch >= 'a' && ch <= 'z') // if it is a lowercase character
+                {
+                    ch = ch.toUpperCase()
+                }
+                else if(ch >= 'A' && ch <= 'Z') // if it is an uppercase character
+                {
+                    ch = ch.toLowerCase()
+                }
+
+                toggled = toggled + ch
+            }
+
+            return toggled
+        }
+
+        function handleChange()
+        {
+            // msg.innerText = "Input field changed"
+            // input.value = input.value.toUpperCase()
+
+            input.value = toToggleCase(input.value)
+        }
+
+        function handleInput()
+        {
+            input.value = input.value.toUpperCase()
+        }
+
+    </script>
+</body>
+</html>

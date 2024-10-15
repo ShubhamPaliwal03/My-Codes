@@ -1,0 +1,40 @@
+<!-- Challenge 3:
+Write a JavaScript program to check whether two given integer values are in the range 50..99 (inclusive). Return true if either of them falls within the range. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check whether in given range</title>
+</head>
+<body>
+    <script>
+
+        function checkIfInRange(val1, val2)
+        {
+            if(val1 >= 50 && val1 <= 99 || val2 >= 50 && val2 <= 99)
+            {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        }
+
+        // test cases
+
+        console.log(checkIfInRange(10, 40)) // when none of the values are in range
+
+        console.log(checkIfInRange(40, 60)) // when both values are in range
+
+        console.log(checkIfInRange(60, 100)) // when one value (val1) of the two values is in range
+
+        console.log(checkIfInRange(50, 99)) // when both values are in range, boundary values
+
+        console.log(checkIfInRange(200, 70)) // when one value (val2) of the two values is in range
+
+    </script>
+</body>
+</html>

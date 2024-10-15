@@ -1,0 +1,50 @@
+<!-- Challenge 26
+Description:
+Write a function calculateTotal that takes an array of numbers, filters out the even numbers, squares the remaining numbers, and then calculates their sum.
+Solution Approach:
+Combine map, filter, and reduce array methods. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 26</title>
+</head>
+<body>
+    <script>
+
+        function getEvenValues(value)
+        {
+            return value % 2 == 0
+        }
+
+        function getSquare(value)
+        {
+            return value * value
+        }
+
+        function getSum(sum, value)
+        {
+            return sum + value
+        }
+
+        function calculateTotal(arr)
+        {
+            arr = arr.filter(getEvenValues)
+
+            arr= arr.map(getSquare)
+
+            arr = arr.reduce(getSum)
+
+            return arr
+        }
+
+        //test cases
+
+        console.log(calculateTotal([1,2,3,4,5]))
+        console.log(calculateTotal([-7,-2,-3,0,15]))
+
+    </script>
+</body>
+</html>

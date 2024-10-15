@@ -1,0 +1,19 @@
+{
+  "name": "tasty-telescope",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.5.4",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.11.1",
+    "jsdom": "^24.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}

@@ -1,0 +1,72 @@
+body
+{
+    color: white;
+    background-color: black;
+}
+#tree-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 30vh;
+}
+/* .wrapper 
+{
+    width: 320px;
+    height: 180px;
+    position: relative;
+    border: 1px solid #aaa;
+    background-color: #eee;
+} */
+.point 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    /* position: absolute; */
+    background-color: #555;
+    border-radius: 50%;
+    z-index: 999;
+    color: white;
+    font-size: 20px;
+    margin-right: 100px;
+}
+.line 
+{
+    position: absolute;
+    height:2px;
+    background-color: #d63030;
+    transform-origin: left;
+}
+.level
+{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#node1
+{
+    margin-right: 200px;
+}
+#node2
+{
+    margin-right: 100px;
+}
+#node4
+{
+    margin-right: 50px;
+}
+#level-1
+{
+    position: relative;
+    left: -50px;
+}
+#level-2
+{
+    position: relative;
+    left: -120px;
+}

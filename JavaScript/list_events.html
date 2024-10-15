@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to List Example</title>
+    <style>
+
+        body
+        {
+            font-family: Arial, sans-serif;
+            margin : 20px;
+        }
+
+        #resultList
+        {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #resultList li
+        {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <label for="dropdown">Select an item : </label>
+
+    <select id="dropdown">
+        <option value="Mango">Mango</option>
+        <option value="Guava">Guava</option>
+        <option value="Pineapple">Pineapple</option>
+    </select>
+
+    <button onclick="addItemToList()">Add to List</button>
+
+    <ul id="resultList"></ul>
+
+    <script>
+
+        function addItemToList()
+        {
+            // get the object of select tag which holds the available options
+            
+            var dropdown = document.getElementById('dropdown')
+            
+            // get the selected item from the dropdown
+
+            var selectedItem = dropdown.options[dropdown.selectedIndex].text
+            
+            // get the empty unordered list
+            
+            var resultList = document.getElementById('resultList')
+            
+            // create a new list item and append it to the unordered list
+
+            var listItem = document.createElement('li')
+
+            // assign the selectedItem into the listItem
+
+            listItem.textContent = selectedItem
+
+            // add the listItem into the list
+
+            resultList.appendChild(listItem)
+        }
+
+    </script>
+
+</body>
+</html>

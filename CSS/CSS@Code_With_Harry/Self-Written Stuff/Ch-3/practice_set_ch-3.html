@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Practice Set Ch-3</title>
+        <style>
+            /* Answer to Q.3 - Yes,Margin Collapse happened between content box and folder */
+            /* Margin Collapse can also happen with header and content box but not with header and footer since they are not located one after another and hence their margins will not overlap*/
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        h1
+        {
+            background-color:rgba(96, 0, 251, 0.932);
+            border: 2px solid black;
+        }
+        header
+        {
+            background-color:rgb(0, 51, 255);
+            height: 140px;
+            border: 2px solid black;
+            padding: 1px;
+        }
+        .content
+        {
+            height: 55vh;
+            background-color:rgb(0, 157, 255);
+            padding: 100px;
+            text-align: center;
+            margin: 34px;
+            box-sizing: content-box;
+            /* Answer to Q.4 - Setting the value of box-sizing as content-box will not create any change because content-box is the default value of box-sizing,while,setting it as border-box will create a change */
+        }
+        footer
+        {
+            background-color: aqua;
+            margin: 23px;
+        }
+        .center
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LucroPay&copy;</h1>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Our Services</li>
+                <li>Login or Register</li>
+                <li>Contact Us</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <p>
+            <big>
+                We aim to raise the bar in the entire online payment.
+                <br>
+                We'ld like to please our customers by giving them the quality perks they deserve,along with highest quality service,industry leading technology,instant payments and great customer support.
+                <br>
+                Hence we have decided to show loyalty to our loyal customers in return and provide them a cashback of 1% of the total amount of their transaction every time.
+                <br><br>
+            </big>    
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eos optio quam ex debitis distinctio impedit adipisci ipsum, officia illum corporis recusandae iure atque repudiandae. Dolorem porro eum necessitatibus nulla temporibus iusto expedita possimus molestiae, voluptates dicta blanditiis eveniet laborum labore tempore quas sunt vel nesciunt sit! Dignissimos quis vitae dolor porro quos totam rem, laborum molestiae quasi neque molestias saepe assumenda eaque ab placeat voluptas voluptate sapiente ducimus a eligendi. Dolorem quisquam iusto beatae sequi non itaque doloremque aliquid veritatis odit animi error consectetur, corrupti dignissimos sed voluptates. Explicabo alias eos tempore quod nostrum laborum expedita iste temporibus non ducimus! Magni deleniti delectus id nobis architecto. Consequatur consequuntur eveniet cupiditate, perferendis nulla sit? Maxime dignissimos labore, quos aliquam dolor facilis porro suscipit, quia ipsam distinctio veniam temporibus sit quaerat culpa facere impedit accusamus odit. Sit ut modi rem maxime tenetur assumenda aliquid quam cumque ratione molestiae deleniti suscipit, illo voluptatem? Quibusdam aliquid placeat iusto sed aliquam deserunt excepturi quaerat nobis sapiente nulla, rem dignissimos molestias perspiciatis expedita laudantium. Explicabo iure fugiat ipsa dolore nobis consequatur eveniet, at officia quaerat eius porro tempora voluptates. Quasi, aut nemo maiores, molestiae dicta officia sequi aspernatur nulla obcaecati, eos pariatur provident sit repellat amet vero distinctio qui nihil totam beatae! Distinctio quisquam illum, obcaecati repellendus non cupiditate, ipsam iste dolorem, architecto eos odit ut molestiae quasi sed tempore quibusdam labore voluptatem incidunt? Incidunt vel ipsum, culpa iusto nulla blanditiis ratione. Dolore inventore necessitatibus amet blanditiis placeat in reiciendis dolorum rem deserunt dicta, nam facere commodi ex! Rem mollitia error fugit blanditiis quia. Totam nostrum qui repudiandae aliquid itaque. Quisquam accusantium neque vero praesentium rem sint illo culpa? Enim atque distinctio quae necessitatibus ducimus reprehenderit quod cupiditate delectus obcaecati ipsum id alias, quaerat quisquam in earum corrupti voluptatibus temporibus, vitae, nisi voluptas vero optio. Quisquam incidunt architecto quae eos dolorem omnis libero animi, magni, iste odit doloremque veritatis dolore fugit minus culpa quis natus est aut, dignissimos iure! Cumque sunt corporis porro fugit in placeat mollitia ducimus libero. Ea exercitationem fugiat aliquam, maiores ipsam incidunt illum voluptatem nulla sunt, non, eum nihil cumque tempore aspernatur corrupti. Ipsum id, eum aliquam voluptatum itaque doloremque accusamus ducimus reiciendis tenetur velit numquam nulla consequatur? Possimus non asperiores aspernatur ullam, placeat unde consequatur sapiente, culpa recusandae distinctio mollitia velit similique ratione incidunt consequuntur quod voluptates! Reprehenderit qui, a vitae recusandae ratione, voluptate suscipit quo corrupti dolor, cum inventore ipsam hic tenetur temporibus. Iure, quaerat itaque! Quasi amet eligendi quam nemo optio recusandae ullam blanditiis illum asperiores soluta necessitatibus architecto officia consectetur nulla in neque adipisci magnam rerum ad error nisi vero, exercitationem nostrum tempora! Ex dolorem veritatis vitae sed odio rerum quasi sunt officia temporibus voluptatum facere quia ut maxime fuga veniam blanditiis adipisci inventore tempora explicabo, excepturi illum voluptatibus expedita sequi. Blanditiis id rem sapiente eligendi, ut eius pariatur. Veritatis, voluptatem totam incidunt sit neque repudiandae ullam atque, quidem esse officiis voluptates accusantium at quibusdam iusto saepe suscipit consequuntur quo quos sunt architecto! Distinctio ratione nihil quisquam!</p>
+        </p>
+    </div>
+    <footer>
+        <p class="center">
+            LucroPay Private Limited,
+            Unit No.011, Ground Floor, Boston House,
+            Suren Road, Off. Andheri-Kurla Road,
+            Andheri(East) Mumbai-400093, Maharashtra,India
+        </p>
+        <p class="center">LucroPay&copy; 2022,All rights reserved</p>
+        <!-- &copy; is the HTML symbol for the symbol of copyright -->
+    </footer>
+</body>
+</html>

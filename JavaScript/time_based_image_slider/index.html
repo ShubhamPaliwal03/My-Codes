@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #display_area
+        {
+            position: relative;
+            left: 220px;
+        }
+        #current_image
+        {
+            height: 720px;
+        }
+    </style>
+</head>
+<body>
+    <div id="display_area">
+
+        <img src="img0.jpg" id="current_image">
+
+    </div>
+
+    <script>
+
+        const images = ['img0.jpg','img1.jpg','img2.jpg','img3.jpg','img4.jpg']
+
+        const current_image = document.getElementById('current_image')
+
+        let current_index = 0
+
+        function updateImage()
+        {
+            current_index++
+
+            if(current_index == images.length)
+            {
+                current_index = 0
+            }
+
+            current_image.src = images[current_index]
+        }
+
+        setInterval(updateImage,1000)
+
+    </script>
+</body>
+</html>

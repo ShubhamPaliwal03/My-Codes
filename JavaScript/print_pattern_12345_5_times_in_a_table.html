@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Pattern 12345 5 times in a table</title>
+    <style>
+
+        body
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        table,td
+        {
+            border: solid 5px black;
+            border-collapse: collapse;
+            font-size: 50px;
+        }
+
+        table
+        {
+            text-align: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        #even
+        {
+            background-color:  #FFE135;
+            transition: background-color 0.7s, font-weight 0.1s, border 0.1s;
+        }
+        
+        #odd
+        {
+            background-color:  #0070FF;
+            transition: background-color 0.7s, font-weight 0.1s, border 0.1s;
+        }
+        
+        #even:hover
+        {
+            background-color: springgreen;
+            font-weight: bold;
+            outline: groove 5px red;
+        }
+        
+        #odd:hover
+        {
+            background-color: violet;
+            font-weight: bold;
+            outline: groove 5px red;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+
+        document.write("<table>")    
+
+        for(let i=1;i<=5;i++)
+        {
+            document.write("<tr>")
+        
+            if(i%2==0)
+            {
+                for(let j=1;j<=5;j++)
+                {
+                    document.write("<td id=even>"+j+"</td>");
+                }
+            }
+            else
+            {
+                for(let j=1;j<=5;j++)
+                {
+                    document.write("<td id=odd>"+j+"</td>");
+                }   
+            }
+
+            document.write("</tr>")
+        }
+
+        document.write("</table>")
+
+    </script>
+</body>
+</html>

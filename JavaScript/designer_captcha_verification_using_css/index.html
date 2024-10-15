@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify - Captcha</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
+
+        body
+        {
+            background-image: linear-gradient(to right ,violet,blueviolet,violet);
+            font-family: 'Noto Serif', serif;
+        }
+
+        #outer
+        {
+            position: relative;
+            top: 170px;
+            left: 530px;
+            background-color: white;
+            height: 375px;
+            width: 400px;
+            border: solid 30px white;
+            /* border-image: linear-gradient(blueviolet,violet,violet,blueviolet) 30; */
+            border-radius: 15px;
+        }
+
+        #retry_img
+        {
+            position: relative;
+            bottom: 43px;
+            left: 330px;
+            height: 70px;
+            width: 70px;
+            border: solid 2px black;
+            border-radius: 7px;
+        }
+
+        #captcha
+        {
+            color: rgb(56, 56, 56);
+            position: relative;
+            top: 30px;
+            text-align: center;
+            font-size: 50px;
+            height: 70px;
+            width: 310px;
+            border: solid 2px black;
+            border-radius: 10px;
+        }
+
+        #inputCaptcha
+        {
+            height: 70px;
+            width: 395px;
+            border: solid 2px black;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        #verifyCaptcha
+        {
+            position: relative;
+            top: 50px;
+            height: 70px;
+            width: 400px;
+            font-size: 30px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: blueviolet;
+            color: white;
+        }
+
+        /* #rcpa_img
+        {
+            position: relative;
+            top: 100px;
+            width: 400px;
+            height: 70px;
+            border: solid 2x black;
+            border-radius: 10px;
+        } */
+
+    </style>
+</head>
+<body>
+    <div id="outer">
+
+        <div id="captcha"></div>
+        
+        <a href="index.html"><img id="retry_img" src="retry_logo.png" alt="retry_logo"></a>
+
+        <input type="text" placeholder="Enter the code given above" id="inputCaptcha" maxlength="6">
+
+        <button type="submit" id="verifyCaptcha">Verify Captcha</button>
+
+        <!-- <img src="recaptcha_logo.png" id="rcpa_img" alt=""> -->
+
+    </div>
+
+    <script>
+
+        const captcha = document.getElementById("captcha")
+
+        const captchaValue = Math.floor(Math.random()*1000000)
+
+        captcha.innerHTML = "" + captchaValue
+
+        const verifyCaptcha = document.getElementById("verifyCaptcha")
+
+        verifyCaptcha.addEventListener("click",verifyAndProceed)
+
+        function verifyAndProceed()
+        {
+            const inputCaptchaValue = document.getElementById("inputCaptcha").value
+
+            if(inputCaptchaValue == captchaValue)
+            {
+                verifyCaptcha.innerText = "Captcha Verified"
+
+                verifyCaptcha.style.backgroundColor = "green"
+            }
+            else
+            {
+                verifyCaptcha.innerText = "Verification Failed"
+
+                verifyCaptcha.style.backgroundColor = "red"
+            }
+        }
+
+    </script>
+</body>
+</html>

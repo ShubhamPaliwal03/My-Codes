@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body
+        {
+            background-color: black;
+            color: white;
+        }
+
+        table,td,th
+        {
+            text-align: center;
+            border: solid 2px white;
+            border-collapse: collapse;
+        }
+
+        table
+        {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        th
+        {
+            height: 50px;
+            width: 100px;
+        }
+
+        img
+        {
+            height: 120px;
+            width: 200px;
+            border: solid yellow 5px;
+        }
+        
+        tr:hover
+        {
+            outline: groove 5px red;
+        }
+
+        h1
+        {
+            text-decoration:underline;
+            font-size: 60px;
+            color: orange;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Product List</h1>
+
+    <script>
+
+        let th1 = "S.No."
+        let th2 = "Product Name"
+        let th3 = "Product Image"
+
+        document.write("<table>"
+            +"<tr>"
+                +"<th>"+th1+"</th>"
+                +"<th>"+th2+"</th>"
+                +"<th>"+th3+"</th>"      
+            +"<tr>"
+            )
+
+            for(let i=1;i<=10;i++)
+            {
+                document.write("<tr>");
+
+                for(let j=1;j<=3;j++)
+                {
+                    if(j==1)
+                    {
+                        document.write("<td>"+i+"</td>");
+                    }
+                    else if(j==2)
+                    {
+                        document.write("<td>"+"Product"+i+"</td>");
+                    }
+                    else
+                    {
+                        document.write("<td><img src=product"+i+".jpg></td>")
+                    }
+                }
+
+                document.write("</tr>")    
+            }
+
+        document.write("</table>")    
+
+    </script>
+</body>
+</html>

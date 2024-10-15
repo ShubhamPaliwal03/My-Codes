@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Switch : Light And Dark Mode</title>
+
+    <style type="text/css">
+        
+        body
+        {
+            margin:0px;
+        }
+
+        input[type="checkbox"]
+        {
+            display: none;
+        }
+
+        .color_mode
+        {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #btn1
+        {
+            position: relative;
+            left: 1500px;
+        }
+
+        #modeIcon
+        {
+            height: 30px;
+            width: 30px;
+        }
+
+        #dark
+        {
+            background-color: black;
+            color: white;
+        }
+
+        #light
+        {
+            background-color: white;
+            color: black;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<script>
+        
+    document.write(
+        "<div id=content class=color_mode>"
+            +"<div id=btn1 class=color_mode>"
+                +"<label id=b1><img src=dark-mode-icon.png id=modeIcon><input type=checkbox id=cb1></label>"
+            +"</div>"    
+        +"</div>")
+
+    let checkbox = document.getElementById("cb1")
+
+    let contentDiv = document.getElementById("content") // get the content div
+
+    let modeIcon = document.querySelector("#modeIcon")
+
+    checkbox.addEventListener("change", changeMode)
+
+    // contentDiv.innerHTML = "Light Mode On"; // by default
+
+    function changeMode()
+    {
+        if(checkbox.checked)
+        {
+            // contentDiv.innerHTML = "Dark Mode On";
+
+            contentDiv.id = "dark" // Returns the value of element's id content attribute. Can be set to change it.
+
+            // changes the id of the div to "dark"
+            
+            modeIcon.src = "light-mode-icon.png"
+        }
+        else
+        {
+            // contentDiv.innerHTML = "Light Mode On";
+            
+            contentDiv.id = "light" // changes the id of the div to "light"
+            
+            modeIcon.src = "dark-mode-icon.png"
+        }
+    }
+
+</script>
+
+</body>
+</html>

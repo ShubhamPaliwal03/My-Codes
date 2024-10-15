@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital@1&display=swap');
+
+body
+{
+    background-color: teal;
+}
+
+p
+{
+    background-color: lightcoral;
+    color: black;
+}
+
+.para1
+{
+    font-style: italic;
+    font-family: 'DM Sans', sans-serif;
+    /* If the name of the font has space in between it,then the name of the font must be enclosed in single quotes or single inverted commas */
+    text-decoration: underline;
+}

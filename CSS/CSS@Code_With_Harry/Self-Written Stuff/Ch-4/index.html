@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display property</title>
+    <style>
+        .box1
+        {
+            width: 400px;
+            height: 80px;
+            /* width and height are not respected and the element takes full space when the display property is set inline */
+            background-color:red;
+            display:block;
+            margin: 20px;
+            padding: 20px;
+            /* margin and padding of top and bottom are not respected and the element only takes the space which is required and leaves the rest space for other elements (if any) when the display property is set inline */
+            margin-top: 20px;
+            padding-top: 20px;
+            width: 525px;
+            height: 1100px;
+            /* margin,padding,height and width all are respected and the element only takes the space which is required by it and leaves the rest space for other elements (if any) when the display property is set inline-block */
+            display: inline-block;
+            margin: 50px;
+            padding: 50px;
+
+            /* display:none and visibility:hidden property */
+            /*  */
+            /* display:none; */
+            /* visibility: hidden; */
+
+            /* text-align property */
+            /*  */
+            text-align:center;
+            /* It can be center,left,right,start,end and justify */
+        }
+        .box2
+        {
+            width: 400px;
+            height: 80px;
+            background-color:lightskyblue;
+            display: inline;
+            margin: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </div>
+    <div class="box2">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </div>
+</body>
+</html>

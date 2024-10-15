@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Remove Circles</title>
+</head>
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+    body
+    {
+        font-family: 'Noto Serif', serif;
+    }
+
+    div
+    {
+        border: solid 2px transparent;
+        border-radius: 100%;
+    }
+
+    #_5
+    {
+        position: relative;
+        top: 140px;
+        left: 550px;
+    }
+
+    #_4, #_3, #_2, #_1 
+    {
+        position: relative;
+        top: 30px;
+        left: 30px;
+    }
+
+    button
+    {
+        position: relative;
+        left: 560px;
+        top: 200px;
+        height: 50px;
+        width: 150px;
+        font-size: 15px;
+    }
+
+    #add_btn
+    {
+        background-color: rgb(61, 255, 47);
+    }
+
+    #remove_btn
+    {
+        background-color: rgb(255, 23, 23);
+    }
+
+</style>
+<body>
+
+    <div id="_5">
+        <div id="_4">
+            <div id="_3">
+                <div id="_2">
+                    <div id="_1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="add_btn" onclick="addCircle()">Add Circle</button>
+
+    <button id="remove_btn" onclick="removeCircle()">Remove Circle</button>
+
+    // you can also use display = "inline"; to show and display = "none"; to hide the circles.
+
+    <script>
+
+        const colors = ['#FFC30F','#FF5733','#C70039','#900C3F','#581845']
+
+        let h = 65
+
+        let w = 65
+
+        for(let i = 1; i <= 5; i++)
+        {
+            const circle = document.getElementById("_"+i)
+
+            circle.style.height = (h*i)+"px"
+
+            circle.style.width = (w*i)+"px"
+        }
+
+        let circle_number = 0
+
+        function addCircle()
+        {
+            if(circle_number < 5)
+            {
+                circle_number++
+            }
+
+            const circle = document.getElementById("_"+circle_number)
+
+            console.log("operated on : "+circle_number)
+
+            circle.style.borderColor = colors[circle_number-1]
+        }
+
+        function removeCircle()
+        {
+            console.log("operated on : "+circle_number)
+
+            if(circle_number > 0)
+            {   
+                const circle = document.getElementById("_"+circle_number)
+                
+                circle.style.borderColor = "transparent"
+
+                circle_number--
+            }
+        }
+
+    </script>
+</body>
+</html>

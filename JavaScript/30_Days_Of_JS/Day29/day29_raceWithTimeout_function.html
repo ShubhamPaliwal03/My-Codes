@@ -1,0 +1,59 @@
+<!-- Challenge 29
+Description:
+Write a function raceWithTimeout that takes an array of promises and a timeout value. The function should resolve when the first promise resolves or reject if none resolve within the given timeout.
+Solution Approach:
+Use Promise.race and a timeout promise. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 29 : raceWithTimeout function</title>
+</head>
+<body>
+    <script>
+
+        async function raceWithTimeout(promises, timeout)
+        {
+            return Promise.race(
+            [    ...promises,
+                new Promise((resolve, reject) => {
+                    setTimeout(() => reject(new Error("Timed out")),timeout)
+                })
+            ])
+        }
+
+        const task1 = new Promise((resolve, reject) =>
+        {
+            setTimeout(resolve, 500, 'one')
+        })
+
+        const task2 = new Promise((resolve, reject) =>
+        {
+            setTimeout(resolve, 100, 'two')
+        })
+
+        raceWithTimeout([
+            task1,
+            task2
+        ], 200).then((r) => console.log(r))
+
+        const task3 = new Promise((resolve, reject) =>
+        {
+            setTimeout(resolve, 500, 'three')
+        })
+
+        const task4 = new Promise((resolve, reject) =>
+        {
+            setTimeout(resolve, 600, 'four')
+        })
+
+        raceWithTimeout([
+            task3,
+            task4
+        ], 400).then((r) => console.log(r))
+
+    </script>
+</body>
+</html>

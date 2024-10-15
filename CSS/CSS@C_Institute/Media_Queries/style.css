@@ -1,0 +1,39 @@
+body
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 30dvh;
+}
+#links-container
+{
+    border: solid 1px black;
+    padding: 2em;
+}
+#links-container > a
+{
+    display: block;
+    margin-bottom: 1em;
+}
+#content-container
+{
+    margin-left: 2em;
+    border: solid 1px black;
+    padding: 2em;
+    width: 50%;
+}
+@media screen and (max-width: 480px)
+{
+    body
+    {
+        flex-direction: column;
+        top: 5vh;
+    }
+    #content-container
+    {
+        margin-top: 2em;
+        margin-left: 0em;
+    }
+}

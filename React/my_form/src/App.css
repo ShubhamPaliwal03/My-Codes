@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@200&display=swap');
+
+body
+{
+    font-family: 'Noto Serif', serif;
+}
+
+#login_box
+{
+    position: relative;
+    left: 110px;
+    top: 135px;
+    background-color: #F7F4F6;;
+    height: 100vh;
+    width: 85vw;
+    text-align: center;
+    padding-top: 15px;
+}
+
+#login_heading
+{
+    font-size: 50px;
+    font-weight: 900;
+}
+
+#logo
+{
+    height: 17rem;
+    width: 17rem;
+}
+
+input
+{
+    width: 600px;
+    height: 55px;
+    border-radius: 5px;
+    font-size: 17px;
+    opacity: 0.8;
+    padding-left: 15px;
+    border: 1px solid silver;
+    font-weight: 100;
+    position: relative;
+    left: 300px;
+    bottom: 200px;
+    margin-bottom: 30px;
+}
+
+#logo
+{
+    position: relative;
+    right: 300px;
+}
+
+#forgot_password
+{
+    position: relative;
+    bottom: 215px;
+    left: 57px;
+    font-size: 18px;
+}
+
+#login_btn
+{
+    position: relative;
+    bottom: 180px;
+    left: 47px;
+    height: 45px;
+    width: 115px;
+    color: white;
+    background-color: #673657;
+    border: solid 2px #673657;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+#create_account
+{
+    position: relative;
+    bottom: 215px;
+    left: 550px;
+    font-size: 18px;
+}
+
+.breadcrumb
+{
+    display: flex;
+    list-style: none;
+}
+
+.breadcrumb-item
+{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.navbar-nav
+{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}

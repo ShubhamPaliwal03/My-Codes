@@ -1,0 +1,62 @@
+<!-- Description:
+Implement a throttle function that ensures a given function is not called more than once in a specified time interval.
+Solution Approach:
+Use a timestamp to track the last invocation time and prevent calling the function if it's within the throttle interval. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 30 - Implement a throttle function</title>
+</head>
+<body>
+    <script>
+
+        let start = Date.now() // timestamp in milliseconds
+
+        // console.log(start)
+
+        function throttle()
+        {
+            const current_interval = Date.now() - start
+
+            // console.log(current_interval)
+
+            if(current_interval < idealInterval) // if the interval is less than the ideal interval
+            {
+                return true
+            }
+
+            start = Date.now()
+
+            return false
+        }
+
+        let i = 1
+
+        function test()
+        {
+            if(throttle())
+            {   
+                console.log("function tried to be called more than once in the specified time interval...function prevented from execution")
+
+                return
+            }
+
+            console.log("test function successfully called "+i+" time...")
+
+            i++
+
+            // start = Date.now()
+        }
+
+        let idealInterval = 1000
+
+        // when the interval provided is less than the ideal interval
+
+        setInterval(test, 500)
+        
+    </script>
+</body>
+</html>

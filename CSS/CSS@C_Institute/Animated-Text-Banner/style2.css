@@ -1,0 +1,143 @@
+html
+{
+    overflow: hidden;
+}
+body
+{
+    border: solid 2px black;
+    background-image: linear-gradient(violet, deepskyblue);
+    box-sizing: border-box;
+    width: 97.8dvw;
+    height: 96dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em;
+}
+#message-1, #message-2
+{
+    font-size: 8em;
+    font-weight: 900;
+    margin-left: 1em;
+}
+#message-1::after
+{
+    content: "I";
+    animation: animation1 6s linear 0.1s infinite;
+}
+@keyframes animation1
+{   
+    0%
+    {
+        content: "I a";
+    }
+    3.5%
+    {
+        content: "I am";
+    } 
+    7%   
+    {
+        content: "I am a";
+    }
+    10.5%
+    {
+        content: "I am a P";
+    }
+    14%
+    {
+        content: "I am a Pr";
+    }
+    17.5%
+    {
+        content: "I am a Pro";
+    }
+    21%
+    {
+        content: "I am a Prog";
+    }
+    24.5%
+    {
+        content: "I am a Progr";
+    }
+    28%
+    {
+        content: "I am a Progra";
+    }
+    31.5%
+    {
+        content: "I am a Program";
+    }
+    35%
+    {
+        content: "I am a Programm";
+    }
+    38.5%
+    {
+        content: "I am a Programme";
+    }
+    42%
+    {
+        content: "I am a Programmer";
+    }
+    45.5%
+    {
+        content: "I am a Programmer";
+    }
+    50%
+    {
+        content: "I am a Programmer!";
+    }
+
+    55%
+    {
+        content: "I L";
+    }
+    60%
+    {
+        content: "I Lo";
+    }
+    65%
+    {
+        content: "I Lov";
+    }
+    70%
+    {
+        content: "I Love";
+    }
+    75%
+    {
+        content: "I Love C";
+    }
+    80%
+    {
+        content: "I Love Co";
+    }
+    85%
+    {
+        content: "I Love Cod";
+    }
+    90%
+    {
+        content: "I Love Codi";
+    }
+    95%
+    {
+        content: "I Love Codin";
+    }
+    100%
+    {
+        content: "I Love Coding";
+    }
+}
+@media(max-width: 1214px)
+{
+    body
+    {
+        width: 93vw;
+        height: 96.5vh;
+    }
+    #message-1, #message-2
+    {
+        font-size: 2em;
+    }
+}
